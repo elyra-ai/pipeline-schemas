@@ -1,0 +1,567 @@
+{
+  "title": {
+    "key": null,
+    "ref": null,
+    "props": {
+      "id": "dialog.nodePropertiesTitle",
+      "values": {}
+    },
+    "_owner": null,
+    "_store": {}
+  },
+  "formData": {
+    "componentId": "derive",
+    "label": "Derive",
+    "editorSize": "large",
+    "uiItems": [
+      {
+        "itemType": "primaryTabs",
+        "tabs": [
+          {
+            "text": "Settings",
+            "group": "basic-settings",
+            "content": {
+              "itemType": "panel",
+              "panel": {
+                "id": "basic-settings",
+                "panelType": "general",
+                "uiItems": [
+                  {
+                    "itemType": "control",
+                    "control": {
+                      "name": "new_name",
+                      "label": {
+                        "text": "Derive field"
+                      },
+                      "separateLabel": true,
+                      "controlType": "textfield",
+                      "valueDef": {
+                        "propType": "string",
+                        "isList": false,
+                        "isMap": false
+                      }
+                    }
+                  },
+                  {
+                    "itemType": "control",
+                    "control": {
+                      "name": "formula_expr",
+                      "label": {
+                        "text": "Expression"
+                      },
+                      "separateLabel": true,
+                      "controlType": "expression",
+                      "valueDef": {
+                        "propType": "string",
+                        "isList": false,
+                        "isMap": false
+                      }
+                    }
+                  },
+                  {
+                    "itemType": "control",
+                    "control": {
+                      "name": "formula_measure_type",
+                      "label": {
+                        "text": "Measurement"
+                      },
+                      "separateLabel": true,
+                      "controlType": "oneofselect",
+                      "valueDef": {
+                        "propType": "string",
+                        "isList": false,
+                        "isMap": false
+                      },
+                      "values": [
+                        "Range",
+                        "Discrete",
+                        "Flag",
+                        "Set",
+                        "OrderedSet",
+                        "Typeless",
+                        "Collection",
+                        "Geospatial"
+                      ],
+                      "valueLabels": [
+                        "Range",
+                        "Discrete",
+                        "Flag",
+                        "Set",
+                        "Ordered Set",
+                        "Typeless",
+                        "Collection",
+                        "Geospatial"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "text": "Annotations",
+            "group": "annotations",
+            "content": {
+              "itemType": "panel",
+              "panel": {
+                "id": "annotations",
+                "panelType": "general",
+                "uiItems": [
+                  {
+                    "itemType": "control",
+                    "control": {
+                      "name": "use_custom_name",
+                      "label": {
+                        "text": "Custom name"
+                      },
+                      "separateLabel": false,
+                      "controlType": "checkbox",
+                      "valueDef": {
+                        "propType": "boolean",
+                        "isList": false,
+                        "isMap": false
+                      }
+                    }
+                  },
+                  {
+                    "itemType": "control",
+                    "control": {
+                      "name": "custom_name",
+                      "label": {
+                        "text": ""
+                      },
+                      "separateLabel": true,
+                      "controlType": "textfield",
+                      "valueDef": {
+                        "propType": "string",
+                        "isList": false,
+                        "isMap": false
+                      }
+                    }
+                  },
+                  {
+                    "itemType": "control",
+                    "control": {
+                      "name": "annotation",
+                      "label": {
+                        "text": "Annotation"
+                      },
+                      "separateLabel": true,
+                      "controlType": "textarea",
+                      "valueDef": {
+                        "propType": "string",
+                        "isList": false,
+                        "isMap": false
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "buttons": [
+      {
+        "id": "ok",
+        "text": "OK",
+        "isPrimary": true,
+        "url": ""
+      },
+      {
+        "id": "cancel",
+        "text": "Cancel",
+        "isPrimary": false,
+        "url": ""
+      }
+    ],
+    "data": {
+      "currentProperties": {
+        "formula_measure_type": [
+          "Default"
+        ],
+        "annotation": [
+          ""
+        ],
+        "new_name": [
+          "Na_to_K"
+        ],
+        "formula_expr": [
+          "Na/K"
+        ],
+        "use_custom_name": [
+          "false"
+        ],
+        "custom_name": [
+          "Na_to_K"
+        ]
+      },
+			"datasetMetadata": {
+        "fields": [
+          {
+            "name": "Age",
+            "type": "integer",
+						"metadata": {
+							"description": "",
+            	"measure": "range",
+            	"role": "input"
+						}
+          },
+          {
+            "name": "Sex",
+            "type": "string",
+						"metadata": {
+							"description": "",
+            	"measure": "discrete",
+            	"role": "input"
+						}
+          },
+          {
+            "name": "BP",
+            "type": "string",
+						"metadata": {
+							"description": "",
+            	"measure": "discrete",
+            	"role": "input"
+						}
+          },
+          {
+            "name": "Cholesterol",
+            "type": "string",
+						"metadata": {
+							"description": "",
+            	"measure": "discrete",
+            	"role": "input"
+						}
+          },
+          {
+            "name": "Na",
+            "type": "double",
+						"metadata": {
+							"description": "",
+            	"measure": "range",
+            	"role": "input"
+						}
+          },
+          {
+            "name": "K",
+            "type": "double",
+						"metadata": {
+							"description": "",
+            	"measure": "range",
+            	"role": "input"
+						}
+          },
+          {
+            "name": "Drug",
+            "type": "string",
+						"metadata": {
+							"description": "",
+            	"measure": "discrete",
+            	"role": "input"
+						}
+          }
+        ]
+      },
+			"conditions": [
+				{
+					"enabled": {
+						"paramNames": [
+							"new_name"
+						],
+						"evaluate": {
+							"condition": {
+								"param": "formula_expr",
+								"op": "notContains",
+								"value": "!"
+							}
+						}
+					}
+				},
+				{
+					"enabled": {
+						"paramNames": [
+							"formula_expr"
+						],
+						"evaluate": {
+							"condition": {
+								"param": "new_name",
+								"op": "isNotEmpty"
+							}
+						}
+					}
+				},
+				{
+					"enabled": {
+						"paramNames": [
+							"annotation"
+						],
+						"evaluate": {
+							"condition": {
+								"param": "custom_name",
+								"op": "isNotEmpty"
+							}
+						}
+					}
+				},
+				{
+					"visible": {
+						"paramNames": [
+							"annotation"
+						],
+						"evaluate": {
+							"condition": {
+								"param": "custom_name",
+								"op": "isNotEmpty"
+							}
+						}
+					}
+				},
+				{
+					"validation": {
+						"fail_message": {
+							"type": "warning",
+							"message": {
+								"default": "Either Measurement:Range is selected or Expression should contain '/'",
+								"resourceKey": "formula_expr_not_valid"
+							},
+							"focusParam": "formula_expr"
+						},
+						"evaluate": {
+							"or": [
+								{
+									"condition": {
+										"param": "formula_measure_type",
+										"op": "contains",
+										"value": "Range"
+									}
+								},
+								{
+									"condition": {
+										"param": "formula_expr",
+										"op": "contains",
+										"value": "/"
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					"validation": {
+						"fail_message": {
+							"type": "error",
+							"message": {
+								"default": "Field cannot be empty nor contain \"quotes\"",
+								"resourceKey": "new_name"
+							},
+							"focusParam": "new_name"
+						},
+						"evaluate": {
+							"and": [
+								{
+									"condition": {
+										"param": "new_name",
+										"op": "isNotEmpty"
+									}
+								},
+								{
+									"condition": {
+										"param": "new_name",
+										"op": "notContains",
+										"value": "\""
+									}
+								},
+								{
+									"condition": {
+										"param": "new_name",
+										"op": "notContains",
+										"value": "'"
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					"validation": {
+						"fail_message": {
+							"type": "error",
+							"message": {
+								"default": "Field cannot contain \"quote(s)\"",
+								"resourceKey": "formula_expr"
+							},
+							"focusParam": "formula_expr"
+						},
+						"evaluate": {
+							"and": [
+								{
+									"condition": {
+										"param": "formula_expr",
+										"op": "notContains",
+										"value": "'"
+									}
+								},
+								{
+									"condition": {
+										"param": "formula_expr",
+										"op": "notContains",
+										"value": "\""
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					"validation": {
+						"fail_message": {
+							"type": "warning",
+							"message": {
+								"default": "Field cannot contain ttt",
+								"resourceKey": "formula_expr"
+							},
+							"focusParam": "formula_expr"
+						},
+						"evaluate": {
+							"condition": {
+								"param": "formula_expr",
+								"op": "notContains",
+								"value": "ttt"
+							}
+						}
+					}
+				},
+				{
+					"validation": {
+						"fail_message": {
+							"type": "error",
+							"message": {
+								"default": "Field cannot be default",
+								"resourceKey": "formula_measure_type"
+							},
+							"focusParam": "formula_measure_type"
+						},
+						"evaluate": {
+							"condition": {
+								"param": "formula_measure_type",
+								"op": "notContains",
+								"value": "Default"
+							}
+						}
+					}
+				},
+				{
+					"validation": {
+						"fail_message": {
+							"type": "error",
+							"message": {
+								"default": "Field cannot contain \"quotes\"",
+								"resourceKey": "custom_name"
+							},
+							"focusParam": "custom_name"
+						},
+						"evaluate": {
+							"and": [
+								{
+									"condition": {
+										"param": "custom_name",
+										"op": "notContains",
+										"value": "'"
+									}
+								},
+								{
+									"condition": {
+										"param": "custom_name",
+										"op": "notContains",
+										"value": "\""
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					"validation": {
+						"fail_message": {
+							"type": "error",
+							"message": {
+								"default": "Field cannot be empty nor contain \"quotes\"",
+								"resourceKey": "annotation"
+							},
+							"focusParam": "annotations"
+						},
+						"evaluate": {
+							"and": [
+								{
+									"condition": {
+										"param": "annotation",
+										"op": "isNotEmpty"
+									}
+								},
+								{
+									"condition": {
+										"param": "annotation",
+										"op": "notContains",
+										"value": "\""
+									}
+								},
+								{
+									"condition": {
+										"param": "annotation",
+										"op": "notContains",
+										"value": "'"
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					"validation": {
+						"fail_message": {
+							"type": "warning",
+							"message": {
+								"default": "Annotation is empty when there is a custom name",
+								"resourceKey": "custom_name"
+							},
+							"focusParam": "custom_name"
+						},
+						"evaluate": {
+							"or": [
+								{
+									"condition": {
+										"param": "custom_name",
+										"op": "isEmpty"
+									}
+								},
+								{
+									"and": [
+										{
+											"condition": {
+												"param": "custom_name",
+												"op": "isNotEmpty"
+											}
+										},
+										{
+											"condition": {
+												"param": "annotation",
+												"op": "isNotEmpty"
+											}
+										}
+									]
+								}
+							]
+						}
+					}
+				}
+			]
+    }
+  },
+  "appData": {
+    "nodeId": "id2PZSCTRPRIJ",
+    "updateUrl": "streams/153651d6-9b88-423c-b01b-861f12d01489/diagrams/153651d6-9b88-423c-b01b-861f12d01489/nodes/id2PZSCTRPRIJ"
+  },
+  "additionalComponents": null
+}

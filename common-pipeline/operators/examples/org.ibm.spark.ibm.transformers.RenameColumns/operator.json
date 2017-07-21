@@ -1,0 +1,36 @@
+{
+  "name": "org.ibm.spark.ibm.transformers.RenameColumns",
+  "operator_type": "transformer",
+  "categories": [
+    "canvas-transformation",
+    "transformer",
+    "feature"
+  ],
+  "context": "dataset",
+  "complex_types": [
+    {
+      "name": "RenameFieldEntry",
+      "key_definition": {
+        "name": "field",
+        "type": "string",
+        "role": "column"
+      },
+      "parameters": [
+        {
+          "name": "new_name",
+          "type": "string",
+          "role": "new_column",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "name": "renamed_fields",
+      "type": "map[string,RenameFieldEntry]",
+      "role": "column",
+      "default": []
+    }
+  ]
+}

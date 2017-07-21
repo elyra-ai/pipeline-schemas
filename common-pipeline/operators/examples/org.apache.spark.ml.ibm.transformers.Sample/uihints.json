@@ -1,0 +1,135 @@
+{
+  "name": "org.apache.spark.ml.ibm.transformers.Sample",
+  "icon": "images/transformationspark.svg",
+  "label": {
+    "default": "Sample Rows"
+  },
+  "description": {
+    "default": "Perform a simple sample operation on the data, with or without replacement"
+  },
+  "parameter_info": [
+    {
+      "name": "withReplacement",
+      "label": {
+        "default": "Sample"
+      },
+      "description": {
+        "default": "Indicate that sampling be performed with replacement"
+      },
+      "control": "radioset",
+      "resourceKey": "withReplace"
+    },
+    {
+      "name": "samplingRatio",
+      "label": {
+        "default": "Sample Ratio"
+      },
+      "description": {
+        "default": "Fraction of rows to include in sample"
+      }
+    },
+    {
+      "name": "samplingSize",
+      "label": {
+        "default": "Maximum sample size"
+      },
+      "description": {
+        "default": "Maximum number of rows in the sample"
+      }
+    },
+    {
+      "name": "samplingSeed",
+      "label": {
+        "default": "Seed"
+      },
+      "description": {
+        "default": "Seed for the sample random number generator"
+      },
+      "number_generator": {
+        "label": {
+          "default": "Generate",
+          "resourceKey": "numberGenerator"
+        },
+        "range": {
+          "min": 1000000,
+          "max": 9999999
+        }
+      }
+    }
+  ],
+  "group_info": [
+    {
+      "name": "settings",
+      "label": {
+        "default": "Settings"
+      },
+      "type": "panels",
+      "group_info": [
+        {
+          "name": "basic-settings",
+          "type": "controls",
+          "parameters": [
+            "withReplacement",
+            "samplingRatio"
+          ]
+        },
+        {
+          "name": "sample-size",
+          "type": "checkboxPanel",
+          "label": {
+            "default": "Use maximum sample size"
+          },
+          "parameters": [
+            "samplingSize"
+          ]
+        },
+        {
+          "name": "sample-seed",
+          "type": "checkboxPanel",
+          "label": {
+            "default": "Repeatable partition assignment"
+          },
+          "parameters": [
+            "samplingSeed"
+          ]
+        }
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "validation": {
+        "fail_message": {
+          "type": "error",
+          "focusParam": "samplingSize",
+          "message": {
+            "resourceKey": "sampling-size_not_empty"
+          }
+        },
+        "evaluate": {
+          "condition": {
+            "param": "samplingSize",
+            "op": "isNotEmpty"
+          }
+        }
+      }
+    },
+    {
+      "validation": {
+        "fail_message": {
+          "type": "error",
+          "focusParam": "samplingRatio",
+          "message": {
+            "resourceKey": "sampling-ratio_not_empty"
+          }
+        },
+        "evaluate": {
+          "condition": {
+            "param": "samplingRatio",
+            "op": "isNotEmpty"
+          }
+        }
+      }
+    }
+  ]
+}

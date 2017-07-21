@@ -1,0 +1,341 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://www.ibm.com/ibm/wml/ui-hints/v1.0/ui-hints-schema.json#",
+  "description": "WDP UI Hints schema",
+  "title": "WDP UI Hints schema",
+  "type": "object",
+  "properties": {
+    "icon": {
+      "description": "URL to operation icon",
+      "type": "string"
+    },
+    "name": {
+      "description": "Operator name",
+      "type": "string"
+    },
+    "label": {
+      "description": "External name of operator",
+      "type": "object",
+      "$ref": "#/definitions/resource_definition"
+    },
+    "description": {
+      "description": "Description of operator",
+      "type": "object",
+      "$ref": "#/definitions/resource_definition"
+    },
+    "group_info": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/group_definition"
+      }
+    },
+    "editorSize": {
+      "description": "Editor size for node edits",
+      "enum": [
+        "small",
+        "medium",
+        "large"
+      ]
+    },
+    "parameter_info": {
+      "items": {
+        "$ref": "#/definitions/parameter_definition"
+      },
+      "type": "array"
+    },
+    "structure_info": {
+      "items": {
+        "$ref": "#/definitions/structure_definition"
+      },
+      "type": "array"
+    },
+    "conditions": {
+      "type": "array",
+      "items": {
+        "$ref": "http://www.ibm.com/ibm/wml/ui-conditions/v1.0/ui-conditions-schema.json#"
+      }
+    }
+  },
+  "required": [
+    "icon"
+  ],
+  "definitions": {
+    "group_definition": {
+      "description": "Grouping for parameters and groups",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "The group type to be displayed",
+          "type": "string",
+          "enum": [
+            "controls",
+            "tabs",
+            "subTabs",
+            "panels",
+            "columnAllocation",
+            "columnSelection",
+            "fieldAllocation",
+            "fieldSelection",
+            "panelSelector",
+            "checkboxPanel"
+          ]
+        },
+        "depends_on": {
+          "description": "Property name this group depends upon. Valid for panelSelector groups only.",
+          "type": "string"
+        },
+        "label": {
+          "description": "Group label",
+          "type": "object",
+          "$ref": "#/definitions/resource_definition"
+        },
+        "flow": {
+          "description": "Determines how the tabs should be displayed",
+          "type": "string",
+          "enum": [
+            "vertical",
+            "horizontal"
+          ]
+        },
+        "parameters": {
+          "description": "List of parameters to be displayed",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "group_info": {
+          "items": {
+            "$ref": "#/definitions/group_definition"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "parameters"
+      ]
+    },
+    "parameter_definition": {
+      "description": "Operator parameters hints",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Parameter name.",
+          "type": "string"
+        },
+        "label": {
+          "description": "External name for parameter",
+          "type": "object",
+          "$ref": "#/definitions/resource_definition"
+        },
+        "description": {
+          "description": "Description of parameter with optional placement context",
+          "type": "object",
+          "$ref": "#/definitions/placed_resource_definition"
+        },
+        "control": {
+          "description": "Which control to use.  In most cases the control gets to be determined and should not be set",
+          "type": "string",
+          "enum": [
+            "textfield",
+            "passwordfield",
+            "textarea",
+            "expression",
+            "numberfield",
+            "checkbox",
+            "radioset",
+            "checkboxset",
+            "oneofselect",
+            "someofselect",
+            "oneofcolumns",
+            "someofcolumns",
+            "allocatedcolumn",
+            "allocatedcolumns",
+            "columnselect",
+            "allocatedstructures",
+            "structuretable",
+            "structurelisteditor",
+            "toggletext"
+          ]
+        },
+        "orientation": {
+          "description": "Determines how the control is displayed",
+          "type": "string",
+          "enum": [
+            "vertical",
+            "horizontal"
+          ]
+        },
+        "style": {
+          "description": "Allows for overriding a default style for the control",
+          "type": "string"
+        },
+        "width": {
+          "description": "Percentage of group width the control should use",
+          "type": "number"
+        },
+        "char_limit": {
+          "description": "Limits the number of characters a user can enter into the control for string parameters only",
+          "type": "number"
+        },
+        "separator": {
+          "description": "Determines where to put a separator relative to the current control",
+          "type": "string",
+          "enum": [
+            "before",
+            "after"
+          ]
+        },
+        "visible": {
+          "description": "Determines whether to display parameter in control. Used in complex structures",
+          "type": "boolean"
+        },
+        "place_holder_text": {
+          "description": "Text hint for the user displayed input controls",
+          "type": "object",
+          "$ref": "#/definitions/resource_definition"
+        },
+        "resourceKey": {
+          "description": "Used as a key for enum value labels",
+          "type": "string"
+        },
+        "editStyle": {
+          "description": "Editing style of elements in a table",
+          "type": "string",
+          "enum": [
+            "subpanel",
+            "inline"
+          ]
+        },
+        "valueIcons": {
+          "description": "For enumerated types, this defines the set of icons for the valid values. The ordering must be consistent with the order in the parameter enum attribute.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sortable": {
+          "description": "Determines if this column values can be sorted into ascending/descending order in a table. Applies to structure parameters only.",
+          "type": "boolean"
+        },
+        "filterable": {
+          "description": "Determines if this column values can be filtered so that only rows that match the filter in column values are shown in the table. Applies to structure parameters only.",
+          "type": "boolean"
+        },
+        "number_generator": {
+          "description": "Adds a number generation link beside the label of this control",
+          "type": "object",
+          "properties": {
+            "label": {
+              "description": "Link text",
+              "type": "object",
+              "$ref": "#/definitions/resource_definition"
+            },
+            "range": {
+              "description": "Number generator range",
+              "type": "object",
+              "properties": {
+                "min": {
+                  "description": "Maximum value for generated numbers",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "min",
+                "max"
+              ]
+            }
+          },
+          "required": [
+            "label"
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "structure_definition": {
+      "type": "object",
+      "description": "Structure for complex parameters",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of complex type, can be referenced in other places."
+        },
+        "key_definition": {
+          "$ref": "#/definitions/parameter_definition"
+        },
+        "parameters": {
+          "type": "array",
+          "description": "List of parameters",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/parameter_definition"
+              },
+              {
+                "$ref": "#/definitions/structure_definition"
+              }
+            ]
+          }
+        },
+        "moveableRows": {
+          "description": "Determines if rows can be moved up or down in a table",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "parameters"
+      ]
+    },
+    "resource_definition": {
+      "description": "Localizable string resource",
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "resourceKey": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "default"
+      ]
+    },
+    "placed_resource_definition": {
+      "description": "Localizable string resource with optional placement directive",
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "resourceKey": {
+          "type": "string"
+        },
+        "placement": {
+          "description": "Optional placement context for the text",
+          "enum": [
+            "as_tooltip",
+            "on_panel"
+          ],
+          "default": "as_tooltip"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "default"
+          ]
+        },
+        {
+          "required": [
+            "resourceKey"
+          ]
+        }
+      ]
+    }
+  }
+}

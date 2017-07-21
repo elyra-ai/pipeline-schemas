@@ -1,0 +1,175 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "WDP Pipeline Flow UI Schema. Defines UI-only constructs for pipeline flow documents.",
+  "type": "object",
+  "id": "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-ui-schema.json#",
+  "properties": {},
+  "required": [],
+  "additionalProperties": true,
+  "definitions": {
+    "pipeline_overview_def": {
+      "description": "Top level UI information",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "User-defined name",
+          "type": "string"
+        },
+        "description": {
+          "description": "User-defined description",
+          "$ref": "#/definitions/resource_definition"
+        },
+        "class_name": {
+          "description": "CSS class name",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "additionalProperties": true
+    },
+    "pipeline_def": {
+      "description": "Pipeline level UI information",
+      "type": "object",
+      "properties": {
+        "zoom": {
+          "description": "Zoom factor",
+          "type": "integer"
+        },
+        "comments": {
+          "description": "Array of Comments, optionally associated with nodes",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/comment_def"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [],
+      "additionalProperties": true
+    },
+    "port_info_def": {
+      "description": "Additional UI info for ports",
+      "type": "object",
+      "properties": {
+        "cardinality": {
+          "description": "Property to capture how many datasets are allowed for this port, e.g., min: 1, max:1 implies you must supply 1 and only 1; min:0, max:1 implies it is optional and a max of one, min:0, max:-1 means it is optional and you can may have any number of datasets. The default value is 1:1 for inputs and 1:-1 for outputs.",
+          "type": "object",
+          "properties": {
+            "min": {
+              "description": "Minimum data sets that are required for this port",
+              "type": "integer",
+              "default": 1
+            },
+            "max": {
+              "description": "Maximum data sets that are allowed on this port. A negative value indicates unlimited. The default value is 1 for inputs and -1 for outputs.",
+              "type": "integer"
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "class_name": {
+          "description": "CSS class name",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "additionalProperties": true
+    },
+    "node_info_def": {
+      "description": "object with app-specific UI-information",
+      "type": "object",
+      "properties": {
+        "label": {
+          "description": "User-defined label",
+          "$ref": "#/definitions/resource_definition"
+        },
+        "description": {
+          "description": "User-defined description",
+          "$ref": "#/definitions/resource_definition"
+        },
+        "class_name": {
+          "description": "CSS class name",
+          "type": "string"
+        },
+        "image": {
+          "description": "Image name (do not embed images inline!)",
+          "type": "string"
+        },
+        "xPos": {
+          "description": "x-position",
+          "type": "integer"
+        },
+        "yPos": {
+          "description": "y-position",
+          "type": "integer"
+        },
+        "attributes": {
+          "description": "additional attributes",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "additionalProperties": true
+    },
+    "comment_def": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Comment identifier. Must be unique.",
+          "type": "string"
+        },
+        "xPos": {
+          "description": "Horizontal comment position",
+          "type": "integer",
+          "minimum": 0
+        },
+        "yPos": {
+          "description": "Vertical comment position",
+          "type": "integer",
+          "minimum": 0
+        },
+        "width": {
+          "description": "Comment width",
+          "type": "integer",
+          "minimum": 10
+        },
+        "height": {
+          "description": "Comment height",
+          "type": "integer",
+          "minimum": 10
+        },
+        "class_name": {
+          "description": "CSS class(es) to apply to the comment",
+          "type": "string"
+        },
+        "attributes": {
+          "description": "Optional attributes to be added to this element. For example: \"attributes\": \"attr1='value1'; attr2='value2'\"",
+          "type": "string"
+        },
+        "content": {
+          "description": "Comment content",
+          "type": "string"
+        },
+        "associated_ids": {
+          "description": "Optional array of associated node ids",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "xPos",
+        "yPos",
+        "width",
+        "height"
+      ],
+      "additionalProperties": true
+    }
+  }
+}

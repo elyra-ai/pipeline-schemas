@@ -1,0 +1,198 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://www.ibm.com/ibm/wml/operator/v1.0/operator-schema.json#",
+  "title": "Watson Data Platform Operator Schema",
+  "description": "Operator schema for the Watson Data Platform",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of operator",
+      "type": "string"
+    },
+    "categories": {
+      "description": "Categories this operator belongs to",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "operator_type": {
+      "description": "operator type",
+      "enum": [
+        "model",
+        "transformer",
+        "estimator",
+        "dataReader",
+        "dataWriter",
+        "documentBuilder",
+        "initial",
+        "process",
+        "terminal"
+      ]
+    },
+    "input_ports": {
+      "description": "List of input ports. If no ports are defined this is a source operator that accepts no dataset inputs. If the input_ports array is missing a single input port named 'inputPort' is assumed which accepts only a single connection.",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/definitions/port_definition"
+      }
+    },
+    "output_ports": {
+      "description": "List of output ports. If no ports are defined this is a terminal operator that provides no dataset outputs. If the output_ports array is missing a single output port named 'outputPort' is assumed which accepts multiple connections.",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/definitions/port_definition"
+      }
+    },
+    "context": {
+      "description": "Operator context",
+      "enum": [
+        "column",
+        "multi-column",
+        "dataset",
+        "multi-dataset"
+      ]
+    },
+    "scoring_transformer": {
+      "description": "Name of corresponding model operator (for estimators only)",
+      "type": "string"
+    },
+    "complex_types": {
+      "description": "List of complex types",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/complex_type_definition"
+      }
+    },
+    "parameters": {
+      "description": "List of parameters",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/parameter_definition"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "operator_type",
+    "parameters"
+  ],
+  "definitions": {
+    "parameter_definition": {
+      "description": "Operator parameters definition",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "A unique name for the parameter.",
+          "type": "string"
+        },
+        "required": {
+          "description": "Indication whether parameter is required or optional",
+          "type": "boolean",
+          "default": false
+        },
+        "role": {
+          "description": "Role of parameter",
+          "enum": [
+            "column",
+            "new_column",
+            "expression"
+          ]
+        },
+        "type": {
+          "description": "Parameter type",
+          "type": "string"
+        },
+        "enum": {
+          "description": "List of valid values. Can be used instead of specifying type.",
+          "type": "array"
+        },
+        "default": {
+          "description": "default value based on type of parameter",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "name",
+            "type"
+          ]
+        },
+        {
+          "required": [
+            "name",
+            "enum"
+          ]
+        }
+      ]
+    },
+    "complex_type_definition": {
+      "description": "Structure for complex parameters",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of complex type, can be referenced in other places.",
+          "type": "string"
+        },
+        "key_definition": {
+          "$ref": "#/definitions/parameter_definition"
+        },
+        "parameters": {
+          "description": "List of parameters",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/parameter_definition"
+              },
+              {
+                "$ref": "#/definitions/complex_type_definition"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "name",
+        "parameters"
+      ]
+    },
+    "port_definition": {
+      "description": "Operator ports support multiple differentiated connections for either inputs or outputs.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Port identifier",
+          "type": "string"
+        },
+        "optional": {
+          "description": "True if this port is optional and is not required for the operator to function. The default is false.",
+          "type": "boolean"
+        },
+        "multiple": {
+          "description": "True if this port supports multiple connections. The default is false for inputs and true for outputs.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  }
+}

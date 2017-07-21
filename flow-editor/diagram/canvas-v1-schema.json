@@ -1,0 +1,367 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Abstract Canvas schema",
+  "id": "http://www.ibm.com/ibm/wdp/canvas/v1.0/canvas-schema.json#",
+  "properties": {
+    "id": {
+      "description": "Document identifier",
+      "type": "string"
+    },
+    "className": {
+      "description": "CSS class(es) to apply to the canvas",
+      "type": "string"
+    },
+    "style": {
+      "description": "Optional styles to apply to the canvas",
+      "type": "string"
+    },
+    "zoom": {
+      "description": "Canvas zoom factor",
+      "type": "integer",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 1000
+    },
+    "objectData": {
+      "description": "Contains information describing the object",
+      "type": "object",
+      "properties": {
+        "label": {
+          "description": "Canvas label",
+          "type": "string"
+        },
+        "description": {
+          "description": "Canvas long description",
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "userData": {
+      "description": "Client data is stored here",
+      "type": "object",
+      "required": [],
+      "additionalProperties": true
+    },
+    "diagram": {
+      "description": "Primary canvas diagram",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Diagram identifier",
+          "type": "string"
+        },
+        "nodes": {
+          "description": "Array of executable nodes",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Node identifier. Must be unique.",
+                "type": "string"
+              },
+              "subDiagramId": {
+                "description": "Optional sub diagram identifier.",
+                "type": "string"
+              },
+              "inputPorts": {
+                "description": "Array of node input ports",
+                "type": "array",
+                "minItems": 0,
+                "items": {
+                  "$ref": "#/definitions/port"
+                }
+              },
+              "outputPorts": {
+                "description": "Array of node output ports",
+                "type": "array",
+                "minItems": 0,
+                "items": {
+                  "$ref": "#/definitions/port"
+                }
+              },
+              "image": {
+                "description": "Node image. Same rules as the HTML img src attribute - can be inline or a reference.",
+                "type": "string"
+              },
+              "decorations": {
+                "description": "Array of optional node decorations. Decorations are set via CSS, with the size and position controlled by the canvas.",
+                "type": "array",
+                "minItems": 0,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "position": {
+                      "description": "Decoration position relative to the main node image",
+                      "type": "string",
+                      "valueRestriction": {
+                        "oneOf": [
+                          "topLeft",
+                          "topRight",
+                          "bottomLeft",
+                          "bottomRight"
+                        ]
+                      }
+                    },
+                    "className": {
+                      "description": "CSS class(es) to apply to the decoration",
+                      "type": "string"
+                    },
+                    "style": {
+                      "description": "Optional styles to apply to the decoration",
+                      "type": "string"
+                    },
+                    "hotspot": {
+                      "description": "Indicates whether this decoration is selectable and will generate mouseover feedback and special selection events. The default is false.",
+                      "type": "boolean"
+                    },
+                    "id": {
+                      "description": "Decoration identifier. Required only when the 'hotspot' flag is true. Must be unique within the set of decorations for this node.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "position"
+                  ]
+                }
+              },
+              "xPos": {
+                "description": "Horizontal node position",
+                "type": "integer",
+                "minimum": 0
+              },
+              "yPos": {
+                "description": "Vertical node position",
+                "type": "integer",
+                "minimum": 0
+              },
+              "className": {
+                "description": "CSS class(es) to apply to the node",
+                "type": "string"
+              },
+              "style": {
+                "description": "Optional styles to apply to the node",
+                "type": "string"
+              },
+              "attributes": {
+                "description": "Optional attributes to be added to this element. For example: \"attributes\": \"attr1='value1'; attr2='value2'\"",
+                "type": "string"
+              },
+              "objectData": {
+                "description": "Contains information describing the node",
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "description": "Node label",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "Node long description",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label"
+                ]
+              },
+              "userData": {
+                "description": "Node-specific client data is stored here",
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              }
+            },
+            "required": [
+              "id",
+              "image",
+              "xPos",
+              "yPos",
+              "objectData"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "comments": {
+          "description": "Array of comments",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Comment identifier. Must be unique.",
+                "type": "string"
+              },
+              "xPos": {
+                "description": "Horizontal comment position",
+                "type": "integer",
+                "minimum": 0
+              },
+              "yPos": {
+                "description": "Vertical comment position",
+                "type": "integer",
+                "minimum": 0
+              },
+              "width": {
+                "description": "Comment width",
+                "type": "integer",
+                "minimum": 10
+              },
+              "height": {
+                "description": "Comment height",
+                "type": "integer",
+                "minimum": 10
+              },
+              "className": {
+                "description": "CSS class(es) to apply to the comment",
+                "type": "string"
+              },
+              "style": {
+                "description": "Optional styles to apply to the comment",
+                "type": "string"
+              },
+              "attributes": {
+                "description": "Optional attributes to be added to this element. For example: \"attributes\": \"attr1='value1'; attr2='value2'\"",
+                "type": "string"
+              },
+              "content": {
+                "description": "Comment content",
+                "type": "string"
+              },
+              "userData": {
+                "description": "Comment-specific client data is stored here",
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              }
+            },
+            "required": [
+              "id",
+              "xPos",
+              "yPos",
+              "width",
+              "height"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "links": {
+          "description": "Array of links to nodes and comments",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Link identifier. Must be unique.",
+                "type": "string"
+              },
+              "source": {
+                "description": "Link source node id",
+                "type": "string"
+              },
+              "source-port": {
+                "description": "Link source port name",
+                "type": "string"
+              },
+              "target": {
+                "description": "Link target node id",
+                "type": "string"
+              },
+              "target-port": {
+                "description": "Link target port name",
+                "type": "string"
+              },
+              "className": {
+                "description": "CSS class(es) to apply to the link",
+                "type": "string"
+              },
+              "style": {
+                "description": "Optional styles to apply to the link",
+                "type": "string"
+              },
+              "attributes": {
+                "description": "Optional attributes to be added to this element. For example: \"attributes\": \"attr1='value1'; attr2='value2'\"",
+                "type": "string"
+              },
+              "userData": {
+                "description": "Link-specific client data is stored here",
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              }
+            },
+            "required": [
+              "id",
+              "source",
+              "target"
+            ]
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "nodes"
+      ]
+    },
+    "parents": {
+      "description": "Array of parent diagram identifiers, starting with the most immediate parent",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Parent diagram identifier",
+            "type": "string"
+          },
+          "label": {
+            "description": "Parent diagram label",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    }
+  },
+  "required": [
+    "id",
+    "diagram"
+  ],
+  "definitions": {
+    "port": {
+      "description": "",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Port name",
+          "type": "string"
+        },
+        "label": {
+          "description": "Port long label",
+          "type": "string"
+        },
+        "cardinality": {
+          "type": "string",
+          "description": "Property to capture how many datasets are allowed for this port, e.g., 1:1 implies you must supply 1, 0:1 implies it is optional and a max of one, 0:N means it is optional and you can may have any number of datasets. The default value is 1:1.",
+          "pattern": "\\d+:\\[1-9]+|N"
+        },
+        "userData": {
+          "description": "Port-specific client data is stored here",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  }
+}

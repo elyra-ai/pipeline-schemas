@@ -1,0 +1,36 @@
+{
+  "name": "org.apache.spark.ml.ibm.transformers.Sample",
+  "operator_type": "transformer",
+  "categories": [
+    "canvas-transformation",
+    "transformer",
+    "feature"
+  ],
+  "context": "dataset",
+  "parameters": [
+    {
+      "name": "withReplacement",
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    {
+      "name": "samplingSize",
+      "type": "long",
+      "default": -1,
+      "required": true
+    },
+    {
+      "name": "samplingRatio",
+      "type": "double",
+      "default": 1,
+      "required": true
+    },
+    {
+      "name": "samplingSeed",
+      "type": "integer",
+      "default": -1,
+      "required": false
+    }
+  ]
+}

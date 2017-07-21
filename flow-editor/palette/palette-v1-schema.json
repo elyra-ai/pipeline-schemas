@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Abstract Canvas diagram schema",
+  "id": "http://www.ibm.com/ibm/wdp/canvas/v1.0/palette-schema.json#",
+  "properties": {
+    "categories": {
+      "description": "Array of palette categories",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "description": "The palette category that the items belong within",
+            "type": "string"
+          },
+          "label": {
+            "description": "Category label",
+            "type": "string"
+          },
+          "nodetypes": {
+            "description": "Array of nodes within the current category",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "description": "Node label",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "Node description",
+                  "type": "string"
+                },
+                "typeId": {
+                  "description": "Unique node type identifier",
+                  "type": "string"
+                },
+                "image": {
+                  "description": "Encoded image or image reference for the node",
+                  "type": "string"
+                },
+                "subDiagramId": {
+                  "description": "Optional sub diagram identifier.",
+                  "type": "string"
+                },
+                "inputPorts": {
+                  "description": "Array of node input ports",
+                  "type": "array",
+                  "minItems": 0,
+                  "items": {
+                    "$ref": "#/definitions/port"
+                  }
+                },
+                "outputPorts": {
+                  "description": "Array of node output ports",
+                  "type": "array",
+                  "minItems": 0,
+                  "items": {
+                    "$ref": "#/definitions/port"
+                  }
+                }
+              },
+              "required": ["label", "typeId", "image"]
+            }
+          }
+        },
+        "required": ["category", "label"]
+      }
+    }
+  },
+  "definitions": {
+    "port": {
+      "description": "Defines a node port for links",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Port name",
+          "type": "string"
+        },
+        "label": {
+          "description": "Port long label",
+          "type": "string"
+        },
+        "cardinality": {
+					"type": "string",
+					"description": "Property to capture how many datasets are allowed for this port, e.g., 1:1 implies you must supply 1, 0:1 implies it is optional and a max of one, 0:N means it is optional and you can may have any number of datasets. The default value is 1:1.",
+					"pattern": "\\d+:\\[1-9]+|N"
+				}
+      },
+      "required": ["name"]
+  }
+}
