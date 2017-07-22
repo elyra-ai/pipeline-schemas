@@ -187,7 +187,8 @@
                 "notEquals",
                 "contains",
                 "notContains",
-                "colNotExists"
+                "colNotExists",
+                "cellNotEmpty"
               ]
             },
             "param": {
