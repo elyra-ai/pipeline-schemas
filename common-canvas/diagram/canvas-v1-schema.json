@@ -128,12 +128,12 @@
                   ]
                 }
               },
-              "xPos": {
+              "x_pos": {
                 "description": "Horizontal node position",
                 "type": "integer",
                 "minimum": 0
               },
-              "yPos": {
+              "y_pos": {
                 "description": "Vertical node position",
                 "type": "integer",
                 "minimum": 0
@@ -177,8 +177,8 @@
             "required": [
               "id",
               "image",
-              "xPos",
-              "yPos",
+              "x_pos",
+              "y_pos",
               "objectData"
             ]
           },
@@ -195,12 +195,12 @@
                 "description": "Comment identifier. Must be unique.",
                 "type": "string"
               },
-              "xPos": {
+              "x_pos": {
                 "description": "Horizontal comment position",
                 "type": "integer",
                 "minimum": 0
               },
-              "yPos": {
+              "y_pos": {
                 "description": "Vertical comment position",
                 "type": "integer",
                 "minimum": 0
@@ -240,8 +240,8 @@
             },
             "required": [
               "id",
-              "xPos",
-              "yPos",
+              "x_pos",
+              "y_pos",
               "width",
               "height"
             ]
