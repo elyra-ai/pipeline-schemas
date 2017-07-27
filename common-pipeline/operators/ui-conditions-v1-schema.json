@@ -245,7 +245,7 @@
         "default": {
           "type": "string"
         },
-        "resourceKey": {
+        "resource_key": {
           "type": "string"
         }
       },

@@ -398,7 +398,7 @@
       }
     },
     "required": [
-      "node_id"
+      "node_id_ref"
     ],
     "additionalProperties": false
   },
