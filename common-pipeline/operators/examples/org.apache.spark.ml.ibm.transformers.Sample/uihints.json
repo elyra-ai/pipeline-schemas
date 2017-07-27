@@ -1,5 +1,5 @@
 {
-  "name": "org.apache.spark.ml.ibm.transformers.Sample",
+  "id": "org.apache.spark.ml.ibm.transformers.Sample",
   "icon": "images/transformationspark.svg",
   "label": {
     "default": "Sample Rows"

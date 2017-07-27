@@ -1,5 +1,5 @@
 {
-  "name": "org.apache.spark.ml.classification.GBTClassifier",
+  "id": "org.apache.spark.ml.classification.GBTClassifier",
   "icon": "images/modelbuildspark.svg",
   "label": {
     "default": "Gradient Boosted Tree Classifier"

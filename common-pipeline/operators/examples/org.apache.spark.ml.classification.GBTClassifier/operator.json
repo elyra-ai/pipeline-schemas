@@ -1,5 +1,5 @@
 {
-  "name":"org.apache.spark.ml.classification.GBTClassifier",
+  "id":"org.apache.spark.ml.classification.GBTClassifier",
   "label":"Gradient Boosted Tree Classifier",
   "description":"Fit a Gradient Boosted Tree Classifier Model",
   "operator_type":"estimator",

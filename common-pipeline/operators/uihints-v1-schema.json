@@ -9,8 +9,8 @@
       "description": "URL to operation icon",
       "type": "string"
     },
-    "name": {
-      "description": "Operator name",
+    "id": {
+      "description": "Operator identifier",
       "type": "string"
     },
     "label": {

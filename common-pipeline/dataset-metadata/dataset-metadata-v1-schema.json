@@ -33,7 +33,7 @@
            "type": "string"
          },
          "type": {
-           "description": "Field type. Can be a primitive type (string, integer, double, date, time, timestamp), or a vector, map, or struct containing those types",
+           "description": "Field type. Can be a primitive type (string, integer, double, date, time, timestamp, or custom), or a vector, map, or struct containing those types",
            "type": "string"
          },
          "nullable": {
@@ -70,7 +70,7 @@
            "default"
          ]
        },
-       "role": {
+       "modeling_role": {
          "description": "Field role for modeling",
          "enum": [
            "input",
