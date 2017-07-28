@@ -18,7 +18,7 @@
     "complex_types": {
       "$ref": "http://www.ibm.com/ibm/wml/operator/v1.0/operator-schema.json#complex_types"
     },
-    "ui_hints": {
+    "uihints": {
       "$ref": "http://www.ibm.com/ibm/wml/ui-hints/v1.0/ui-hints-schema.json#"
     },
     "dataset_metadata": {
