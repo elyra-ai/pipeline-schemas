@@ -1,19 +1,19 @@
 {
-  "name": "rename",
+  "id": "rename",
   "icon": "images/transformationspark.svg",
   "structure_info": [
     {
       "name": "RenameFieldEntry",
       "key_definition": {
         "name": "field",
-        "resourceKey": "RenameFieldEntry.field",
+        "resource_key": "RenameFieldEntry.field",
         "columns": 26,
         "sortable": true
       },
       "parameters": [
         {
           "name": "new_name",
-          "resourceKey": "RenameFieldEntry.new_name",
+          "resource_key": "RenameFieldEntry.new_name",
           "columns": 26,
           "editStyle": "inline",
           "sortable": true
@@ -51,7 +51,7 @@
           "type": "error",
           "focusParam": "renamed_fields",
           "message": {
-            "resourceKey": "output_name_not_empty"
+            "resource_key": "output_name_not_empty"
           }
         },
         "evaluate": {

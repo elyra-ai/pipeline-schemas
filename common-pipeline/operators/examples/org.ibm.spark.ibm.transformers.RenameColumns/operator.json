@@ -1,5 +1,5 @@
 {
-  "name": "org.ibm.spark.ibm.transformers.RenameColumns",
+  "id": "org.ibm.spark.ibm.transformers.RenameColumns",
   "operator_type": "transformer",
   "categories": [
     "canvas-transformation",

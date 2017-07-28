@@ -5,8 +5,8 @@
   "description": "Operator schema for the Watson Data Platform",
   "type": "object",
   "properties": {
-    "name": {
-      "description": "Name of operator",
+    "id": {
+      "description": "Operator identifier",
       "type": "string"
     },
     "categories": {
@@ -23,11 +23,7 @@
         "transformer",
         "estimator",
         "dataReader",
-        "dataWriter",
-        "documentBuilder",
-        "initial",
-        "process",
-        "terminal"
+        "dataWriter"
       ]
     },
     "input_ports": {
@@ -50,9 +46,9 @@
       "description": "Operator context",
       "enum": [
         "column",
-        "multi-column",
+        "multi_column",
         "dataset",
-        "multi-dataset"
+        "multi_dataset"
       ]
     },
     "scoring_transformer": {
@@ -102,7 +98,7 @@
           ]
         },
         "type": {
-          "description": "Parameter type",
+          "description": "Field type. Can be a primitive type (string, integer, double, date, time, timestamp, or custom), or a vector, map, or struct containing those types",
           "type": "string"
         },
         "enum": {

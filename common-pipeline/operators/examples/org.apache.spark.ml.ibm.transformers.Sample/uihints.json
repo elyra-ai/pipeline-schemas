@@ -1,5 +1,5 @@
 {
-  "name": "org.apache.spark.ml.ibm.transformers.Sample",
+  "id": "org.apache.spark.ml.ibm.transformers.Sample",
   "icon": "images/transformationspark.svg",
   "label": {
     "default": "Sample Rows"
@@ -17,7 +17,7 @@
         "default": "Indicate that sampling be performed with replacement"
       },
       "control": "radioset",
-      "resourceKey": "withReplace"
+      "resource_key": "withReplace"
     },
     {
       "name": "samplingRatio",
@@ -48,7 +48,7 @@
       "number_generator": {
         "label": {
           "default": "Generate",
-          "resourceKey": "numberGenerator"
+          "resource_key": "numberGenerator"
         },
         "range": {
           "min": 1000000,
@@ -103,7 +103,7 @@
           "type": "error",
           "focusParam": "samplingSize",
           "message": {
-            "resourceKey": "sampling-size_not_empty"
+            "resource_key": "sampling-size_not_empty"
           }
         },
         "evaluate": {
@@ -120,7 +120,7 @@
           "type": "error",
           "focusParam": "samplingRatio",
           "message": {
-            "resourceKey": "sampling-ratio_not_empty"
+            "resource_key": "sampling-ratio_not_empty"
           }
         },
         "evaluate": {

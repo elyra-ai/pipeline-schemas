@@ -31,7 +31,7 @@
           "type": "binding",
           "output": {
             "id": "entryPort1PE",
-            "schema": "schema1",
+            "schema_ref": "schema1",
             "external_binding": {
               "description": "A hypothetical external binding to a CSV file in the local file system.",
               "type": "text/csv",
@@ -46,10 +46,10 @@
           "inputs": [
             {
               "id": "input1NodeID2PE",
-              "schema": "schema1",
+              "schema_ref": "schema1",
               "links": [
                 {
-                  "node_id": "entryID1PE"
+                  "node_id_ref": "entryID1PE"
                 }
               ]
             }
@@ -57,7 +57,7 @@
           "outputs": [
             {
               "id": "output1NodeID2PE",
-              "schema": "schema2"
+              "schema_ref": "schema2"
             }
           ],
           "parameters": {
@@ -75,8 +75,8 @@
                 "default": "Filter columns"
               },
               "image": "filter-columns.svg",
-              "xPos": 784,
-              "yPos": 202,
+              "x_pos": 784,
+              "y_pos": 202,
               "class_name": "nodes"
             },
             "wml_data": {
@@ -89,9 +89,9 @@
           "type": "binding",
           "input": {
             "id": "exitPort1PE",
-            "schema": "schema2",
+            "schema_ref": "schema2",
             "link": {
-              "node_id": "nodeID2PE"
+              "node_id_ref": "nodeID2PE"
             }
           }
         }
@@ -109,7 +109,7 @@
           "metadata": {
             "description": "Field integer2 is an integer field",
             "measure": "range",
-            "role": "input",
+            "modeling_role": "input",
             "range": {
               "min": -1,
               "max": 400
@@ -123,7 +123,7 @@
           "metadata": {
             "description": "Field double4 is a double field",
             "measure": "range",
-            "role": "input",
+            "modeling_role": "input",
             "range": {
               "min": 0.101,
               "max": 100.211
@@ -137,7 +137,7 @@
           "metadata": {
             "description": "Field string1 is a string field",
             "measure": "set",
-            "role": "input",
+            "modeling_role": "input",
             "max_string_length": 24,
             "values": [
               "One",
@@ -158,7 +158,7 @@
           "metadata": {
             "description": "Field string1 is a string field",
             "measure": "set",
-            "role": "input",
+            "modeling_role": "input",
             "max_string_length": 24,
             "values": [
               "One",

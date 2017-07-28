@@ -25,13 +25,13 @@
           "comments": [
             {
               "id": "4e32ba0a-b234-3e33-b321-d693bf8f8452",
-              "xPos": 300,
-              "yPos": 678,
+              "x_pos": 300,
+              "y_pos": 678,
               "width": 450,
               "height": 300,
               "class_name": "comments",
               "content": "This is a comment about the comments array. The text should wrap within a bounded rectangle.",
-              "associated_ids": [
+              "associated_id_refs": [
                 "96121558-3c72-4d43-a92c-3ac92c8fba54"
               ]
             }
@@ -44,7 +44,7 @@
           "type": "binding",
           "output": {
             "id": "entryPort1PE",
-            "schema": "schema1"
+            "schema_ref": "schema1"
           }
         },
         {
@@ -52,7 +52,7 @@
           "type": "binding",
           "output": {
             "id": "entryPort2PE",
-            "schema": "schema2"
+            "schema_ref": "schema2"
           }
         },
         {
@@ -60,7 +60,7 @@
           "type": "binding",
           "output": {
             "id": "entryPort3PE",
-            "schema": "schema2",
+            "schema_ref": "schema2",
             "external_binding": {
               "description": "A hypothetical external binding to a CSV file in the local file system.",
               "type": "text/csv",
@@ -77,10 +77,10 @@
               "id": "input1NodeID1PE",
               "links": [
                 {
-                  "node_id": "entryID1PE"
+                  "node_id_ref": "entryID1PE"
                 }
               ],
-              "schema": "schema1",
+              "schema_ref": "schema1",
               "app_data": {
                 "ui_data": {
                   "cardinality": {
@@ -95,10 +95,10 @@
               "id": "input2NodeID1PE",
               "links": [
                 {
-                  "node_id": "entryID2PE"
+                  "node_id_ref": "entryID2PE"
                 }
               ],
-              "schema": "schema2",
+              "schema_ref": "schema2",
               "app_data": {
                 "ui_data": {
                   "cardinality": {
@@ -113,7 +113,7 @@
           "outputs": [
             {
               "id": "output1NodeID1PE",
-              "schema": "schema3",
+              "schema_ref": "schema3",
               "app_data": {
                 "ui_data": {
                   "cardinality": {
@@ -139,8 +139,8 @@
                 "default": "Join two or more datasets"
               },
               "image": "join.svg",
-              "xPos": 651,
-              "yPos": 70,
+              "x_pos": 651,
+              "y_pos": 70,
               "class_name": "nodes",
               "attributes": "attr1='value1'; attr2='value2'"
             },
@@ -152,16 +152,18 @@
         {
           "id": "nodeIDSuperNodePE",
           "type": "super_node",
-          "pipeline_id": "modeler-sub-pipeline",
+          "sub_flow": {
+            "flow_id_ref": "modeler-sub-pipeline"
+          },
           "inputs": [
             {
               "id": "input1SuperNodePE",
               "links": [
                 {
-                  "node_id": "nodeID1PE"
+                  "node_id_ref": "nodeID1PE"
                 }
               ],
-              "schema": "schema3",
+              "schema_ref": "schema3",
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
@@ -175,10 +177,10 @@
               "id": "input2SuperNodePE",
               "links": [
                 {
-                  "node_id": "entryID3PE"
+                  "node_id_ref": "entryID3PE"
                 }
               ],
-              "schema": "schema2",
+              "schema_ref": "schema2",
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
@@ -192,9 +194,9 @@
           "outputs": [
             {
               "id": "output1SuperNodePE",
-              "schema": "schema2",
-              "node_binding": {
-                "node_id": "exitID1SE"
+              "schema_ref": "schema2",
+              "node_binding_ref": {
+                "node_id_ref": "exitID1SE"
               },
               "app_data": {
                 "ui_data": {
@@ -216,8 +218,8 @@
               "id": "input1NodeID2PE",
               "links": [
                 {
-                  "node_id": "nodeIDSuperNodePE",
-                  "port_id": "output1SuperNodePE",
+                  "node_id_ref": "nodeIDSuperNodePE",
+                  "port_id_ref": "output1SuperNodePE",
                   "app_data": {
                     "ui_data": {
                       "class_name": "linkClass"
@@ -225,7 +227,7 @@
                   }
                 }
               ],
-              "schema": "schema2",
+              "schema_ref": "schema2",
               "app_data": {
                 "ui_data": {
                   "cardinality": {
@@ -243,7 +245,7 @@
           "outputs": [
             {
               "id": "output1NodeID2PE",
-              "schema": "schema3",
+              "schema_ref": "schema3",
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
@@ -266,8 +268,8 @@
                 "default": "Filter record data"
               },
               "image": "filter-rows.svg",
-              "xPos": 784,
-              "yPos": 202,
+              "x_pos": 784,
+              "y_pos": 202,
               "class_name": "nodes"
             },
             "wml_data": {
@@ -284,7 +286,7 @@
               "id": "input1NodeID3PE",
               "links": [
                 {
-                  "node_id": "nodeIDSuperNodePE",
+                  "node_id_ref": "nodeIDSuperNodePE",
                   "app_data": {
                     "ui_data": {
                       "class_name": "linkClass"
@@ -292,7 +294,7 @@
                   }
                 }
               ],
-              "schema": "schema2",
+              "schema_ref": "schema2",
               "app_data": {
                 "ui_data": {
                   "cardinality": {
@@ -310,7 +312,7 @@
           "outputs": [
             {
               "id": "output1NodeID3PE",
-              "schema": "schema3",
+              "schema_ref": "schema3",
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
@@ -333,8 +335,8 @@
                 "default": "Filter record data"
               },
               "image": "filter-rows.svg",
-              "xPos": 784,
-              "yPos": 202,
+              "x_pos": 784,
+              "y_pos": 202,
               "class_name": "nodes"
             },
             "wml_data": {
@@ -347,9 +349,9 @@
           "type": "binding",
           "input": {
             "id": "exitPort1PE",
-            "schema": "schema3",
+            "schema_ref": "schema3",
             "link": {
-              "node_id": "nodeID2PE"
+              "node_id_ref": "nodeID2PE"
             }
           }
         },
@@ -358,9 +360,9 @@
           "type": "binding",
           "input": {
             "id": "exitPort2PE",
-            "schema": "schema3",
+            "schema_ref": "schema3",
             "link": {
-              "node_id": "nodeID3PE"
+              "node_id_ref": "nodeID3PE"
             }
           }
         }
@@ -381,10 +383,10 @@
           "type": "binding",
           "output": {
             "id": "entryPort1SE",
-            "schema": "schema3",
-            "node_binding": {
-              "pipeline_id": "primary-pipeline",
-              "node_id": "input1SuperNodePE"
+            "schema_ref": "schema3",
+            "node_binding_ref": {
+              "pipeline_id_ref": "primary-pipeline",
+              "node_id_ref": "input1SuperNodePE"
             }
           }
         },
@@ -393,10 +395,10 @@
           "type": "binding",
           "output": {
             "id": "entryPort2SE",
-            "schema": "schema2",
-            "node_binding": {
-              "pipeline_id": "primary-pipeline",
-              "node_id": "input2SuperNodePE"
+            "schema_ref": "schema2",
+            "node_binding_ref": {
+              "pipeline_id_ref": "primary-pipeline",
+              "node_id_ref": "input2SuperNodePE"
             }
           }
         },
@@ -409,7 +411,7 @@
               "id": "input1nodeID1SE",
               "links": [
                 {
-                  "node_id": "entryID1SE",
+                  "node_id_ref": "entryID1SE",
                   "app_data": {
                     "ui_data": {
                       "class_name": "linkClass"
@@ -417,7 +419,7 @@
                   }
                 }
               ],
-              "schema": "schema3",
+              "schema_ref": "schema3",
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
@@ -431,7 +433,7 @@
           "outputs": [
             {
               "id": "output1nodeID1SE",
-              "schema": "schema3",
+              "schema_ref": "schema3",
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
@@ -454,8 +456,8 @@
                 "default": "Filter record data"
               },
               "image": "filter-rows.svg",
-              "xPos": 784,
-              "yPos": 202,
+              "x_pos": 784,
+              "y_pos": 202,
               "class_name": "nodes"
             },
             "wml_data": {
@@ -472,7 +474,7 @@
               "id": "input1NodeID2SE",
               "links": [
                 {
-                  "node_id": "nodeID1SE",
+                  "node_id_ref": "nodeID1SE",
                   "app_data": {
                     "ui_data": {
                       "class_name": "linkClass"
@@ -480,7 +482,7 @@
                   }
                 }
               ],
-              "schema": "schema3",
+              "schema_ref": "schema3",
               "app_data": {
                 "ui_data": {
                   "cardinality": {
@@ -495,7 +497,7 @@
               "id": "input2NodeID2SE",
               "links": [
                 {
-                  "node_id": "entryID2SE",
+                  "node_id_ref": "entryID2SE",
                   "app_data": {
                     "ui_data": {
                       "class_name": "linkClass"
@@ -503,7 +505,7 @@
                   }
                 }
               ],
-              "schema": "schema2",
+              "schema_ref": "schema2",
               "app_data": {
                 "ui_data": {
                   "cardinality": {
@@ -518,7 +520,7 @@
           "outputs": [
             {
               "id": "output1NodeID2SE",
-              "schema": "schema2",
+              "schema_ref": "schema2",
               "app_data": {
                 "ui_data": {
                   "class_name": "foobar"
@@ -540,8 +542,8 @@
                 "default": "Join two or more datasets"
               },
               "image": "join.svg",
-              "xPos": 651,
-              "yPos": 70,
+              "x_pos": 651,
+              "y_pos": 70,
               "class_name": "nodes",
               "attributes": "attr1='value1'; attr2='value2'"
             },
@@ -555,9 +557,9 @@
           "type": "binding",
           "input": {
             "id": "exitPort1SE",
-            "schema": "schema2",
+            "schema_ref": "schema2",
             "link": {
-              "node_id": "nodeID2SE",
+              "node_id_ref": "nodeID2SE",
               "app_data": {
                 "ui_data": {
                   "class_name": "linkClass"
@@ -580,7 +582,7 @@
           "metadata": {
             "description": "Field integer2 is an integer field",
             "measure": "range",
-            "role": "input",
+            "modeling_role": "input",
             "range": {
               "min": -1,
               "max": 400
@@ -594,7 +596,7 @@
           "metadata": {
             "description": "Field double4 is a double field",
             "measure": "range",
-            "role": "input",
+            "modeling_role": "input",
             "range": {
               "min": 0.101,
               "max": 100.211
@@ -613,7 +615,7 @@
           "metadata": {
             "description": "Field string1 is a string field",
             "measure": "set",
-            "role": "input",
+            "modeling_role": "input",
             "max_string_length": 24,
             "values": [
               "One",
@@ -634,7 +636,7 @@
           "metadata": {
             "description": "Field integer2 is an integer field",
             "measure": "range",
-            "role": "input",
+            "modeling_role": "input",
             "range": {
               "min": -1,
               "max": 400
@@ -648,7 +650,7 @@
           "metadata": {
             "description": "Field double4 is a double field",
             "measure": "range",
-            "role": "input",
+            "modeling_role": "input",
             "range": {
               "min": 0.101,
               "max": 100.211
@@ -662,7 +664,7 @@
           "metadata": {
             "description": "Field string1 is a string field",
             "measure": "set",
-            "role": "input",
+            "modeling_role": "input",
             "max_string_length": 24,
             "values": [
               "One",

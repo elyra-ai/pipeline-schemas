@@ -9,8 +9,8 @@
       "description": "URL to operation icon",
       "type": "string"
     },
-    "name": {
-      "description": "Operator name",
+    "id": {
+      "description": "Operator identifier",
       "type": "string"
     },
     "label": {
@@ -195,7 +195,7 @@
           "type": "object",
           "$ref": "#/definitions/resource_definition"
         },
-        "resourceKey": {
+        "resource_key": {
           "description": "Used as a key for enum value labels",
           "type": "string"
         },
@@ -297,7 +297,7 @@
         "default": {
           "type": "string"
         },
-        "resourceKey": {
+        "resource_key": {
           "type": "string"
         }
       },
@@ -312,7 +312,7 @@
         "default": {
           "type": "string"
         },
-        "resourceKey": {
+        "resource_key": {
           "type": "string"
         },
         "placement": {
@@ -332,7 +332,7 @@
         },
         {
           "required": [
-            "resourceKey"
+            "resource_key"
           ]
         }
       ]

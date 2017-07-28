@@ -99,7 +99,7 @@
         "default": {
           "type": "string"
         },
-        "resourceKey": {
+        "resource_key": {
           "type": "string"
         }
       },
@@ -133,9 +133,11 @@
           "$ref": "#/definitions/ports_def"
         },
         "parameters": {
-          "description": "input parameters for operator",
+          "description": "Input parameters for the operator",
           "type": "object",
-          "properties": {}
+          "properties": {},
+          "required": [],
+          "additionalProperties": true
         },
         "app_data": {
           "$ref": "#/definitions/app_data_def"
@@ -162,242 +164,266 @@
             "super_node"
           ]
         },
-        "pipeline_id": {
-          "description": "Sub-pipeline identifier",
-          "type": "string"
-        },
-        "inputs": {
-          "$ref": "#/definitions/ports_def"
-        },
-        "outputs": {
-          "$ref": "#/definitions/bound_ports_def"
-        },
-        "app_data": {
-          "$ref": "#/definitions/app_data_def"
-        }
-      },
-      "required": [
-        "id",
-        "type",
-        "pipeline_id",
-        "inputs"
-      ],
-      "additionalProperties": false
-    },
-    "binding_def": {
-      "description": "Defines an entry or exit point (source or sink) for a pipeline. Bindings can be concrete: the concrete_binding element is present on the port; or bindings can be abstract: bindings are performed externally via configuration or a wrapper document.",
-      "type": "object",
-      "oneOf": [
-        {
-          "properties": {
-            "id": {
-              "description": "Unique identifier for the binding",
-              "type": "string"
-            },
-            "type": {
-              "description": "Node type - always 'binding' for binding elements",
-              "enum": [
-                "binding"
-              ]
-            },
-            "input": {
-              "$ref": "#/definitions/port_binding_def"
-            },
-            "app_data": {
-              "$ref": "#/definitions/app_data_def"
-            }
-          }
-        },
-        {
-          "properties": {
-            "id": {
-              "description": "Unique identifier for the binding",
-              "type": "string"
-            },
-            "type": {
-              "description": "Node type - always 'binding' for binding elements",
-              "enum": [
-                "binding"
-              ]
-            },
-            "output": {
-              "$ref": "#/definitions/port_binding_def"
-            },
-            "app_data": {
-              "$ref": "#/definitions/app_data_def"
-            }
-          }
-        }
-      ],
-      "required": [
-        "id",
-        "type"
-      ],
-      "additionalProperties": false
-    },
-    "port_def": {
-      "description": "Port definition (input/output) on a node",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "Unique identifier",
-          "type": "string"
-        },
-        "schema": {
-          "description": "Optional dataset schema associated with port",
-          "type": "string"
-        },
-        "links": {
-          "description": "Array of links going into the node. Applies to input ports and exit bindings only.",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/link_def"
-          },
-          "uniqueItems": true
-        },
-        "app_data": {
-          "$ref": "#/definitions/app_data_def"
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
-    "port_binding_def": {
-      "description": "Definition (input/output) of a binding port on a node (bound or unbound). If no binding is present the port is bound at runtime via a configuration object or wrapper document.",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "Unique identifier",
-          "type": "string"
-        },
-        "node_binding": {
-          "description": "Optional node id binding within the current document. If not present the binding is external.",
-          "$ref": "#/definitions/link_def"
-        },
-        "external_binding": {
-          "description": "Concrete data binding to a source or a sink. Additional properties that are specific to the binding type go here.",
+        "sub_flow": {
+          "description": "Describes either an embedded or external sub_flow",
           "type": "object",
-          "properties": {},
-          "required": [],
-          "additionalProperties": true
-        },
-        "schema": {
-          "description": "Optional dataset schema associated with port",
-          "type": "string"
-        },
-        "link": {
-          "$ref": "#/definitions/link_def"
-        },
-        "app_data": {
-          "$ref": "#/definitions/app_data_def"
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
-    "ports_def": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "$ref": "#/definitions/port_def"
-      },
-      "uniqueItems": true
-    },
-    "bound_ports_def": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "$ref": "#/definitions/bound_port_def"
-      },
-      "uniqueItems": true
-    },
-    "bound_port_def": {
-      "description": "Port definition (input/output) on a node with optional pipeline port binding for supernodes",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "Unique identifier",
-          "type": "string"
-        },
-        "schema": {
-          "description": "Optional dataset schema associated with port",
-          "type": "string"
-        },
-        "links": {
-          "description": "Array of links going into the node. Applies to input ports and exit bindings only.",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/link_def"
-          },
-          "uniqueItems": true
-        },
-        "node_binding": {
-          "description": "Optional node id binding within the current document.",
-          "$ref": "#/definitions/link_def"
-        },
-        "app_data": {
-          "$ref": "#/definitions/app_data_def"
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
-    "link_def": {
-      "description": "Node link definition",
-      "type": "object",
-      "properties": {
-        "pipeline_id": {
-          "description": "id of the pipeline this link connects to",
-          "type": "string"
-        },
-        "node_id": {
-          "description": "id of a node this link connects to",
-          "type": "string"
-        },
-        "port_id": {
-          "description": "optional port id of a node this link connects to",
-          "type": "string"
-        },
-        "app_data": {
-          "$ref": "#/definitions/app_data_def"
-        }
-      },
-      "required": [
-        "node_id"
-      ],
-      "additionalProperties": false
-    },
-    "app_data_def": {
-      "description": "Object containing app-specific data",
-      "type": "object",
-      "properties": {
-        "ui_data": {
           "oneOf": [
             {
-              "$ref": "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-ui-schema.json#/definitions/pipeline_overview"
+              "properties": {
+                "flow_id_ref": {
+                  "description": "Embedded sub_flow identifier",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "flow_id_ref"
+              ]
             },
             {
-              "$ref": "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-ui-schema.json#/definitions/pipeline_def"
-            },
-            {
-              "$ref": "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-ui-schema.json#/definitions/port_info_def"
-            },
-            {
-              "$ref": "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-ui-schema.json#/definitions/node_info_def"
+              "properties": {
+                "url": {
+                  "description": "Reference to an external sub_flow",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url"
+              ]
             }
           ]
         }
       },
-      "required": [],
-      "additionalProperties": true
-    }
+      "inputs": {
+        "$ref": "#/definitions/ports_def"
+      },
+      "outputs": {
+        "$ref": "#/definitions/bound_ports_def"
+      },
+      "app_data": {
+        "$ref": "#/definitions/app_data_def"
+      }
+    },
+    "required": [
+      "id",
+      "type",
+      "sub_flow",
+      "inputs"
+    ],
+    "additionalProperties": false
+  },
+  "binding_def": {
+    "description": "Defines an entry or exit point (source or sink) for a pipeline. Bindings can be concrete: the concrete_binding element is present on the port; or bindings can be abstract: bindings are performed externally via configuration or a wrapper document.",
+    "type": "object",
+    "oneOf": [
+      {
+        "properties": {
+          "id": {
+            "description": "Unique identifier for the binding",
+            "type": "string"
+          },
+          "type": {
+            "description": "Node type - always 'binding' for binding elements",
+            "enum": [
+              "binding"
+            ]
+          },
+          "input": {
+            "$ref": "#/definitions/port_binding_def"
+          },
+          "app_data": {
+            "$ref": "#/definitions/app_data_def"
+          }
+        }
+      },
+      {
+        "properties": {
+          "id": {
+            "description": "Unique identifier for the binding",
+            "type": "string"
+          },
+          "type": {
+            "description": "Node type - always 'binding' for binding elements",
+            "enum": [
+              "binding"
+            ]
+          },
+          "output": {
+            "$ref": "#/definitions/port_binding_def"
+          },
+          "app_data": {
+            "$ref": "#/definitions/app_data_def"
+          }
+        }
+      }
+    ],
+    "required": [
+      "id",
+      "type"
+    ],
+    "additionalProperties": false
+  },
+  "port_def": {
+    "description": "Port definition (input/output) on a node",
+    "type": "object",
+    "properties": {
+      "id": {
+        "description": "Unique identifier",
+        "type": "string"
+      },
+      "schema_ref": {
+        "description": "Optional dataset schema reference associated with the port",
+        "type": "string"
+      },
+      "links": {
+        "description": "Array of links going into the node. Applies to input ports and exit bindings only.",
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "$ref": "#/definitions/link_def"
+        },
+        "uniqueItems": true
+      },
+      "app_data": {
+        "$ref": "#/definitions/app_data_def"
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "additionalProperties": false
+  },
+  "port_binding_def": {
+    "description": "Definition (input/output) of a binding port on a node (bound or unbound). If no binding is present the port is bound at runtime via a configuration object or wrapper document.",
+    "type": "object",
+    "properties": {
+      "id": {
+        "description": "Unique identifier",
+        "type": "string"
+      },
+      "node_binding_ref": {
+        "description": "Optional node id binding within the current document. If not present the binding is external.",
+        "$ref": "#/definitions/link_def"
+      },
+      "external_binding": {
+        "description": "Concrete data binding to a source or a sink. Additional properties that are specific to the binding type go here.",
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": true
+      },
+      "schema_ref": {
+        "description": "Optional dataset schema associated with port",
+        "type": "string"
+      },
+      "link": {
+        "$ref": "#/definitions/link_def"
+      },
+      "app_data": {
+        "$ref": "#/definitions/app_data_def"
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "additionalProperties": false
+  },
+  "ports_def": {
+    "type": "array",
+    "minItems": 1,
+    "items": {
+      "$ref": "#/definitions/port_def"
+    },
+    "uniqueItems": true
+  },
+  "bound_ports_def": {
+    "type": "array",
+    "minItems": 1,
+    "items": {
+      "$ref": "#/definitions/bound_port_def"
+    },
+    "uniqueItems": true
+  },
+  "bound_port_def": {
+    "description": "Port definition (input/output) on a node with optional pipeline port binding for supernodes",
+    "type": "object",
+    "properties": {
+      "id": {
+        "description": "Unique identifier",
+        "type": "string"
+      },
+      "schema_ref": {
+        "description": "Optional dataset schema associated with port",
+        "type": "string"
+      },
+      "links": {
+        "description": "Array of links going into the node. Applies to input ports and exit bindings only.",
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "$ref": "#/definitions/link_def"
+        },
+        "uniqueItems": true
+      },
+      "node_binding_ref": {
+        "description": "Optional node id binding within the current document.",
+        "$ref": "#/definitions/link_def"
+      },
+      "app_data": {
+        "$ref": "#/definitions/app_data_def"
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "additionalProperties": false
+  },
+  "link_def": {
+    "description": "Node link definition",
+    "type": "object",
+    "properties": {
+      "pipeline_id_ref": {
+        "description": "id of the pipeline this link connects to",
+        "type": "string"
+      },
+      "node_id_ref": {
+        "description": "id of a node this link connects to",
+        "type": "string"
+      },
+      "port_id_ref": {
+        "description": "optional port id of a node this link connects to",
+        "type": "string"
+      },
+      "app_data": {
+        "$ref": "#/definitions/app_data_def"
+      }
+    },
+    "required": [
+      "node_id_ref"
+    ],
+    "additionalProperties": false
+  },
+  "app_data_def": {
+    "description": "Object containing app-specific data",
+    "type": "object",
+    "properties": {
+      "ui_data": {
+        "oneOf": [
+          {
+            "$ref": "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-ui-schema.json#/definitions/pipeline_overview"
+          },
+          {
+            "$ref": "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-ui-schema.json#/definitions/pipeline_def"
+          },
+          {
+            "$ref": "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-ui-schema.json#/definitions/port_info_def"
+          },
+          {
+            "$ref": "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-ui-schema.json#/definitions/node_info_def"
+          }
+        ]
+      }
+    },
+    "required": [],
+    "additionalProperties": true
   }
 }
