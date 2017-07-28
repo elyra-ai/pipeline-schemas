@@ -29,7 +29,7 @@
         "$ref": "#/definitions/group_definition"
       }
     },
-    "editorSize": {
+    "editor_size": {
       "description": "Editor size for node edits",
       "enum": [
         "small",
@@ -43,9 +43,9 @@
       },
       "type": "array"
     },
-    "structure_info": {
+    "complex_type_info": {
       "items": {
-        "$ref": "#/definitions/structure_definition"
+        "$ref": "#/definitions/complex_type_definition"
       },
       "type": "array"
     },
@@ -88,14 +88,6 @@
           "description": "Group label",
           "type": "object",
           "$ref": "#/definitions/resource_definition"
-        },
-        "flow": {
-          "description": "Determines how the tabs should be displayed",
-          "type": "string",
-          "enum": [
-            "vertical",
-            "horizontal"
-          ]
         },
         "parameters": {
           "description": "List of parameters to be displayed",
@@ -166,10 +158,6 @@
             "horizontal"
           ]
         },
-        "style": {
-          "description": "Allows for overriding a default style for the control",
-          "type": "string"
-        },
         "width": {
           "description": "Percentage of group width the control should use",
           "type": "number"
@@ -199,7 +187,7 @@
           "description": "Used as a key for enum value labels",
           "type": "string"
         },
-        "editStyle": {
+        "edit_style": {
           "description": "Editing style of elements in a table",
           "type": "string",
           "enum": [
@@ -207,7 +195,7 @@
             "inline"
           ]
         },
-        "valueIcons": {
+        "value_icons": {
           "description": "For enumerated types, this defines the set of icons for the valid values. The ordering must be consistent with the order in the parameter enum attribute.",
           "type": "array",
           "items": {
@@ -255,9 +243,9 @@
         "name"
       ]
     },
-    "structure_definition": {
+    "complex_type_definition": {
       "type": "object",
-      "description": "Structure for complex parameters",
+      "description": "Complex parameters",
       "properties": {
         "name": {
           "type": "string",
@@ -275,12 +263,12 @@
                 "$ref": "#/definitions/parameter_definition"
               },
               {
-                "$ref": "#/definitions/structure_definition"
+                "$ref": "#/definitions/complex_type_definition"
               }
             ]
           }
         },
-        "moveableRows": {
+        "moveable_rows": {
           "description": "Determines if rows can be moved up or down in a table",
           "type": "boolean"
         }
@@ -301,8 +289,17 @@
           "type": "string"
         }
       },
-      "required": [
-        "default"
+      "oneOf": [
+        {
+          "required": [
+            "default"
+          ]
+        },
+        {
+          "required": [
+            "resource_key"
+          ]
+        }
       ]
     },
     "placed_resource_definition": {
