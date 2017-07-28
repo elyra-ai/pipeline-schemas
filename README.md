@@ -8,7 +8,7 @@ This repository contains the JSON schema files pertaining to WDP job flow author
 
 Common schemas related to pipeline definition and execution:
 
-  * [Operators](https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/tree/master/common-pipeline/operators): Contains the base operator, ui-hints, and condition schemas and examples  
+  * [Operators](https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/tree/master/common-pipeline/operators): Contains the base operator, uihints, and condition schemas and examples  
   * [Pipeline-flow](https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/tree/master/common-pipeline/pipeline-flow): Common pipeline-flow and pipeline-flow-ui JSON schemas  
   * [Dataset-metadata](https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/tree/master/common-pipeline/dataset-metadata): JSON dataset metadata definition  
 

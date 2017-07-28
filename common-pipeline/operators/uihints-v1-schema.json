@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://www.ibm.com/ibm/wml/ui-hints/v1.0/ui-hints-schema.json#",
+  "id": "http://www.ibm.com/ibm/wml/uihints/v1.0/uihints-schema.json#",
   "description": "WDP UI Hints schema",
   "title": "WDP UI Hints schema",
   "type": "object",
@@ -52,7 +52,7 @@
     "conditions": {
       "type": "array",
       "items": {
-        "$ref": "http://www.ibm.com/ibm/wml/ui-conditions/v1.0/ui-conditions-schema.json#"
+        "$ref": "http://www.ibm.com/ibm/wml/conditions/v1.0/conditions-schema.json#"
       }
     }
   },
@@ -80,8 +80,8 @@
             "checkboxPanel"
           ]
         },
-        "depends_on": {
-          "description": "Property name this group depends upon. Valid for panelSelector groups only.",
+        "depends_on_ref": {
+          "description": "Parameter name this group depends upon. Valid for panelSelector groups only.",
           "type": "string"
         },
         "label": {
@@ -89,7 +89,7 @@
           "type": "object",
           "$ref": "#/definitions/resource_definition"
         },
-        "parameters": {
+        "parameter_refs": {
           "description": "List of parameters to be displayed",
           "type": "array",
           "items": {
@@ -111,8 +111,8 @@
       "description": "Operator parameters hints",
       "type": "object",
       "properties": {
-        "name": {
-          "description": "Parameter name.",
+        "parameter_ref": {
+          "description": "Parameter reference to base operator parameter definition",
           "type": "string"
         },
         "label": {
@@ -240,14 +240,14 @@
         }
       },
       "required": [
-        "name"
+        "parameter_ref"
       ]
     },
     "complex_type_definition": {
       "type": "object",
       "description": "Complex parameters",
       "properties": {
-        "name": {
+        "complex_type_ref": {
           "type": "string",
           "description": "Name of complex type, can be referenced in other places."
         },
@@ -274,7 +274,7 @@
         }
       },
       "required": [
-        "name",
+        "complex_type_ref",
         "parameters"
       ]
     },
