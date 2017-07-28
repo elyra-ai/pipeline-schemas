@@ -71,7 +71,7 @@
     }
   },
   "required": [
-    "name",
+    "id",
     "operator_type",
     "parameters"
   ],
@@ -98,7 +98,7 @@
           ]
         },
         "type": {
-          "description": "Field type. Can be a primitive type (string, integer, double, date, time, timestamp, or custom), or a vector, map, or struct containing those types",
+          "description": "Field type. Can be a primitive type (string, integer, double, date, time, timestamp, or custom), an array, or map containing those types(note arrays and maps can contain complex_types)",
           "type": "string"
         },
         "enum": {
@@ -119,6 +119,9 @@
             },
             {
               "type": "array"
+            },
+            {
+              "type": "object"
             }
           ]
         }
