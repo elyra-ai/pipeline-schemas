@@ -5,7 +5,7 @@
   "description": "Watson Data Platform Property Definition Schema for the Common Properties editor",
   "type": "object",
   "properties": {
-    "currentParameters": {
+    "current_parameters": {
       "description": "Current parameter set upon input. Keys are parameter names, values are their values.",
       "type": "object",
       "properties": {},
@@ -13,25 +13,15 @@
       "additionalProperties": true
     },
     "parameters": {
-      "description": "Base parameter definition",
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "$ref": "#/definitions/base_param_def"
-      },
-      "uniqueItems": true
+      "$ref": "http://www.ibm.com/ibm/wml/operator/v1.0/operator-schema.json#parameters"
     },
     "complex_types": {
-      "description": "List of complex types",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/complex_type_definition"
-      }
+      "$ref": "http://www.ibm.com/ibm/wml/operator/v1.0/operator-schema.json#complex_types"
     },
-    "uihints": {
+    "ui_hints": {
       "$ref": "http://www.ibm.com/ibm/wml/ui-hints/v1.0/ui-hints-schema.json#"
     },
-    "datasetMetadata": {
+    "dataset_metadata": {
       "$ref": "http://www.ibm.com/ibm/wml/dataset-metadata/v1.0/dataset-metadata-schema.json#"
     },
     "resources": {
@@ -43,116 +33,7 @@
     }
   },
   "required": [
-    "currentParameters",
-    "param_defs"
-  ],
-  "definitions": {
-    "base_param_def": {
-      "description": "Base parameter definition",
-      "type": "object",
-      "oneOf": [
-        {
-          "properties": {
-            "name": {
-              "description": "Parameter name as consumed by the backend",
-              "type": "string"
-            },
-            "type": {
-              "description": "Parameter type as consumed by the backend",
-              "type": "string"
-            },
-            "role": {
-              "description": "Parameter role, which is an optional specialization of the type",
-              "enum": [
-                "column",
-                "new_column",
-                "expression"
-              ]
-            },
-            "default": {
-              "$ref": "#/definitions/default_def"
-            }
-          }
-        },
-        {
-          "properties": {
-            "name": {
-              "description": "Parameter name as consumed by the backend",
-              "type": "string"
-            },
-            "enum": {
-              "description": "A restricted list of string values",
-              "type": "array",
-              "minItems": 1,
-              "items": {
-                "type": "string"
-              },
-              "uniqueItems": true
-            },
-            "default": {
-              "$ref": "#/definitions/default_def"
-            }
-          }
-        }
-      ],
-      "required": [
-        "name",
-        "type"
-      ]
-    }
-  },
-  "complex_type_definition": {
-    "description": "Structure for complex parameters",
-    "type": "object",
-    "properties": {
-      "name": {
-        "description": "Name of complex type, can be referenced in other places.",
-        "type": "string"
-      },
-      "key_definition": {
-        "$ref": "#/definitions/base_param_def"
-      },
-      "parameters": {
-        "description": "List of parameters",
-        "type": "array",
-        "items": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/base_param_def"
-            },
-            {
-              "$ref": "#/definitions/complex_type_definition"
-            }
-          ]
-        }
-      }
-    },
-    "required": [
-      "name",
-      "parameters"
-    ]
-  },
-  "default_def": {
-    "description": "Default value",
-    "oneOf": [
-      {
-        "type": "string"
-      },
-      {
-        "type": "integer"
-      },
-      {
-        "type": "double"
-      },
-      {
-        "type": "date"
-      },
-      {
-        "type": "time"
-      },
-      {
-        "type": "timestamp"
-      }
-    ]
-  }
+    "current_parameters",
+    "parameters"
+  ]
 }
