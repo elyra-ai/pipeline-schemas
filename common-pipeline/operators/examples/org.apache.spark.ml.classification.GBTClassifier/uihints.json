@@ -9,7 +9,7 @@
   },
   "parameter_info": [
     {
-      "name": "targetField",
+      "parameter_ref": "targetField",
       "label": {
         "default": "Target column"
       },
@@ -18,7 +18,7 @@
       }
     },
     {
-      "name": "inputFieldList",
+      "parameter_ref": "inputFieldList",
       "label": {
         "default": "Input columns"
       },
@@ -27,7 +27,7 @@
       }
     },
     {
-      "name": "checkpointInterval",
+      "parameter_ref": "checkpointInterval",
       "label": {
         "default": "Checkpoint Interval"
       },
@@ -36,7 +36,7 @@
       }
     },
     {
-      "name": "impurity",
+      "parameter_ref": "impurity",
       "label": {
         "default": "Impurity"
       },
@@ -45,7 +45,7 @@
       }
     },
     {
-      "name": "lossType",
+      "parameter_ref": "lossType",
       "label": {
         "default": "Loss Type"
       },
@@ -54,7 +54,7 @@
       }
     },
     {
-      "name": "maxBins",
+      "parameter_ref": "maxBins",
       "label": {
         "default": "Maximum number of bins"
       },
@@ -63,7 +63,7 @@
       }
     },
     {
-      "name": "maxDepth",
+      "parameter_ref": "maxDepth",
       "label": {
         "default": "Maximum depth of the tree"
       },
@@ -72,7 +72,7 @@
       }
     },
     {
-      "name": "maxIter",
+      "parameter_ref": "maxIter",
       "label": {
         "default": "Maximum iterations for convergence"
       },
@@ -81,7 +81,7 @@
       }
     },
     {
-      "name": "minInfoGain",
+      "parameter_ref": "minInfoGain",
       "label": {
         "default": "Minimum information gain"
       },
@@ -90,7 +90,7 @@
       }
     },
     {
-      "name": "minInstancesPerNode",
+      "parameter_ref": "minInstancesPerNode",
       "label": {
         "default": "Minimum instances per node"
       },
@@ -99,7 +99,7 @@
       }
     },
     {
-      "name": "seed",
+      "parameter_ref": "seed",
       "label": {
         "default": "Seed"
       },
@@ -118,7 +118,7 @@
       }
     },
     {
-      "name": "stepSize",
+      "parameter_ref": "stepSize",
       "label": {
         "default": "Step size"
       },
@@ -127,7 +127,7 @@
       }
     },
     {
-      "name": "subsamplingRate",
+      "parameter_ref": "subsamplingRate",
       "label": {
         "default": "Subsampling Rate"
       },
@@ -138,11 +138,11 @@
   ],
   "group_info": [
     {
-      "name": "fields_settings",
+      "id": "fields_settings",
       "type": "panels",
       "group_info": [
         {
-          "name": "fields",
+          "id": "fields",
           "type": "fieldSelection",
           "label": {
             "default": "Fields"
@@ -155,7 +155,7 @@
       ]
     },
     {
-      "name": "advancedParams",
+      "id": "advancedParams",
       "label": {
         "default": "Advanced Parameters"
       },

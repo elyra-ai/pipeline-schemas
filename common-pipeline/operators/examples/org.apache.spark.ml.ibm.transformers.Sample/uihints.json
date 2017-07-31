@@ -9,7 +9,7 @@
   },
   "parameter_info": [
     {
-      "name": "withReplacement",
+      "parameter_ref": "withReplacement",
       "label": {
         "default": "Sample"
       },
@@ -20,7 +20,7 @@
       "resource_key": "withReplace"
     },
     {
-      "name": "samplingRatio",
+      "parameter_ref": "samplingRatio",
       "label": {
         "default": "Sample Ratio"
       },
@@ -29,7 +29,7 @@
       }
     },
     {
-      "name": "samplingSize",
+      "parameter_ref": "samplingSize",
       "label": {
         "default": "Maximum sample size"
       },
@@ -38,7 +38,7 @@
       }
     },
     {
-      "name": "samplingSeed",
+      "parameter_ref": "samplingSeed",
       "label": {
         "default": "Seed"
       },
@@ -59,14 +59,14 @@
   ],
   "group_info": [
     {
-      "name": "settings",
+      "id": "settings",
       "label": {
         "default": "Settings"
       },
       "type": "panels",
       "group_info": [
         {
-          "name": "basic-settings",
+          "id": "basic-settings",
           "type": "controls",
           "parameter_refs": [
             "withReplacement",
@@ -74,7 +74,7 @@
           ]
         },
         {
-          "name": "sample-size",
+          "id": "sample-size",
           "type": "checkboxPanel",
           "label": {
             "default": "Use maximum sample size"
@@ -84,7 +84,7 @@
           ]
         },
         {
-          "name": "sample-seed",
+          "id": "sample-seed",
           "type": "checkboxPanel",
           "label": {
             "default": "Repeatable partition assignment"

@@ -64,6 +64,10 @@
       "description": "Grouping for parameters and groups",
       "type": "object",
       "properties": {
+        "id": {
+          "description": "Identifier for this group",
+          "type": "string"
+        },
         "type": {
           "description": "The group type to be displayed",
           "type": "string",
@@ -103,7 +107,7 @@
           "type": "array"
         }
       },
-      "required": []
+      "required": ["id"]
     },
     "parameter_definition": {
       "description": "Operator parameters hints",
