@@ -16,7 +16,7 @@ Common schemas related to pipeline definition and execution:
 
 Schema and example files for driving the Common Canvas and Property Editor tooling
 
-  * [Property-defs](https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/tree/master/common-canvas/property-defs): Common Properties parameter editing schema and examples
+  * [Parameter-defs](https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/tree/master/common-canvas/parameter-defs): Common Properties parameter editing schema and examples
   * [Form](https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/tree/master/common-canvas/form): Common Properties low-level form JSON specification
   * [Palette](https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/tree/master/common-canvas/palette): Canvas palette JSON definition
   * [Diagram](https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/tree/master/common-canvas/diagram): Older (e.g. pre-pipeline-flow) internal canvas diagram specification
