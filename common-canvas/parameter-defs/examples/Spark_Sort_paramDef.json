@@ -1,5 +1,5 @@
 {
-  "currentParameters": {
+  "current_parameters": {
     "annotation": "",
     "use_custom_name": true,
     "custom_name": "",
@@ -45,7 +45,7 @@
     "description": {
       "resource_key": "sort.desc"
     },
-    "editorSize": "large",
+    "editor_size": "large",
     "parameter_info": [
       {
         "name": "keys",
@@ -58,10 +58,10 @@
         }
       }
     ],
-    "structure_info": [
+    "complex_type_info": [
       {
         "name": "SortEntry",
-        "moveableRows": true,
+        "moveable_rows": true,
         "key_definition": {
           "name": "field",
           "width": 28,
@@ -78,7 +78,7 @@
               "resource_key": "SortEntry.sort_order.label"
             },
             "control": "toggletext",
-            "valueIcons": [
+            "value_icons": [
               "/images/up-triangle.svg",
               "/images/down-triangle.svg"
             ]
@@ -93,13 +93,13 @@
           "default": "Settings"
         },
         "type": "columnSelection",
-        "parameters": [
+        "parameter_refs": [
           "keys"
         ]
       }
     ]
   },
-  "datasetMetadata": {
+  "dataset_metadata": {
     "fields": [
       {
         "name": "Age",

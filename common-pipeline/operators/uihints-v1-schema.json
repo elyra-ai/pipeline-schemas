@@ -103,9 +103,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "parameters"
-      ]
+      "required": []
     },
     "parameter_definition": {
       "description": "Operator parameters hints",

@@ -1,5 +1,5 @@
 {
-  "currentParameters": {
+  "current_parameters": {
     "withReplacement": false,
     "samplingRatio": 1,
     "samplingSize": -1,
@@ -104,7 +104,7 @@
           {
             "name": "basic-settings",
             "type": "controls",
-            "parameters": [
+            "parameter_refs": [
               "withReplacement",
               "samplingRatio"
             ]
@@ -115,7 +115,7 @@
             "label": {
               "default": "Use maximum sample size"
             },
-            "parameters": [
+            "parameter_refs": [
               "samplingSize"
             ]
           },
@@ -125,7 +125,7 @@
             "label": {
               "default": "Repeatable partition assignment"
             },
-            "parameters": [
+            "parameter_refs": [
               "samplingSeed"
             ]
           }
@@ -137,14 +137,14 @@
         "validation": {
           "fail_message": {
             "type": "error",
-            "focusParam": "samplingSize",
+            "focus_parameter_ref": "samplingSize",
             "message": {
               "resource_key": "sampling-size_not_empty"
             }
           },
           "evaluate": {
             "condition": {
-              "param": "samplingSize",
+              "parameter_ref": "samplingSize",
               "op": "isNotEmpty"
             }
           }
@@ -154,14 +154,14 @@
         "validation": {
           "fail_message": {
             "type": "error",
-            "focusParam": "samplingRatio",
+            "focus_parameter_ref": "samplingRatio",
             "message": {
               "resource_key": "sampling-ratio_not_empty"
             }
           },
           "evaluate": {
             "condition": {
-              "param": "samplingRatio",
+              "parameter_ref": "samplingRatio",
               "op": "isNotEmpty"
             }
           }
@@ -169,7 +169,7 @@
       }
     ]
   },
-  "datasetMetadata": {
+  "dataset_metadata": {
     "fields": [
       {
         "name": "Age",

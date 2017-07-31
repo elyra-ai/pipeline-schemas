@@ -147,7 +147,7 @@
           "label": {
             "default": "Fields"
           },
-          "parameters": [
+          "parameter_refs": [
             "targetField",
             "inputFieldList"
           ]
@@ -159,7 +159,7 @@
       "label": {
         "default": "Advanced Parameters"
       },
-      "parameters": [
+      "parameter_refs": [
         "checkpointInterval",
         "impurity",
         "lossType",
@@ -179,14 +179,14 @@
       "validation": {
         "fail_message": {
           "type": "error",
-          "focusParam": "inputFieldList",
+          "focus_parameter_ref": "inputFieldList",
           "message": {
             "resource_key": "input_field_list_not_empty"
           }
         },
         "evaluate": {
           "condition": {
-            "param": "inputFieldList",
+            "parameter_ref": "inputFieldList",
             "op": "isNotEmpty"
           }
         }
@@ -196,14 +196,14 @@
       "validation": {
         "fail_message": {
           "type": "error",
-          "focusParam": "targetField",
+          "focus_parameter_ref": "targetField",
           "message": {
             "resource_key": "target_field_not_empty"
           }
         },
         "evaluate": {
           "condition": {
-            "param": "targetField",
+            "parameter_ref": "targetField",
             "op": "isNotEmpty"
           }
         }
@@ -213,7 +213,7 @@
       "validation": {
         "fail_message": {
           "type": "error",
-          "focusParam": "checkpointInterval",
+          "focus_parameter_ref": "checkpointInterval",
           "message": {
             "resource_key": "checkpoint_interval_not_valid"
           }
@@ -222,21 +222,21 @@
           "or": [
             {
               "condition": {
-                "param": "checkpointInterval",
+                "parameter_ref": "checkpointInterval",
                 "op": "greaterThan",
                 "value": 1
               }
             },
             {
               "condition": {
-                "param": "checkpointInterval",
+                "parameter_ref": "checkpointInterval",
                 "op": "equals",
                 "value": 1
               }
             },
             {
               "condition": {
-                "param": "checkpointInterval",
+                "parameter_ref": "checkpointInterval",
                 "op": "equals",
                 "value": -1
               }
@@ -249,7 +249,7 @@
       "validation": {
         "fail_message": {
           "type": "error",
-          "focusParam": "maxBins",
+          "focus_parameter_ref": "maxBins",
           "message": {
             "resource_key": "max_bins_not_valid"
           }
@@ -258,14 +258,14 @@
           "or": [
             {
               "condition": {
-                "param": "maxBins",
+                "parameter_ref": "maxBins",
                 "op": "greaterThan",
                 "value": 2
               }
             },
             {
               "condition": {
-                "param": "maxBins",
+                "parameter_ref": "maxBins",
                 "op": "equals",
                 "value": 2
               }
@@ -278,7 +278,7 @@
       "validation": {
         "fail_message": {
           "type": "error",
-          "focusParam": "maxDepth",
+          "focus_parameter_ref": "maxDepth",
           "message": {
             "resource_key": "max_depth_not_valid"
           }
@@ -287,14 +287,14 @@
           "or": [
             {
               "condition": {
-                "param": "maxDepth",
+                "parameter_ref": "maxDepth",
                 "op": "greaterThan",
                 "value": 0
               }
             },
             {
               "condition": {
-                "param": "maxDepth",
+                "parameter_ref": "maxDepth",
                 "op": "equals",
                 "value": 0
               }
@@ -307,7 +307,7 @@
       "validation": {
         "fail_message": {
           "type": "error",
-          "focusParam": "maxIter",
+          "focus_parameter_ref": "maxIter",
           "message": {
             "resource_key": "max_iter_not_valid"
           }
@@ -316,14 +316,14 @@
           "or": [
             {
               "condition": {
-                "param": "maxIter",
+                "parameter_ref": "maxIter",
                 "op": "greaterThan",
                 "value": 0
               }
             },
             {
               "condition": {
-                "param": "maxIter",
+                "parameter_ref": "maxIter",
                 "op": "equals",
                 "value": 0
               }
@@ -336,7 +336,7 @@
       "validation": {
         "fail_message": {
           "type": "error",
-          "focusParam": "minInstancesPerNode",
+          "focus_parameter_ref": "minInstancesPerNode",
           "message": {
             "resource_key": "min_instances_per_node_not_valid"
           }
@@ -345,14 +345,14 @@
           "or": [
             {
               "condition": {
-                "param": "minInstancesPerNode",
+                "parameter_ref": "minInstancesPerNode",
                 "op": "greaterThan",
                 "value": 1
               }
             },
             {
               "condition": {
-                "param": "minInstancesPerNode",
+                "parameter_ref": "minInstancesPerNode",
                 "op": "equals",
                 "value": 1
               }
@@ -365,7 +365,7 @@
       "validation": {
         "fail_message": {
           "type": "error",
-          "focusParam": "subsamplingRate",
+          "focus_parameter_ref": "subsamplingRate",
           "message": {
             "resource_key": "subsampling_rate_not_valid"
           }
@@ -374,7 +374,7 @@
           "and": [
             {
               "condition": {
-                "param": "subsamplingRate",
+                "parameter_ref": "subsamplingRate",
                 "op": "greaterThan",
                 "value": 0
               }
@@ -383,14 +383,14 @@
               "or": [
                 {
                   "condition": {
-                    "param": "subsamplingRate",
+                    "parameter_ref": "subsamplingRate",
                     "op": "lessThan",
                     "value": 1
                   }
                 },
                 {
                   "condition": {
-                    "param": "subsamplingRate",
+                    "parameter_ref": "subsamplingRate",
                     "op": "equals",
                     "value": 1
                   }
