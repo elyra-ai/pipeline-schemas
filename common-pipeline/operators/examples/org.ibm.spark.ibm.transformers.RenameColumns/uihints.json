@@ -5,14 +5,14 @@
     {
       "name": "RenameFieldEntry",
       "key_definition": {
-        "name": "field",
+        "parameter_ref": "field",
         "resource_key": "RenameFieldEntry.field",
         "columns": 26,
         "sortable": true
       },
       "parameters": [
         {
-          "name": "new_name",
+          "parameter_ref": "new_name",
           "resource_key": "RenameFieldEntry.new_name",
           "columns": 26,
           "edit_style": "inline",
@@ -23,7 +23,7 @@
   ],
   "parameter_info": [
     {
-      "name": "renamed_fields",
+      "parameter_ref": "renamed_fields",
       "label": {
         "default": "Rename columns"
       },
@@ -34,7 +34,7 @@
   ],
   "group_info": [
     {
-      "name": "basic-settings",
+      "id": "basic-settings",
       "label": {
         "default": "Settings"
       },

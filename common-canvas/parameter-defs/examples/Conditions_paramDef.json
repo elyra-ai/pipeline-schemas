@@ -293,7 +293,7 @@
     }
   ],
   "uihints": {
-    "name": "Conditions.test",
+    "id": "Conditions.test",
     "icon": "images/modelbuildspark.svg",
     "editor_size": "medium",
     "label": {
@@ -304,7 +304,7 @@
     },
     "parameter_info": [
       {
-        "name": "columnSelectInputFieldList",
+        "parameter_ref": "columnSelectInputFieldList",
         "label": {
           "default": "Column Select Input"
         },
@@ -313,7 +313,7 @@
         }
       },
       {
-        "name": "oneofcolumnsList",
+        "parameter_ref": "oneofcolumnsList",
         "label": {
           "default": "One of Columns list"
         },
@@ -322,7 +322,7 @@
         }
       },
       {
-        "name": "someofcolumnsList",
+        "parameter_ref": "someofcolumnsList",
         "label": {
           "default": "Some of Columns list"
         },
@@ -331,7 +331,7 @@
         }
       },
       {
-        "name": "numberfieldCheckpointInterval",
+        "parameter_ref": "numberfieldCheckpointInterval",
         "label": {
           "default": "Checkpoint Interval"
         },
@@ -340,7 +340,7 @@
         }
       },
       {
-        "name": "numberfieldImpurity",
+        "parameter_ref": "numberfieldImpurity",
         "label": {
           "default": "Impurity"
         },
@@ -350,7 +350,7 @@
         "orientation": "vertical"
       },
       {
-        "name": "numberfieldMaxBins",
+        "parameter_ref": "numberfieldMaxBins",
         "label": {
           "default": "Maximum number of bins"
         },
@@ -359,7 +359,7 @@
         }
       },
       {
-        "name": "numberfieldMaxDepth",
+        "parameter_ref": "numberfieldMaxDepth",
         "label": {
           "default": "Maximum depth of the tree"
         },
@@ -368,7 +368,7 @@
         }
       },
       {
-        "name": "numberfieldMinInfoGain",
+        "parameter_ref": "numberfieldMinInfoGain",
         "label": {
           "default": "Minimum information gain"
         },
@@ -377,7 +377,7 @@
         }
       },
       {
-        "name": "numberfieldMinInstancesPerNode",
+        "parameter_ref": "numberfieldMinInstancesPerNode",
         "label": {
           "default": "Minimum instances per node"
         },
@@ -386,7 +386,7 @@
         }
       },
       {
-        "name": "numberfieldSeed",
+        "parameter_ref": "numberfieldSeed",
         "label": {
           "default": "Seed"
         },
@@ -395,7 +395,7 @@
         }
       },
       {
-        "name": "radiosetColor",
+        "parameter_ref": "radiosetColor",
         "label": {
           "default": "Color"
         },
@@ -405,7 +405,7 @@
         "orientation": "horizontal"
       },
       {
-        "name": "apples",
+        "parameter_ref": "apples",
         "label": {
           "default": "Apples"
         },
@@ -414,7 +414,7 @@
         }
       },
       {
-        "name": "lemons",
+        "parameter_ref": "lemons",
         "label": {
           "default": "Lemons"
         },
@@ -423,7 +423,7 @@
         }
       },
       {
-        "name": "berries",
+        "parameter_ref": "berries",
         "label": {
           "default": "Berries"
         },
@@ -432,7 +432,7 @@
         }
       },
       {
-        "name": "checkboxSingle",
+        "parameter_ref": "checkboxSingle",
         "label": {
           "default": "Single Checkbox"
         },
@@ -441,7 +441,7 @@
         }
       },
       {
-        "name": "checkboxEnable",
+        "parameter_ref": "checkboxEnable",
         "label": {
           "default": "Enable"
         },
@@ -450,7 +450,7 @@
         }
       },
       {
-        "name": "checkboxType",
+        "parameter_ref": "checkboxType",
         "label": {
           "default": "Data Types"
         },
@@ -459,7 +459,7 @@
         }
       },
       {
-        "name": "someofselectNumbers",
+        "parameter_ref": "someofselectNumbers",
         "label": {
           "default": "Number"
         },
@@ -468,7 +468,7 @@
         }
       },
       {
-        "name": "oneofselectAnimals",
+        "parameter_ref": "oneofselectAnimals",
         "label": {
           "default": "Animals"
         },
@@ -477,7 +477,7 @@
         }
       },
       {
-        "name": "oneofselectPets",
+        "parameter_ref": "oneofselectPets",
         "label": {
           "default": "Pets"
         },
@@ -486,7 +486,7 @@
         }
       },
       {
-        "name": "passwordField",
+        "parameter_ref": "passwordField",
         "label": {
           "default": "Password"
         },
@@ -495,7 +495,7 @@
         }
       },
       {
-        "name": "textfieldName",
+        "parameter_ref": "textfieldName",
         "label": {
           "default": "Name"
         },
@@ -504,7 +504,7 @@
         }
       },
       {
-        "name": "textareaDescription",
+        "parameter_ref": "textareaDescription",
         "label": {
           "default": "Description"
         },
@@ -513,7 +513,7 @@
         }
       },
       {
-        "name": "expressionBox",
+        "parameter_ref": "expressionBox",
         "label": {
           "default": "Expression"
         },
@@ -522,7 +522,7 @@
         }
       },
       {
-        "name": "columnSelectSharedWithInput",
+        "parameter_ref": "columnSelectSharedWithInput",
         "label": {
           "default": "Column Select Shared with Sort",
           "resource_key": "columnSelectSharedWithInput.label"
@@ -532,19 +532,19 @@
         }
       },
       {
-        "name": "structuretableSortOrder",
+        "parameter_ref": "structuretableSortOrder",
         "label": {
           "default": "Sort by"
         }
       },
       {
-        "name": "structuretableRenameFields",
+        "parameter_ref": "structuretableRenameFields",
         "label": {
           "default": "Rename Field"
         }
       },
       {
-        "name": "structurelisteditorTableInput",
+        "parameter_ref": "structurelisteditorTableInput",
         "label": {
           "default": "Table Input"
         }
@@ -552,10 +552,10 @@
     ],
     "complex_type_info": [
       {
-        "name": "structuretableSortOrder",
+        "complex_type_ref": "structuretableSortOrder",
         "moveable_rows": true,
         "key_definition": {
-          "name": "field",
+          "parameter_ref": "field",
           "width": 28,
           "label": {
             "resource_key": "structuretableSortOrder.field.label"
@@ -563,7 +563,7 @@
         },
         "parameters": [
           {
-            "name": "structuretable_sort_order",
+            "parameter_ref": "structuretable_sort_order",
             "width": 16,
             "resource_key": "structuretableSortOrder.sort_order",
             "label": {
@@ -578,9 +578,9 @@
         ]
       },
       {
-        "name": "structuretableRenameFields",
+        "complex_type_ref": "structuretableRenameFields",
         "key_definition": {
-          "name": "field",
+          "parameter_ref": "field",
           "label": {
             "resource_key": "structuretableRenameFields.field.label"
           },
@@ -588,7 +588,7 @@
         },
         "parameters": [
           {
-            "name": "new_name",
+            "parameter_ref": "new_name",
             "label": {
               "resource_key": "structuretableRenameFields.new_name.label"
             },
@@ -598,9 +598,9 @@
         ]
       },
       {
-        "name": "structurelisteditorTableInput",
+        "complex_type_ref": "structurelisteditorTableInput",
         "key_definition": {
-          "name": "field",
+          "parameter_ref": "field",
           "width": 16,
           "label": {
             "resource_key": "structurelisteditorTableInput.field.label"
@@ -608,7 +608,7 @@
         },
         "parameters": [
           {
-            "name": "structurelisteditorTableInput",
+            "parameter_ref": "structurelisteditorTableInput",
             "width": 200,
             "resource_key": "structurelisteditorTableInput.sort_order",
             "label": {
@@ -621,7 +621,7 @@
     ],
     "group_info": [
       {
-        "name": "Numberfield",
+        "id": "Numberfield",
         "label": {
           "default": "Numbers"
         },
@@ -636,11 +636,11 @@
         ]
       },
       {
-        "name": "Columns",
+        "id": "Columns",
         "type": "panels",
         "group_info": [
           {
-            "name": "columnAllocator",
+            "id": "columnAllocator",
             "type": "columnSelection",
             "label": {
               "default": "Columns"
@@ -651,7 +651,7 @@
             ]
           },
           {
-            "name": "List",
+            "id": "List",
             "label": {
               "default": "List"
             },
@@ -663,7 +663,7 @@
         ]
       },
       {
-        "name": "Selects",
+        "id": "Selects",
         "label": {
           "default": "Selects"
         },
@@ -678,24 +678,24 @@
         ],
         "group_info": [
           {
-            "name": "mode-settings",
+            "id": "mode-settings",
             "type": "panelSelector",
             "depends_on_ref": "radiosetColor",
             "group_info": [
               {
-                "name": "red",
+                "id": "red",
                 "parameter_refs": [
                   "apples"
                 ]
               },
               {
-                "name": "yellow",
+                "id": "yellow",
                 "parameter_refs": [
                   "lemons"
                 ]
               },
               {
-                "name": "blue",
+                "id": "blue",
                 "parameter_refs": [
                   "berries"
                 ]
@@ -705,7 +705,7 @@
         ]
       },
       {
-        "name": "Textfields",
+        "id": "Textfields",
         "label": {
           "default": "Textfields"
         },
@@ -717,11 +717,11 @@
         ]
       },
       {
-        "name": "Tables",
+        "id": "Tables",
         "type": "panels",
         "group_info": [
           {
-            "name": "structuretableSortOrder",
+            "id": "structuretableSortOrder",
             "type": "columnSelection",
             "label": {
               "default": "Columns"
@@ -731,7 +731,7 @@
             ]
           },
           {
-            "name": "structuretableSortOrder",
+            "id": "structuretableSortOrder",
             "label": {
               "default": "Tables"
             },
@@ -742,7 +742,7 @@
             ]
           },
           {
-            "name": "List",
+            "id": "List",
             "label": {
               "default": "List"
             },
