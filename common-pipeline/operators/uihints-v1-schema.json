@@ -48,12 +48,6 @@
         "$ref": "#/definitions/complex_type_definition"
       },
       "type": "array"
-    },
-    "conditions": {
-      "type": "array",
-      "items": {
-        "$ref": "http://www.ibm.com/ibm/wml/conditions/v1.0/conditions-schema.json#"
-      }
     }
   },
   "required": [
