@@ -4,18 +4,32 @@
   "title": "Watson Data Platform Validation Schema",
   "description": "User Interface Condition schema for the Watson Data Platform",
   "type": "object",
-  "oneOf": [
-    {
-      "$ref": "#/definitions/validation_definition"
-    },
-    {
-      "$ref": "#/definitions/enabled_definition"
-    },
-    {
-      "$ref": "#/definitions/visible_definition"
+  "properties": {
+    "conditions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/conditions_definition"
+      }
     }
+  },
+  "required": [
+    "conditions"
   ],
   "definitions": {
+    "conditions_definition": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/validation_definition"
+        },
+        {
+          "$ref": "#/definitions/enabled_definition"
+        },
+        {
+          "$ref": "#/definitions/visible_definition"
+        }
+      ]
+    },
     "validation_definition": {
       "properties": {
         "validation": {
@@ -201,7 +215,17 @@
             },
             "value": {
               "description": "Optional value against which to compare the primary parameter value",
-              "type": "string"
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
             }
           },
           "required": [

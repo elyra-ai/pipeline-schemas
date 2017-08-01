@@ -21,6 +21,9 @@
     "uihints": {
       "$ref": "http://www.ibm.com/ibm/wml/uihints/v1.0/uihints-schema.json#"
     },
+    "conditions": {
+      "$ref": "http://www.ibm.com/ibm/wml/conditions/v1.0/conditions-schema.json#conditions"
+    },
     "dataset_metadata": {
       "$ref": "http://www.ibm.com/ibm/wml/dataset-metadata/v1.0/dataset-metadata-schema.json#"
     },

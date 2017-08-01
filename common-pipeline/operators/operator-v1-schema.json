@@ -176,22 +176,24 @@
       "description": "Operator ports support multiple differentiated connections for either inputs or outputs.",
       "type": "object",
       "properties": {
-        "name": {
-          "description": "Port identifier",
-          "type": "string"
-        },
-        "optional": {
-          "description": "True if this port is optional and is not required for the operator to function. The default is false.",
-          "type": "boolean"
-        },
-        "multiple": {
-          "description": "True if this port supports multiple connections. The default is false for inputs and true for outputs.",
-          "type": "boolean"
+        "cardinality": {
+          "description": "Property to capture how many datasets are allowed for this port, e.g., min: 1, max:1 implies you must supply 1 and only 1; min:0, max:1 implies it is optional and a max of one, min:0, max:-1 means it is optional and you can may have any number of datasets. The default value is 1:1 for inputs and 1:-1 for outputs.",
+          "type": "object",
+          "properties": {
+            "min": {
+              "description": "Minimum data sets that are required for this port",
+              "type": "integer",
+              "default": 1
+            },
+            "max": {
+              "description": "Maximum data sets that are allowed on this port. A negative value indicates unlimited. The default value is 1 for inputs and -1 for outputs.",
+              "type": "integer"
+            }
+          },
+          "required": [],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "name"
-      ]
+      }
     }
   }
 }
