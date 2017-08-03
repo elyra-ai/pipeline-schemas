@@ -35,6 +35,9 @@
 				"$ref": "#/definitions/button_definition"
 			}
 		},
+		"conditions": {
+			"$ref": "http://www.ibm.com/ibm/wml/conditions/v1.0/conditions-schema.json#conditions"
+		},
 		"data": {
 			"description": "Additional data such as initial settings and data schema.",
 			"type": "object",
@@ -395,15 +398,15 @@
 					"type": "array",
 					"items": {
 						"type": "string"
-					},
-					"sortable": {
-						"description": "Determines if this column values can be sorted into ascending/descending order in a table",
-						"type": "boolean"
-					},
-					"filterable": {
-						"description": "Determines if this column values can be filtered so that only rows that match the filter in column values are shown in the table",
-						"type": "boolean"
 					}
+				},
+				"sortable": {
+					"description": "Determines if this column values can be sorted into ascending/descending order in a table",
+					"type": "boolean"
+				},
+				"filterable": {
+					"description": "Determines if this column values can be filtered so that only rows that match the filter in column values are shown in the table",
+					"type": "boolean"
 				}
 			},
 			"required": [
@@ -422,6 +425,33 @@
 				"text": {
 					"description": "The label text.",
 					"type": "string"
+				},
+				"number_generator": {
+					"description": "Adds a number generation link beside the label of this control",
+					"type": "object",
+					"properties": {
+						"label": {
+							"description": "Link text",
+							"type": "string"
+						},
+						"range": {
+							"description": "Number generator range",
+							"type": "object",
+							"properties": {
+								"min": {
+									"description": "Maximum value for generated numbers",
+									"type": "number"
+								}
+							},
+							"required": [
+								"min",
+								"max"
+							]
+						}
+					},
+					"required": [
+						"label"
+					]
 				}
 			},
 			"required": [
@@ -514,14 +544,10 @@
 				},
 				"datasetMetadata": {
 					"$ref": "http://www.ibm.com/ibm/wml/dataset-metadata/v1.0/dataset-metadata-schema.json#"
-				},
-				"conditions": {
-					"$ref": "http://www.ibm.com/ibm/wml/uihints/v1.0/uihints-schema.json#conditions"
 				}
 			},
 			"required": [
-				"currentParameters",
-				"datasetMetadata"
+				"currentParameters"
 			]
 		}
 	}
