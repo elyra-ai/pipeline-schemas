@@ -80,7 +80,7 @@
       "description": "Operator parameters definition",
       "type": "object",
       "properties": {
-        "name": {
+        "id": {
           "description": "A unique name for the parameter.",
           "type": "string"
         },
@@ -129,13 +129,13 @@
       "oneOf": [
         {
           "required": [
-            "name",
+            "id",
             "type"
           ]
         },
         {
           "required": [
-            "name",
+            "id",
             "enum"
           ]
         }
@@ -145,8 +145,8 @@
       "description": "Structure for complex parameters",
       "type": "object",
       "properties": {
-        "name": {
-          "description": "Name of complex type, can be referenced in other places.",
+        "id": {
+          "description": "Identifier of complex type, can be referenced in other places.",
           "type": "string"
         },
         "key_definition": {
@@ -168,7 +168,7 @@
         }
       },
       "required": [
-        "name",
+        "id",
         "parameters"
       ]
     },
