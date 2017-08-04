@@ -40,11 +40,11 @@
         },
         "label": {
           "description": "Category label",
-          "$ref": "#/definitions/resource_definition"
+          "$ref": "#/definitions/resource_def"
         },
         "description": {
           "description": "Category description",
-          "$ref": "#/definitions/resource_definition"
+          "$ref": "#/definitions/resource_def"
         },
         "operator_refs": {
           "description": "Array of operator identifiers",
@@ -59,7 +59,7 @@
         "operator_refs"
       ]
     },
-    "resource_definition": {
+    "resource_def": {
       "description": "Localizable string resource",
       "type": "object",
       "properties": {
