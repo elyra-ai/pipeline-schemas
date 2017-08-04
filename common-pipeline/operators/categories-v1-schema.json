@@ -40,11 +40,11 @@
         },
         "label": {
           "description": "Category label",
-          "type": "string"
+          "$ref": "#/definitions/resource_definition"
         },
         "description": {
           "description": "Category description",
-          "type": "string"
+          "$ref": "#/definitions/resource_definition"
         },
         "operator_refs": {
           "description": "Array of operator identifiers",
@@ -57,6 +57,30 @@
       "required": [
         "id",
         "operator_refs"
+      ]
+    },
+    "resource_definition": {
+      "description": "Localizable string resource",
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "resource_key": {
+          "type": "string"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "default"
+          ]
+        },
+        {
+          "required": [
+            "resource_key"
+          ]
+        }
       ]
     }
   }
