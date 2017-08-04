@@ -1,11 +1,6 @@
 {
   "id": "org.ibm.spark.ibm.transformers.RenameColumns",
   "operator_type": "transformer",
-  "categories": [
-    "canvas-transformation",
-    "transformer",
-    "feature"
-  ],
   "context": "dataset",
   "complex_types": [
     {

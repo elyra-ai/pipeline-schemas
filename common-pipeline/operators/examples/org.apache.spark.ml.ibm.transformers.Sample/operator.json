@@ -1,11 +1,6 @@
 {
   "id": "org.apache.spark.ml.ibm.transformers.Sample",
   "operator_type": "transformer",
-  "categories": [
-    "canvas-transformation",
-    "transformer",
-    "feature"
-  ],
   "context": "dataset",
   "parameters": [
     {
