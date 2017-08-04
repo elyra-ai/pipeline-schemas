@@ -1,0 +1,46 @@
+{
+  "json_schema": "http://www.ibm.com/ibm/wml/categories/v1.0/categories-v1-schema.json#",
+  "version": "1.0",
+  "runtime": "scala-spark-2.0",
+  "categories": [
+    {
+      "id": "transformers-set",
+      "label": {
+        "default": "Transformers"
+      },
+      "description": {
+        "default": "This operator set contains only data transformers"
+      },
+      "operator_refs": [
+        "org.ibm.spark.ibm.transformers.RenameColumns",
+        "org.apache.spark.ml.ibm.transformers.Sample"
+      ]
+    },
+    {
+      "id": "estimators-set",
+      "label": {
+        "default": "Estimators"
+      },
+      "description": {
+        "default": "This operator set contains only data estimators"
+      },
+      "operator_refs": [
+        "org.apache.spark.ml.classification.GBTClassifier"
+      ]
+    },
+    {
+      "id": "wml-set",
+      "label": {
+        "default": "WML Operators"
+      },
+      "description": {
+        "default": "This set contains the operators used by WML"
+      },
+      "operator_refs": [
+        "org.ibm.spark.ibm.transformers.RenameColumns",
+        "org.apache.spark.ml.ibm.transformers.Sample",
+        "org.apache.spark.ml.classification.GBTClassifier"
+      ]
+    }
+  ]
+}
