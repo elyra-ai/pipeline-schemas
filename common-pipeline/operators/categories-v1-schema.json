@@ -21,7 +21,7 @@
       "description": "Categories used to organize and group the operators in the current runtime",
       "type": "array",
       "items": {
-        "type": "string"
+        "$ref": "#/definitions/category_def"
       }
     }
   },
@@ -46,7 +46,11 @@
           "description": "Category description",
           "type": "string"
         },
+<<<<<<< HEAD
         "operators": {
+=======
+        "operator_refs": {
+>>>>>>> c69a5e3... New categories updates based upon feedback
           "description": "Array of operator identifiers",
           "type": "array",
           "items": {
@@ -56,7 +60,11 @@
       },
       "required": [
         "id",
+<<<<<<< HEAD
         "operators"
+=======
+        "operator_refs"
+>>>>>>> c69a5e3... New categories updates based upon feedback
       ]
     }
   }

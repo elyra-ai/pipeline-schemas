@@ -7,7 +7,7 @@
       "id": "transformers-set",
       "label": "Transformers",
       "description": "This operator set contains only data transformers",
-      "operators": [
+      "operator_refs": [
         "org.ibm.spark.ibm.transformers.RenameColumns",
         "org.apache.spark.ml.ibm.transformers.Sample"
       ]
@@ -16,7 +16,7 @@
       "id": "estimators-set",
       "label": "Estimators",
       "description": "This operator set contains only data estimators",
-      "operators": [
+      "operator_refs": [
         "org.apache.spark.ml.classification.GBTClassifier"
       ]
     },
@@ -24,7 +24,7 @@
       "id": "wml-set",
       "label": "WML Operators",
       "description": "This set contains the operators used by WML",
-      "operators": [
+      "operator_refs": [
         "org.ibm.spark.ibm.transformers.RenameColumns",
         "org.apache.spark.ml.ibm.transformers.Sample",
         "org.apache.spark.ml.classification.GBTClassifier"
