@@ -9,13 +9,6 @@
       "description": "Operator identifier",
       "type": "string"
     },
-    "categories": {
-      "description": "Categories this operator belongs to",
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
     "operator_type": {
       "description": "operator type",
       "enum": [

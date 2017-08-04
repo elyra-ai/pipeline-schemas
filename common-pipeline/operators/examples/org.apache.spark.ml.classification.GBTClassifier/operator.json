@@ -3,11 +3,6 @@
   "label":"Gradient Boosted Tree Classifier",
   "description":"Fit a Gradient Boosted Tree Classifier Model",
   "operator_type":"estimator",
-  "categories":[
-    "canvas-modeling",
-    "estimator",
-    "training"
-  ],
   "scoringTransformer":"org.apache.spark.ml.classification.GBTClassificationModel",
   "context":"dataset",
   "parameters":[
