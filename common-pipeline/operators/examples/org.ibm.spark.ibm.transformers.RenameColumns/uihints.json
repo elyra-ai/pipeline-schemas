@@ -3,7 +3,7 @@
   "icon": "images/transformationspark.svg",
   "complex_type_info": [
     {
-      "name": "RenameFieldEntry",
+      "complex_type_ref": "RenameFieldEntry",
       "key_definition": {
         "parameter_ref": "field",
         "resource_key": "RenameFieldEntry.field",
