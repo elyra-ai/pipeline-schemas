@@ -35,15 +35,6 @@
         "$ref": "#/definitions/port_definition"
       }
     },
-    "context": {
-      "description": "Operator context",
-      "enum": [
-        "column",
-        "multi_column",
-        "dataset",
-        "multi_dataset"
-      ]
-    },
     "scoring_transformer": {
       "description": "Name of corresponding model operator (for estimators only)",
       "type": "string"

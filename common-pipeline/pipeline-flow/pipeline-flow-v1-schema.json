@@ -12,6 +12,10 @@
       "description": "Document version",
       "type": "string"
     },
+    "open_with_tool": {
+      "description": "Preferred authoring application",
+      "type": "string"
+    },
     "id": {
       "description": "Document identifier, GUID recommended",
       "type": "string"
@@ -45,7 +49,7 @@
         "$ref": "http://www.ibm.com/ibm/wdp/source-target-pdr/v1.0/source-target-pdr-v1-schema.json#/definitions/common_pipeline_pdr_def"
       },
       "uniqueItems": true
-    }, 
+    },
     "targets": {
       "description": "Array of target physical data resources",
       "type": "array",
@@ -53,7 +57,7 @@
         "$ref": "http://www.ibm.com/ibm/wdp/source-target-pdr/v1.0/source-target-pdr-v1-schema.json#/definitions/common_pipeline_pdr_def"
       },
       "uniqueItems": true
-    },     
+    },
     "app_data": {
       "$ref": "#/definitions/app_data_def"
     }
