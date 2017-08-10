@@ -101,7 +101,9 @@
           "type": "array"
         }
       },
-      "required": ["id"]
+      "required": [
+        "id"
+      ]
     },
     "parameter_definition": {
       "description": "Operator parameters hints",
@@ -246,6 +248,11 @@
         "complex_type_ref": {
           "type": "string",
           "description": "Name of complex type, can be referenced in other places."
+        },
+        "label": {
+          "description": "External name used in subpanels",
+          "type": "object",
+          "$ref": "#/definitions/resource_definition"
         },
         "key_definition": {
           "$ref": "#/definitions/parameter_definition"
