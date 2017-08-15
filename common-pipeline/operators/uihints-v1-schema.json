@@ -1,16 +1,20 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://www.ibm.com/ibm/wml/uihints/v1.0/uihints-schema.json#",
+  "id": "http://www.ibm.com/ibm/wdp/uihints/v1.0/uihints-v1-schema.json#",
   "description": "WDP UI Hints schema",
   "title": "WDP UI Hints schema",
   "type": "object",
   "properties": {
-    "icon": {
-      "description": "URL to operation icon",
-      "type": "string"
-    },
     "id": {
       "description": "Operator identifier",
+      "type": "string"
+    },
+    "version": {
+      "description": "UIHints schema version",
+      "enum": ["1.0"]
+    },
+    "json_schema": {
+      "description": "Refers to the JSON schema used to validate documents of this type",
       "type": "string"
     },
     "label": {
@@ -22,6 +26,10 @@
       "description": "Description of operator",
       "type": "object",
       "$ref": "#/definitions/resource_definition"
+    },
+    "icon": {
+      "description": "URL to operation icon",
+      "type": "string"
     },
     "group_info": {
       "type": "array",
@@ -51,7 +59,8 @@
     }
   },
   "required": [
-    "icon"
+    "id",
+    "version"
   ],
   "definitions": {
     "group_definition": {

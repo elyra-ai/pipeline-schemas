@@ -1,5 +1,6 @@
 {
   "id": "rename",
+  "version": "1.0",
   "icon": "images/transformationspark.svg",
   "complex_type_info": [
     {
