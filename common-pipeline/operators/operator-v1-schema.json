@@ -52,6 +52,9 @@
       "items": {
         "$ref": "#/definitions/parameter_definition"
       }
+    },
+    "app_data": {
+      "$ref": "#/definitions/app_data_def"
     }
   },
   "required": [
@@ -178,6 +181,14 @@
           "additionalProperties": false
         }
       }
+    },
+    "app_data_def": {
+      "description": "Object containing application-specific data",
+      "type": "object",
+      "properties": {
+      },
+      "required": [],
+      "additionalProperties": true
     }
   }
 }
