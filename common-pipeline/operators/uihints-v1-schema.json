@@ -15,7 +15,7 @@
     },
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
-      "type": "string"
+      "enum": ["http://www.ibm.com/ibm/wdp/uihints/v1.0/uihints-v1-schema.json"]
     },
     "label": {
       "description": "External name of operator",

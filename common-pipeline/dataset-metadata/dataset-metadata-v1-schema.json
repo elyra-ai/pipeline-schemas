@@ -14,7 +14,7 @@
            },
            "json_schema": {
              "description": "Refers to the JSON schema used to validate documents of this type",
-             "type": "string"
+             "enum": ["http://www.ibm.com/ibm/wdp/dataset-metadata/v1.0/dataset-metadata-v1-schema.json"]
            },
             "type":{
                "description":"Always 'struct' for dataset schema",

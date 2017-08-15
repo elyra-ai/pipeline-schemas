@@ -14,7 +14,7 @@
     },
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
-      "type": "string"
+      "enum": ["http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-v1-schema.json"]
     },
     "open_with_tool": {
       "description": "Preferred authoring application",

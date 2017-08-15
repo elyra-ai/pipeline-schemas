@@ -11,7 +11,7 @@
     },
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
-      "type": "string"
+      "enum": ["http://www.ibm.com/ibm/wdp/conditions/v1.0/conditions-v1-schema.json"]
     },
     "conditions": {
       "type": "array",

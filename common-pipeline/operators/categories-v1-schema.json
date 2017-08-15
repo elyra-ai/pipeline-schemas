@@ -11,7 +11,7 @@
     },
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
-      "type": "string"
+      "enum": ["http://www.ibm.com/ibm/wdp/categories/v1.0/categories-v1-schema.json"]
     },
     "runtime": {
       "description": "The runtime environment that the current categories file describes",

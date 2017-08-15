@@ -15,7 +15,7 @@
     },
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
-      "type": "string"
+      "enum": ["http://www.ibm.com/ibm/wdp/operator/v1.0/operator-v1-schema.json"]
     },
     "operator_type": {
       "description": "operator type",
