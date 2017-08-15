@@ -20,3 +20,7 @@ Schema and example files for driving the Common Canvas and Property Editor tooli
   * [Form](https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/tree/master/common-canvas/form): Common Properties low-level form JSON specification
   * [Palette](https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/tree/master/common-canvas/palette): Canvas palette JSON definition
   * [Diagram](https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/tree/master/common-canvas/diagram): Older (e.g. pre-pipeline-flow) internal canvas diagram specification
+
+### Replacement Values
+
+  * In pipeline-flow use `'${P-<runtime param name>}'` for any values to be replaced during runtime. 
