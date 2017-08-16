@@ -2,15 +2,19 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "WDP Pipeline Flow Schema",
   "type": "object",
-  "id": "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-schema.json#",
+  "id": "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-v1-schema.json#",
   "properties": {
     "doc_type": {
       "description": "Document type",
       "type": "string"
     },
     "version": {
-      "description": "Document version",
-      "type": "string"
+      "description": "Pipeline-flow schema version",
+      "enum": ["1.0"]
+    },
+    "json_schema": {
+      "description": "Refers to the JSON schema used to validate documents of this type",
+      "enum": ["http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-v1-schema.json"]
     },
     "open_with_tool": {
       "description": "Preferred authoring application",
@@ -109,22 +113,6 @@
         "id",
         "runtime",
         "nodes"
-      ],
-      "additionalProperties": false
-    },
-    "resource_definition": {
-      "description": "Localizable string resource",
-      "type": "object",
-      "properties": {
-        "default": {
-          "type": "string"
-        },
-        "resource_key": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "default"
       ],
       "additionalProperties": false
     },

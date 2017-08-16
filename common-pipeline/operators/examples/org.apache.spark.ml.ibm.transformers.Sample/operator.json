@@ -1,5 +1,6 @@
 {
   "id": "org.apache.spark.ml.ibm.transformers.Sample",
+  "version": "1.0",
   "operator_type": "transformer",
   "context": "dataset",
   "parameters": [

@@ -1,68 +1,77 @@
-{  
+{
    "$schema":"http://json-schema.org/draft-04/schema#",
-   "id":"http://www.ibm.com/ibm/wml/dataset-metadata/v1.0/dataset-metadata-v1-schema.json#",
+   "id":"http://www.ibm.com/ibm/wdp/dataset-metadata/v1.0/dataset-metadata-v1-schema.json#",
    "title":"Watson Data Platform Dataset Metadata Schema",
    "description":"Metadata schema for datasets in the Watson Data Platform",
-   "definitions":{  
-      "dataset_schema":{  
+   "definitions":{
+      "dataset_schema":{
          "description":"Description of a dataset including column types and metadata",
          "type":"object",
-         "properties":{  
-            "type":{  
+         "properties":{
+           "version": {
+             "description": "Dataset-metadata schema version",
+             "enum": ["1.0"]
+           },
+           "json_schema": {
+             "description": "Refers to the JSON schema used to validate documents of this type",
+             "enum": ["http://www.ibm.com/ibm/wdp/dataset-metadata/v1.0/dataset-metadata-v1-schema.json"]
+           },
+            "type":{
                "description":"Always 'struct' for dataset schema",
                "type":"string"
             },
-            "fields":{  
+            "fields":{
                "description":"Array of field definitions",
                "type":"array",
                "minItems":0,
-               "items":{  
+               "items":{
                   "$ref":"#/definitions/field"
                },
                "uniqueItems":true
             }
          },
-         "required":[  
+         "required":[
+           "version",
             "fields"
          ]
       },
-      "field":{  
+      "field":{
          "description":"Definition of a dataset field",
          "type":"object",
-         "properties":{  
-            "name":{  
+         "properties":{
+            "name":{
                "description":"Field name. Must be unique within the dataset",
                "type":"string"
             },
-            "type":{  
+            "type":{
                "description":"Field type. Can be a primitive type (string, integer, double, date, time, timestamp, or custom), or a vector, map, or struct containing those types",
                "type":"string"
             },
-            "nullable":{  
+            "nullable":{
                "description":"Whether or not one can place null values into the field",
                "type":"boolean",
                "default":false
             },
-            "metadata":{  
+            "metadata":{
                "$ref":"#/definitions/metadata"
             }
          },
-         "required":[  
+         "required":[
             "name",
             "type"
          ]
       },
-      "metadata":{  
+      "metadata":{
          "description":"Additional field metadata",
          "type":"object",
-         "properties":{  
-            "description":{  
+         "properties":{
+            "description":{
                "description":"Field description",
                "type":"string"
             },
-            "measure":{  
+            "measure":{
                "description":"Field measurement level",
-               "enum":[  
+               "enum":[
                   "range",
                   "discrete",
                   "flag",
@@ -74,9 +83,9 @@
                   "default"
                ]
             },
-            "modeling_role":{  
+            "modeling_role":{
                "description":"Field role for modeling",
-               "enum":[  
+               "enum":[
                   "input",
                   "target",
                   "both",
@@ -87,40 +96,40 @@
                   "record-id"
                ]
             },
-            "max_string_length":{  
+            "max_string_length":{
                "description":"Maximum character length for string fields. Length is unlimited when not present",
                "type":"number"
             },
-            "values":{  
+            "values":{
                "description":"Array of unique categorical values for the column",
                "type":"array",
                "minItems":0,
-               "items":{  
+               "items":{
                   "description":"A value discovered in the data",
                   "type":"string"
                },
                "uniqueItems":true
             },
-            "range":{  
+            "range":{
                "description":"Minimum and maximum discovered values for scalar data",
                "type":"object",
-               "properties":{  
-                  "min":{  
+               "properties":{
+                  "min":{
                      "description":"Lowest value discovered in the data",
                      "type":"number"
                   },
-                  "max":{  
+                  "max":{
                      "description":"Highest value discovered in the data",
                      "type":"number"
                   }
                },
-               "required":[  
+               "required":[
                   "min",
                   "max"
                ]
             }
          },
-         "required":[  
+         "required":[
 
          ]
       }

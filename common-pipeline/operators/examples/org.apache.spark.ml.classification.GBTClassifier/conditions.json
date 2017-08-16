@@ -1,4 +1,6 @@
 {
+  "version": "1.0",
+  "json_schema": "http://www.ibm.com/ibm/wdp/conditions/v1.0/conditions-v1-schema.json",
   "conditions": [
     {
       "validation": {
