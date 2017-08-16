@@ -267,7 +267,7 @@
         }
       },
       "required": [
-        "focus_parameter_ref",
+        "type",
         "message"
       ]
     },
