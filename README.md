@@ -23,4 +23,4 @@ Schema and example files for driving the Common Canvas and Property Editor tooli
 
 ### Replacement Values
 
-  * In pipeline-flow use `'${P-<runtime param name>}'` for any values to be replaced during runtime. 
+  * In pipeline-flow use `${<runtime param name>}` for any values to be replaced during runtime. 

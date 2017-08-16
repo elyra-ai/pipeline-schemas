@@ -324,7 +324,7 @@
             }
           ],
           "parameters": {
-            "conditionExpr": "Age > '${P-age}'"
+            "conditionExpr": "Age > ${age}"
           },
           "app_data": {
             "ui_data": {
@@ -445,7 +445,7 @@
             }
           ],
           "parameters": {
-            "conditionExpr": "Age > '${P-age}'"
+            "conditionExpr": "Age > ${age}"
           },
           "app_data": {
             "ui_data": {
