@@ -2,7 +2,24 @@
   "id": "org.apache.spark.ml.ibm.transformers.Sample",
   "version": "1.0",
   "operator_type": "transformer",
-  "context": "dataset",
+  "input_ports": [
+    {
+      "id": "input_port",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      }
+    }
+  ],
+  "output_ports": [
+    {
+      "id": "output_port",
+      "cardinality": {
+        "min": 1,
+        "max": -1
+      }
+    }
+  ],
   "parameters": [
     {
       "id": "withReplacement",
