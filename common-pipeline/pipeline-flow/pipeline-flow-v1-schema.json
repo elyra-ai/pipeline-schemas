@@ -285,7 +285,7 @@
       "links": {
         "description": "Array of links going into the node. Applies to input ports and exit bindings only.",
         "type": "array",
-        "minItems": 1,
+        "minItems": 0,
         "items": {
           "$ref": "#/definitions/link_def"
         },
