@@ -99,7 +99,7 @@
                 "$ref": "#/definitions/supernode_def"
               },
               {
-                "$ref": "#/definitions/binding_def"
+                "$ref": "#/definitions/binding_node_def"
               }
             ]
           },
@@ -172,40 +172,25 @@
             "super_node"
           ]
         },
-        "sub_flow": {
-          "description": "Describes either an embedded or external sub_flow",
+        "external_pipeline": {
+          "description": "Points to an external sub-flow. When not present the sub-flow is assumed to be in the current document",
           "type": "object",
-          "oneOf": [
-            {
-              "properties": {
-                "flow_id_ref": {
-                  "description": "Embedded sub_flow identifier",
-                  "type": "string"
-                }
-              },
-              "required": [
-                "flow_id_ref"
-              ]
-            },
-            {
-              "properties": {
-                "url": {
-                  "description": "Reference to an external sub_flow",
-                  "type": "string"
-                }
-              },
-              "required": [
-                "url"
-              ]
+          "properties": {
+            "url": {
+              "description": "Reference to an external sub-flow",
+              "type": "string"
             }
+          },
+          "required": [
+            "url"
           ]
         }
       },
       "inputs": {
-        "$ref": "#/definitions/ports_def"
+        "$ref": "#/definitions/pipeline_ports_def"
       },
       "outputs": {
-        "$ref": "#/definitions/bound_ports_def"
+        "$ref": "#/definitions/pipeline_ports_def"
       },
       "app_data": {
         "$ref": "#/definitions/app_data_def"
@@ -213,13 +198,11 @@
     },
     "required": [
       "id",
-      "type",
-      "sub_flow",
-      "inputs"
+      "type"
     ],
     "additionalProperties": false
   },
-  "binding_def": {
+  "binding_node_def": {
     "description": "Defines an entry or exit point (source or sink) for a pipeline. Bindings can be concrete: the concrete_binding element is present on the port; or bindings can be abstract: bindings are performed externally via configuration or a wrapper document.",
     "type": "object",
     "oneOf": [
@@ -301,16 +284,12 @@
     "additionalProperties": false
   },
   "port_binding_def": {
-    "description": "Definition (input/output) of a binding port on a node (bound or unbound). If no binding is present the port is bound at runtime via a configuration object or wrapper document.",
+    "description": "Definition (input/output) of a port on a binding node (bound or unbound). If no binding is present the port is bound at runtime via a configuration object or wrapper document.",
     "type": "object",
     "properties": {
       "id": {
         "description": "Unique identifier",
         "type": "string"
-      },
-      "node_binding_ref": {
-        "description": "Optional node id binding within the current document. If not present the binding is external.",
-        "$ref": "#/definitions/link_def"
       },
       "external_binding": {
         "description": "Concrete data binding to a source or a sink. Additional properties that are specific to the binding type go here.",
@@ -343,16 +322,16 @@
     },
     "uniqueItems": true
   },
-  "bound_ports_def": {
+  "pipeline_ports_def": {
     "type": "array",
     "minItems": 1,
     "items": {
-      "$ref": "#/definitions/bound_port_def"
+      "$ref": "#/definitions/pipeline_port_def"
     },
     "uniqueItems": true
   },
-  "bound_port_def": {
-    "description": "Port definition (input/output) on a node with optional pipeline port binding for supernodes",
+  "pipeline_port_def": {
+    "description": "Supernode port definition (input/output) with pipeline port binding",
     "type": "object",
     "properties": {
       "id": {
@@ -364,17 +343,17 @@
         "type": "string"
       },
       "links": {
-        "description": "Array of links going into the node. Applies to input ports and exit bindings only.",
+        "description": "Array of links in the current pipeline going in to or out of the port",
         "type": "array",
-        "minItems": 1,
+        "minItems": 0,
         "items": {
           "$ref": "#/definitions/link_def"
         },
         "uniqueItems": true
       },
-      "node_binding_ref": {
-        "description": "Optional node id binding within the current document.",
-        "$ref": "#/definitions/link_def"
+      "pipeline_link_ref": {
+        "description": "Binding to another pipeline, which can be either within the current document or in an external document",
+        "$ref": "#/definitions/pipeline_link_def"
       },
       "app_data": {
         "$ref": "#/definitions/app_data_def"
@@ -389,16 +368,12 @@
     "description": "Node link definition",
     "type": "object",
     "properties": {
-      "pipeline_id_ref": {
-        "description": "id of the pipeline this link connects to",
-        "type": "string"
-      },
       "node_id_ref": {
         "description": "id of a node this link connects to",
         "type": "string"
       },
       "port_id_ref": {
-        "description": "optional port id of a node this link connects to",
+        "description": "Optional port id of the node this link connects to. Not required when linking to nodes with only a single port.",
         "type": "string"
       },
       "app_data": {
@@ -406,6 +381,32 @@
       }
     },
     "required": [
+      "node_id_ref"
+    ],
+    "additionalProperties": false
+  },
+  "pipeline_link_def": {
+    "description": "Pipeline link definition",
+    "type": "object",
+    "properties": {
+      "pipeline_id_ref": {
+        "description": "Required id of the pipeline this link connects to",
+        "type": "string"
+      },
+      "node_id_ref": {
+        "description": "Required id of the node this link connects to",
+        "type": "string"
+      },
+      "port_id_ref": {
+        "description": "Optional port id of a node this link connects to. Not required when linking to nodes with only a single port.",
+        "type": "string"
+      },
+      "app_data": {
+        "$ref": "#/definitions/app_data_def"
+      }
+    },
+    "required": [
+      "pipeline_id_ref",
       "node_id_ref"
     ],
     "additionalProperties": false
