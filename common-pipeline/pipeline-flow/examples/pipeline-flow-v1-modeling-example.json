@@ -204,18 +204,21 @@
               "image": "modelnuggetspark.svg",
               "x_pos": 884,
               "y_pos": 202,
-              "class_name": "nodes"
+              "class_name": "nodes",
+              "other_linkage_info": [
+                {
+                  "node_ref": "modeling_nodeID3PE",
+                  "class_name": "dotted_line_link"
+                }
+              ]
             },
             "flow_data": {
               "other_linkage": [
                 {
                   "node_ref": "modeling_nodeID3PE",
-                  "link_type": "model_source_link",
-                  "ui_data": {
-                    "class_name": "dotted_line_link"
-                  }
+                  "link_type": "model_source_link"
                 }
-              ],
+              ]
             },
             "wml_data": {
               "typeId": "linearregressionmodel"
