@@ -1,0 +1,342 @@
+{
+  "doc_type": "pipeline",
+  "version": "1.0",
+  "id": "e456f213-f83a-4d38-b15b-8bf541e100fb",
+  "app_data": {
+    "ui_data": {
+      "name": "Modeling Pipeline Flow Example",
+      "description": {
+        "default": "An example ML pipeline - provides load/filter/model-build with an already-built model"
+      },
+      "class_name": "pipeline-flow-overall"
+    },
+    "wml_data": {
+      "typeId": "stream"
+    }
+  },
+  "primary_pipeline": "modeling-pipeline",
+  "pipelines": [
+    {
+      "id": "modeling-pipeline",
+      "runtime": "scala-spark-2.0.1",
+      "app_data": {
+        "ui_data": {
+          "zoom": 100,
+          "comments": []
+        }
+      },
+      "nodes": [
+        {
+          "id": "entryID1PE",
+          "type": "binding",
+          "output": {
+            "id": "entryPort1PE",
+            "schema_ref": "schema1"
+          }
+        },
+        {
+          "id": "filter_nodeID2PE",
+          "type": "execution_node",
+          "op": "org.apache.spark.ml.ibm.transformers.Filter",
+          "inputs": [
+            {
+              "id": "input1NodeID2PE",
+              "links": [
+                {
+                  "node_id_ref": "nodeIDSuperNodePE",
+                  "port_id_ref": "output1SuperNodePE",
+                  "app_data": {
+                    "ui_data": {
+                      "class_name": "linkClass"
+                    }
+                  }
+                }
+              ],
+              "schema_ref": "schema2",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 1,
+                    "max": 1
+                  },
+                  "class_name": "port-class",
+                  "label": {
+                    "default": "Input Port"
+                  }
+                }
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "id": "output1NodeID2PE",
+              "schema_ref": "schema1",
+              "app_data": {
+                "ui_data": {
+                  "class_name": "port-class",
+                  "label": {
+                    "default": "Output port"
+                  }
+                }
+              }
+            }
+          ],
+          "parameters": {
+            "conditionExpr": "integer2 > 20"
+          },
+          "app_data": {
+            "ui_data": {
+              "label": {
+                "default": "Filter"
+              },
+              "description": {
+                "default": "Filter record data"
+              },
+              "image": "filter-rows.svg",
+              "x_pos": 784,
+              "y_pos": 202,
+              "class_name": "nodes"
+            },
+            "wml_data": {
+              "typeId": "filter-records"
+            }
+          }
+        },
+        {
+          "id": "modeling_nodeID3PE",
+          "type": "execution_node",
+          "op": "org.apache.spark.ml.regression.LinearRegression",
+          "inputs": [
+            {
+              "id": "input1modeling_nodeID3PE",
+              "schema_ref": "schema1",
+              "links": [
+                {
+                  "node_id_ref": "filter_nodeID2PE",
+                  "app_data": {
+                    "ui_data": {
+                      "class_name": "linkClass"
+                    }
+                  }
+                }
+              ],
+              "app_data": {
+                "ui_data": {
+                  "class_name": "portClass"
+                }
+              }
+            }
+          ],
+          "outputs": [],
+          "parameters": {
+            "targetField": [
+              "integer2"
+            ],
+            "inputFieldList": [
+              "double4",
+              "string1"
+            ],
+            "weightCol": [],
+            "elasticNetParam": 0,
+            "fitIntercept": false,
+            "maxIter": 90,
+            "regParam": 0.1,
+            "solver": "auto",
+            "standardization": true,
+            "tol": 0.000001
+          },
+          "app_data": {
+            "ui_data": {
+              "label": {
+                "default": "Linear Regression"
+              },
+              "description": {
+                "default": "Fit a Linear Regression Model"
+              },
+              "image": "linearregression.svg",
+              "x_pos": 784,
+              "y_pos": 202,
+              "class_name": "nodes"
+            },
+            "wml_data": {
+              "typeId": "linearregression"
+            }
+          }
+        },
+        {
+          "id": "model_nodeID4PE",
+          "type": "model_node",
+          "model_ref": "https://reference.to.model.blob.in.storage",
+          "inputs": [
+            {
+              "id": "input1NodeID4PE",
+              "schema_ref": "schema1",
+              "links": [
+                {
+                  "node_id_ref": "entryID1PE"
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "id": "output1NodeID4PE",
+              "schema_ref": "schema2",
+              "app_data": {
+                "ui_data": {
+                  "class_name": "port-class",
+                  "label": {
+                    "default": "Output port"
+                  }
+                }
+              }
+            }
+          ],
+          "parameters": {},
+          "app_data": {
+            "ui_data": {
+              "label": {
+                "default": "Linear Regression Model"
+              },
+              "description": {
+                "default": "Fitted Linear Regression Model"
+              },
+              "image": "modelnuggetspark.svg",
+              "x_pos": 884,
+              "y_pos": 202,
+              "class_name": "nodes"
+            },
+            "flow_data": {
+              "other_linkage": [
+                {
+                  "node_ref": "modeling_nodeID3PE",
+                  "link_type": "model_source_link",
+                  "ui_data": {
+                    "class_name": "dotted_line_link"
+                  }
+                }
+              ],
+            },
+            "wml_data": {
+              "typeId": "linearregressionmodel"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "schemas": [
+    {
+      "id": "schema1",
+      "fields": [
+        {
+          "name": "integer2",
+          "type": "integer",
+          "nullable": false,
+          "metadata": {
+            "description": "Field integer2 is an integer field",
+            "measure": "range",
+            "modeling_role": "input",
+            "range": {
+              "min": -1,
+              "max": 400
+            }
+          }
+        },
+        {
+          "name": "double4",
+          "type": "double",
+          "nullable": false,
+          "metadata": {
+            "description": "Field double4 is a double field",
+            "measure": "range",
+            "modeling_role": "input",
+            "range": {
+              "min": 0.101,
+              "max": 100.211
+            }
+          }
+        },
+        {
+          "name": "string1",
+          "type": "string",
+          "nullable": true,
+          "metadata": {
+            "description": "Field string1 is a string field",
+            "measure": "set",
+            "modeling_role": "input",
+            "max_string_length": 24,
+            "values": [
+              "One",
+              "Two",
+              "Three"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "schema2",
+      "fields": [
+        {
+          "name": "integer2",
+          "type": "integer",
+          "nullable": false,
+          "metadata": {
+            "description": "Field integer2 is an integer field",
+            "measure": "range",
+            "modeling_role": "input",
+            "range": {
+              "min": -1,
+              "max": 400
+            }
+          }
+        },
+        {
+          "name": "double4",
+          "type": "double",
+          "nullable": false,
+          "metadata": {
+            "description": "Field double4 is a double field",
+            "measure": "range",
+            "modeling_role": "input",
+            "range": {
+              "min": 0.101,
+              "max": 100.211
+            }
+          }
+        },
+        {
+          "name": "string1",
+          "type": "string",
+          "nullable": true,
+          "metadata": {
+            "description": "Field string1 is a string field",
+            "measure": "set",
+            "modeling_role": "input",
+            "max_string_length": 24,
+            "values": [
+              "One",
+              "Two",
+              "Three"
+            ]
+          }
+        },
+        {
+          "name": "$integer2_predicted",
+          "type": "integer",
+          "nullable": false,
+          "metadata": {
+            "description": "Predicted field for 'integer2'",
+            "measure": "range",
+            "modeling_role": "input",
+            "range": {
+              "min": -1,
+              "max": 400
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

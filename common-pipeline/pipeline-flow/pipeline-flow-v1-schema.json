@@ -121,11 +121,11 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "Unique identifier for node",
+          "description": "Unique identifier for node within the current pipeline",
           "type": "string"
         },
         "type": {
-          "description": "Node type - always 'execution_node' for pipeline elements",
+          "description": "Node type - always 'execution_node' for non-model pipeline elements",
           "enum": [
             "execution_node"
           ]
@@ -163,7 +163,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "Unique identifier for the supernode",
+          "description": "Unique identifier for the supernode within the current pipeline",
           "type": "string"
         },
         "type": {
@@ -226,7 +226,7 @@
       {
         "properties": {
           "id": {
-            "description": "Unique identifier for the binding",
+            "description": "Unique identifier for the binding within the current pipeline",
             "type": "string"
           },
           "type": {
@@ -267,6 +267,48 @@
     "required": [
       "id",
       "type"
+    ],
+    "additionalProperties": false
+  },
+  "model_def": {
+    "description": "Definition of a single predictive model node",
+    "type": "object",
+    "properties": {
+      "id": {
+        "description": "Unique identifier for the model within the current pipeline",
+        "type": "string"
+      },
+      "type": {
+        "description": "Node type - always 'model_node' for model pipeline elements",
+        "enum": [
+          "model_node"
+        ]
+      },
+      "model_ref": {
+        "description": "URL reference to the model binary in persistent storage",
+        "type": "string"
+      },
+      "inputs": {
+        "$ref": "#/definitions/ports_def"
+      },
+      "outputs": {
+        "$ref": "#/definitions/ports_def"
+      },
+      "parameters": {
+        "description": "Input parameters for the operator",
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": true
+      },
+      "app_data": {
+        "$ref": "#/definitions/app_data_def"
+      }
+    },
+    "required": [
+      "id",
+      "type",
+      "inputs"
     ],
     "additionalProperties": false
   },
