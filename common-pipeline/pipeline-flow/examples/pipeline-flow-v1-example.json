@@ -153,18 +153,18 @@
         {
           "id": "nodeIDSuperNodePE",
           "type": "super_node",
+          "subflow_ref": {
+            "pipeline_id_ref": "modeler-sub-pipeline"
+          },
           "inputs": [
             {
               "id": "input1SuperNodePE",
               "links": [
                 {
                   "node_id_ref": "nodeID1PE"
-                },
+                }
               ],
-              "pipeline_link_ref": {
-                "pipeline_id_ref": "modeler-sub-pipeline",
-                "node_id_ref": "entryID1SE"
-              },
+              "subflow_node_ref": "entryID1SE",
               "schema_ref": "schema3",
               "app_data": {
                 "ui_data": {
@@ -182,10 +182,7 @@
                   "node_id_ref": "entryID3PE"
                 }
               ],
-              "pipeline_link_ref": {
-                "pipeline_id_ref": "modeler-sub-pipeline",
-                "node_id_ref": "entryID2SE"
-              },
+              "subflow_node_ref": "entryID2SE",
               "schema_ref": "schema2",
               "app_data": {
                 "ui_data": {
@@ -201,10 +198,7 @@
             {
               "id": "output1SuperNodePE",
               "schema_ref": "schema2",
-              "pipeline_link_ref": {
-                "pipeline_id_ref": "modeler-sub-pipeline",
-                "node_id_ref": "exitID1SE"
-              },
+              "subflow_node_ref": "exitID1SE",
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",

@@ -42,21 +42,19 @@
         {
           "id": "superNode1",
           "type": "super_node",
-          "external_pipeline": {
-            "url": "https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/blob/master/common-pipeline/pipeline-flow/examples/pipeline-flow-v1-example-simple.json"
+          "subflow_ref": {
+            "url": "https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/blob/master/common-pipeline/pipeline-flow/examples/pipeline-flow-v1-example-simple.json",
+            "pipeline_id_ref": "simple-pipeline"
           },
           "inputs": [
             {
               "id": "input1SuperNodePE",
+              "subflow_node_ref": "entryID1PE",
               "links": [
                 {
                   "node_id_ref": "entryID1"
-                },
+                }
               ],
-              "pipeline_link_ref": {
-                "pipeline_id_ref": "simple-pipeline",
-                "node_id_ref": "entryID1PE"
-              },
               "schema_ref": "schema1",
               "app_data": {
                 "ui_data": {
@@ -71,11 +69,8 @@
           "outputs": [
             {
               "id": "output1SuperNodePE",
+              "subflow_node_ref": "exitID1PE",
               "schema_ref": "schema2",
-              "pipeline_link_ref": {
-                "pipeline_id_ref": "simple-pipeline",
-                "node_id_ref": "exitID1PE"
-              },
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",

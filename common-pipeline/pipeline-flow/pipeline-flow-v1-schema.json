@@ -10,11 +10,15 @@
     },
     "version": {
       "description": "Pipeline-flow schema version",
-      "enum": ["1.0"]
+      "enum": [
+        "1.0"
+      ]
     },
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
-      "enum": ["http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-v1-schema.json"]
+      "enum": [
+        "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-v1-schema.json"
+      ]
     },
     "open_with_tool": {
       "description": "Preferred authoring application",
@@ -172,17 +176,21 @@
             "super_node"
           ]
         },
-        "external_pipeline": {
-          "description": "Points to an external sub-flow. When not present the sub-flow is assumed to be in the current document",
+        "subflow_ref": {
+          "description": "Refers to the sub-flow associated with this supernode",
           "type": "object",
           "properties": {
             "url": {
-              "description": "Reference to an external sub-flow",
+              "description": "Reference to an external sub-flow. When not present the sub-flow is assumed to be in the current document.",
+              "type": "string"
+            },
+            "pipeline_id_ref": {
+              "description": "Sub-flow identifier reference",
               "type": "string"
             }
           },
           "required": [
-            "url"
+            "pipeline_id_ref"
           ]
         }
       },
@@ -259,6 +267,10 @@
     "properties": {
       "id": {
         "description": "Unique identifier",
+        "type": "string"
+      },
+      "id_ref": {
+        "description": "Reference to the corresponding port in the operator definition",
         "type": "string"
       },
       "schema_ref": {
@@ -351,9 +363,9 @@
         },
         "uniqueItems": true
       },
-      "pipeline_link_ref": {
-        "description": "Binding to another pipeline, which can be either within the current document or in an external document",
-        "$ref": "#/definitions/pipeline_link_def"
+      "subflow_node_ref": {
+        "description": "Reference to a binding node in another pipeline through which data flows. The other pipeline can be either within the current document or in an external document",
+        "type": "string"
       },
       "app_data": {
         "$ref": "#/definitions/app_data_def"
@@ -381,32 +393,6 @@
       }
     },
     "required": [
-      "node_id_ref"
-    ],
-    "additionalProperties": false
-  },
-  "pipeline_link_def": {
-    "description": "Pipeline link definition",
-    "type": "object",
-    "properties": {
-      "pipeline_id_ref": {
-        "description": "Required id of the pipeline this link connects to",
-        "type": "string"
-      },
-      "node_id_ref": {
-        "description": "Required id of the node this link connects to",
-        "type": "string"
-      },
-      "port_id_ref": {
-        "description": "Optional port id of a node this link connects to. Not required when linking to nodes with only a single port.",
-        "type": "string"
-      },
-      "app_data": {
-        "$ref": "#/definitions/app_data_def"
-      }
-    },
-    "required": [
-      "pipeline_id_ref",
       "node_id_ref"
     ],
     "additionalProperties": false
