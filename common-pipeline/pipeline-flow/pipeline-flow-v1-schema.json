@@ -104,6 +104,9 @@
               },
               {
                 "$ref": "#/definitions/binding_def"
+              },
+              {
+                "$ref": "#/definitions/model_node_def"
               }
             ]
           },
@@ -273,7 +276,7 @@
       ],
       "additionalProperties": false
     },
-    "model_def": {
+    "model_node_def": {
       "description": "Definition of a single predictive model node",
       "type": "object",
       "properties": {
@@ -288,7 +291,7 @@
           ]
         },
         "model_ref": {
-          "description": "URL reference to the model binary in persistent storage",
+          "description": "Reference to the binary model",
           "type": "string"
         },
         "inputs": {
