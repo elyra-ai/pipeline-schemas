@@ -63,7 +63,7 @@
             "id": "entryPort3PE",
             "schema_ref": "schema2",
             "external_binding": {
-              "description": "A hypothetical external binding to a CSV file in the local file system.",
+              "description": "A hypothetical external binding to a CSV file in the local file system. The contents here are TDB",
               "type": "text/csv",
               "location": "/users/data/File1.csv"
             }
@@ -153,8 +153,8 @@
         {
           "id": "nodeIDSuperNodePE",
           "type": "super_node",
-          "sub_flow": {
-            "flow_id_ref": "modeler-sub-pipeline"
+          "subflow_ref": {
+            "pipeline_id_ref": "modeler-sub-pipeline"
           },
           "inputs": [
             {
@@ -164,6 +164,7 @@
                   "node_id_ref": "nodeID1PE"
                 }
               ],
+              "subflow_node_ref": "entryID1SE",
               "schema_ref": "schema3",
               "app_data": {
                 "ui_data": {
@@ -181,6 +182,7 @@
                   "node_id_ref": "entryID3PE"
                 }
               ],
+              "subflow_node_ref": "entryID2SE",
               "schema_ref": "schema2",
               "app_data": {
                 "ui_data": {
@@ -196,9 +198,7 @@
             {
               "id": "output1SuperNodePE",
               "schema_ref": "schema2",
-              "node_binding_ref": {
-                "node_id_ref": "exitID1SE"
-              },
+              "subflow_node_ref": "exitID1SE",
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
@@ -384,11 +384,7 @@
           "type": "binding",
           "output": {
             "id": "entryPort1SE",
-            "schema_ref": "schema3",
-            "node_binding_ref": {
-              "pipeline_id_ref": "primary-pipeline",
-              "node_id_ref": "input1SuperNodePE"
-            }
+            "schema_ref": "schema3"
           }
         },
         {
@@ -396,11 +392,7 @@
           "type": "binding",
           "output": {
             "id": "entryPort2SE",
-            "schema_ref": "schema2",
-            "node_binding_ref": {
-              "pipeline_id_ref": "primary-pipeline",
-              "node_id_ref": "input2SuperNodePE"
-            }
+            "schema_ref": "schema2"
           }
         },
         {

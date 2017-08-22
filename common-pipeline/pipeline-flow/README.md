@@ -25,15 +25,15 @@ There are three types of node within pipeline flows:
 
 ### Data Bindings
 Data is bound to Common Pipeline Flow documents in one of three different ways. The first two exist within pipeline flow documents, the third exists for optional dynamic binding overrides from outside of the document:
-Explicitly via reference to an external data source or sink
-Internally via reference to binding nodes in another pipeline within the current document
-Implicitly via an external pipeline flow configuration that overrides equivalent bindings within the document
+ - Explicitly via reference from within the document to an external data source or sink
+ - Internally via reference to binding nodes in another pipeline
+ - Implicitly via an external pipeline flow configuration that overrides equivalent bindings within the document
 
 This flexibility enables flow reuse by supporting both static and dynamic binding, or any combination thereof.
 
 
 ### Internal Linkage
-Nodes contain input and output ports. Nodes are connected to each other via links between ports. Linkage flow is from end to start node, allowing processors to easily trace backwards for executing sub-pipelines.
+Nodes contain input and output ports. Nodes are connected to each other via links between ports. Linkage flow is from end to start node, allowing processors to easily trace backwards for executing sub-pipelines. The exception to this rule is for supernodes, which contain sub-flow linkage for both input and output ports.
 
 Most nodes have only a single port and thus port references can usually be omitted in links. The sole exception to this comes when a node has multiple output ports, in which case node links connected downstream must refer explicitly to the node and port ids.
 
@@ -45,4 +45,4 @@ Ports on node inputs and outputs support optional dataset schema definitions (se
 ### An Example
  See the 'pipeline-flow-v1-example.png' diagram describing the pipeline-flow-v1-example.json file in the examples folder that accompanies this note. The data binding nodes are expressed as circles on the edges of each pipeline and the super node uses a rounded rectangle, although physically they are all just types of node in the DAG.
 
-Shaded binding nodes are statically bound at design time in the example. The external binding is overridden externally in the "External binding" directive. Node bindings can also be overridden in an external configuration as well, although they are not overridden in this diagram. Note the dashed arrow links in green which represent the linkage between the super node and the sub-pipeline that it refers to:
+Shaded binding nodes are statically bound at design time in the example. The external binding is overridden externally in the "External binding" directive. Node bindings can also be overridden in an external configuration as well, although they are not overridden in this diagram. Note the dashed arrow links in green which represent the linkage between the super node and the sub-pipeline that it refers to.
