@@ -156,11 +156,25 @@
               "image": "linearregression.svg",
               "x_pos": 784,
               "y_pos": 202,
-              "class_name": "nodes"
+              "class_name": "nodes",
+              "associations": [
+                {
+                  "id": "link_model_nodeID4PE",
+                  "node_ref": "model_nodeID4PE",
+                  "class_name": "dotted_line_link"
+                }
+              ]
             },
             "wml_data": {
-              "typeId": "linearregression"
-            }
+              "typeId": "linearregression",
+              "associations": [
+                {
+                  "ui_ref": "link_model_nodeID4PE",
+                  "node_ref": "model_nodeID4PE",
+                  "type": "trains_model"
+                }
+              ]
+            },
           }
         },
         {
@@ -204,21 +218,7 @@
               "image": "modelnuggetspark.svg",
               "x_pos": 884,
               "y_pos": 202,
-              "class_name": "nodes",
-              "other_linkage_info": [
-                {
-                  "node_ref": "modeling_nodeID3PE",
-                  "class_name": "dotted_line_link"
-                }
-              ]
-            },
-            "flow_data": {
-              "other_linkage": [
-                {
-                  "node_ref": "modeling_nodeID3PE",
-                  "link_type": "model_source_link"
-                }
-              ]
+              "class_name": "nodes"
             },
             "wml_data": {
               "typeId": "linearregressionmodel"
