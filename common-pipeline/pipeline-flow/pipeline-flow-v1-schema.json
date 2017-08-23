@@ -179,32 +179,21 @@
             "super_node"
           ]
         },
-        "sub_flow": {
-          "description": "Describes either an embedded or external sub_flow",
+        "subflow_ref": {
+          "description": "Refers to the sub-flow associated with this supernode",
           "type": "object",
-          "oneOf": [
-            {
-              "properties": {
-                "flow_id_ref": {
-                  "description": "Embedded sub_flow identifier",
-                  "type": "string"
-                }
-              },
-              "required": [
-                "flow_id_ref"
-              ]
+          "properties": {
+            "url": {
+              "description": "Reference to an external sub-flow. When not present the sub-flow is assumed to be in the current document.",
+              "type": "string"
             },
-            {
-              "properties": {
-                "url": {
-                  "description": "Reference to an external sub_flow",
-                  "type": "string"
-                }
-              },
-              "required": [
-                "url"
-              ]
+            "pipeline_id_ref": {
+              "description": "Sub-flow identifier reference",
+              "type": "string"
             }
+          },
+          "required": [
+            "pipeline_id_ref"
           ]
         },
         "inputs": {

@@ -11,11 +11,15 @@
     },
     "version": {
       "description": "Operator schema version",
-      "enum": ["1.0"]
+      "enum": [
+        "1.0"
+      ]
     },
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
-      "enum": ["http://www.ibm.com/ibm/wdp/operator/v1.0/operator-v1-schema.json"]
+      "enum": [
+        "http://www.ibm.com/ibm/wdp/operator/v1.0/operator-v1-schema.json"
+      ]
     },
     "operator_type": {
       "description": "operator type",
@@ -56,6 +60,9 @@
       "items": {
         "$ref": "#/definitions/parameter_definition"
       }
+    },
+    "app_data": {
+      "$ref": "#/definitions/app_data_def"
     }
   },
   "required": [
@@ -149,7 +156,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "Unique identifier",
+          "description": "Unique identifier within the node",
           "type": "string"
         },
         "cardinality": {
@@ -170,6 +177,14 @@
           "additionalProperties": false
         }
       }
+    },
+    "app_data_def": {
+      "description": "Object containing application-specific data",
+      "type": "object",
+      "properties": {
+      },
+      "required": [],
+      "additionalProperties": true
     }
   }
 }
