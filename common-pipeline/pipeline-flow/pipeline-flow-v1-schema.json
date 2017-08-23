@@ -103,7 +103,7 @@
                 "$ref": "#/definitions/supernode_def"
               },
               {
-                "$ref": "#/definitions/binding_def"
+                "$ref": "#/definitions/binding_node_def"
               },
               {
                 "$ref": "#/definitions/model_node_def"
@@ -208,7 +208,7 @@
           ]
         },
         "inputs": {
-          "$ref": "#/definitions/ports_def"
+          "$ref": "#/definitions/bound_ports_def"
         },
         "outputs": {
           "$ref": "#/definitions/bound_ports_def"
@@ -225,7 +225,7 @@
       ],
       "additionalProperties": false
     },
-    "binding_def": {
+    "binding_node_def": {
       "description": "Defines an entry or exit point (source or sink) for a pipeline. Bindings can be concrete: the concrete_binding element is present on the port; or bindings can be abstract: bindings are performed externally via configuration or a wrapper document.",
       "type": "object",
       "oneOf": [
