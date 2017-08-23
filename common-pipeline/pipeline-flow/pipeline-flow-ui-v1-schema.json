@@ -108,6 +108,25 @@
         "attributes": {
           "description": "additional attributes",
           "type": "string"
+        },
+        "associations": {
+          "description": "Non-data node linkage",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "Association identifier",
+              "type": "string"
+            },
+            "node_ref": {
+              "description": "Target node id",
+              "type": "string"
+            },
+            "class_name": {
+              "description": "CSS class name for link styling",
+              "type": "string"
+            }
+          },
+          "required": []
         }
       },
       "required": [],

@@ -5,7 +5,6 @@
   "label":"Gradient Boosted Tree Classifier",
   "description":"Fit a Gradient Boosted Tree Classifier Model",
   "operator_type":"estimator",
-  "scoringTransformer":"org.apache.spark.ml.classification.GBTClassificationModel",
   "input_ports": [
     {
       "id": "input_port",

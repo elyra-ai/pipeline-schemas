@@ -47,10 +47,6 @@
         "$ref": "#/definitions/port_definition"
       }
     },
-    "scoring_transformer": {
-      "description": "Name of corresponding model operator (for estimators only)",
-      "type": "string"
-    },
     "complex_types": {
       "description": "List of complex types",
       "type": "array",
@@ -106,24 +102,7 @@
           "type": "array"
         },
         "default": {
-          "description": "default value based on type of parameter",
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "number"
-            },
-            {
-              "type": "boolean"
-            },
-            {
-              "type": "array"
-            },
-            {
-              "type": "object"
-            }
-          ]
+          "description": "default value based on type of parameter"
         }
       },
       "oneOf": [
