@@ -99,7 +99,7 @@
           },
           "data_asset":{  
             "properties":{  
-              "create_name": "employee_data.csv"
+              "name": "employee_data.csv"
             }
           }  
         }

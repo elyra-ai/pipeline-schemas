@@ -63,9 +63,9 @@
                      "description":"The ID of the dataset attachment to use. If not specified and used as a source, the first suitable attachment found will be used. If not specified and used as a target, a new attachment will be created.",
                      "type":"string"
                   },
-                  "create_name":{  
-                     "description":"When used as a target, specifies the name of the dataset to create if ref is unset.",
-                     "type":"boolean",
+                  "name":{  
+                     "description":"Specifies the name of the dataset to read, create or update if ref is unset.",
+                     "type":"string",
                      "default":false
                   },
                   "no_write_schema":{  
