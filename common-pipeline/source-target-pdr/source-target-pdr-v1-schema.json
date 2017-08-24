@@ -87,7 +87,7 @@
          "type":"array"
       },
       "common_pipeline_connection_physdatasetref_def":{  
-         "description":"Details of the physical dataset (contained in a catalog or prjoject) to use for a pipeline source or target.",
+         "description":"Details of the physical dataset (contained in a catalog or project) to use for a pipeline source or target.",
          "properties":{  
             "physical_dataset_ref":{  
                "description":"A reference to a physical dataset by ID.",
