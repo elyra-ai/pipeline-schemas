@@ -51,18 +51,18 @@
       "uniqueItems": true
     },
     "sources": {
-      "description": "Array of source physical data resources",
+      "description": "Array of source pipeline connections",
       "type": "array",
       "items": {
-        "$ref": "http://www.ibm.com/ibm/wdp/source-target-pdr/v1.0/source-target-pdr-v1-schema.json#/definitions/common_pipeline_pdr_def"
+        "$ref": "http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_connection_def"
       },
       "uniqueItems": true
     },
     "targets": {
-      "description": "Array of target physical data resources",
+      "description": "Array of target pipeline connections",
       "type": "array",
       "items": {
-        "$ref": "http://www.ibm.com/ibm/wdp/source-target-pdr/v1.0/source-target-pdr-v1-schema.json#/definitions/common_pipeline_pdr_def"
+        "$ref": "http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_connection_def"
       },
       "uniqueItems": true
     },
