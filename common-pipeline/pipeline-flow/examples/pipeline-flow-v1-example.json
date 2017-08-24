@@ -61,11 +61,14 @@
           "type": "binding",
           "output": {
             "id": "entryPort3PE",
-            "schema_ref": "schema2",
-            "external_binding": {
-              "description": "A hypothetical external binding to a CSV file in the local file system. The contents here are TDB",
-              "type": "text/csv",
-              "location": "/users/data/File1.csv"
+            "schema_ref": "schema2"
+          },
+          "connection":{  
+            "ref":"d7c75790-90fc-4883-a5fc-3bb589166a52",
+            "project_ref":"0a0a20e8-e8a8-4710-b90a-6df3ff775b04",
+            "properties": {  
+              "schema_name":"GOSALES",
+              "table_name":"PRODUCT_NAME_LOOKUP"
             }
           }
         },

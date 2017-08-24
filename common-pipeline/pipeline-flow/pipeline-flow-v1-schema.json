@@ -50,22 +50,6 @@
       },
       "uniqueItems": true
     },
-    "sources": {
-      "description": "Array of source pipeline connections",
-      "type": "array",
-      "items": {
-        "$ref": "http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_connection_def"
-      },
-      "uniqueItems": true
-    },
-    "targets": {
-      "description": "Array of target pipeline connections",
-      "type": "array",
-      "items": {
-        "$ref": "http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_connection_def"
-      },
-      "uniqueItems": true
-    },
     "app_data": {
       "$ref": "#/definitions/app_data_def"
     }
@@ -235,7 +219,13 @@
             },
             "app_data": {
               "$ref": "#/definitions/app_data_def"
-            }
+            },
+            "connection":{  
+              "$ref":"http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_connection_def"
+            },
+            "data_asset":{  
+              "$ref":"http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_data_asset_def"
+            }            
           }
         },
         {
@@ -255,7 +245,13 @@
             },
             "app_data": {
               "$ref": "#/definitions/app_data_def"
-            }
+            },
+            "connection":{  
+              "$ref":"http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_connection_def"
+            },
+            "data_asset":{  
+              "$ref":"http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_data_asset_def"
+            }    
           }
         }
       ],
@@ -348,13 +344,6 @@
         "node_binding_ref": {
           "description": "Optional node id binding within the current document. If not present the binding is external.",
           "$ref": "#/definitions/link_def"
-        },
-        "external_binding": {
-          "description": "Concrete data binding to a source or a sink. Additional properties that are specific to the binding type go here.",
-          "type": "object",
-          "properties": {},
-          "required": [],
-          "additionalProperties": true
         },
         "schema_ref": {
           "description": "Optional dataset schema associated with port",
