@@ -17,7 +17,7 @@
         },
         "description": {
           "description": "User-defined description",
-          "$ref": "#/definitions/resource_def"
+          "type": "string"
         },
         "class_name": {
           "description": "CSS class name",
@@ -83,11 +83,11 @@
       "properties": {
         "label": {
           "description": "User-defined label",
-          "$ref": "#/definitions/resource_def"
+          "type": "string"
         },
         "description": {
           "description": "User-defined description",
-          "$ref": "#/definitions/resource_def"
+          "type": "string"
         },
         "class_name": {
           "description": "CSS class name",
@@ -131,30 +131,6 @@
       },
       "required": [],
       "additionalProperties": true
-    },
-    "resource_def": {
-      "description": "Localizable string resource",
-      "type": "object",
-      "properties": {
-        "default": {
-          "type": "string"
-        },
-        "resource_key": {
-          "type": "string"
-        }
-      },
-      "oneOf": [
-        {
-          "required": [
-            "default"
-          ]
-        },
-        {
-          "required": [
-            "resource_key"
-          ]
-        }
-      ]
     },
     "comment_def": {
       "type": "object",
