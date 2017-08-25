@@ -347,7 +347,7 @@
         },
         "node_binding_ref": {
           "description": "Optional node id binding within the current document. If not present the binding is external.",
-          "$ref": "#/definitions/link_def"
+          "type": "string"
         },
         "external_binding": {
           "description": "Concrete data binding to a source or a sink. Additional properties that are specific to the binding type go here.",
@@ -360,8 +360,14 @@
           "description": "Optional dataset schema associated with port",
           "type": "string"
         },
-        "link": {
-          "$ref": "#/definitions/link_def"
+        "links": {
+          "description": "Array of links going into the node. Applies to input ports and exit bindings only.",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/link_def"
+          },
+          "uniqueItems": true
         },
         "app_data": {
           "$ref": "#/definitions/app_data_def"
@@ -411,7 +417,7 @@
         },
         "node_binding_ref": {
           "description": "Optional node id binding within the current document.",
-          "$ref": "#/definitions/link_def"
+          "type": "string"
         },
         "app_data": {
           "$ref": "#/definitions/app_data_def"
