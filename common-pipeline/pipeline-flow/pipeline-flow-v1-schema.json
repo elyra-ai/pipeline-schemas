@@ -356,14 +356,8 @@
           "description": "Optional dataset schema associated with port",
           "type": "string"
         },
-        "links": {
-          "description": "Array of links going into the node. Applies to input ports and exit bindings only.",
-          "type": "array",
-          "minItems": 0,
-          "items": {
-            "$ref": "#/definitions/link_def"
-          },
-          "uniqueItems": true
+        "link": {
+          "$ref": "#/definitions/link_def"
         },
         "app_data": {
           "$ref": "#/definitions/app_data_def"
