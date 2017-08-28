@@ -14,11 +14,13 @@
            },         
            "version": {
              "description": "Dataset-metadata schema version",
-             "enum": ["1.0"]
+             "enum": ["1.0"],
+             "type":"string"
            },
            "json_schema": {
              "description": "Refers to the JSON schema used to validate documents of this type",
-             "enum": ["http://www.ibm.com/ibm/wdp/dataset-metadata/v1.0/dataset-metadata-v1-schema.json"]
+             "enum": ["http://www.ibm.com/ibm/wdp/dataset-metadata/v1.0/dataset-metadata-v1-schema.json"],
+             "type":"string"
            },
             "type":{
                "description":"Always 'struct' for dataset schema",

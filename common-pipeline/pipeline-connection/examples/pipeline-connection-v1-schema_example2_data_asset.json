@@ -1,0 +1,10 @@
+{  
+   "data_asset":{  
+      "properties":{  
+         "name": "employee_data.csv"
+      },
+      "app_data":{  
+         "some_custom_field":"a value"
+      }
+   }
+}

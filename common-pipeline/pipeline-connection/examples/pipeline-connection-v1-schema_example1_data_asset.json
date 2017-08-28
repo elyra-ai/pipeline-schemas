@@ -1,0 +1,12 @@
+{  
+   "data_asset":{  
+      "ref":"a3751f0b-24f2-4d7a-be55-ec7f3d3547f3",
+      "project_ref":"0a0a20e8-e8a8-4710-b90a-6df3ff775b04",
+      "properties":{  
+         "attachment_ref":"a8ecacef-2b40-472c-995b-78269b26e1bb"
+      },
+      "app_data":{  
+         "some_custom_field":"a value"
+      }
+   }
+}
