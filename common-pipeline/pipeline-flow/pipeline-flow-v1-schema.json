@@ -345,10 +345,6 @@
           "description": "Unique identifier",
           "type": "string"
         },
-        "node_binding_ref": {
-          "description": "Optional node id binding within the current document. If not present the binding is external.",
-          "type": "string"
-        },
         "external_binding": {
           "description": "Concrete data binding to a source or a sink. Additional properties that are specific to the binding type go here.",
           "type": "object",
@@ -415,7 +411,7 @@
           },
           "uniqueItems": true
         },
-        "node_binding_ref": {
+        "subflow_node_ref": {
           "description": "Optional node id binding within the current document.",
           "type": "string"
         },
