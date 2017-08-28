@@ -96,8 +96,8 @@
                   "record-id"
                ]
             },
-            "max_string_length":{
-               "description":"Maximum character length for string fields. Length is unlimited when not present",
+            "max_length":{
+               "description":"Maximum length for fields. Length is unlimited when not present",
                "type":"number"
             },
             "values":{
