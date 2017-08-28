@@ -8,6 +8,10 @@
          "description":"Description of a dataset including column types and metadata",
          "type":"object",
          "properties":{
+           "id": {
+             "description": "Unique identifier",
+             "type": "string"
+           },         
            "version": {
              "description": "Dataset-metadata schema version",
              "enum": ["1.0"],
@@ -100,6 +104,14 @@
             },
             "max_string_length":{
                "description":"Maximum character length for string fields. Length is unlimited when not present",
+               "type":"number"
+            },
+            "decimal_precision":{
+               "description":"Precision for decimal types",
+               "type":"number"
+            },
+            "decimal_scale":{
+               "description":"Scale for decimal types",
                "type":"number"
             },
             "values":{

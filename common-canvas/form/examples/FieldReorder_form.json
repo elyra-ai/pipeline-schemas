@@ -255,29 +255,17 @@
       }
     ],
     "data": {
-      "currentProperties": {
-        "annotation": [
-          ""
-        ],
-        "sort_by": [
-          "Name"
-        ],
-        "ascending": [
-          "true"
-        ],
-        "use_custom_name": [
-          "true"
-        ],
-        "mode": [
-          "Custom"
-        ],
-        "custom_name": [
-          ""
-        ],
+      "currentParameters": {
+        "annotation": "",
+        "sort_by": "Name",
+        "ascending": true,
+        "use_custom_name": true,
+        "mode": "Custom",
+        "custom_name": "",
         "fieldOrder": [
-          "[\"Na\",\"Range\"]",
-          "[\"-- All Remaining Fields --\",\"\"]",
-          "[\"Sex\",\"Discrete\"]"
+          ["Na","Range"],
+          ["-- All Remaining Fields --",""],
+          ["Sex","Discrete"]
         ]
       },
       "datasetMetadata": {

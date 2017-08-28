@@ -341,10 +341,6 @@
           "description": "Unique identifier",
           "type": "string"
         },
-        "node_binding_ref": {
-          "description": "Optional node id binding within the current document. If not present the binding is external.",
-          "$ref": "#/definitions/link_def"
-        },
         "schema_ref": {
           "description": "Optional dataset schema associated with port",
           "type": "string"
@@ -398,9 +394,9 @@
           },
           "uniqueItems": true
         },
-        "node_binding_ref": {
+        "subflow_node_ref": {
           "description": "Optional node id binding within the current document.",
-          "$ref": "#/definitions/link_def"
+          "type": "string"
         },
         "app_data": {
           "$ref": "#/definitions/app_data_def"
