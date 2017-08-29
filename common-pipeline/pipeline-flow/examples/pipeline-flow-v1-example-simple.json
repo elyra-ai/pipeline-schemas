@@ -146,7 +146,7 @@
             "description": "Field string1 is a string field",
             "measure": "set",
             "modeling_role": "input",
-            "max_string_length": 24,
+            "max_length": 24,
             "values": [
               "One",
               "Two",
@@ -167,7 +167,7 @@
             "description": "Field string1 is a string field",
             "measure": "set",
             "modeling_role": "input",
-            "max_string_length": 24,
+            "max_length": 24,
             "values": [
               "One",
               "Two",
