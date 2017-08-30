@@ -53,7 +53,7 @@
       "type": "object",
       "properties": {
         "cardinality": {
-          "description": "Property to capture how many datasets are allowed for this port, e.g., min: 1, max:1 implies you must supply 1 and only 1; min:0, max:1 implies it is optional and a max of one, min:0, max:-1 means it is optional and you can may have any number of datasets. The default value is 1:1 for inputs and 1:-1 for outputs.",
+          "description": "Property to capture how many data assets are allowed for this port, e.g., min: 1, max:1 implies you must supply 1 and only 1; min:0, max:1 implies it is optional and a max of one, min:0, max:-1 means it is optional and you can may have any number of data assets. The default value is 1:1 for inputs and 1:-1 for outputs.",
           "type": "object",
           "properties": {
             "min": {

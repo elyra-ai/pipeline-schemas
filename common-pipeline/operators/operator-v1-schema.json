@@ -32,7 +32,7 @@
       ]
     },
     "input_ports": {
-      "description": "List of input ports. If no ports are defined this is a source operator that accepts no dataset inputs. If the input_ports array is missing a single input port with id 'input_port' is assumed which accepts only a single connection.",
+      "description": "List of input ports. If no ports are defined this is a source operator that accepts no data inputs. If the input_ports array is missing a single input port with id 'input_port' is assumed which accepts only a single connection.",
       "type": "array",
       "minItems": 0,
       "items": {
@@ -40,7 +40,7 @@
       }
     },
     "output_ports": {
-      "description": "List of output ports. If no ports are defined this is a terminal operator that provides no dataset outputs. If the output_ports array is missing a single output port named 'output_port' is assumed which accepts multiple connections.",
+      "description": "List of output ports. If no ports are defined this is a terminal operator that provides no data outputs. If the output_ports array is missing a single output port named 'output_port' is assumed which accepts multiple connections.",
       "type": "array",
       "minItems": 0,
       "items": {
@@ -160,7 +160,7 @@
           "type": "string"
         },
         "cardinality": {
-          "description": "Property to capture how many datasets are allowed for this port, e.g., min: 1, max:1 implies you must supply 1 and only 1; min:0, max:1 implies it is optional and a max of one, min:0, max:-1 means it is optional and you can may have any number of datasets. The default value is 1:1 for inputs and 1:-1 for outputs.",
+          "description": "Property to capture how many connections are allowed for this port, e.g., min: 1, max:1 implies you must supply 1 and only 1; min:0, max:1 implies it is optional and a max of one, min:0, max:-1 means it is optional and you can may have any number of connections. The default value is 1:1 for inputs and 1:-1 for outputs.",
           "type": "object",
           "properties": {
             "min": {

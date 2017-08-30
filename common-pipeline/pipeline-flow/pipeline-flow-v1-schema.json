@@ -42,11 +42,11 @@
       "uniqueItems": true
     },
     "schemas": {
-      "description": "Array of dataset schema used in the document",
+      "description": "Array of data record schemas used in the document",
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "http://www.ibm.com/ibm/wml/dataset-metadata/v1.0/dataset-metadata-v1-schema.json#/definitions/dataset_schema"
+        "$ref": "http://www.ibm.com/ibm/wml/dataset-metadata/v1.0/dataset-metadata-v1-schema.json#/definitions/record_schema"
       },
       "uniqueItems": true
     },
@@ -220,12 +220,12 @@
             "app_data": {
               "$ref": "#/definitions/app_data_def"
             },
-            "connection":{  
+            "connection":{
               "$ref":"http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_connection_def"
             },
-            "data_asset":{  
+            "data_asset":{
               "$ref":"http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_data_asset_def"
-            }            
+            }
           }
         },
         {
@@ -246,12 +246,12 @@
             "app_data": {
               "$ref": "#/definitions/app_data_def"
             },
-            "connection":{  
+            "connection":{
               "$ref":"http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_connection_def"
             },
-            "data_asset":{  
+            "data_asset":{
               "$ref":"http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_data_asset_def"
-            }    
+            }
           }
         }
       ],
@@ -312,7 +312,7 @@
           "type": "string"
         },
         "schema_ref": {
-          "description": "Optional dataset schema reference associated with the port",
+          "description": "Optional data record schema reference associated with the port",
           "type": "string"
         },
         "links": {
@@ -342,7 +342,7 @@
           "type": "string"
         },
         "schema_ref": {
-          "description": "Optional dataset schema associated with port",
+          "description": "Optional data record schema associated with the port",
           "type": "string"
         },
         "link": {
@@ -382,7 +382,7 @@
           "type": "string"
         },
         "schema_ref": {
-          "description": "Optional dataset schema associated with port",
+          "description": "Optional data record schema associated with the port",
           "type": "string"
         },
         "links": {

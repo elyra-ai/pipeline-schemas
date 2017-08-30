@@ -63,10 +63,10 @@
             "id": "entryPort3PE",
             "schema_ref": "schema2"
           },
-          "connection":{  
+          "connection":{
             "ref":"d7c75790-90fc-4883-a5fc-3bb589166a52",
             "project_ref":"0a0a20e8-e8a8-4710-b90a-6df3ff775b04",
-            "properties": {  
+            "properties": {
               "schema_name":"GOSALES",
               "table_name":"PRODUCT_NAME_LOOKUP"
             }
@@ -140,7 +140,7 @@
                 "default": "Join"
               },
               "description": {
-                "default": "Join two or more datasets"
+                "default": "Join two or more data records"
               },
               "image": "join.svg",
               "x_pos": 651,
@@ -535,7 +535,7 @@
                 "default": "Join"
               },
               "description": {
-                "default": "Join two or more datasets"
+                "default": "Join two or more data records"
               },
               "image": "join.svg",
               "x_pos": 651,

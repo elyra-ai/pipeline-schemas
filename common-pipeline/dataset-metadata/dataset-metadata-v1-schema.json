@@ -4,14 +4,14 @@
    "title":"Watson Data Platform Dataset Metadata Schema",
    "description":"Metadata schema for datasets in the Watson Data Platform",
    "definitions":{
-      "dataset_schema":{
+      "record_schema":{
          "description":"Description of a dataset including column types and metadata",
          "type":"object",
          "properties":{
            "id": {
              "description": "Unique identifier",
              "type": "string"
-           },         
+           },
            "version": {
              "description": "Dataset-metadata schema version",
              "enum": ["1.0"],
