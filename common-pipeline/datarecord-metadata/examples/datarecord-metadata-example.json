@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "json_schema": "http://www.ibm.com/ibm/wdp/dataset-metadata/v1.0/dataset-metadata-v1-schema.json",
+  "json_schema": "http://www.ibm.com/ibm/wdp/datarecord-metadata/v1.0/datarecord-metadata-v1-schema.json",
   "fields": [
     {
       "name": "Age",

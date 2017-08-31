@@ -38,8 +38,8 @@ Nodes contain input and output ports. Nodes are connected to each other via link
 Most nodes have only a single port and thus port references can usually be omitted in links. The sole exception to this comes when a node has multiple output ports, in which case node links connected downstream must refer explicitly to the node and port ids.
 
 
-### Dataset Schema
-Ports on node inputs and outputs support optional dataset schema definitions (see dataset-metadata-v1-schema.json in the current repository). This aids processors in easily determining dataset metadata requirements. There is a "schemas" array at the end of each common pipeline document in which dataset schemata are optionally stored and referred to from node ports.
+### Datarecord Schema
+Ports on node inputs and outputs support optional datarecord schema definitions (see datarecord-metadata-v1-schema.json in the current repository). This aids processors in easily determining datarecord metadata requirements. There is a "schemas" array at the end of each common pipeline document in which datarecord schemata are optionally stored and referred to from node ports.
 
 
 ### An Example

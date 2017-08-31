@@ -46,7 +46,7 @@
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "http://www.ibm.com/ibm/wml/dataset-metadata/v1.0/dataset-metadata-v1-schema.json#/definitions/record_schema"
+        "$ref": "http://www.ibm.com/ibm/wml/datarecord-metadata/v1.0/datarecord-metadata-v1-schema.json#/definitions/record_schema"
       },
       "uniqueItems": true
     },
