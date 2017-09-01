@@ -1,6 +1,5 @@
 {
   "id": "org.apache.spark.ml.ibm.transformers.Sample",
-  "version": "1.0",
   "icon": "images/transformationspark.svg",
   "label": {
     "default": "Sample Rows"

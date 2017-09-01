@@ -1,6 +1,5 @@
 {
   "id": "org.ibm.spark.ibm.transformers.RenameColumns",
-  "version": "1.0",
   "operator_type": "transformer",
   "complex_types": [
     {

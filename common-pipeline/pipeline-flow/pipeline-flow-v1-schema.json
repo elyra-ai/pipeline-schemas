@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "WDP Pipeline Flow Schema",
   "type": "object",
-  "id": "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-v1-schema.json#",
+  "id": "http://www.ibm.com/ibm/wdp/flow-v1.0/pipeline-flow-v1-schema.json#",
   "properties": {
     "doc_type": {
       "description": "Document type",
@@ -17,7 +17,7 @@
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
       "enum": [
-        "http://www.ibm.com/ibm/wdp/canvas/v1.0/pipeline-flow-v1-schema.json"
+        "http://www.ibm.com/ibm/wdp/flow-v1.0/pipeline-flow-v1-schema.json"
       ]
     },
     "open_with_tool": {
@@ -221,10 +221,10 @@
               "$ref": "#/definitions/app_data_def"
             },
             "connection":{
-              "$ref":"http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_connection_def"
+              "$ref":"http://www.ibm.com/ibm/wdp/flow-v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_connection_def"
             },
             "data_asset":{
-              "$ref":"http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_data_asset_def"
+              "$ref":"http://www.ibm.com/ibm/wdp/flow-v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_data_asset_def"
             }
           }
         },
@@ -247,10 +247,10 @@
               "$ref": "#/definitions/app_data_def"
             },
             "connection":{
-              "$ref":"http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_connection_def"
+              "$ref":"http://www.ibm.com/ibm/wdp/flow-v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_connection_def"
             },
             "data_asset":{
-              "$ref":"http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_data_asset_def"
+              "$ref":"http://www.ibm.com/ibm/wdp/flow-v1.0/pipeline-connection-v1-schema.json#/definitions/common_pipeline_data_asset_def"
             }
           }
         }
