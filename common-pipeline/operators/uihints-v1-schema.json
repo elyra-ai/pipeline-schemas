@@ -55,8 +55,7 @@
     }
   },
   "required": [
-    "id",
-    "version"
+    "id"
   ],
   "definitions": {
     "group_definition": {

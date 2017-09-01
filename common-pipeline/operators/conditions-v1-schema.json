@@ -17,7 +17,6 @@
     }
   },
   "required": [
-    "version",
     "conditions"
   ],
   "definitions": {

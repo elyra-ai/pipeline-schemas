@@ -22,7 +22,6 @@
     }
   },
   "required": [
-    "version",
     "runtime",
     "categories"
   ],

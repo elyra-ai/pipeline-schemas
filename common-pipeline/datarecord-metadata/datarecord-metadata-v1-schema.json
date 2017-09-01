@@ -32,7 +32,6 @@
             }
          },
          "required":[
-           "version",
             "fields"
          ]
       },

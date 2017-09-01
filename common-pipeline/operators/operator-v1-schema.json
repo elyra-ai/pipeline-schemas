@@ -61,7 +61,6 @@
   },
   "required": [
     "id",
-    "version",
     "operator_type",
     "parameters"
   ],
