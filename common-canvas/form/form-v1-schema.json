@@ -36,7 +36,7 @@
 			}
 		},
 		"conditions": {
-			"$ref": "http://www.ibm.com/ibm/wml/conditions/v1.0/conditions-schema.json#conditions"
+			"$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/conditions-v1-schema.json#conditions"
 		},
 		"data": {
 			"description": "Additional data such as initial settings and data schema.",
@@ -543,7 +543,7 @@
 					"additionalProperties": true
 				},
 				"datasetMetadata": {
-					"$ref": "http://www.ibm.com/ibm/wml/dataset-metadata/v1.0/dataset-metadata-schema.json#"
+					"$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/datarecord-metadata-v1-schema.json#"
 				}
 			},
 			"required": [

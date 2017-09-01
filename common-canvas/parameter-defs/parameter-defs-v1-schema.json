@@ -13,19 +13,19 @@
       "additionalProperties": true
     },
     "parameters": {
-      "$ref": "http://www.ibm.com/ibm/wml/operator/v1.0/operator-schema.json#parameters"
+      "$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/operator-v1-schema.json#parameters"
     },
     "complex_types": {
-      "$ref": "http://www.ibm.com/ibm/wml/operator/v1.0/operator-schema.json#complex_types"
+      "$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/operator-v1-schema.json#complex_types"
     },
     "uihints": {
-      "$ref": "http://www.ibm.com/ibm/wml/uihints/v1.0/uihints-schema.json#"
+      "$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/uihints-v1-schema.json#"
     },
     "conditions": {
-      "$ref": "http://www.ibm.com/ibm/wml/conditions/v1.0/conditions-schema.json#conditions"
+      "$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/conditions-v1-schema.json#conditions"
     },
     "dataset_metadata": {
-      "$ref": "http://www.ibm.com/ibm/wml/dataset-metadata/v1.0/dataset-metadata-schema.json#"
+      "$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/datarecord-metadata-v1-schema.json#"
     },
     "resources": {
       "description": "Map of string resources.",
