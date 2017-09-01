@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://www.ibm.com/ibm/wdp/uihints/v1.0/uihints-v1-schema.json#",
+  "id": "http://www.ibm.com/ibm/wdp/flow-v1.0/uihints-v1-schema.json#",
   "description": "WDP UI Hints schema",
   "title": "WDP UI Hints schema",
   "type": "object",
@@ -9,13 +9,9 @@
       "description": "Operator identifier",
       "type": "string"
     },
-    "version": {
-      "description": "UIHints schema version",
-      "enum": ["1.0"]
-    },
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
-      "enum": ["http://www.ibm.com/ibm/wdp/uihints/v1.0/uihints-v1-schema.json"]
+      "enum": ["http://www.ibm.com/ibm/wdp/flow-v1.0/uihints-v1-schema.json"]
     },
     "label": {
       "description": "External name of operator",
@@ -59,8 +55,7 @@
     }
   },
   "required": [
-    "id",
-    "version"
+    "id"
   ],
   "definitions": {
     "group_definition": {

@@ -1,17 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://www.ibm.com/ibm/wdp/categories/v1.0/categories-v1-schema.json#",
+  "id": "http://www.ibm.com/ibm/wdp/flow-v1.0/categories-v1-schema.json#",
   "title": "Watson Data Platform Operator Categories Schema",
   "description": "Provides category grouping and ordering for runtime environments in the Watson Data Platform",
   "type": "object",
   "properties": {
-    "version": {
-      "description": "Version number of the JSON schema that the current document adheres to",
-      "enum": ["1.0"]
-    },
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
-      "enum": ["http://www.ibm.com/ibm/wdp/categories/v1.0/categories-v1-schema.json"]
+      "enum": ["http://www.ibm.com/ibm/wdp/flow-v1.0/categories-v1-schema.json"]
     },
     "runtime": {
       "description": "The runtime environment that the current categories file describes",
@@ -26,7 +22,6 @@
     }
   },
   "required": [
-    "version",
     "runtime",
     "categories"
   ],

@@ -1,17 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://www.ibm.com/ibm/wdp/conditions/v1.0/conditions-v1-schema.json#",
+  "id": "http://www.ibm.com/ibm/wdp/flow-v1.0/conditions-v1-schema.json#",
   "title": "Watson Data Platform Validation Schema",
   "description": "User Interface Condition schema for the Watson Data Platform",
   "type": "object",
   "properties": {
-    "version": {
-      "description": "Conditions schema version",
-      "enum": ["1.0"]
-    },
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
-      "enum": ["http://www.ibm.com/ibm/wdp/conditions/v1.0/conditions-v1-schema.json"]
+      "enum": ["http://www.ibm.com/ibm/wdp/flow-v1.0/conditions-v1-schema.json"]
     },
     "conditions": {
       "type": "array",
@@ -21,7 +17,6 @@
     }
   },
   "required": [
-    "version",
     "conditions"
   ],
   "definitions": {

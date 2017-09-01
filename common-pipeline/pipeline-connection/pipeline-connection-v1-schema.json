@@ -1,6 +1,6 @@
 {
    "$schema":"http://json-schema.org/draft-04/schema#",
-   "id":"http://www.ibm.com/ibm/wdp/pipeline-connection/v1.0/pipeline-connection-v1-schema.json#",
+   "id":"http://www.ibm.com/ibm/wdp/flow-v1.0/pipeline-connection-v1-schema.json#",
    "title":"Watson Data Platform Pipeline Connection Schema",
    "description":"Connection schema for pipelines in the Watson Data Platform",
    "definitions":{

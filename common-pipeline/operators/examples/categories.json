@@ -1,6 +1,5 @@
 {
-  "version": "1.0",
-  "json_schema": "http://www.ibm.com/ibm/wdp/categories/v1.0/categories-v1-schema.json#",
+  "json_schema": "http://www.ibm.com/ibm/wdp/flow-v1.0/categories-v1-schema.json#",
   "runtime": "scala-spark-2.0",
   "categories": [
     {
