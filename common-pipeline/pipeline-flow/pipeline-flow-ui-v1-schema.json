@@ -176,7 +176,7 @@
           "type": "array",
           "minItems": 0,
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/comment_link_def"
           },
           "uniqueItems": true
         }
@@ -188,6 +188,22 @@
         "width",
         "height"
       ],
+      "additionalProperties": true
+    },
+    "comment_link_def": {
+      "description": "Comment link definition",
+      "type": "object",
+      "properties": {
+        "node_ref": {
+          "description": "Node reference",
+          "type": "string"
+        },
+        "class_name": {
+          "description": "CSS class name for link styling",
+          "type": "string"
+        }
+      },
+      "required": ["node_ref"],
       "additionalProperties": true
     }
   }
