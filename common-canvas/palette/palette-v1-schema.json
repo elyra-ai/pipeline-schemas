@@ -33,7 +33,16 @@
                   "description": "Node description",
                   "type": "string"
                 },
-                "typeId": {
+                "type": {
+                  "description": "Node classification type",
+                  "enum": [
+                    "binding",
+                    "execution_node",
+                    "super_node",
+                    "model_node"
+                  ]
+                },
+                "operator_id_ref": {
                   "description": "Unique node type identifier",
                   "type": "string"
                 },
@@ -45,7 +54,7 @@
                   "description": "Optional sub diagram identifier.",
                   "type": "string"
                 },
-                "inputPorts": {
+                "input_ports": {
                   "description": "Array of node input ports",
                   "type": "array",
                   "minItems": 0,
@@ -53,7 +62,7 @@
                     "$ref": "#/definitions/port"
                   }
                 },
-                "outputPorts": {
+                "output_ports": {
                   "description": "Array of node output ports",
                   "type": "array",
                   "minItems": 0,
@@ -62,11 +71,18 @@
                   }
                 }
               },
-              "required": ["label", "typeId", "image"]
+              "required": [
+                "label",
+                "operator_id_ref",
+                "image"
+              ]
             }
           }
         },
-        "required": ["category", "label"]
+        "required": [
+          "category",
+          "label"
+        ]
       }
     }
   },
@@ -84,11 +100,26 @@
           "type": "string"
         },
         "cardinality": {
-					"type": "string",
-					"description": "Property to capture how many datasets are allowed for this port, e.g., 1:1 implies you must supply 1, 0:1 implies it is optional and a max of one, 0:N means it is optional and you can may have any number of datasets. The default value is 1:1.",
-					"pattern": "\\d+:\\[1-9]+|N"
-				}
+          "description": "Property to capture how many connections are allowed for this port, e.g., min: 1, max:1 implies you must supply 1 and only 1; min:0, max:1 implies it is optional and a max of one, min:0, max:-1 means it is optional and you can may have any number of connections. The default value is 1:1 for inputs and 1:-1 for outputs.",
+          "type": "object",
+          "properties": {
+            "min": {
+              "description": "Minimum data sets that are required for this port",
+              "type": "integer",
+              "default": 1
+            },
+            "max": {
+              "description": "Maximum data sets that are allowed on this port. A negative value indicates unlimited. The default value is 1 for inputs and -1 for outputs.",
+              "type": "integer"
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        }
       },
-      "required": ["name"]
+      "required": [
+        "name"
+      ]
+    }
   }
 }
