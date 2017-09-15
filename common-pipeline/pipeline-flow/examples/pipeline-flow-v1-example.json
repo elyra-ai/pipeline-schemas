@@ -45,7 +45,14 @@
           "type": "binding",
           "output": {
             "id": "entryPort1PE",
-            "schema_ref": "schema1"
+            "schema_ref": "schema1",
+            "app_data": {
+              "ui_data": {
+                "label": {
+                  "default": "exit Port 1PE"
+                }
+              }
+            }
           }
         },
         {
@@ -53,7 +60,14 @@
           "type": "binding",
           "output": {
             "id": "entryPort2PE",
-            "schema_ref": "schema2"
+            "schema_ref": "schema2",
+            "app_data": {
+              "ui_data": {
+                "label": {
+                  "default": "exit Port 1PE"
+                }
+              }
+            }
           }
         },
         {
@@ -61,7 +75,14 @@
           "type": "binding",
           "output": {
             "id": "entryPort3PE",
-            "schema_ref": "schema2"
+            "schema_ref": "schema2",
+            "app_data": {
+              "ui_data": {
+                "label": {
+                  "default": "entryID3PE"
+                }
+              }
+            }
           },
           "connection":{
             "ref":"d7c75790-90fc-4883-a5fc-3bb589166a52",
@@ -91,7 +112,10 @@
                     "min": 1,
                     "max": 1
                   },
-                  "class_name": "foobar"
+                  "class_name": "foobar",
+                  "label": {
+                    "default": "input1NodeID1PE"
+                  }
                 }
               }
             },
@@ -109,7 +133,10 @@
                     "min": 1,
                     "max": 1
                   },
-                  "class_name": "foobar"
+                  "class_name": "foobar",
+                  "label": {
+                    "default": "input2NodeID1PE"
+                  }
                 }
               }
             }
@@ -124,7 +151,10 @@
                     "min": 1,
                     "max": -1
                   },
-                  "class_name": "foobar"
+                  "class_name": "foobar",
+                  "label": {
+                    "default": "output1NodeID1PE"
+                  }
                 }
               }
             }
@@ -146,7 +176,16 @@
               "x_pos": 651,
               "y_pos": 70,
               "class_name": "nodes",
-              "attributes": "attr1='value1'; attr2='value2'"
+              "attributes": "attr1='value1'; attr2='value2'",
+              "decorations": [
+                {
+                  "position": "topRight",
+                  "class_name": "zoom-in-decoration",
+                  "hotspot": true,
+                  "id": "zoomInDecorator",
+                  "image": "/images/decorators/zoom-in_32.svg"
+                }
+              ]
             },
             "wml_data": {
               "typeId": "Join"
@@ -173,7 +212,7 @@
                 "ui_data": {
                   "class_name": "port-class",
                   "label": {
-                    "default": "Input Port"
+                    "default": "input1SuperNodePE"
                   }
                 }
               }
@@ -191,7 +230,7 @@
                 "ui_data": {
                   "class_name": "port-class",
                   "label": {
-                    "default": "Input Port"
+                    "default": "input2SuperNodePE"
                   }
                 }
               }
@@ -206,7 +245,7 @@
                 "ui_data": {
                   "class_name": "port-class",
                   "label": {
-                    "default": "Output port"
+                    "default": "output1SuperNodePE"
                   }
                 }
               }
@@ -240,7 +279,7 @@
                   },
                   "class_name": "port-class",
                   "label": {
-                    "default": "Input Port"
+                    "default": "input1NodeID2PE"
                   }
                 }
               }
@@ -254,7 +293,7 @@
                 "ui_data": {
                   "class_name": "port-class",
                   "label": {
-                    "default": "Output port"
+                    "default": "output1NodeID2PE"
                   }
                 }
               }
@@ -307,7 +346,7 @@
                   },
                   "class_name": "port-class",
                   "label": {
-                    "default": "Input Port"
+                    "default": "input1NodeID3PE"
                   }
                 }
               }
@@ -321,7 +360,7 @@
                 "ui_data": {
                   "class_name": "port-class",
                   "label": {
-                    "default": "Output port"
+                    "default": "output1NodeID3PE"
                   }
                 }
               }
@@ -356,6 +395,13 @@
             "schema_ref": "schema3",
             "link": {
               "node_id_ref": "nodeID2PE"
+            },
+            "app_data": {
+              "ui_data": {
+                "label": {
+                  "default": "exitPort1PE"
+                }
+              }
             }
           }
         },
@@ -367,6 +413,13 @@
             "schema_ref": "schema3",
             "link": {
               "node_id_ref": "nodeID3PE"
+            },
+            "app_data": {
+              "ui_data": {
+                "label": {
+                  "default": "exitID2PE"
+                }
+              }
             }
           }
         }
@@ -387,7 +440,14 @@
           "type": "binding",
           "output": {
             "id": "entryPort1SE",
-            "schema_ref": "schema3"
+            "schema_ref": "schema3",
+            "app_data": {
+              "ui_data": {
+                "label": {
+                  "default": "entryPort1SE"
+                }
+              }
+            }
           }
         },
         {
@@ -395,7 +455,14 @@
           "type": "binding",
           "output": {
             "id": "entryPort2SE",
-            "schema_ref": "schema2"
+            "schema_ref": "schema2",
+            "app_data": {
+              "ui_data": {
+                "label": {
+                  "default": "entryPort2SE"
+                }
+              }
+            }
           }
         },
         {
@@ -420,7 +487,7 @@
                 "ui_data": {
                   "class_name": "port-class",
                   "label": {
-                    "default": "Input Port"
+                    "default": "input1nodeID1SE"
                   }
                 }
               }
@@ -434,7 +501,7 @@
                 "ui_data": {
                   "class_name": "port-class",
                   "label": {
-                    "default": "Output port"
+                    "default": "output1nodeID1SE"
                   }
                 }
               }
@@ -485,7 +552,10 @@
                     "min": 1,
                     "max": 1
                   },
-                  "class_name": "foobar"
+                  "class_name": "foobar",
+                  "label": {
+                    "default": "input1NodeID2SE"
+                  }
                 }
               }
             },
@@ -508,7 +578,10 @@
                     "min": 1,
                     "max": 1
                   },
-                  "class_name": "foobar"
+                  "class_name": "foobar",
+                  "label": {
+                    "default": "input2NodeID2SE"
+                  }
                 }
               }
             }
@@ -519,7 +592,10 @@
               "schema_ref": "schema2",
               "app_data": {
                 "ui_data": {
-                  "class_name": "foobar"
+                  "class_name": "foobar",
+                  "label": {
+                    "default": "output1NodeID2SE"
+                  }
                 }
               }
             }
@@ -558,7 +634,10 @@
               "node_id_ref": "nodeID2SE",
               "app_data": {
                 "ui_data": {
-                  "class_name": "linkClass"
+                  "class_name": "linkClass",
+                  "label": {
+                    "default": "exitPort1SE"
+                  }
                 }
               }
             }

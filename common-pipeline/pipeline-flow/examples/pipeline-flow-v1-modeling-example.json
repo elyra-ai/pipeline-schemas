@@ -31,7 +31,14 @@
           "type": "binding",
           "output": {
             "id": "entryPort1PE",
-            "schema_ref": "schema1"
+            "schema_ref": "schema1",
+            "app_data": {
+              "ui_data": {
+                "label": {
+                  "default": "Output Port"
+                }
+              }
+            }
           }
         },
         {
@@ -122,7 +129,10 @@
               ],
               "app_data": {
                 "ui_data": {
-                  "class_name": "portClass"
+                  "class_name": "portClass",
+                  "label": {
+                    "default": "input1modeling_nodeID3PE"
+                  }
                 }
               }
             }
@@ -189,7 +199,14 @@
                 {
                   "node_id_ref": "entryID1PE"
                 }
-              ]
+              ],
+              "app_data": {
+                "ui_data": {
+                  "label": {
+                    "default": "input1NodeID4PE"
+                  }
+                }
+              }
             }
           ],
           "outputs": [

@@ -33,10 +33,10 @@
             "id": "entryPort1PE",
             "schema_ref": "schema1"
           },
-          "connection":{  
+          "connection":{
             "ref":"d7c75790-90fc-4883-a5fc-3bb589166a52",
             "project_ref":"0a0a20e8-e8a8-4710-b90a-6df3ff775b04",
-            "properties": {  
+            "properties": {
               "schema_name":"GOSALES",
               "table_name":"PRODUCT_NAME_LOOKUP"
             }
@@ -54,13 +54,27 @@
                 {
                   "node_id_ref": "entryID1PE"
                 }
-              ]
+              ],
+              "app_data": {
+                "ui_data": {
+                  "label": {
+                    "default": "input 1 Node ID2PE"
+                  }
+                }
+              }
             }
           ],
           "outputs": [
             {
               "id": "output1NodeID2PE",
-              "schema_ref": "schema2"
+              "schema_ref": "schema2",
+              "app_data": {
+                "ui_data": {
+                  "label": {
+                    "default": "output 1 Node ID2PE"
+                  }
+                }
+              }
             }
           ],
           "parameters": {
@@ -95,13 +109,20 @@
             "schema_ref": "schema2",
             "link": {
               "node_id_ref": "nodeID2PE"
+            },
+            "app_data": {
+              "ui_data": {
+                "label": {
+                  "default": "exit Port 1PE"
+                }
+              }
             }
           },
-          "data_asset":{  
-            "properties":{  
+          "data_asset":{
+            "properties":{
               "name": "employee_data.csv"
             }
-          }  
+          }
         }
       ]
     }

@@ -91,8 +91,8 @@
       "description": "Defines a node port for links",
       "type": "object",
       "properties": {
-        "name": {
-          "description": "Port name",
+        "id": {
+          "description": "Port identifier",
           "type": "string"
         },
         "label": {
@@ -118,7 +118,7 @@
         }
       },
       "required": [
-        "name"
+        "id"
       ]
     }
   }

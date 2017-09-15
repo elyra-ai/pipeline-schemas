@@ -36,6 +36,13 @@
               "description": "A hypothetical external binding to a CSV file in the local file system. Actual contents TBD",
               "type": "text/csv",
               "location": "/users/data/File1.csv"
+            },
+            "app_data": {
+              "ui_data": {
+                "label": {
+                  "default": "entryPort1PE"
+                }
+              }
             }
           }
         },
