@@ -407,6 +407,14 @@
 				"filterable": {
 					"description": "Determines if this column values can be filtered so that only rows that match the filter in column values are shown in the table",
 					"type": "boolean"
+				},
+				"language": {
+					"description": "The language for the expression editor syntax highlight and autocomplete workds. Applies to expression control type.",
+					"type": "string",
+					"enum": [
+						"CLEM",
+						"text/x-hive"
+					]
 				}
 			},
 			"required": [

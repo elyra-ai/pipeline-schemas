@@ -219,7 +219,7 @@
           "type": "string",
           "enum": [
             "CLEM",
-            "sql"
+            "text/x-hive"
           ]
         },
         "number_generator": {
