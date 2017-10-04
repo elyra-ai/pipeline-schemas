@@ -286,6 +286,10 @@
 					"description": "For structure/tabular controls, specifies the initial values for the new row/structure (e.g. when a '+' button is pressed).",
 					"type": "object"
 				},
+				"noPickColumns": {
+					"description": "Suppresses Add/Remove Columns from structure tables residing within columnSelection or columnAllocation panels",
+					"type": "boolean"
+				},
 				"childItem": {
 					"description": "The basic metadata about the parameter associated with the control.",
 					"type": "object",

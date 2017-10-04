@@ -249,6 +249,16 @@
           "required": [
             "label"
           ]
+        },
+        "dm_default": {
+          "description": "Used within complex structures containing 'column' key_definition fields. This associates the subControl parameter with a field attribute in the current data model.",
+          "type": "string",
+          "enum": [
+            "type",
+            "description",
+            "measure",
+            "modeling_role"
+          ]
         }
       },
       "required": [
