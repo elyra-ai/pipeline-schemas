@@ -551,7 +551,6 @@
 					"description": "Current parameter set upon input. Keys are parameter names, values are their values.",
 					"type": "object",
 					"properties": {},
-					"required": [],
 					"additionalProperties": true
 				},
 				"datasetMetadata": {
