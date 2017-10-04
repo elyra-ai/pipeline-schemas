@@ -113,7 +113,6 @@
               "type": "integer"
             }
           },
-          "required": [],
           "additionalProperties": false
         }
       },

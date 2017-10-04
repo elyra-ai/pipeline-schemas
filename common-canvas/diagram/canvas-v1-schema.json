@@ -35,13 +35,11 @@
           "description": "Canvas long description",
           "type": "string"
         }
-      },
-      "required": []
+      }
     },
     "userData": {
       "description": "Client data is stored here",
       "type": "object",
-      "required": [],
       "additionalProperties": true
     },
     "diagram": {

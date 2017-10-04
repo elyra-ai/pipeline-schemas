@@ -9,7 +9,6 @@
       "description": "Current parameter set upon input. Keys are parameter names, values are their values.",
       "type": "object",
       "properties": {},
-      "required": [],
       "additionalProperties": true
     },
     "parameters": {
@@ -31,7 +30,6 @@
       "description": "Map of string resources.",
       "type": "object",
       "properties": {},
-      "required": [],
       "additionalProperties": true
     }
   },
