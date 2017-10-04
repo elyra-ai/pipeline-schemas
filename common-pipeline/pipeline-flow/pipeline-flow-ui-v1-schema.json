@@ -4,7 +4,6 @@
   "type": "object",
   "id": "http://www.ibm.com/ibm/wdp/flow-v1.0/pipeline-flow-ui-v1-schema.json#",
   "properties": {},
-  "required": [],
   "additionalProperties": true,
   "definitions": {
     "pipeline_overview_def": {
@@ -24,7 +23,6 @@
           "type": "string"
         }
       },
-      "required": [],
       "additionalProperties": true
     },
     "pipeline_def": {
@@ -45,7 +43,6 @@
           "uniqueItems": true
         }
       },
-      "required": [],
       "additionalProperties": true
     },
     "port_info_def": {
@@ -66,7 +63,6 @@
               "type": "integer"
             }
           },
-          "required": [],
           "additionalProperties": false
         },
         "class_name": {
@@ -78,7 +74,6 @@
           "type": "string"
         }
       },
-      "required": [],
       "additionalProperties": true
     },
     "node_info_def": {
@@ -129,8 +124,7 @@
               "description": "CSS class name for link styling",
               "type": "string"
             }
-          },
-          "required": []
+          }
         }
       },
       "decorations": {
@@ -142,7 +136,6 @@
         },
         "uniqueItems": true
       },
-      "required": [],
       "additionalProperties": true
     },
     "decoration_def"
@@ -174,8 +167,7 @@
           "description": "Image displayed at the decoration position",
           "type": "string"
         }
-      },
-      "required": []
+      }
     },
     "comment_def": {
       "type": "object",

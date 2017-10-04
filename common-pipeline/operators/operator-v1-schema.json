@@ -166,7 +166,6 @@
               "type": "integer"
             }
           },
-          "required": [],
           "additionalProperties": false
         }
       }
@@ -176,7 +175,6 @@
       "type": "object",
       "properties": {
       },
-      "required": [],
       "additionalProperties": true
     }
   }
