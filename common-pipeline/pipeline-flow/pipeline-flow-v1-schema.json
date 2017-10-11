@@ -167,7 +167,7 @@
           "type": "object",
           "properties": {
             "url": {
-              "description": "Reference to an external sub-flow. When not present the sub-flow is assumed to be in the current document.",
+              "description": "Reference to an external sub-flow. When not present the sub-flow is assumed to be in the current document. A value of 'app_defined' indicates a sub-flow identifier is present, but the controlling application will serve up the sub-pipeline in the form of a new pipeline-flow document (no sub-flow is present in the document).",
               "type": "string"
             },
             "pipeline_id_ref": {
