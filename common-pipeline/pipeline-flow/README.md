@@ -42,6 +42,10 @@ Most nodes have only a single port and thus port references can usually be omitt
 Ports on node inputs and outputs support optional datarecord schema definitions (see datarecord-metadata-v1-schema.json in the current repository). This aids processors in easily determining datarecord metadata requirements. There is a "schemas" array at the end of each common pipeline document in which datarecord schemata are optionally stored and referred to from node ports.
 
 
+### Mime-type
+The mime-type for pipeline-flow documents is `application/vnd+ibm.dataplatform-pipeline+json`. This should be used when transferring files and in REST payloads.
+
+
 ### An Example
  See the 'pipeline-flow-v1-example.png' diagram describing the pipeline-flow-v1-example.json file in the examples folder that accompanies this note. The data binding nodes are expressed as circles on the edges of each pipeline and the super node uses a rounded rectangle, although physically they are all just types of node in the DAG.
 
