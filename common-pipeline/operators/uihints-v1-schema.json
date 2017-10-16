@@ -81,7 +81,8 @@
             "fieldAllocation",
             "fieldSelection",
             "panelSelector",
-            "checkboxPanel"
+            "checkboxPanel",
+            "customPanel"
           ]
         },
         "depends_on_ref": {
