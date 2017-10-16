@@ -168,6 +168,16 @@
           "items": {
             "type": "string"
           }
+        },
+        "label": {
+          "description": "Defines a panel label.  Used in checkboxPanel",
+          "type": "object",
+          "properties": {
+            "text": {
+              "description": "The label text.",
+              "type": "string"
+            }
+          }
         }
       },
       "required": [
