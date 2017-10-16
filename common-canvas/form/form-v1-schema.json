@@ -1,565 +1,584 @@
 {
-	"$schema": "http://json-schema.org/draft-04/schema#",
-	"id": "http://www.ibm.com/ibm/wdp/form/v1.0/form-schema.json#",
-	"title": "Watson Data Platform Form Schema",
-	"description": "Form schema for the Watson Data Platform",
-	"type": "object",
-	"properties": {
-		"componentId": {
-			"description": "The type of the component being edited.",
-			"type": "string"
-		},
-		"label": {
-			"description": "The component label.",
-			"type": "string"
-		},
-		"editorSize": {
-			"description": "The editor size.",
-			"enum": [
-				"large",
-				"medium",
-				"small"
-			]
-		},
-		"uiItems": {
-			"description": "List of UI items.",
-			"type": "array",
-			"items": {
-				"$ref": "#/definitions/ui_item_definition"
-			}
-		},
-		"buttons": {
-			"description": "List of buttons that should appear in the UI. Currently ignored.",
-			"type": "array",
-			"items": {
-				"$ref": "#/definitions/button_definition"
-			}
-		},
-		"conditions": {
-			"$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/conditions-v1-schema.json#conditions"
-		},
-		"data": {
-			"description": "Additional data such as initial settings and data schema.",
-			"type": "object",
-			"$ref": "#/definitions/form_data_definition"
-		}
-	},
-	"required": [
-		"componentId",
-		"label",
-		"uiItems",
-		"data"
-	],
-	"definitions": {
-		"ui_item_definition": {
-			"description": "UI item definition that represents a basic element in the UI",
-			"type": "object",
-			"properties": {
-				"itemType": {
-					"description": "The type of UI item.",
-					"type": "string",
-					"enum": [
-						"control",
-						"additionalLink",
-						"staticText",
-						"hSeparator",
-						"panel",
-						"primaryTabs",
-						"subTabs",
-						"panelSelector"
-					]
-				},
-				"tabs": {
-					"description": "List of tab definitions for 'primaryTab' and 'secondaryTab' items.",
-					"type": "array",
-					"items": {
-						"$ref": "#/definitions/editor_tab_definition"
-					}
-				},
-				"panel": {
-					"description": "Panel definition for 'panel' items.",
-					"type": "object",
-					"$ref": "#/definitions/control_panel_definition"
-				},
-				"control": {
-					"description": "Control definition for 'control' items.",
-					"type": "object",
-					"oneOf": [
-						{
-							"$ref": "#/definitions/control_definition"
-						},
-						{
-							"$ref": "#/definitions/sub_control_definition"
-						}
-					]
-				},
-				"text": {
-					"description": "Text associated with 'additionalLink', 'staticText' or 'hSeparator'.",
-					"type": "string"
-				},
-				"secondaryText": {
-					"description": "Secondary text associated with the sub-panel shown when an 'additionalLink' is clicked.",
-					"type": "string"
-				},
-				"dependsOn": {
-					"description": "Specifies a parameter name (usually associated with a boolean or enumerated value) whose control value this item depends on.",
-					"type": "string"
-				}
-			},
-			"required": [
-				"itemType"
-			]
-		},
-		"editor_tab_definition": {
-			"description": "Defines a tab or sub-tab.",
-			"type": "object",
-			"properties": {
-				"text": {
-					"description": "The text in the tab",
-					"type": "string"
-				},
-				"group": {
-					"description": "The parameter group being displayed in the tab",
-					"type": "string"
-				},
-				"uiItem": {
-					"description": "The UI item to be shown.",
-					"type": "object",
-					"$ref": "#/definitions/ui_item_definition"
-				}
-			},
-			"required": [
-				"text",
-				"group",
-				"uiItem"
-			]
-		},
-		"control_panel_definition": {
-			"description": "Defines a control panel.",
-			"type": "object",
-			"properties": {
-				"id": {
-					"description": "The panel ID",
-					"type": "string"
-				},
-				"panelType": {
-					"description": "The type of panel.",
-					"type": "string",
-					"enum": [
-						"general",
-						"columnAllocation"
-					]
-				},
-				"uiItems": {
-					"description": "List of UI items in this panel.",
-					"type": "array",
-					"items": {
-						"$ref": "#/definitions/ui_item_definition"
-					}
-				}
-			},
-			"required": [
-				"id",
-				"panelType",
-				"uiItems"
-			]
-		},
-		"control_definition": {
-			"description": "Defines a control that is used to edit a parameter.",
-			"type": "object",
-			"properties": {
-				"name": {
-					"description": "The name of the parameter that can be edited by this control.",
-					"type": "string"
-				},
-				"label": {
-					"description": "The control label and any associated shortcuts. This may also be used for accessibility reasons so must be provided even if the control doesn't show the label.",
-					"type": "object",
-					"$ref": "#/definitions/control_label_definition"
-				},
-				"separateLabel": {
-					"description": "Whether the label should be shown. Typically checkboxes don't have a separate label although this can be over-ridden.",
-					"type": "boolean"
-				},
-				"description": {
-					"description": "Optional description for the control",
-					"type": "object",
-					"properties": {
-						"text": {
-							"description": "The text to display",
-							"type": "string"
-						},
-						"placement": {
-							"description": "Optional placement context",
-							"enum": [
-								"as_tooltip",
-								"on_panel"
-							],
-							"default": "as_tooltip"
-						}
-					},
-					"required": ["text"]
-				},
-				"controlType": {
-					"description": "The type of control.",
-					"type": "string",
-					"enum": [
-						"textfield",
-						"passwordfield",
-						"textarea",
-						"expression",
-						"numberfield",
-						"checkbox",
-						"oneofselect",
-						"someofselect",
-						"oneofcolumns",
-						"someofcolumns",
-						"allocatedcolumn",
-						"allocatedcolumns",
-						"allocatedstructures",
-						"structureeditor",
-						"structurelisteditor"
-					]
-				},
-				"valueDef": {
-					"description": "The basic metadata about the parameter associated with the control.",
-					"type": "object",
-					"$ref": "#/definitions/value_definition"
-				},
-				"role": {
-					"description": "The additional information about the role as defined by the parameter declaration.",
-					"type": "string"
-				},
-				"charLimit": {
-					"description": "Control text size limit.",
-					"type": "integer"
-				},
-				"additionalText": {
-					"description": "The additional text to be shown close to the control.",
-					"type": "string"
-				},
-				"orientation": {
-					"description": "Defines the flow of any sub-controls e.g. radio buttons or checkboxes.",
-					"type": "string",
-					"enum": [
-						"vertical",
-						"horizontal"
-					]
-				},
-				"values": {
-					"description": "For enumerated types, this defines the set of valid values.",
-					"type": "array",
-					"items": {
-						"type": "string"
-					}
-				},
-				"valueLabels": {
-					"description": "For enumerated types, this defines the set of labels for the valid values. The ordering must be consistent with the order in the 'values' attribute.",
-					"type": "array",
-					"items": {
-						"type": "string"
-					}
-				},
-				"valueIcons": {
-					"description": "For enumerated types, this defines the set of icons for the valid values. The ordering must be consistent with the order in the 'values' attribute.",
-					"type": "array",
-					"items": {
-						"type": "string"
-					}
-				},
-				"moveableRows": {
-					"description": "For structure types, determines if rows can be moved up or down in a table",
-					"type": "boolean"
-				},
-				"subControls": {
-					"description": "For structure types, this defines the control information for sub-parameters. Used to render the table columns and the sub-panel.",
-					"type": "array",
-					"items": {
-						"$ref": "#/definitions/sub_control_definition"
-					}
-				},
-				"keyIndex": {
-					"description": "For structure/tabular controls, indicates which column index is the key (-1 indicates no key).",
-					"type": "integer"
-				},
-				"defaultRow": {
-					"description": "For structure/tabular controls, specifies the initial values for the new row/structure (e.g. when a '+' button is pressed).",
-					"type": "object"
-				},
-				"noPickColumns": {
-					"description": "Suppresses Add/Remove Columns from structure tables residing within columnSelection or columnAllocation panels",
-					"type": "boolean"
-				},
-				"childItem": {
-					"description": "The basic metadata about the parameter associated with the control.",
-					"type": "object",
-					"$ref": "#/definitions/ui_item_definition"
-				},
-				"editStyle": {
-					"description": "Editing style of elements in a table",
-					"type": "string",
-					"enum": [
-						"subpanel",
-						"inline"
-					]
-				},
-				"required": {
-					"description": "True when this parameter must be provided in order to execute.",
-					"type": "boolean"
-				}
-			},
-			"required": [
-				"name",
-				"label",
-				"separateLabel",
-				"controlType",
-				"valueDef"
-			]
-		},
-		"sub_control_definition": {
-			"description": "Defines a control that is used to edit a parameter within a structure. Note that this differs from a standard control by not supporting structures within a structure. This should be addressed.",
-			"type": "object",
-			"properties": {
-				"name": {
-					"description": "The name of the parameter that can be edited by this control.",
-					"type": "string"
-				},
-				"label": {
-					"description": "The control label and any associated shortcuts.",
-					"type": "object",
-					"$ref": "#/definitions/control_label_definition"
-				},
-				"visible": {
-					"description": "Whether the table showing the structures includes a column for this sub-parameter.",
-					"type": "boolean"
-				},
-				"width": {
-					"description": "Suggested width of the column in the table that shows the current value.",
-					"type": "integer"
-				},
-				"controlType": {
-					"description": "The type of control.",
-					"type": "string",
-					"enum": [
-						"textfield",
-						"passwordfield",
-						"textarea",
-						"expression",
-						"numberfield",
-						"checkbox",
-						"oneofselect",
-						"someofselect",
-						"oneofcolumns",
-						"someofcolumns",
-						"allocatedcolumn",
-						"allocatedcolumns",
-						"allocatedstructures",
-						"structureeditor",
-						"structurelisteditor"
-					]
-				},
-				"valueDef": {
-					"description": "The basic metadata about the parameter associated with the control.",
-					"type": "object",
-					"$ref": "#/definitions/value_definition"
-				},
-				"role": {
-					"description": "The additional information about the role as defined by the parameter declaration.",
-					"type": "string"
-				},
-				"charLimit": {
-					"description": "Control text size limit.",
-					"type": "integer"
-				},
-				"additionalText": {
-					"description": "The additional text to be shown close to the control.",
-					"type": "string"
-				},
-				"orientation": {
-					"description": "Defines the flow of any sub-controls e.g. radio buttons or checkboxes.",
-					"type": "string",
-					"enum": [
-						"vertical",
-						"horizontal"
-					]
-				},
-				"values": {
-					"description": "For enumerated types, this defines the set of valid values.",
-					"type": "array",
-					"items": {
-						"type": "string"
-					}
-				},
-				"valueLabels": {
-					"description": "For enumerated types, this defines the set of labels for the valid values. The ordering must be consistent with the order in the 'values' attribute.",
-					"type": "array",
-					"items": {
-						"type": "string"
-					}
-				},
-				"valueIcons": {
-					"description": "For enumerated types, this defines the set of icons for the valid values. The ordering must be consistent with the order in the 'values' attribute.",
-					"type": "array",
-					"items": {
-						"type": "string"
-					}
-				},
-				"sortable": {
-					"description": "Determines if this column values can be sorted into ascending/descending order in a table",
-					"type": "boolean"
-				},
-				"filterable": {
-					"description": "Determines if this column values can be filtered so that only rows that match the filter in column values are shown in the table",
-					"type": "boolean"
-				},
-				"language": {
-					"description": "The language for the expression editor syntax highlight and autocomplete workds. Applies to expression control type.",
-					"type": "string",
-					"enum": [
-						"CLEM",
-						"text/x-hive"
-					]
-				}
-			},
-			"required": [
-				"name",
-				"label",
-				"visible",
-				"width",
-				"controlType",
-				"valueDef"
-			]
-		},
-		"control_label_definition": {
-			"description": "Defines a control label.",
-			"type": "object",
-			"properties": {
-				"text": {
-					"description": "The label text.",
-					"type": "string"
-				},
-				"number_generator": {
-					"description": "Adds a number generation link beside the label of this control",
-					"type": "object",
-					"properties": {
-						"label": {
-							"description": "Link text",
-							"type": "string"
-						},
-						"range": {
-							"description": "Number generator range",
-							"type": "object",
-							"properties": {
-								"min": {
-									"description": "Maximum value for generated numbers",
-									"type": "number"
-								}
-							},
-							"required": [
-								"min",
-								"max"
-							]
-						}
-					},
-					"required": [
-						"label"
-					]
-				}
-			},
-			"required": [
-				"text"
-			]
-		},
-		"value_definition": {
-			"description": "Defines basic value metadata.",
-			"type": "object",
-			"properties": {
-				"propType": {
-					"description": "The basic property type.",
-					"type": "string",
-					"enum": [
-						"boolean",
-						"integer",
-						"long",
-						"double",
-						"string",
-						"password",
-						"date",
-						"structure"
-					]
-				},
-				"isList": {
-					"description": "Whether the value is represented as a list.",
-					"type": "boolean"
-				},
-				"isMap": {
-					"description": "Whether the value is represented as a map.",
-					"type": "boolean"
-				},
-				"defaultValue": {
-					"description": "Optional default value",
-					"oneOf": [{
-						"type": "string"
-					}, {
-						"type": "number"
-					}, {
-						"type": "boolean"
-					}, {
-						"type": "array"
-					}]
-				}
-			},
-			"required": [
-				"propType",
-				"isList",
-				"isMap"
-			]
-		},
-		"button_definition": {
-			"description": "Defines a button and any associated callback.",
-			"type": "object",
-			"properties": {
-				"id": {
-					"description": "Button identifier",
-					"type": "string"
-				},
-				"text": {
-					"description": "Button label text",
-					"type": "string"
-				},
-				"isPrimary": {
-					"description": "Whether the button is the primary/default button.",
-					"type": "boolean"
-				},
-				"url": {
-					"description": "The endpoint to be called when the button is pressed.",
-					"type": "string"
-				}
-			},
-			"required": [
-				"id",
-				"text",
-				"isPrimary",
-				"url"
-			]
-		},
-		"form_data_definition": {
-			"description": "Additional data such as initial settings and input data schema.",
-			"type": "object",
-			"properties": {
-				"currentParameters": {
-					"description": "Current parameter set upon input. Keys are parameter names, values are their values.",
-					"type": "object",
-					"properties": {},
-					"additionalProperties": true
-				},
-				"datasetMetadata": {
-					"$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/datarecord-metadata-v1-schema.json#"
-				}
-			},
-			"required": [
-				"currentParameters"
-			]
-		}
-	}
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://www.ibm.com/ibm/wdp/form/v1.0/form-schema.json#",
+  "title": "Watson Data Platform Form Schema",
+  "description": "Form schema for the Watson Data Platform",
+  "type": "object",
+  "properties": {
+    "componentId": {
+      "description": "The type of the component being edited.",
+      "type": "string"
+    },
+    "label": {
+      "description": "The component label.",
+      "type": "string"
+    },
+    "editorSize": {
+      "description": "The editor size.",
+      "enum": [
+        "large",
+        "medium",
+        "small"
+      ]
+    },
+    "uiItems": {
+      "description": "List of UI items.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ui_item_definition"
+      }
+    },
+    "buttons": {
+      "description": "List of buttons that should appear in the UI. Currently ignored.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/button_definition"
+      }
+    },
+    "conditions": {
+      "$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/conditions-v1-schema.json#conditions"
+    },
+    "data": {
+      "description": "Additional data such as initial settings and data schema.",
+      "type": "object",
+      "$ref": "#/definitions/form_data_definition"
+    }
+  },
+  "required": [
+    "componentId",
+    "label",
+    "uiItems",
+    "data"
+  ],
+  "definitions": {
+    "ui_item_definition": {
+      "description": "UI item definition that represents a basic element in the UI",
+      "type": "object",
+      "properties": {
+        "itemType": {
+          "description": "The type of UI item.",
+          "type": "string",
+          "enum": [
+            "control",
+            "additionalLink",
+            "staticText",
+            "hSeparator",
+            "panel",
+            "primaryTabs",
+            "subTabs",
+            "panelSelector",
+            "checkboxSelector",
+            "customPanel"
+          ]
+        },
+        "tabs": {
+          "description": "List of tab definitions for 'primaryTab' and 'secondaryTab' items.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/editor_tab_definition"
+          }
+        },
+        "panel": {
+          "description": "Panel definition for 'panel' items.",
+          "type": "object",
+          "$ref": "#/definitions/control_panel_definition"
+        },
+        "control": {
+          "description": "Control definition for 'control' items.",
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/control_definition"
+            },
+            {
+              "$ref": "#/definitions/sub_control_definition"
+            }
+          ]
+        },
+        "text": {
+          "description": "Text associated with 'additionalLink', 'staticText' or 'hSeparator'.",
+          "type": "string"
+        },
+        "secondaryText": {
+          "description": "Secondary text associated with the sub-panel shown when an 'additionalLink' is clicked.",
+          "type": "string"
+        },
+        "dependsOn": {
+          "description": "Specifies a parameter name (usually associated with a boolean or enumerated value) whose control value this item depends on.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "itemType"
+      ]
+    },
+    "editor_tab_definition": {
+      "description": "Defines a tab or sub-tab.",
+      "type": "object",
+      "properties": {
+        "text": {
+          "description": "The text in the tab",
+          "type": "string"
+        },
+        "group": {
+          "description": "The parameter group being displayed in the tab",
+          "type": "string"
+        },
+        "uiItem": {
+          "description": "The UI item to be shown.",
+          "type": "object",
+          "$ref": "#/definitions/ui_item_definition"
+        }
+      },
+      "required": [
+        "text",
+        "group",
+        "uiItem"
+      ]
+    },
+    "control_panel_definition": {
+      "description": "Defines a control panel.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The panel ID",
+          "type": "string"
+        },
+        "panelType": {
+          "description": "The type of panel.",
+          "type": "string",
+          "enum": [
+            "general",
+            "columnAllocation",
+            "columnSelection",
+            "checkboxPanel",
+            "custom"
+          ]
+        },
+        "uiItems": {
+          "description": "List of UI items in this panel.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ui_item_definition"
+          }
+        },
+        "parameters": {
+          "description": "List of parameters for the custom panel",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "panelType",
+        "uiItems"
+      ]
+    },
+    "control_definition": {
+      "description": "Defines a control that is used to edit a parameter.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the parameter that can be edited by this control.",
+          "type": "string"
+        },
+        "label": {
+          "description": "The control label and any associated shortcuts. This may also be used for accessibility reasons so must be provided even if the control doesn't show the label.",
+          "type": "object",
+          "$ref": "#/definitions/control_label_definition"
+        },
+        "separateLabel": {
+          "description": "Whether the label should be shown. Typically checkboxes don't have a separate label although this can be over-ridden.",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "Optional description for the control",
+          "type": "object",
+          "properties": {
+            "text": {
+              "description": "The text to display",
+              "type": "string"
+            },
+            "placement": {
+              "description": "Optional placement context",
+              "enum": [
+                "as_tooltip",
+                "on_panel"
+              ],
+              "default": "as_tooltip"
+            }
+          },
+          "required": [
+            "text"
+          ]
+        },
+        "controlType": {
+          "description": "The type of control.",
+          "type": "string",
+          "enum": [
+            "textfield",
+            "passwordfield",
+            "textarea",
+            "expression",
+            "numberfield",
+            "checkbox",
+            "oneofselect",
+            "someofselect",
+            "oneofcolumns",
+            "someofcolumns",
+            "allocatedcolumn",
+            "allocatedcolumns",
+            "allocatedstructures",
+            "structureeditor",
+            "structurelisteditor"
+          ]
+        },
+        "valueDef": {
+          "description": "The basic metadata about the parameter associated with the control.",
+          "type": "object",
+          "$ref": "#/definitions/value_definition"
+        },
+        "role": {
+          "description": "The additional information about the role as defined by the parameter declaration.",
+          "type": "string"
+        },
+        "charLimit": {
+          "description": "Control text size limit.",
+          "type": "integer"
+        },
+        "additionalText": {
+          "description": "The additional text to be shown close to the control.",
+          "type": "string"
+        },
+        "orientation": {
+          "description": "Defines the flow of any sub-controls e.g. radio buttons or checkboxes.",
+          "type": "string",
+          "enum": [
+            "vertical",
+            "horizontal"
+          ]
+        },
+        "values": {
+          "description": "For enumerated types, this defines the set of valid values.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "valueLabels": {
+          "description": "For enumerated types, this defines the set of labels for the valid values. The ordering must be consistent with the order in the 'values' attribute.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "valueIcons": {
+          "description": "For enumerated types, this defines the set of icons for the valid values. The ordering must be consistent with the order in the 'values' attribute.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "moveableRows": {
+          "description": "For structure types, determines if rows can be moved up or down in a table",
+          "type": "boolean"
+        },
+        "subControls": {
+          "description": "For structure types, this defines the control information for sub-parameters. Used to render the table columns and the sub-panel.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/sub_control_definition"
+          }
+        },
+        "keyIndex": {
+          "description": "For structure/tabular controls, indicates which column index is the key (-1 indicates no key).",
+          "type": "integer"
+        },
+        "defaultRow": {
+          "description": "For structure/tabular controls, specifies the initial values for the new row/structure (e.g. when a '+' button is pressed).",
+          "type": "object"
+        },
+        "noPickColumns": {
+          "description": "Suppresses Add/Remove Columns from structure tables residing within columnSelection or columnAllocation panels",
+          "type": "boolean"
+        },
+        "childItem": {
+          "description": "The basic metadata about the parameter associated with the control.",
+          "type": "object",
+          "$ref": "#/definitions/ui_item_definition"
+        },
+        "editStyle": {
+          "description": "Editing style of elements in a table",
+          "type": "string",
+          "enum": [
+            "subpanel",
+            "inline"
+          ]
+        },
+        "required": {
+          "description": "True when this parameter must be provided in order to execute.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "label",
+        "separateLabel",
+        "controlType",
+        "valueDef"
+      ]
+    },
+    "sub_control_definition": {
+      "description": "Defines a control that is used to edit a parameter within a structure. Note that this differs from a standard control by not supporting structures within a structure. This should be addressed.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the parameter that can be edited by this control.",
+          "type": "string"
+        },
+        "label": {
+          "description": "The control label and any associated shortcuts.",
+          "type": "object",
+          "$ref": "#/definitions/control_label_definition"
+        },
+        "visible": {
+          "description": "Whether the table showing the structures includes a column for this sub-parameter.",
+          "type": "boolean"
+        },
+        "width": {
+          "description": "Suggested width of the column in the table that shows the current value.",
+          "type": "integer"
+        },
+        "controlType": {
+          "description": "The type of control.",
+          "type": "string",
+          "enum": [
+            "textfield",
+            "passwordfield",
+            "textarea",
+            "expression",
+            "numberfield",
+            "checkbox",
+            "oneofselect",
+            "someofselect",
+            "oneofcolumns",
+            "someofcolumns",
+            "allocatedcolumn",
+            "allocatedcolumns",
+            "allocatedstructures",
+            "structureeditor",
+            "structurelisteditor"
+          ]
+        },
+        "valueDef": {
+          "description": "The basic metadata about the parameter associated with the control.",
+          "type": "object",
+          "$ref": "#/definitions/value_definition"
+        },
+        "role": {
+          "description": "The additional information about the role as defined by the parameter declaration.",
+          "type": "string"
+        },
+        "charLimit": {
+          "description": "Control text size limit.",
+          "type": "integer"
+        },
+        "additionalText": {
+          "description": "The additional text to be shown close to the control.",
+          "type": "string"
+        },
+        "orientation": {
+          "description": "Defines the flow of any sub-controls e.g. radio buttons or checkboxes.",
+          "type": "string",
+          "enum": [
+            "vertical",
+            "horizontal"
+          ]
+        },
+        "values": {
+          "description": "For enumerated types, this defines the set of valid values.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "valueLabels": {
+          "description": "For enumerated types, this defines the set of labels for the valid values. The ordering must be consistent with the order in the 'values' attribute.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "valueIcons": {
+          "description": "For enumerated types, this defines the set of icons for the valid values. The ordering must be consistent with the order in the 'values' attribute.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sortable": {
+          "description": "Determines if this column values can be sorted into ascending/descending order in a table",
+          "type": "boolean"
+        },
+        "filterable": {
+          "description": "Determines if this column values can be filtered so that only rows that match the filter in column values are shown in the table",
+          "type": "boolean"
+        },
+        "language": {
+          "description": "The language for the expression editor syntax highlight and autocomplete workds. Applies to expression control type.",
+          "type": "string",
+          "enum": [
+            "CLEM",
+            "text/x-hive"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "label",
+        "visible",
+        "width",
+        "controlType",
+        "valueDef"
+      ]
+    },
+    "control_label_definition": {
+      "description": "Defines a control label.",
+      "type": "object",
+      "properties": {
+        "text": {
+          "description": "The label text.",
+          "type": "string"
+        },
+        "number_generator": {
+          "description": "Adds a number generation link beside the label of this control",
+          "type": "object",
+          "properties": {
+            "label": {
+              "description": "Link text",
+              "type": "string"
+            },
+            "range": {
+              "description": "Number generator range",
+              "type": "object",
+              "properties": {
+                "min": {
+                  "description": "Maximum value for generated numbers",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "min",
+                "max"
+              ]
+            }
+          },
+          "required": [
+            "label"
+          ]
+        }
+      },
+      "required": [
+        "text"
+      ]
+    },
+    "value_definition": {
+      "description": "Defines basic value metadata.",
+      "type": "object",
+      "properties": {
+        "propType": {
+          "description": "The basic property type.",
+          "type": "string",
+          "enum": [
+            "boolean",
+            "integer",
+            "long",
+            "double",
+            "string",
+            "password",
+            "date",
+            "structure"
+          ]
+        },
+        "isList": {
+          "description": "Whether the value is represented as a list.",
+          "type": "boolean"
+        },
+        "isMap": {
+          "description": "Whether the value is represented as a map.",
+          "type": "boolean"
+        },
+        "defaultValue": {
+          "description": "Optional default value",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        }
+      },
+      "required": [
+        "propType",
+        "isList",
+        "isMap"
+      ]
+    },
+    "button_definition": {
+      "description": "Defines a button and any associated callback.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Button identifier",
+          "type": "string"
+        },
+        "text": {
+          "description": "Button label text",
+          "type": "string"
+        },
+        "isPrimary": {
+          "description": "Whether the button is the primary/default button.",
+          "type": "boolean"
+        },
+        "url": {
+          "description": "The endpoint to be called when the button is pressed.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "isPrimary",
+        "url"
+      ]
+    },
+    "form_data_definition": {
+      "description": "Additional data such as initial settings and input data schema.",
+      "type": "object",
+      "properties": {
+        "currentParameters": {
+          "description": "Current parameter set upon input. Keys are parameter names, values are their values.",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
+        "datasetMetadata": {
+          "$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/datarecord-metadata-v1-schema.json#"
+        }
+      },
+      "required": [
+        "currentParameters"
+      ]
+    }
+  }
 }
