@@ -6,9 +6,7 @@
   "app_data": {
     "ui_data": {
       "name": "Pipeline Flow Example",
-      "description": {
-        "default": "An example pipeline flow document with a sub-pipeline"
-      },
+      "description": "An example pipeline flow document with a sub-pipeline",
       "class_name": "pipeline-flow-overall"
     },
     "wml_data": {
@@ -48,9 +46,7 @@
             "schema_ref": "schema1",
             "app_data": {
               "ui_data": {
-                "label": {
-                  "default": "exit Port 1PE"
-                }
+                "label": "exit Port 1PE"
               }
             }
           }
@@ -63,9 +59,7 @@
             "schema_ref": "schema2",
             "app_data": {
               "ui_data": {
-                "label": {
-                  "default": "exit Port 1PE"
-                }
+                "label": "exit Port 1PE"
               }
             }
           }
@@ -78,9 +72,7 @@
             "schema_ref": "schema2",
             "app_data": {
               "ui_data": {
-                "label": {
-                  "default": "entryID3PE"
-                }
+                "label": "entryID3PE"
               }
             }
           },
@@ -113,9 +105,7 @@
                     "max": 1
                   },
                   "class_name": "foobar",
-                  "label": {
-                    "default": "input1NodeID1PE"
-                  }
+                  "label": "input1NodeID1PE"
                 }
               }
             },
@@ -134,9 +124,7 @@
                     "max": 1
                   },
                   "class_name": "foobar",
-                  "label": {
-                    "default": "input2NodeID1PE"
-                  }
+                  "label": "input2NodeID1PE"
                 }
               }
             }
@@ -152,9 +140,7 @@
                     "max": -1
                   },
                   "class_name": "foobar",
-                  "label": {
-                    "default": "output1NodeID1PE"
-                  }
+                  "label": "output1NodeID1PE"
                 }
               }
             }
@@ -166,12 +152,8 @@
           },
           "app_data": {
             "ui_data": {
-              "label": {
-                "default": "Join"
-              },
-              "description": {
-                "default": "Join two or more data records"
-              },
+              "label": "Join",
+              "description": "Join two or more data records",
               "image": "join.svg",
               "x_pos": 651,
               "y_pos": 70,
@@ -211,9 +193,7 @@
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
-                  "label": {
-                    "default": "input1SuperNodePE"
-                  }
+                  "label": "input1SuperNodePE"
                 }
               }
             },
@@ -229,9 +209,7 @@
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
-                  "label": {
-                    "default": "input2SuperNodePE"
-                  }
+                  "label": "input2SuperNodePE"
                 }
               }
             }
@@ -244,9 +222,7 @@
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
-                  "label": {
-                    "default": "output1SuperNodePE"
-                  }
+                  "label": "output1SuperNodePE"
                 }
               }
             }
@@ -278,9 +254,7 @@
                     "max": 1
                   },
                   "class_name": "port-class",
-                  "label": {
-                    "default": "input1NodeID2PE"
-                  }
+                  "label": "input1NodeID2PE"
                 }
               }
             }
@@ -292,9 +266,7 @@
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
-                  "label": {
-                    "default": "output1NodeID2PE"
-                  }
+                  "label": "output1NodeID2PE"
                 }
               }
             }
@@ -304,12 +276,8 @@
           },
           "app_data": {
             "ui_data": {
-              "label": {
-                "default": "Filter"
-              },
-              "description": {
-                "default": "Filter record data"
-              },
+              "label": "Filter",
+              "description": "Filter record data",
               "image": "filter-rows.svg",
               "x_pos": 784,
               "y_pos": 202,
@@ -345,9 +313,7 @@
                     "max": -1
                   },
                   "class_name": "port-class",
-                  "label": {
-                    "default": "input1NodeID3PE"
-                  }
+                  "label": "input1NodeID3PE"
                 }
               }
             }
@@ -359,9 +325,7 @@
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
-                  "label": {
-                    "default": "output1NodeID3PE"
-                  }
+                  "label": "output1NodeID3PE"
                 }
               }
             }
@@ -371,12 +335,8 @@
           },
           "app_data": {
             "ui_data": {
-              "label": {
-                "default": "Filter"
-              },
-              "description": {
-                "default": "Filter record data"
-              },
+              "label": "Filter",
+              "description": "Filter record data",
               "image": "filter-rows.svg",
               "x_pos": 784,
               "y_pos": 202,
@@ -398,9 +358,7 @@
             },
             "app_data": {
               "ui_data": {
-                "label": {
-                  "default": "exitPort1PE"
-                }
+                "label": "exitPort1PE"
               }
             }
           }
@@ -416,9 +374,7 @@
             },
             "app_data": {
               "ui_data": {
-                "label": {
-                  "default": "exitID2PE"
-                }
+                "label": "exitID2PE"
               }
             }
           }
@@ -443,9 +399,7 @@
             "schema_ref": "schema3",
             "app_data": {
               "ui_data": {
-                "label": {
-                  "default": "entryPort1SE"
-                }
+                "label": "entryPort1SE"
               }
             }
           }
@@ -458,9 +412,7 @@
             "schema_ref": "schema2",
             "app_data": {
               "ui_data": {
-                "label": {
-                  "default": "entryPort2SE"
-                }
+                "label": "entryPort2SE"
               }
             }
           }
@@ -486,9 +438,7 @@
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
-                  "label": {
-                    "default": "input1nodeID1SE"
-                  }
+                  "label": "input1nodeID1SE"
                 }
               }
             }
@@ -500,9 +450,7 @@
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
-                  "label": {
-                    "default": "output1nodeID1SE"
-                  }
+                  "label": "output1nodeID1SE"
                 }
               }
             }
@@ -512,12 +460,8 @@
           },
           "app_data": {
             "ui_data": {
-              "label": {
-                "default": "Filter"
-              },
-              "description": {
-                "default": "Filter record data"
-              },
+              "label": "Filter",
+              "description": "Filter record data",
               "image": "filter-rows.svg",
               "x_pos": 784,
               "y_pos": 202,
@@ -553,9 +497,7 @@
                     "max": 1
                   },
                   "class_name": "foobar",
-                  "label": {
-                    "default": "input1NodeID2SE"
-                  }
+                  "label": "input1NodeID2SE"
                 }
               }
             },
@@ -579,9 +521,7 @@
                     "max": 1
                   },
                   "class_name": "foobar",
-                  "label": {
-                    "default": "input2NodeID2SE"
-                  }
+                  "label": "input2NodeID2SE"
                 }
               }
             }
@@ -593,9 +533,7 @@
               "app_data": {
                 "ui_data": {
                   "class_name": "foobar",
-                  "label": {
-                    "default": "output1NodeID2SE"
-                  }
+                  "label": "output1NodeID2SE"
                 }
               }
             }
@@ -607,12 +545,8 @@
           },
           "app_data": {
             "ui_data": {
-              "label": {
-                "default": "Join"
-              },
-              "description": {
-                "default": "Join two or more data records"
-              },
+              "label": "Join",
+              "description": "Join two or more data records",
               "image": "join.svg",
               "x_pos": 651,
               "y_pos": 70,
@@ -635,9 +569,7 @@
               "app_data": {
                 "ui_data": {
                   "class_name": "linkClass",
-                  "label": {
-                    "default": "exitPort1SE"
-                  }
+                  "label": "exitPort1SE"
                 }
               }
             }

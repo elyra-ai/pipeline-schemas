@@ -5,9 +5,7 @@
   "app_data": {
     "ui_data": {
       "name": "Simple Pipeline Flow Example",
-      "description": {
-        "default": "A basic example pipeline - just does load/filter/save"
-      },
+      "description": "A basic example pipeline - just does load/filter/save",
       "class_name": "pipeline-flow-overall"
     },
     "wml_data": {
@@ -57,9 +55,7 @@
               ],
               "app_data": {
                 "ui_data": {
-                  "label": {
-                    "default": "input 1 Node ID2PE"
-                  }
+                  "label": "input 1 Node ID2PE"
                 }
               }
             }
@@ -70,9 +66,7 @@
               "schema_ref": "schema2",
               "app_data": {
                 "ui_data": {
-                  "label": {
-                    "default": "output 1 Node ID2PE"
-                  }
+                  "label": "output 1 Node ID2PE"
                 }
               }
             }
@@ -85,12 +79,8 @@
           },
           "app_data": {
             "ui_data": {
-              "label": {
-                "default": "Filter"
-              },
-              "description": {
-                "default": "Filter columns"
-              },
+              "label": "Filter",
+              "description": "Filter columns",
               "image": "filter-columns.svg",
               "x_pos": 784,
               "y_pos": 202,
@@ -112,9 +102,7 @@
             },
             "app_data": {
               "ui_data": {
-                "label": {
-                  "default": "exit Port 1PE"
-                }
+                "label": "exit Port 1PE"
               }
             }
           },
