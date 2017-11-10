@@ -109,22 +109,13 @@
           "type": "string"
         },
         "associations": {
-          "description": "Non-data node linkage",
-          "type": "object",
-          "properties": {
-            "id": {
-              "description": "Association identifier",
-              "type": "string"
-            },
-            "node_ref": {
-              "description": "Target node id",
-              "type": "string"
-            },
-            "class_name": {
-              "description": "CSS class name for link styling",
-              "type": "string"
-            }
-          }
+          "description": "Array of non-data node linkage",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/association_def"
+          },
+          "uniqueItems": true
         }
       },
       "decorations": {
@@ -138,7 +129,30 @@
       },
       "additionalProperties": true
     },
-    "decoration_def"
+    "association_def": {
+      "description": "Non-data link",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Association identifier",
+          "type": "string"
+        },
+        "node_ref": {
+          "description": "Target node id",
+          "type": "string"
+        },
+        "class_name": {
+          "description": "CSS class name for link styling",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "node_ref"
+      ],
+      "additionalProperties": false
+    },
+    "decoration_def": {
       "description": "Decoration used to decorate a node",
       "type": "object",
       "properties": {
