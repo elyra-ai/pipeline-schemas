@@ -295,6 +295,14 @@
           "description": "For structure types, determines if rows can be moved up or down in a table",
           "type": "boolean"
         },
+        "row_selection": {
+          "description": "Determines how many rows can be selected at a time.",
+          "type": "string",
+          "enum": [
+            "single",
+            "multiple"
+          ]
+        },
         "subControls": {
           "description": "For structure types, this defines the control information for sub-parameters. Used to render the table columns and the sub-panel.",
           "type": "array",
@@ -324,7 +332,8 @@
           "type": "string",
           "enum": [
             "subpanel",
-            "inline"
+            "inline",
+            "on_panel"
           ]
         },
         "required": {

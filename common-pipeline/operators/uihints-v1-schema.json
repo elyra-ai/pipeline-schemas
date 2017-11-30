@@ -197,7 +197,8 @@
           "type": "string",
           "enum": [
             "subpanel",
-            "inline"
+            "inline",
+            "on_panel"
           ]
         },
         "value_icons": {
@@ -299,6 +300,14 @@
         "moveable_rows": {
           "description": "Determines if rows can be moved up or down in a table",
           "type": "boolean"
+        },
+        "row_selection": {
+          "description": "Determines how many rows can be selected at a time.",
+          "type": "string",
+          "enum": [
+            "single",
+            "multiple"
+          ]
         }
       },
       "required": [
