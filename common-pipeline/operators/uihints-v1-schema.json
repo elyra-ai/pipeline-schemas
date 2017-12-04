@@ -82,7 +82,8 @@
             "fieldSelection",
             "panelSelector",
             "checkboxPanel",
-            "customPanel"
+            "customPanel",
+            "summaryPanel"
           ]
         },
         "depends_on_ref": {
@@ -223,6 +224,10 @@
             "CLEM",
             "text/x-hive"
           ]
+        },
+        "summary": {
+          "description": "Determines if this column values will be shown in the summaryPanel",
+          "type": "boolean"
         },
         "number_generator": {
           "description": "Adds a number generation link beside the label of this control",

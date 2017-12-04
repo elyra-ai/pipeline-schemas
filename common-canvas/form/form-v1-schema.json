@@ -152,7 +152,8 @@
             "columnAllocation",
             "columnSelection",
             "checkboxPanel",
-            "custom"
+            "custom",
+            "summaryPanel"
           ]
         },
         "uiItems": {
@@ -336,6 +337,10 @@
             "on_panel"
           ]
         },
+        "summary": {
+          "description": "Determines if this column values will be shown in the summaryPanel",
+          "type": "boolean"
+        },
         "required": {
           "description": "True when this parameter must be provided in order to execute.",
           "type": "boolean"
@@ -452,6 +457,10 @@
             "CLEM",
             "text/x-hive"
           ]
+        },
+        "summary": {
+          "description": "Determines if this column values will be shown in the summaryPanel",
+          "type": "boolean"
         }
       },
       "required": [
