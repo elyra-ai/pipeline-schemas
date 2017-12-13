@@ -189,6 +189,11 @@
           "type": "object",
           "$ref": "#/definitions/resource_definition"
         },
+        "text_after": {
+          "description": "Text hint for the user displayed input controls",
+          "type": "object",
+          "$ref": "#/definitions/resource_definition"
+        },
         "resource_key": {
           "description": "Used as a key for enum value labels",
           "type": "string"
