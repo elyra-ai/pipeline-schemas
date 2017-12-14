@@ -189,8 +189,13 @@
           "type": "object",
           "$ref": "#/definitions/resource_definition"
         },
+        "text_before": {
+          "description": "Static text to be displayed before the control",
+          "type": "object",
+          "$ref": "#/definitions/resource_definition"
+        },
         "text_after": {
-          "description": "Text hint for the user displayed input controls",
+          "description": "Static text to be displayed after the control",
           "type": "object",
           "$ref": "#/definitions/resource_definition"
         },
