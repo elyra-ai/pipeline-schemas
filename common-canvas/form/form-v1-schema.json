@@ -68,7 +68,8 @@
             "subTabs",
             "panelSelector",
             "checkboxSelector",
-            "customPanel"
+            "customPanel",
+            "action"
           ]
         },
         "tabs": {
@@ -106,6 +107,11 @@
         "dependsOn": {
           "description": "Specifies a parameter name (usually associated with a boolean or enumerated value) whose control value this item depends on.",
           "type": "string"
+        },
+        "action": {
+          "description": "Action definition for 'action' items.",
+          "type": "object",
+          "$ref": "#/definitions/action_definition"
         }
       },
       "required": [
@@ -149,11 +155,11 @@
           "type": "string",
           "enum": [
             "general",
-            "columnAllocation",
             "columnSelection",
             "checkboxPanel",
             "custom",
-            "summaryPanel"
+            "summaryPanel",
+            "actionPanel"
           ]
         },
         "uiItems": {
@@ -229,21 +235,24 @@
           "description": "The type of control.",
           "type": "string",
           "enum": [
+            "readonly",
             "textfield",
             "passwordfield",
             "textarea",
             "expression",
             "numberfield",
             "checkbox",
+            "radioset",
+            "checkboxset",
             "oneofselect",
             "someofselect",
-            "oneofcolumns",
-            "someofcolumns",
-            "allocatedcolumn",
-            "allocatedcolumns",
-            "allocatedstructures",
+            "selectcolumn",
+            "selectcolumns",
+            "structuretable",
             "structureeditor",
-            "structurelisteditor"
+            "structurelisteditor",
+            "oneofcolumns",
+            "someofcolumns"
           ]
         },
         "valueDef": {
@@ -354,8 +363,8 @@
         "valueDef"
       ]
     },
-    "sub_control_definition": {
-      "description": "Defines a control that is used to edit a parameter within a structure. Note that this differs from a standard control by not supporting structures within a structure. This should be addressed.",
+    "action_definition": {
+      "description": "Defines a action that is used to callback to the application.",
       "type": "object",
       "properties": {
         "name": {
@@ -367,109 +376,23 @@
           "type": "object",
           "$ref": "#/definitions/control_label_definition"
         },
-        "visible": {
-          "description": "Whether the table showing the structures includes a column for this sub-parameter.",
-          "type": "boolean"
-        },
-        "width": {
-          "description": "Suggested width of the column in the table that shows the current value.",
-          "type": "integer"
-        },
-        "controlType": {
-          "description": "The type of control.",
+        "actionType": {
+          "description": "The type of action.",
           "type": "string",
           "enum": [
-            "textfield",
-            "passwordfield",
-            "textarea",
-            "expression",
-            "numberfield",
-            "checkbox",
-            "oneofselect",
-            "someofselect",
-            "oneofcolumns",
-            "someofcolumns",
-            "allocatedcolumn",
-            "allocatedcolumns",
-            "allocatedstructures",
-            "structureeditor",
-            "structurelisteditor"
+            "button"
           ]
         },
-        "valueDef": {
-          "description": "The basic metadata about the parameter associated with the control.",
+        "data": {
+          "description": "Data returned when action called",
           "type": "object",
-          "$ref": "#/definitions/value_definition"
-        },
-        "role": {
-          "description": "The additional information about the role as defined by the parameter declaration.",
-          "type": "string"
-        },
-        "charLimit": {
-          "description": "Control text size limit.",
-          "type": "integer"
-        },
-        "additionalText": {
-          "description": "The additional text to be shown close to the control.",
-          "type": "string"
-        },
-        "orientation": {
-          "description": "Defines the flow of any sub-controls e.g. radio buttons or checkboxes.",
-          "type": "string",
-          "enum": [
-            "vertical",
-            "horizontal"
-          ]
-        },
-        "values": {
-          "description": "For enumerated types, this defines the set of valid values.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "valueLabels": {
-          "description": "For enumerated types, this defines the set of labels for the valid values. The ordering must be consistent with the order in the 'values' attribute.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "valueIcons": {
-          "description": "For enumerated types, this defines the set of icons for the valid values. The ordering must be consistent with the order in the 'values' attribute.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "sortable": {
-          "description": "Determines if this column values can be sorted into ascending/descending order in a table",
-          "type": "boolean"
-        },
-        "filterable": {
-          "description": "Determines if this column values can be filtered so that only rows that match the filter in column values are shown in the table",
-          "type": "boolean"
-        },
-        "language": {
-          "description": "The language for the expression editor syntax highlight and autocomplete workds. Applies to expression control type.",
-          "type": "string",
-          "enum": [
-            "CLEM",
-            "text/x-hive"
-          ]
-        },
-        "summary": {
-          "description": "Determines if this column values will be shown in the summaryPanel",
-          "type": "boolean"
+          "additionalProperties": true
         }
       },
       "required": [
         "name",
         "label",
-        "visible",
-        "width",
-        "controlType",
-        "valueDef"
+        "actionType"
       ]
     },
     "control_label_definition": {

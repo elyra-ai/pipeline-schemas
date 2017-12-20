@@ -54,6 +54,12 @@
         "$ref": "#/definitions/complex_type_definition"
       },
       "type": "array"
+    },
+    "action_info": {
+      "items": {
+        "$ref": "#/definitions/action_definition"
+      },
+      "type": "array"
     }
   },
   "required": [
@@ -76,14 +82,12 @@
             "tabs",
             "subTabs",
             "panels",
-            "columnAllocation",
             "columnSelection",
-            "fieldAllocation",
-            "fieldSelection",
             "panelSelector",
             "checkboxPanel",
             "customPanel",
-            "summaryPanel"
+            "summaryPanel",
+            "actionPanel"
           ]
         },
         "depends_on_ref": {
@@ -97,6 +101,13 @@
         },
         "parameter_refs": {
           "description": "List of parameters to be displayed",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "action_refs": {
+          "description": "List of actions to be displayed.  Used with an actionPanel",
           "type": "array",
           "items": {
             "type": "string"
@@ -147,13 +158,11 @@
             "someofselect",
             "oneofcolumns",
             "someofcolumns",
-            "allocatedcolumn",
-            "allocatedcolumns",
             "columnselect",
-            "allocatedstructures",
             "structuretable",
             "structurelisteditor",
-            "toggletext"
+            "toggletext",
+            "readonly"
           ]
         },
         "orientation": {
@@ -328,6 +337,36 @@
       "required": [
         "complex_type_ref",
         "parameters"
+      ]
+    },
+    "action_definition": {
+      "description": "Actions that callback to application",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Identifier for this action",
+          "type": "string"
+        },
+        "control": {
+          "description": "The action type to be displayed",
+          "type": "string",
+          "enum": [
+            "button"
+          ]
+        },
+        "label": {
+          "description": "Action label",
+          "type": "object",
+          "$ref": "#/definitions/resource_definition"
+        },
+        "data": {
+          "description": "Data returned when action called",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "id"
       ]
     },
     "resource_definition": {
