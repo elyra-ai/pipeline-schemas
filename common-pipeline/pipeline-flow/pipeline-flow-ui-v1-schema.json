@@ -69,7 +69,7 @@
           "description": "CSS class name",
           "type": "string"
         },
-        "label":  {
+        "label": {
           "description": "Port name",
           "type": "string"
         }
@@ -114,6 +114,14 @@
           "minItems": 0,
           "items": {
             "$ref": "#/definitions/association_def"
+          }
+        },
+        "messages": {
+          "descriptions": "An array of messages for the node",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/message_def"
           },
           "uniqueItems": true
         }
@@ -179,6 +187,28 @@
         },
         "image": {
           "description": "Image displayed at the decoration position",
+          "type": "string"
+        }
+      }
+    },
+    "message_def": {
+      "description": "Node message definition",
+      "type": "object",
+      "properties": {
+        "id_ref": {
+          "description": "Name of the parameter that has the message",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of message",
+          "enum": [
+            "info",
+            "error",
+            "warning"
+          ]
+        },
+        "text": {
+          "description": "Message string",
           "type": "string"
         }
       }
@@ -254,7 +284,9 @@
           "type": "string"
         }
       },
-      "required": ["node_ref"],
+      "required": [
+        "node_ref"
+      ],
       "additionalProperties": true
     }
   }
