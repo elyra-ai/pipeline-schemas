@@ -68,7 +68,8 @@
             "subTabs",
             "panelSelector",
             "checkboxSelector",
-            "customPanel"
+            "customPanel",
+            "action"
           ]
         },
         "tabs": {
@@ -106,6 +107,11 @@
         "dependsOn": {
           "description": "Specifies a parameter name (usually associated with a boolean or enumerated value) whose control value this item depends on.",
           "type": "string"
+        },
+        "action": {
+          "description": "Action definition for 'action' items.",
+          "type": "object",
+          "$ref": "#/definitions/action_definition"
         }
       },
       "required": [
@@ -149,11 +155,11 @@
           "type": "string",
           "enum": [
             "general",
-            "columnAllocation",
             "columnSelection",
             "checkboxPanel",
             "custom",
-            "summaryPanel"
+            "summaryPanel",
+            "actionPanel"
           ]
         },
         "uiItems": {
@@ -229,21 +235,24 @@
           "description": "The type of control.",
           "type": "string",
           "enum": [
+            "readonly",
             "textfield",
             "passwordfield",
             "textarea",
             "expression",
             "numberfield",
             "checkbox",
+            "radioset",
+            "checkboxset",
             "oneofselect",
             "someofselect",
-            "oneofcolumns",
-            "someofcolumns",
-            "allocatedcolumn",
-            "allocatedcolumns",
-            "allocatedstructures",
+            "selectcolumn",
+            "selectcolumns",
+            "structuretable",
             "structureeditor",
-            "structurelisteditor"
+            "structurelisteditor",
+            "oneofcolumns",
+            "someofcolumns"
           ]
         },
         "valueDef": {
@@ -379,21 +388,21 @@
           "description": "The type of control.",
           "type": "string",
           "enum": [
+            "readonly",
             "textfield",
             "passwordfield",
             "textarea",
             "expression",
             "numberfield",
             "checkbox",
+            "radioset",
+            "checkboxset",
             "oneofselect",
             "someofselect",
+            "selectcolumn",
+            "selectcolumns",
             "oneofcolumns",
-            "someofcolumns",
-            "allocatedcolumn",
-            "allocatedcolumns",
-            "allocatedstructures",
-            "structureeditor",
-            "structurelisteditor"
+            "someofcolumns"
           ]
         },
         "valueDef": {
@@ -560,6 +569,38 @@
         "propType",
         "isList",
         "isMap"
+      ]
+    },
+    "action_definition": {
+      "description": "Defines a action that is used to callback to the application.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the action.",
+          "type": "string"
+        },
+        "label": {
+          "description": "The action label.  Usually the label on a button.",
+          "type": "object",
+          "$ref": "#/definitions/control_label_definition"
+        },
+        "actionType": {
+          "description": "The type of action.",
+          "type": "string",
+          "enum": [
+            "button"
+          ]
+        },
+        "data": {
+          "description": "Data returned when action called",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "required": [
+        "name",
+        "label",
+        "actionType"
       ]
     },
     "button_definition": {
