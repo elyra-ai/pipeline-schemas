@@ -576,11 +576,11 @@
       "type": "object",
       "properties": {
         "name": {
-          "description": "The name of the parameter that can be edited by this control.",
+          "description": "The name of the action.",
           "type": "string"
         },
         "label": {
-          "description": "The control label and any associated shortcuts.",
+          "description": "The action label.  Usually the label on a button.",
           "type": "object",
           "$ref": "#/definitions/control_label_definition"
         },
