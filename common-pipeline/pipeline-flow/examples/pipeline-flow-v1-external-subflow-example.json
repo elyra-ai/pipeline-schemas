@@ -5,9 +5,7 @@
   "app_data": {
     "ui_data": {
       "name": "External Sub-Flow Example",
-      "description": {
-        "default": "An example using a supernode that refers to an external sub-pipeline"
-      },
+      "description": "An example using a supernode that refers to an external sub-pipeline",
       "class_name": "pipeline-flow-overall"
     },
     "wml_data": {
@@ -39,9 +37,7 @@
             },
             "app_data": {
               "ui_data": {
-                "label": {
-                  "default": "entryPort1PE"
-                }
+                "label": "entryPort1PE"
               }
             }
           }
@@ -66,9 +62,7 @@
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
-                  "label": {
-                    "default": "Input Port"
-                  }
+                  "label": "Input Port"
                 }
               }
             }
@@ -81,9 +75,7 @@
               "app_data": {
                 "ui_data": {
                   "class_name": "port-class",
-                  "label": {
-                    "default": "Output port"
-                  }
+                  "label": "Output port"
                 }
               }
             }
