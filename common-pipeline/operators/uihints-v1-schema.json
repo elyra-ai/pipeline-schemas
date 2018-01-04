@@ -270,6 +270,26 @@
           "description": "Determines if this column values will be shown in the summaryPanel",
           "type": "boolean"
         },
+        "generated_values": {
+          "description": "Generates values for a column in a 'readonly' parameter.",
+          "type": "object",
+          "properties": {
+            "operation": {
+              "description": "Currently only 'index' is supported which will auto-increment the integer column value starting at 1. The start value can be configured by setting a start_value.",
+              "type": "string",
+              "enum": [
+                "index"
+              ]
+            },
+            "start_value": {
+              "description": "Optional start value to increment from when the 'type' is 'index'. If the start_value is not set, it will default to 1.",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
         "number_generator": {
           "description": "Adds a number generation link beside the label of this control",
           "type": "object",
