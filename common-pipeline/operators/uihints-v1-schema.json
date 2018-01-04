@@ -87,7 +87,8 @@
             "checkboxPanel",
             "customPanel",
             "summaryPanel",
-            "actionPanel"
+            "actionPanel",
+            "textPanel"
           ]
         },
         "depends_on_ref": {
@@ -96,6 +97,11 @@
         },
         "label": {
           "description": "Group label",
+          "type": "object",
+          "$ref": "#/definitions/resource_definition"
+        },
+        "description": {
+          "description": "Group description. Used in a textPanel",
           "type": "object",
           "$ref": "#/definitions/resource_definition"
         },
@@ -140,7 +146,23 @@
         "description": {
           "description": "Description of parameter with optional placement context",
           "type": "object",
-          "$ref": "#/definitions/placed_resource_definition"
+          "allOf": [
+            {
+              "$ref": "#/definitions/resource_definition"
+            },
+            {
+              "properties": {
+                "placement": {
+                  "description": "Optional placement context for the text",
+                  "enum": [
+                    "as_tooltip",
+                    "on_panel"
+                  ],
+                  "default": "as_tooltip"
+                }
+              }
+            }
+          ]
         },
         "control": {
           "description": "Which control to use.  In most cases the control gets to be determined and should not be set",
@@ -201,12 +223,40 @@
         "text_before": {
           "description": "Static text to be displayed before the control",
           "type": "object",
-          "$ref": "#/definitions/resource_definition"
+          "allOf": [
+            {
+              "$ref": "#/definitions/resource_definition"
+            },
+            {
+              "properties": {
+                "type": {
+                  "description": "Type of text message to display",
+                  "enum": [
+                    "info"
+                  ]
+                }
+              }
+            }
+          ]
         },
         "text_after": {
           "description": "Static text to be displayed after the control",
           "type": "object",
-          "$ref": "#/definitions/resource_definition"
+          "allOf": [
+            {
+              "$ref": "#/definitions/resource_definition"
+            },
+            {
+              "properties": {
+                "type": {
+                  "description": "Type of text message to display",
+                  "enum": [
+                    "info"
+                  ]
+                }
+              }
+            }
+          ]
         },
         "resource_key": {
           "description": "Used as a key for enum value labels",
@@ -378,38 +428,6 @@
         },
         "resource_key": {
           "type": "string"
-        }
-      },
-      "oneOf": [
-        {
-          "required": [
-            "default"
-          ]
-        },
-        {
-          "required": [
-            "resource_key"
-          ]
-        }
-      ]
-    },
-    "placed_resource_definition": {
-      "description": "Localizable string resource with optional placement directive",
-      "type": "object",
-      "properties": {
-        "default": {
-          "type": "string"
-        },
-        "resource_key": {
-          "type": "string"
-        },
-        "placement": {
-          "description": "Optional placement context for the text",
-          "enum": [
-            "as_tooltip",
-            "on_panel"
-          ],
-          "default": "as_tooltip"
         }
       },
       "oneOf": [
