@@ -69,7 +69,8 @@
             "panelSelector",
             "checkboxSelector",
             "customPanel",
-            "action"
+            "action",
+            "textPanel"
           ]
         },
         "tabs": {
@@ -82,7 +83,14 @@
         "panel": {
           "description": "Panel definition for 'panel' items.",
           "type": "object",
-          "$ref": "#/definitions/control_panel_definition"
+          "oneOf": [
+            {
+              "$ref": "#/definitions/control_panel_definition"
+            },
+            {
+              "$ref": "#/definitions/text_panel_definition"
+            }
+          ]
         },
         "control": {
           "description": "Control definition for 'control' items.",
@@ -97,8 +105,14 @@
           ]
         },
         "text": {
-          "description": "Text associated with 'additionalLink', 'staticText' or 'hSeparator'.",
+          "description": "Text associated with 'additionalLink' or 'staticText'",
           "type": "string"
+        },
+        "textType": {
+          "description": "When set, adds additional styling and icon to 'text'",
+          "enum": [
+            "info"
+          ]
         },
         "secondaryText": {
           "description": "Secondary text associated with the sub-panel shown when an 'additionalLink' is clicked.",
@@ -130,7 +144,7 @@
           "description": "The parameter group being displayed in the tab",
           "type": "string"
         },
-        "uiItem": {
+        "content": {
           "description": "The UI item to be shown.",
           "type": "object",
           "$ref": "#/definitions/ui_item_definition"
@@ -141,6 +155,33 @@
         "group",
         "uiItem"
       ]
+    },
+    "text_panel_definition": {
+      "description": "Defines a text panel.",
+      "type": "object",
+      "properties": {
+        "label": {
+          "description": "Defines a panel label.",
+          "type": "object",
+          "properties": {
+            "text": {
+              "description": "The label text.",
+              "type": "string"
+            }
+          }
+        },
+        "description": {
+          "description": "Defines a panel description.",
+          "type": "object",
+          "properties": {
+            "text": {
+              "description": "The description text.",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": []
     },
     "control_panel_definition": {
       "description": "Defines a control panel.",
