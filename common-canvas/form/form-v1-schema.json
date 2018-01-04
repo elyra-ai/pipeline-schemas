@@ -180,7 +180,8 @@
             }
           }
         }
-      }
+      },
+      "required": []
     },
     "control_panel_definition": {
       "description": "Defines a control panel.",
