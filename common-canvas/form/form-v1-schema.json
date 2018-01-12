@@ -13,6 +13,11 @@
       "description": "The component label.",
       "type": "string"
     },
+    "labelEditable": {
+      "description": "True if the label can be edited. False if the label should be readonly.",
+      "type": "boolean",
+      "default": true
+    },
     "editorSize": {
       "description": "The editor size.",
       "enum": [

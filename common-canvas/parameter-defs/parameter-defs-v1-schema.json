@@ -5,6 +5,19 @@
   "description": "Watson Data Platform Property Definition Schema for the Common Properties editor",
   "type": "object",
   "properties": {
+    "titleDefinition": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "editable": {
+          "description": "True if the title can be edited. False if the title should be readonly.",
+          "default": true,
+          "type": "boolean"
+        }
+      }
+    },
     "current_parameters": {
       "description": "Current parameter set upon input. Keys are parameter names, values are their values.",
       "type": "object",
