@@ -270,6 +270,10 @@
           "description": "Determines if this column values will be shown in the summaryPanel",
           "type": "boolean"
         },
+        "spinner": {
+          "description": "Determines if spinner control will be shown in the numberfield control",
+          "type": "boolean"
+        },
         "generated_values": {
           "description": "Generates values for a column in a 'readonly' parameter.",
           "type": "object",
