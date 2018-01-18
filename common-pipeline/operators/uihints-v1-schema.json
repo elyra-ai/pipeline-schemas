@@ -184,8 +184,13 @@
             "structuretable",
             "structurelisteditor",
             "toggletext",
-            "readonly"
+            "readonly",
+            "spinner"
           ]
+        },
+        "increment": {
+          "description": "Determines the increment/decrement value for the spinner control only",
+          "type": "number"
         },
         "orientation": {
           "description": "Determines how the control is displayed",
@@ -268,10 +273,6 @@
         },
         "summary": {
           "description": "Determines if this column values will be shown in the summaryPanel",
-          "type": "boolean"
-        },
-        "spinner": {
-          "description": "Determines if spinner control will be shown in the numberfield control",
           "type": "boolean"
         },
         "generated_values": {
