@@ -143,6 +143,10 @@
           "type": "object",
           "$ref": "#/definitions/resource_definition"
         },
+        "label_visible": {
+          "description": "Whether to display the label or not. If not displayed, the label can still be used by screen readers",
+          "type": "boolean"
+        },
         "description": {
           "description": "Description of parameter with optional placement context",
           "type": "object",
