@@ -298,7 +298,8 @@
             "structureeditor",
             "structurelisteditor",
             "oneofcolumns",
-            "someofcolumns"
+            "someofcolumns",
+            "spinner"
           ]
         },
         "valueDef": {
@@ -309,6 +310,10 @@
         "role": {
           "description": "The additional information about the role as defined by the parameter declaration.",
           "type": "string"
+        },
+        "increment": {
+          "description": "Determines the increment/decrement value for the spinner control only",
+          "type": "number"
         },
         "charLimit": {
           "description": "Control text size limit.",
@@ -448,7 +453,8 @@
             "selectcolumn",
             "selectcolumns",
             "oneofcolumns",
-            "someofcolumns"
+            "someofcolumns",
+            "spinner"
           ]
         },
         "valueDef": {
@@ -459,6 +465,10 @@
         "role": {
           "description": "The additional information about the role as defined by the parameter declaration.",
           "type": "string"
+        },
+        "increment": {
+          "description": "Determines the increment/decrement value for the spinner control only",
+          "type": "number"
         },
         "charLimit": {
           "description": "Control text size limit.",
