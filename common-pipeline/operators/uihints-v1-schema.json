@@ -380,6 +380,11 @@
           "description": "Determines if rows can be moved up or down in a table",
           "type": "boolean"
         },
+        "add_remove_rows": {
+          "description": "Determines if the table can have rows added and removed",
+          "type": "boolean",
+          "default": true
+        },
         "row_selection": {
           "description": "Determines how many rows can be selected at a time.",
           "type": "string",
