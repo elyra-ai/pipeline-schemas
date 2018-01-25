@@ -7,7 +7,9 @@
   "properties": {
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
-      "enum": ["http://www.ibm.com/ibm/wdp/flow-v1.0/conditions-v1-schema.json"]
+      "enum": [
+        "http://www.ibm.com/ibm/wdp/flow-v1.0/conditions-v1-schema.json"
+      ]
     },
     "conditions": {
       "type": "array",
@@ -31,6 +33,9 @@
         },
         {
           "$ref": "#/definitions/visible_definition"
+        },
+        {
+          "$ref": "#/definitions/filter_definition"
         }
       ]
     },
@@ -330,6 +335,127 @@
             "resource_key"
           ]
         }
+      ]
+    },
+    "filter_definition": {
+      "properties": {
+        "filter": {
+          "description": "Filter test. Includes values to be displayed in a control",
+          "type": "object",
+          "properties": {
+            "parameter_ref": {
+              "description": "Parameter affected by this operation",
+              "type": "string"
+            },
+            "evaluate": {
+              "description": "Evaluates to return values included in a control",
+              "type": "object",
+              "$ref": "#/definitions/filter_evaluate_definition"
+            }
+          },
+          "required": [
+            "evaluate",
+            "parameter_ref"
+          ]
+        }
+      },
+      "required": [
+        "filter"
+      ]
+    },
+    "filter_evaluate_definition": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/filter_and_definition"
+        },
+        {
+          "$ref": "#/definitions/filter_or_definition"
+        },
+        {
+          "$ref": "#/definitions/filter_condition_definition"
+        }
+      ]
+    },
+    "filter_or_definition": {
+      "description": "Container for 'or' operations",
+      "type": "object",
+      "properties": {
+        "or": {
+          "description": "The 'or' condition. Returns the union of all sub-conditions. Can nest any number of additional conditional types.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/filter_and_definition"
+              },
+              {
+                "$ref": "#/definitions/filter_or_definition"
+              },
+              {
+                "$ref": "#/definitions/filter_condition_definition"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "or"
+      ]
+    },
+    "filter_and_definition": {
+      "description": "Container for 'and' operations",
+      "type": "object",
+      "properties": {
+        "and": {
+          "description": "The 'and' condition. Returns the intersect of all sub-conditions. Can nest any number of additional conditional types.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/filter_and_definition"
+              },
+              {
+                "$ref": "#/definitions/filter_or_definition"
+              },
+              {
+                "$ref": "#/definitions/filter_condition_definition"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "and"
+      ]
+    },
+    "filter_condition_definition": {
+      "description": "A parameter condition. Returns the data the passes the filtering operation",
+      "type": "object",
+      "properties": {
+        "condition": {
+          "description": "The condition that is evaluated",
+          "type": "object",
+          "properties": {
+            "op": {
+              "description": "A single operator for the properties of the condition.",
+              "enum": [
+                "dmMeasurement",
+                "dmType"
+              ]
+            },
+            "value": {
+              "description": "Value against which to compare the primary parameter value",
+              "type": "string"
+            }
+          },
+          "required": [
+            "op",
+            "value"
+          ]
+        }
+      },
+      "required": [
+        "condition"
       ]
     }
   }
