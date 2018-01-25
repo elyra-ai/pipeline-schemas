@@ -287,6 +287,7 @@
             "textarea",
             "expression",
             "numberfield",
+            "spinner",
             "checkbox",
             "radioset",
             "checkboxset",
@@ -297,10 +298,7 @@
             "selectcolumns",
             "structuretable",
             "structureeditor",
-            "structurelisteditor",
-            "oneofcolumns",
-            "someofcolumns",
-            "spinner"
+            "structurelisteditor"
           ]
         },
         "valueDef": {
@@ -314,7 +312,8 @@
         },
         "increment": {
           "description": "Determines the increment/decrement value for the spinner control only",
-          "type": "number"
+          "type": "number",
+          "default": 1
         },
         "charLimit": {
           "description": "Control text size limit.",
@@ -446,6 +445,7 @@
             "textarea",
             "expression",
             "numberfield",
+            "spinner",
             "checkbox",
             "radioset",
             "checkboxset",
@@ -453,10 +453,7 @@
             "oneofselect",
             "someofselect",
             "selectcolumn",
-            "selectcolumns",
-            "oneofcolumns",
-            "someofcolumns",
-            "spinner"
+            "selectcolumns"
           ]
         },
         "valueDef": {
@@ -470,7 +467,8 @@
         },
         "increment": {
           "description": "Determines the increment/decrement value for the spinner control only",
-          "type": "number"
+          "type": "number",
+          "default": 1
         },
         "charLimit": {
           "description": "Control text size limit.",

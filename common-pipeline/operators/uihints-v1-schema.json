@@ -198,7 +198,8 @@
         },
         "increment": {
           "description": "Determines the increment/decrement value for the spinner control only",
-          "type": "number"
+          "type": "number",
+          "default": 1
         },
         "orientation": {
           "description": "Determines how the control is displayed",
