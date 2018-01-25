@@ -119,6 +119,11 @@
             "type": "string"
           }
         },
+        "data": {
+          "description": "Data passed to custom panel when group type is 'customPanel'",
+          "type": "object",
+          "additionalProperties": true
+        },
         "group_info": {
           "items": {
             "$ref": "#/definitions/group_definition"
@@ -328,7 +333,7 @@
           ]
         },
         "dm_default": {
-          "description": "Used within complex structures containing 'column' key_definition fields. This associates the subControl parameter with a field attribute in the current data model.",
+          "description": "Used within complex structures containing 'column' key_definition fields. This associates the subControl parameter with a field attribute in the current record schema.",
           "type": "string",
           "enum": [
             "type",
