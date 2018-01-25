@@ -119,6 +119,11 @@
             "type": "string"
           }
         },
+        "data": {
+          "description": "Data passed to custom panel when group type is 'customPanel'",
+          "type": "object",
+          "additionalProperties": true
+        },
         "group_info": {
           "items": {
             "$ref": "#/definitions/group_definition"
@@ -172,24 +177,23 @@
           "description": "Which control to use.  In most cases the control gets to be determined and should not be set",
           "type": "string",
           "enum": [
+            "readonly",
             "textfield",
             "passwordfield",
             "textarea",
             "expression",
             "numberfield",
+            "spinner",
             "checkbox",
             "radioset",
             "checkboxset",
+            "toggletext",
             "oneofselect",
             "someofselect",
-            "oneofcolumns",
-            "someofcolumns",
-            "columnselect",
+            "selectcolumn",
+            "selectcolumns",
             "structuretable",
-            "structurelisteditor",
-            "toggletext",
-            "readonly",
-            "spinner"
+            "structurelisteditor"
           ]
         },
         "increment": {
@@ -275,6 +279,10 @@
             "text/x-hive"
           ]
         },
+        "moveable_rows": {
+          "description": "Determines if rows can be moved up or down in a table or array of strings",
+          "type": "boolean"
+        },
         "summary": {
           "description": "Determines if this column values will be shown in the summaryPanel",
           "type": "boolean"
@@ -328,7 +336,7 @@
           ]
         },
         "dm_default": {
-          "description": "Used within complex structures containing 'column' key_definition fields. This associates the subControl parameter with a field attribute in the current data model.",
+          "description": "Used within complex structures containing 'column' key_definition fields. This associates the subControl parameter with a field attribute in the current record schema.",
           "type": "string",
           "enum": [
             "type",
@@ -372,9 +380,10 @@
             ]
           }
         },
-        "moveable_rows": {
-          "description": "Determines if rows can be moved up or down in a table",
-          "type": "boolean"
+        "add_remove_rows": {
+          "description": "Determines if the table can have rows added and removed",
+          "type": "boolean",
+          "default": true
         },
         "row_selection": {
           "description": "Determines how many rows can be selected at a time.",
