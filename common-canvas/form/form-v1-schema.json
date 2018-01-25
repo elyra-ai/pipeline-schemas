@@ -310,6 +310,11 @@
           "description": "The additional information about the role as defined by the parameter declaration.",
           "type": "string"
         },
+        "increment": {
+          "description": "Determines the increment/decrement value for the spinner control only",
+          "type": "number",
+          "default": 1
+        },
         "charLimit": {
           "description": "Control text size limit.",
           "type": "integer"
@@ -459,6 +464,11 @@
         "role": {
           "description": "The additional information about the role as defined by the parameter declaration.",
           "type": "string"
+        },
+        "increment": {
+          "description": "Determines the increment/decrement value for the spinner control only",
+          "type": "number",
+          "default": 1
         },
         "charLimit": {
           "description": "Control text size limit.",
