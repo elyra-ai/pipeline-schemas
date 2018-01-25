@@ -287,18 +287,18 @@
             "textarea",
             "expression",
             "numberfield",
+            "spinner",
             "checkbox",
             "radioset",
             "checkboxset",
+            "toggletext",
             "oneofselect",
             "someofselect",
             "selectcolumn",
             "selectcolumns",
             "structuretable",
             "structureeditor",
-            "structurelisteditor",
-            "oneofcolumns",
-            "someofcolumns"
+            "structurelisteditor"
           ]
         },
         "valueDef": {
@@ -440,15 +440,15 @@
             "textarea",
             "expression",
             "numberfield",
+            "spinner",
             "checkbox",
             "radioset",
             "checkboxset",
+            "toggletext",
             "oneofselect",
             "someofselect",
             "selectcolumn",
-            "selectcolumns",
-            "oneofcolumns",
-            "someofcolumns"
+            "selectcolumns"
           ]
         },
         "valueDef": {

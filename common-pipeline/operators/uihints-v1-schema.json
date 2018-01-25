@@ -177,24 +177,23 @@
           "description": "Which control to use.  In most cases the control gets to be determined and should not be set",
           "type": "string",
           "enum": [
+            "readonly",
             "textfield",
             "passwordfield",
             "textarea",
             "expression",
             "numberfield",
+            "spinner",
             "checkbox",
             "radioset",
             "checkboxset",
+            "toggletext",
             "oneofselect",
             "someofselect",
-            "oneofcolumns",
-            "someofcolumns",
-            "columnselect",
+            "selectcolumn",
+            "selectcolumns",
             "structuretable",
-            "structurelisteditor",
-            "toggletext",
-            "readonly",
-            "spinner"
+            "structurelisteditor"
           ]
         },
         "increment": {
