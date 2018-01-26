@@ -178,6 +178,9 @@
         },
         {
           "$ref": "#/definitions/condition_definition"
+        },
+        {
+          "$ref": "#/definitions/filter_condition_definition"
         }
       ]
     },
@@ -198,6 +201,9 @@
               },
               {
                 "$ref": "#/definitions/condition_definition"
+              },
+              {
+                "$ref": "#/definitions/filter_condition_definition"
               }
             ]
           }
@@ -224,6 +230,9 @@
               },
               {
                 "$ref": "#/definitions/condition_definition"
+              },
+              {
+                "$ref": "#/definitions/filter_condition_definition"
               }
             ]
           }
@@ -340,7 +349,7 @@
     "filter_definition": {
       "properties": {
         "filter": {
-          "description": "Filter test. Includes values to be displayed in a control",
+          "description": "Filter test. Includes support for filtering the values to be displayed in a control",
           "type": "object",
           "properties": {
             "parameter_ref": {
@@ -350,7 +359,7 @@
             "evaluate": {
               "description": "Evaluates to return values included in a control",
               "type": "object",
-              "$ref": "#/definitions/filter_evaluate_definition"
+              "$ref": "#/definitions/evaluate_definition"
             }
           },
           "required": [
@@ -361,71 +370,6 @@
       },
       "required": [
         "filter"
-      ]
-    },
-    "filter_evaluate_definition": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/filter_and_definition"
-        },
-        {
-          "$ref": "#/definitions/filter_or_definition"
-        },
-        {
-          "$ref": "#/definitions/filter_condition_definition"
-        }
-      ]
-    },
-    "filter_or_definition": {
-      "description": "Container for 'or' operations",
-      "type": "object",
-      "properties": {
-        "or": {
-          "description": "The 'or' condition. Returns the union of all sub-conditions. Can nest any number of additional conditional types.",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "$ref": "#/definitions/filter_and_definition"
-              },
-              {
-                "$ref": "#/definitions/filter_or_definition"
-              },
-              {
-                "$ref": "#/definitions/filter_condition_definition"
-              }
-            ]
-          }
-        }
-      },
-      "required": [
-        "or"
-      ]
-    },
-    "filter_and_definition": {
-      "description": "Container for 'and' operations",
-      "type": "object",
-      "properties": {
-        "and": {
-          "description": "The 'and' condition. Returns the intersect of all sub-conditions. Can nest any number of additional conditional types.",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "$ref": "#/definitions/filter_and_definition"
-              },
-              {
-                "$ref": "#/definitions/filter_or_definition"
-              },
-              {
-                "$ref": "#/definitions/filter_condition_definition"
-              }
-            ]
-          }
-        }
-      },
-      "required": [
-        "and"
       ]
     },
     "filter_condition_definition": {
