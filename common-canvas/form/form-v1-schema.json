@@ -119,6 +119,11 @@
             "info"
           ]
         },
+        "label_visible": {
+          "description": "Whether to display the label or not. If not displayed, the label can still be used by screen readers",
+          "type": "boolean",
+          "default": true
+        },
         "secondaryText": {
           "description": "Secondary text associated with the sub-panel shown when an 'additionalLink' is clicked.",
           "type": "string"
