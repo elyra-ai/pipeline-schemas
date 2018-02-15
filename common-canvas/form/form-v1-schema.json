@@ -210,7 +210,8 @@
             "checkboxPanel",
             "custom",
             "summaryPanel",
-            "actionPanel"
+            "actionPanel",
+            "twisty"
           ]
         },
         "uiItems": {
