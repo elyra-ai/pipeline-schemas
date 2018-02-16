@@ -36,6 +36,9 @@
         },
         {
           "$ref": "#/definitions/filter_definition"
+        },
+        {
+          "$ref": "#/definitions/enum_filter_definition"
         }
       ]
     },
@@ -370,6 +373,45 @@
       },
       "required": [
         "filter"
+      ]
+    },
+    "enum_filter_definition": {
+      "properties": {
+        "enum_filter": {
+          "description": "Allows filtering of available enumeration options",
+          "type": "object",
+          "properties": {
+            "target": {
+              "description": "The target parameter information",
+              "type": "object",
+              "properties": {
+                "parameter_ref": {
+                  "description": "The enumeration parameter affected by this operation",
+                  "type": "string"
+                },
+                "values": {
+                  "description": "Array of available enumeration options when the condition evaluates to 'true'",
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "parameter_ref",
+                "values"
+              ]
+            },
+            "evaluate": {
+              "description": "Evaluates to return values included in an enumeration control",
+              "type": "object",
+              "$ref": "#/definitions/evaluate_definition"
+            }
+          }
+        }
+      },
+      "required": [
+        "target",
+        "evaluate"
       ]
     },
     "filter_condition_definition": {
