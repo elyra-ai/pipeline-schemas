@@ -95,7 +95,34 @@
           "type": "array"
         },
         "default": {
-          "description": "default value based on type of parameter"
+          "description": "default value based on type of parameter",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/parameter_ref_definition"
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "array"
+                },
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          ]
         }
       },
       "oneOf": [
@@ -111,6 +138,19 @@
             "enum"
           ]
         }
+      ]
+    },
+    "parameter_ref_definition": {
+      "description": "Structure for parameter refs",
+      "type": "object",
+      "properties": {
+        "parameter_ref": {
+          "description": "Reference to another parameter.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameter_ref"
       ]
     },
     "complex_type_definition": {
@@ -173,8 +213,7 @@
     "app_data_def": {
       "description": "Object containing application-specific data",
       "type": "object",
-      "properties": {
-      },
+      "properties": {},
       "additionalProperties": true
     }
   }

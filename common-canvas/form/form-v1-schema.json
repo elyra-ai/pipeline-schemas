@@ -384,7 +384,36 @@
         },
         "defaultRow": {
           "description": "For structure/tabular controls, specifies the initial values for the new row/structure (e.g. when a '+' button is pressed).",
-          "type": "object"
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/parameterRef_definition"
+              },
+              {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "array"
+                  },
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            ]
+          }
         },
         "noPickColumns": {
           "description": "Suppresses Add/Remove Columns from structure tables residing within columnSelection or columnAllocation panels",
@@ -631,18 +660,31 @@
         },
         "defaultValue": {
           "description": "Optional default value",
-          "oneOf": [
+          "anyOf": [
             {
-              "type": "string"
+              "$ref": "#/definitions/parameterRef_definition"
             },
             {
-              "type": "number"
-            },
-            {
-              "type": "boolean"
-            },
-            {
-              "type": "array"
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "array"
+                },
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           ]
         }
@@ -651,6 +693,19 @@
         "propType",
         "isList",
         "isMap"
+      ]
+    },
+    "parameterRef_definition": {
+      "description": "Structure for parameter refs",
+      "type": "object",
+      "properties": {
+        "parameterRef": {
+          "description": "Reference to another parameter.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameterRef"
       ]
     },
     "action_definition": {
