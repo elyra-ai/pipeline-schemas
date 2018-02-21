@@ -304,7 +304,8 @@
             "selectcolumns",
             "structuretable",
             "structureeditor",
-            "structurelisteditor"
+            "structurelisteditor",
+            "custom"
           ]
         },
         "valueDef": {
@@ -410,6 +411,15 @@
         "required": {
           "description": "True when this parameter must be provided in order to execute.",
           "type": "boolean"
+        },
+        "customControlId": {
+          "description": "Used to determine which custom control to use when controlType=custom.",
+          "type": "string"
+        },
+        "data": {
+          "description": "Data passed to custom control when control=custom",
+          "type": "object",
+          "additionalProperties": true
         }
       },
       "required": [
@@ -459,7 +469,8 @@
             "oneofselect",
             "someofselect",
             "selectcolumn",
-            "selectcolumns"
+            "selectcolumns",
+            "custom"
           ]
         },
         "valueDef": {
@@ -532,6 +543,15 @@
         "summary": {
           "description": "Determines if this column values will be shown in the summaryPanel",
           "type": "boolean"
+        },
+        "customControlId": {
+          "description": "Used to determine which custom control to use when controlType=custom.",
+          "type": "string"
+        },
+        "data": {
+          "description": "Data passed to custom control when control=custom",
+          "type": "object",
+          "additionalProperties": true
         }
       },
       "required": [

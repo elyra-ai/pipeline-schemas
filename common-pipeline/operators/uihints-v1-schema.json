@@ -195,7 +195,8 @@
             "selectcolumn",
             "selectcolumns",
             "structuretable",
-            "structurelisteditor"
+            "structurelisteditor",
+            "custom"
           ]
         },
         "increment": {
@@ -347,6 +348,15 @@
             "measure",
             "modeling_role"
           ]
+        },
+        "custom_control_id": {
+          "description": "Used to determine which custom control to use when control=custom.",
+          "type": "string"
+        },
+        "data": {
+          "description": "Data passed to custom control when control=custom",
+          "type": "object",
+          "additionalProperties": true
         }
       },
       "required": [
