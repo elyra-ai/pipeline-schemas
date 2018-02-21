@@ -417,7 +417,7 @@
           "type": "string"
         },
         "data": {
-          "description": "Data passed to custom control when control=custom",
+          "description": "Data passed to custom control when controlType=custom",
           "type": "object",
           "additionalProperties": true
         }
@@ -549,7 +549,7 @@
           "type": "string"
         },
         "data": {
-          "description": "Data passed to custom control when control=custom",
+          "description": "Data passed to custom control when controlType=custom",
           "type": "object",
           "additionalProperties": true
         }
