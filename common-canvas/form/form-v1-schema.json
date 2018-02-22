@@ -132,6 +132,10 @@
           "description": "Specifies a parameter name (usually associated with a boolean or enumerated value) whose control value this item depends on.",
           "type": "string"
         },
+        "insertPanels": {
+          "description": "Indicates whether panels, contained with a panelSelector, should be inserted between the radio buttons of a radio button set indicated by the dependsOn parameter.",
+          "type": "boolean"
+        },
         "action": {
           "description": "Action definition for 'action' items.",
           "type": "object",

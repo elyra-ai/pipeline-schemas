@@ -96,6 +96,10 @@
           "description": "Parameter name this group depends upon. Valid for panelSelector groups only.",
           "type": "string"
         },
+        "insert_panels": {
+          "description": "Indicates whether panels, contained with a panelSelector, should be inserted between the radio buttons of a radio button set indicated by the depends_on_ref parameter.",
+          "type": "boolean"
+        },
         "label": {
           "description": "Group label",
           "type": "object",
