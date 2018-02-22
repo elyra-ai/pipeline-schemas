@@ -305,7 +305,9 @@
             "structuretable",
             "structureeditor",
             "structurelisteditor",
-            "custom"
+            "custom",
+            "datefield",
+            "timefield"
           ]
         },
         "valueDef": {
@@ -449,6 +451,14 @@
           "description": "Data passed to custom control when controlType=custom",
           "type": "object",
           "additionalProperties": true
+        },
+        "dateFormat": {
+          "description": "A format string such as YYYY-MM-DD which describes the display and entry format for a date field.",
+          "type": "string"
+        },
+        "timeFormat": {
+          "description": "A format string such as HH:mm:ss which describes the display and entry format for a time field.",
+          "type": "string"
         }
       },
       "required": [
@@ -499,7 +509,9 @@
             "someofselect",
             "selectcolumn",
             "selectcolumns",
-            "custom"
+            "custom",
+            "datefield",
+            "timefield"
           ]
         },
         "valueDef": {
@@ -581,6 +593,14 @@
           "description": "Data passed to custom control when controlType=custom",
           "type": "object",
           "additionalProperties": true
+        },
+        "dateFormat": {
+          "description": "A format string such as YYYY-MM-DD which describes the display and entry format for a date field.",
+          "type": "string"
+        },
+        "timeFormat": {
+          "description": "A format string such as HH:mm:ss which describes the display and entry format for a time field.",
+          "type": "string"
         }
       },
       "required": [

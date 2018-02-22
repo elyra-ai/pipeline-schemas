@@ -196,7 +196,9 @@
             "selectcolumns",
             "structuretable",
             "structurelisteditor",
-            "custom"
+            "custom",
+            "datefield",
+            "timefield"
           ]
         },
         "increment": {
@@ -357,6 +359,14 @@
           "description": "Data passed to custom control when control=custom",
           "type": "object",
           "additionalProperties": true
+        },
+        "date_format": {
+          "description": "A format string such as YYYY-MM-DD which describes the display and entry format for a date field.",
+          "type": "string"
+        },
+        "time_format": {
+          "description": "A format string such as HH:mm:ss which describes the display and entry format for a time field.",
+          "type": "string"
         }
       },
       "required": [
