@@ -12,6 +12,10 @@
              "description": "Unique identifier",
              "type": "string"
            },
+           "name": {
+             "description": "Name of datarecord",
+             "type": "string"
+           },
            "json_schema": {
              "description": "Refers to the JSON schema used to validate documents of this type",
              "enum": ["http://www.ibm.com/ibm/wdp/flow-v1.0/datarecord-metadata-v1-schema.json"],

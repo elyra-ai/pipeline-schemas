@@ -37,7 +37,19 @@
       "$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/conditions-v1-schema.json#conditions"
     },
     "dataset_metadata": {
-      "$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/datarecord-metadata-v1-schema.json#"
+      "oneOf": [
+        {
+          "description": "A single datarecord object. Deprecated.",
+          "$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/datarecord-metadata-v1-schema.json#"
+        },
+        {
+          "description": "An array of datarecord objects",
+          "type": "array",
+          "items": {
+            "$ref": "http://www.ibm.com/ibm/wdp/flow-v1.0/datarecord-metadata-v1-schema.json#"
+          }
+        }
+      ]
     },
     "resources": {
       "description": "Map of string resources.",
