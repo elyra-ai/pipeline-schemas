@@ -60,6 +60,10 @@
       "description": "UI item definition that represents a basic element in the UI",
       "type": "object",
       "properties": {
+        "id": {
+          "description": "The panel ID",
+          "type": "string"
+        },
         "itemType": {
           "description": "The type of UI item.",
           "type": "string",
@@ -143,6 +147,7 @@
         }
       },
       "required": [
+        "id",
         "itemType"
       ]
     },
@@ -174,6 +179,10 @@
       "description": "Defines a text panel.",
       "type": "object",
       "properties": {
+        "id": {
+          "description": "The panel ID",
+          "type": "string"
+        },
         "label": {
           "description": "Defines a panel label.",
           "type": "object",
@@ -195,7 +204,9 @@
           }
         }
       },
-      "required": []
+      "required": [
+        "id"
+      ]
     },
     "control_panel_definition": {
       "description": "Defines a control panel.",
