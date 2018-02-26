@@ -48,7 +48,7 @@
                "type":"string"
             },
             "type":{
-               "description":"Field type. Can be a primitive type (string, integer, double, date, time, timestamp, or custom), or a vector, map, or struct containing those types",
+               "description":"Field type. Can be a primitive type (string, integer, double, date, time, timestamp, binary, boolean, or other)",
                "type":"string"
             },
             "nullable":{
