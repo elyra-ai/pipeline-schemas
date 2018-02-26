@@ -123,11 +123,6 @@
             "info"
           ]
         },
-        "label_visible": {
-          "description": "Whether to display the label or not. If not displayed, the label can still be used by screen readers",
-          "type": "boolean",
-          "default": true
-        },
         "secondaryText": {
           "description": "Secondary text associated with the sub-panel shown when an 'additionalLink' is clicked.",
           "type": "string"
@@ -273,9 +268,10 @@
           "type": "object",
           "$ref": "#/definitions/control_label_definition"
         },
-        "separateLabel": {
+        "labelVisible": {
           "description": "Whether the label should be shown. Typically checkboxes don't have a separate label although this can be over-ridden.",
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
         },
         "description": {
           "description": "Optional description for the control",
