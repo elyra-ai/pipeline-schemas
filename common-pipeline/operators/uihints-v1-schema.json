@@ -289,10 +289,6 @@
             "text/x-hive"
           ]
         },
-        "moveable_rows": {
-          "description": "Determines if rows can be moved up or down in a table or array of strings",
-          "type": "boolean"
-        },
         "summary": {
           "description": "Determines if this column values will be shown in the summaryPanel",
           "type": "boolean"
@@ -376,11 +372,6 @@
           "description": "Number of rows to display in tables",
           "type": "integer",
           "default": 4
-        },
-        "header": {
-          "description": "Determines if the table header should be displayed",
-          "type": "boolean",
-          "default": true
         }
       },
       "required": [
@@ -422,6 +413,10 @@
           "type": "boolean",
           "default": true
         },
+        "moveable_rows": {
+          "description": "Determines if rows can be moved up or down in a table or array of strings",
+          "type": "boolean"
+        },
         "row_selection": {
           "description": "Determines how many rows can be selected at a time.",
           "type": "string",
@@ -429,6 +424,11 @@
             "single",
             "multiple"
           ]
+        },
+        "header": {
+          "description": "Determines if the table header should be displayed",
+          "type": "boolean",
+          "default": true
         }
       },
       "required": [
