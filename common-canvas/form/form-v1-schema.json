@@ -471,6 +471,11 @@
           "description": "A format string such as HH:mm:ss which describes the display and entry format for a time field.",
           "type": "string"
         },
+        "rows": {
+          "description": "Number of rows to display in tables",
+          "type": "integer",
+          "default": 4
+        },
         "header": {
           "description": "Determines if the table header should be displayed",
           "type": "boolean",
