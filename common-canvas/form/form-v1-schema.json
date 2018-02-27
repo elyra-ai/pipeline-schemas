@@ -475,6 +475,11 @@
           "description": "Number of rows to display in tables",
           "type": "integer",
           "default": 4
+        },
+        "header": {
+          "description": "Determines if the table header should be displayed",
+          "type": "boolean",
+          "default": true
         }
       },
       "required": [
