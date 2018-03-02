@@ -415,7 +415,7 @@
       ]
     },
     "filter_condition_definition": {
-      "description": "Allows for filtering available fields in the schema(s)",
+      "description": "Allows for filtering available fields in the data record schema(s)",
       "type": "object",
       "properties": {
         "condition": {
@@ -428,7 +428,7 @@
                   "$ref": "#/definitions/filter_op_definition"
                 },
                 "value": {
-                  "description": "Value to compared against schema field attribute",
+                  "description": "Value to compare against data record schema field attribute",
                   "type": "string"
                 }
               },
@@ -443,7 +443,7 @@
                   "$ref": "#/definitions/filter_op_definition"
                 },
                 "values": {
-                  "description": "Compares if schema field attribute is in values list",
+                  "description": "Array of values which are compared to a data record schema field attribute",
                   "type": "array",
                   "minItems": 1,
                   "items": {
@@ -465,7 +465,7 @@
       ]
     },
     "filter_op_definition": {
-      "description": "A single operator for comparing schema field attributes",
+      "description": "A single operator for comparing data record schema field attributes",
       "enum": [
         "dmMeasurement",
         "dmType",
