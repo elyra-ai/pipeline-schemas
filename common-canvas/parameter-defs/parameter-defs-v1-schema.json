@@ -15,6 +15,11 @@
           "description": "True if the title can be edited. False if the title should be readonly.",
           "default": true,
           "type": "boolean"
+        },
+        "help_available": {
+          "description": "Set to true if additional help info will be provided.",
+          "default": false,
+          "type": "boolean"
         }
       }
     },

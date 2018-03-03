@@ -18,6 +18,11 @@
       "type": "boolean",
       "default": true
     },
+    "helpAvailable": {
+      "description": "Set to true if additional help info will be provided.",
+      "type": "boolean",
+      "default": false
+    },
     "editorSize": {
       "description": "The editor size.",
       "enum": [
