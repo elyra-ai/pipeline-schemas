@@ -48,6 +48,10 @@
           "description": "A single validation. The fail_message is displayed upon validation failure.",
           "type": "object",
           "properties": {
+            "id": {
+              "description": "Unique identifier.  Required when multiple fail_message sections have the same focus_parameter_ref value.",
+              "type": "string"
+            },
             "fail_message": {
               "description": "Error/warning",
               "type": "object",
@@ -304,7 +308,7 @@
     "fail_message_definition": {
       "properties": {
         "focus_parameter_ref": {
-          "description": "The parameter control to get focus after displaying the error/warning",
+          "description": "The parameter control to get the error/warning message.",
           "type": "string"
         },
         "message": {
@@ -321,7 +325,7 @@
         }
       },
       "required": [
-        "type",
+        "focus_parameter_ref",
         "message"
       ]
     },

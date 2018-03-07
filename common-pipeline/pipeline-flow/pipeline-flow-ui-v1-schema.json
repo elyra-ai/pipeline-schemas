@@ -199,6 +199,10 @@
           "description": "Name of the parameter that has the message",
           "type": "string"
         },
+        "validation_id": {
+          "description": "Validation identifier from the fail_message validation section.",
+          "type": "string"
+        },
         "type": {
           "description": "Type of message",
           "enum": [
