@@ -1,8 +1,9 @@
-{  
-   "connection":{  
+{
+   "connection":{
+      "name": "Connection 1",
       "ref":"d7c75790-90fc-4883-a5fc-3bb589166a52",
       "project_ref":"0a0a20e8-e8a8-4710-b90a-6df3ff775b04",
-      "properties":{  
+      "properties":{
          "field_delimiter":"tab",
          "file_format":"delimited",
          "file_name": "my_data.csv",
@@ -10,7 +11,7 @@
          "quote_character": "single_quote",
          "row_delimiter": "carriage_return_line_feed"
       },
-      "app_data":{  
+      "app_data":{
          "some_custom_field":"a value"
       }
    }

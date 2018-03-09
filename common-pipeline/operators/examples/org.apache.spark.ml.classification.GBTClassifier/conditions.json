@@ -1,5 +1,5 @@
 {
-  "json_schema": "http://www.ibm.com/ibm/wdp/flow-v1.0/conditions-v1-schema.json",
+  "json_schema": "http://www.ibm.com/ibm/wdp/flow-v2.0/conditions-v2-schema.json",
   "conditions": [
     {
       "validation": {

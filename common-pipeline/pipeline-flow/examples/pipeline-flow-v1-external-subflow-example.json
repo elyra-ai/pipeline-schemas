@@ -1,6 +1,6 @@
 {
   "doc_type": "pipeline",
-  "version": "1.0",
+  "version": "2.0",
   "id": "abdc9881-f83a-4d38-b15b-8bf541e100fb",
   "app_data": {
     "ui_data": {
@@ -46,7 +46,7 @@
           "id": "superNode1",
           "type": "super_node",
           "subflow_ref": {
-            "url": "https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/blob/master/common-pipeline/pipeline-flow/examples/pipeline-flow-v1-example-simple.json",
+            "url": "https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/blob/master/common-pipeline/pipeline-flow/examples/pipeline-flow-v2-example-simple.json",
             "pipeline_id_ref": "simple-pipeline"
           },
           "inputs": [

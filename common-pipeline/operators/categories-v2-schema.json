@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://www.ibm.com/ibm/wdp/flow-v2.0/categories-v2-schema.json#",
+  "title": "Watson Data Platform Operator Categories Schema",
+  "description": "Provides category grouping and ordering for runtime environments in the Watson Data Platform",
+  "type": "object",
+  "properties": {
+    "json_schema": {
+      "description": "Refers to the JSON schema used to validate documents of this type",
+      "enum": ["http://www.ibm.com/ibm/wdp/flow-v2.0/categories-v2-schema.json"]
+    },
+    "runtime": {
+      "description": "The runtime environment that the current categories file describes",
+      "type": "string"
+    },
+    "categories": {
+      "description": "Categories used to organize and group the operators in the current runtime",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/category_def"
+      }
+    }
+  },
+  "required": [
+    "runtime",
+    "categories"
+  ],
+  "definitions": {
+    "category_def": {
+      "description": "Defines a single category for grouping operators within a runtime",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Category identifier",
+          "type": "string"
+        },
+        "label": {
+          "description": "Category label",
+          "$ref": "#/definitions/resource_def"
+        },
+        "description": {
+          "description": "Category description",
+          "$ref": "#/definitions/resource_def"
+        },
+        "operator_refs": {
+          "description": "Array of operator identifiers",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "operator_refs"
+      ]
+    },
+    "resource_def": {
+      "description": "Localizable string resource",
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "resource_key": {
+          "type": "string"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "default"
+          ]
+        },
+        {
+          "required": [
+            "resource_key"
+          ]
+        }
+      ]
+    }
+  }
+}
