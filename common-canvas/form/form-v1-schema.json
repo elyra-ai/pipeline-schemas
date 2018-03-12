@@ -224,9 +224,9 @@
             "columnSelection",
             "checkboxPanel",
             "custom",
-            "summaryPanel",
             "actionPanel",
-            "twisty"
+            "twisty",
+            "summary"
           ]
         },
         "uiItems": {
@@ -242,6 +242,11 @@
           "items": {
             "type": "string"
           }
+        },
+        "data": {
+          "description": "Data passed to customPanel when panelType=custom",
+          "type": "object",
+          "additionalProperties": true
         },
         "label": {
           "description": "Defines a panel label.  Used in checkboxPanel",
