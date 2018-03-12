@@ -1,0 +1,23 @@
+{
+  "json_schema": "http://www.ibm.com/ibm/wdp/flow-v1.0/parameters-v1-schema.json#",
+  "parameters": [ 
+     {
+        "name": "first_param",
+        "description": "updating the table name", 
+        "paths": [
+           "/pipelines/0/nodes/0/connection/table_name",
+           "/pipelines/0/nodes/1/connection/another_table_name" 
+        ],
+       "type": "string" 
+     },
+     {
+        "name": "second_param",
+        "description": "updating another table name", 
+        "paths": [
+           "/pipelines/pipelineid/nodes/nodeid/connection/table_name",
+           "/pipelines/pipelineid/nodes/nodeid/connection/another_table_name" 
+        ],
+       "type": "string" 
+     }
+  ]
+}

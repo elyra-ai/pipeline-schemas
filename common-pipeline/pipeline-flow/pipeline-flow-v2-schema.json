@@ -50,6 +50,15 @@
       },
       "uniqueItems": true
     },
+    "runtimes": {
+      "description": "Array of runtime objects referred to in the document",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/definitions/runtime_def"
+      },
+      "uniqueItems": true
+    },
     "app_data": {
       "$ref": "#/definitions/app_data_def"
     }
@@ -74,8 +83,8 @@
           "description": "User-readable name",
           "type": "string"
         },
-        "runtime": {
-          "description": "Runtime associated with the operations in the current pipeline",
+        "runtime_ref": {
+          "description": "Reference to the runtime associated with the operations in the current pipeline",
           "type": "string"
         },
         "nodes": {
@@ -100,13 +109,22 @@
           },
           "uniqueItems": true
         },
+        "external_parameters": {
+          "description": "Array of parameterized property references",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/parameters-v2-schema.json#/definitions/param_property_ref"
+          },
+          "uniqueItems": true
+        },
         "app_data": {
           "$ref": "#/definitions/app_data_def"
         }
       },
       "required": [
         "id",
-        "runtime",
+        "runtime_ref",
         "nodes"
       ],
       "additionalProperties": false
@@ -140,6 +158,10 @@
           "type": "object",
           "properties": {},
           "additionalProperties": true
+        },
+        "runtime_ref": {
+          "description": "Reference to the runtime associated with the current node",
+          "type": "string"
         },
         "app_data": {
           "$ref": "#/definitions/app_data_def"
@@ -293,6 +315,10 @@
           "type": "object",
           "properties": {},
           "additionalProperties": true
+        },
+        "runtime_ref": {
+          "description": "Reference to the runtime associated with the current node",
+          "type": "string"
         },
         "app_data": {
           "$ref": "#/definitions/app_data_def"
@@ -452,6 +478,23 @@
         }
       },
       "additionalProperties": true
+    },
+    "runtime_def": {
+      "description": "Runtime associated with the operations in the current pipeline",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The runtime name",
+          "type": "string"
+        },
+        "version": {
+          "description": "The runtime version. When not present the latest version is assumed",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
     }
   }
 }
