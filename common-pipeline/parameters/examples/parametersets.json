@@ -1,32 +1,32 @@
 {
-  "json_schema": "http://www.ibm.com/ibm/wdp/flow-v1.0/parametersets-v1-schema.json#",
+  "json_schema": "http://www.ibm.com/ibm/wdp/flow-v2.0/parametersets-v2-schema.json#",
   "paramset": {
-     "name": "test paramset", 
-     "description": "my first paramset", 
+     "name": "test paramset",
+     "description": "my first paramset",
      "parameters": [
         {
-           "name": "param1", 
+           "name": "param1",
            "literal_value": {
               "type": "string",
-              "value": "my_test_table" 
+              "value": "my_test_table"
            }
         },
         {
-           "name": "param2", 
+           "name": "param2",
            "literal_value": {
               "type": "integer",
               "value": 21
            }
         },
         {
-           "name": "param3", 
+           "name": "param3",
            "literal_value": {
               "type": "boolean",
               "value": true
            }
-        },  
+        },
         {
-           "name": "param4", 
+           "name": "param4",
            "literal_value": {
               "type": "object",
               "value": {
@@ -36,7 +36,7 @@
            }
         },
         {
-           "name": "param5", 
+           "name": "param5",
            "literal_value": {
               "type": "array",
               "value": [
@@ -45,7 +45,7 @@
                  }
               ]
            }
-        }   
+        }
      ]
   }
 }
