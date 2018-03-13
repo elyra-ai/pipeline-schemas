@@ -239,8 +239,8 @@
                 "binding"
               ]
             },
-            "input": {
-              "$ref": "#/definitions/port_binding_def"
+            "inputs": {
+              "$ref": "#/definitions/bound_ports_def"
             },
             "app_data": {
               "$ref": "#/definitions/app_data_def"
@@ -250,13 +250,23 @@
             },
             "data_asset": {
               "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/pipeline-connection-v2-schema.json#/definitions/common_pipeline_data_asset_def"
+            },
+            "op": {
+              "description": "Binding node type identifier",
+              "type": "string"
+            },
+            "parameters": {
+              "description": "Parameters for the binding node",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
             }
           }
         },
         {
           "properties": {
             "id": {
-              "description": "Unique identifier for the binding",
+              "description": "Unique identifier for the binding within the current pipeline",
               "type": "string"
             },
             "type": {
@@ -265,8 +275,8 @@
                 "binding"
               ]
             },
-            "output": {
-              "$ref": "#/definitions/port_binding_def"
+            "outputs": {
+              "$ref": "#/definitions/bound_ports_def"
             },
             "app_data": {
               "$ref": "#/definitions/app_data_def"
@@ -276,6 +286,16 @@
             },
             "data_asset": {
               "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/pipeline-connection-v2-schema.json#/definitions/common_pipeline_data_asset_def"
+            },
+            "op": {
+              "description": "Binding node type identifier",
+              "type": "string"
+            },
+            "parameters": {
+              "description": "Parameters for the binding node",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
             }
           }
         }
@@ -473,6 +493,9 @@
             },
             {
               "$ref": "http://www.ibm.com/ibm/wdp/canvas/v2.0/pipeline-flow-ui-v2-schema.json#/definitions/node_info_def"
+            },
+            {
+              "$ref": "http://www.ibm.com/ibm/wdp/canvas/v2.0/pipeline-flow-ui-v2-schema.json#/definitions/runtime_info_def"
             }
           ]
         }
@@ -490,6 +513,9 @@
         "version": {
           "description": "The runtime version. When not present the latest version is assumed",
           "type": "string"
+        },
+        "app_data": {
+          "$ref": "#/definitions/app_data_def"
         }
       },
       "required": [

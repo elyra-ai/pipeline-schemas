@@ -137,6 +137,14 @@
       },
       "additionalProperties": true
     },
+    "runtime_info_def": {
+      "description": "Runtime information",
+      "type": "object",
+      "properties": {
+      },
+      "required": [],
+      "additionalProperties": true
+    },
     "association_def": {
       "description": "Non-data link",
       "type": "object",
@@ -215,7 +223,12 @@
           "description": "Message string",
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "id_ref",
+        "type",
+        "text"
+      ]
     },
     "comment_def": {
       "type": "object",
