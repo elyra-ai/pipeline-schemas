@@ -41,47 +41,53 @@
         {
           "id": "entryID1PE",
           "type": "binding",
-          "output": {
-            "id": "entryPort1PE",
-            "schema_ref": "schema1",
-            "app_data": {
-              "ui_data": {
-                "label": "exit Port 1PE"
+          "outputs": [
+            {
+              "id": "entryPort1PE",
+              "schema_ref": "schema1",
+              "app_data": {
+                "ui_data": {
+                  "label": "exit Port 1PE"
+                }
               }
             }
-          }
+          ]
         },
         {
           "id": "entryID2PE",
           "type": "binding",
-          "output": {
-            "id": "entryPort2PE",
-            "schema_ref": "schema2",
-            "app_data": {
-              "ui_data": {
-                "label": "exit Port 1PE"
+          "outputs": [
+            {
+              "id": "entryPort2PE",
+              "schema_ref": "schema2",
+              "app_data": {
+                "ui_data": {
+                  "label": "exit Port 1PE"
+                }
               }
             }
-          }
+          ]
         },
         {
           "id": "entryID3PE",
           "type": "binding",
-          "output": {
-            "id": "entryPort3PE",
-            "schema_ref": "schema2",
-            "app_data": {
-              "ui_data": {
-                "label": "entryID3PE"
+          "outputs": [
+            {
+              "id": "entryPort3PE",
+              "schema_ref": "schema2",
+              "app_data": {
+                "ui_data": {
+                  "label": "entryID3PE"
+                }
               }
             }
-          },
-          "connection":{
-            "ref":"d7c75790-90fc-4883-a5fc-3bb589166a52",
-            "project_ref":"0a0a20e8-e8a8-4710-b90a-6df3ff775b04",
+          ],
+          "connection": {
+            "ref": "d7c75790-90fc-4883-a5fc-3bb589166a52",
+            "project_ref": "0a0a20e8-e8a8-4710-b90a-6df3ff775b04",
             "properties": {
-              "schema_name":"GOSALES",
-              "table_name":"PRODUCT_NAME_LOOKUP"
+              "schema_name": "GOSALES",
+              "table_name": "PRODUCT_NAME_LOOKUP"
             }
           }
         },
@@ -350,34 +356,42 @@
         {
           "id": "exitID1PE",
           "type": "binding",
-          "input": {
-            "id": "exitPort1PE",
-            "schema_ref": "schema3",
-            "link": {
-              "node_id_ref": "nodeID2PE"
-            },
-            "app_data": {
-              "ui_data": {
-                "label": "exitPort1PE"
+          "inputs": [
+            {
+              "id": "exitPort1PE",
+              "schema_ref": "schema3",
+              "links": [
+                {
+                  "node_id_ref": "nodeID2PE"
+                }
+              ],
+              "app_data": {
+                "ui_data": {
+                  "label": "exitPort1PE"
+                }
               }
             }
-          }
+          ]
         },
         {
           "id": "exitID2PE",
           "type": "binding",
-          "input": {
-            "id": "exitPort2PE",
-            "schema_ref": "schema3",
-            "link": {
-              "node_id_ref": "nodeID3PE"
-            },
-            "app_data": {
-              "ui_data": {
-                "label": "exitID2PE"
+          "inputs": [
+            {
+              "id": "exitPort2PE",
+              "schema_ref": "schema3",
+              "links": [
+                {
+                  "node_id_ref": "nodeID3PE"
+                }
+              ],
+              "app_data": {
+                "ui_data": {
+                  "label": "exitID2PE"
+                }
               }
             }
-          }
+          ]
         }
       ]
     },
@@ -394,28 +408,32 @@
         {
           "id": "entryID1SE",
           "type": "binding",
-          "output": {
-            "id": "entryPort1SE",
-            "schema_ref": "schema3",
-            "app_data": {
-              "ui_data": {
-                "label": "entryPort1SE"
+          "outputs": [
+            {
+              "id": "entryPort1SE",
+              "schema_ref": "schema3",
+              "app_data": {
+                "ui_data": {
+                  "label": "entryPort1SE"
+                }
               }
             }
-          }
+          ]
         },
         {
           "id": "entryID2SE",
           "type": "binding",
-          "output": {
-            "id": "entryPort2SE",
-            "schema_ref": "schema2",
-            "app_data": {
-              "ui_data": {
-                "label": "entryPort2SE"
+          "outputs": [
+            {
+              "id": "entryPort2SE",
+              "schema_ref": "schema2",
+              "app_data": {
+                "ui_data": {
+                  "label": "entryPort2SE"
+                }
               }
             }
-          }
+          ]
         },
         {
           "id": "nodeID1SE",
@@ -561,19 +579,23 @@
         {
           "id": "exitID1SE",
           "type": "binding",
-          "input": {
-            "id": "exitPort1SE",
-            "schema_ref": "schema2",
-            "link": {
-              "node_id_ref": "nodeID2SE",
-              "app_data": {
-                "ui_data": {
-                  "class_name": "linkClass",
-                  "label": "exitPort1SE"
+          "inputs": [
+            {
+              "id": "exitPort1SE",
+              "schema_ref": "schema2",
+              "links": [
+                {
+                  "node_id_ref": "nodeID2SE",
+                  "app_data": {
+                    "ui_data": {
+                      "class_name": "linkClass",
+                      "label": "exitPort1SE"
+                    }
+                  }
                 }
-              }
+              ]
             }
-          }
+          ]
         }
       ]
     }
@@ -685,11 +707,13 @@
   ],
   "runtimes": [
     {
-      "name": "scala-spark-2.0.1",
+      "id": "scala-spark-2.0.1",
+      "name": "Scala-Spark",
       "version": "2.0.1"
     },
     {
-      "name": "SPSS-Modeler",
+      "id": "SPSS-Modeler",
+      "name": "SPSS Modeler",
       "version": "18.0"
     }
   ]

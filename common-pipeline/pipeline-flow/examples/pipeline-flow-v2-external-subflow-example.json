@@ -27,20 +27,22 @@
         {
           "id": "entryID1",
           "type": "binding",
-          "output": {
-            "id": "entryPort1PE",
-            "schema_ref": "schema1",
-            "external_binding": {
-              "description": "A hypothetical external binding to a CSV file in the local file system. Actual contents TBD",
-              "type": "text/csv",
-              "location": "/users/data/File1.csv"
-            },
-            "app_data": {
-              "ui_data": {
-                "label": "entryPort1PE"
+          "outputs": [
+            {
+              "id": "entryPort1PE",
+              "schema_ref": "schema1",
+              "external_binding": {
+                "description": "A hypothetical external binding to a CSV file in the local file system. Actual contents TBD",
+                "type": "text/csv",
+                "location": "/users/data/File1.csv"
+              },
+              "app_data": {
+                "ui_data": {
+                  "label": "entryPort1PE"
+                }
               }
             }
-          }
+          ]
         },
         {
           "id": "superNode1",
@@ -84,13 +86,17 @@
         {
           "id": "exitID1",
           "type": "binding",
-          "input": {
-            "id": "exitPort1",
-            "schema_ref": "schema2",
-            "link": {
-              "node_id_ref": "superNode1"
+          "inputs": [
+            {
+              "id": "exitPort1",
+              "schema_ref": "schema2",
+              "links": [
+                {
+                  "node_id_ref": "superNode1"
+                }
+              ]
             }
-          }
+          ]
         }
       ]
     }
@@ -169,7 +175,8 @@
   ],
   "runtimes": [
     {
-      "name": "scala-spark-2.0.1",
+      "id": "scala-spark-2.0.1",
+      "name": "Scala-Spark",
       "version": "2.0.1"
     }
   ]

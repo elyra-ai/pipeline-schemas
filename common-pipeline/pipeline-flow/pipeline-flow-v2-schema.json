@@ -84,7 +84,7 @@
           "type": "string"
         },
         "runtime_ref": {
-          "description": "Reference to the runtime associated with the operations in the current pipeline",
+          "description": "Reference to the id of the runtime associated with the operations in the current pipeline",
           "type": "string"
         },
         "nodes": {
@@ -160,7 +160,7 @@
           "additionalProperties": true
         },
         "runtime_ref": {
-          "description": "Reference to the runtime associated with the current node",
+          "description": "Optional reference to the id of the runtime associated with the current node",
           "type": "string"
         },
         "app_data": {
@@ -381,30 +381,6 @@
       ],
       "additionalProperties": false
     },
-    "port_binding_def": {
-      "description": "Definition (input/output) of a binding port on a node (bound or unbound). If no binding is present the port is bound at runtime via a configuration object or wrapper document.",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "Unique identifier",
-          "type": "string"
-        },
-        "schema_ref": {
-          "description": "Optional data record schema associated with the port",
-          "type": "string"
-        },
-        "link": {
-          "$ref": "#/definitions/link_def"
-        },
-        "app_data": {
-          "$ref": "#/definitions/app_data_def"
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
     "ports_def": {
       "type": "array",
       "minItems": 1,
@@ -506,6 +482,10 @@
       "description": "Runtime associated with the operations in the current pipeline",
       "type": "object",
       "properties": {
+        "id": {
+          "description": "Unique internal runtime identifier",
+          "type": "string"
+        },
         "name": {
           "description": "The runtime name",
           "type": "string"
@@ -519,6 +499,7 @@
         }
       },
       "required": [
+        "id",
         "name"
       ]
     }

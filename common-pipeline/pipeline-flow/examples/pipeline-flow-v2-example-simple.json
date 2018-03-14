@@ -27,16 +27,18 @@
         {
           "id": "entryID1PE",
           "type": "binding",
-          "output": {
-            "id": "entryPort1PE",
-            "schema_ref": "schema1"
-          },
-          "connection":{
-            "ref":"d7c75790-90fc-4883-a5fc-3bb589166a52",
-            "project_ref":"0a0a20e8-e8a8-4710-b90a-6df3ff775b04",
+          "outputs": [
+            {
+              "id": "entryPort1PE",
+              "schema_ref": "schema1"
+            }
+          ],
+          "connection": {
+            "ref": "d7c75790-90fc-4883-a5fc-3bb589166a52",
+            "project_ref": "0a0a20e8-e8a8-4710-b90a-6df3ff775b04",
             "properties": {
-              "schema_name":"GOSALES",
-              "table_name":"PRODUCT_NAME_LOOKUP"
+              "schema_name": "GOSALES",
+              "table_name": "PRODUCT_NAME_LOOKUP"
             }
           }
         },
@@ -94,20 +96,24 @@
         {
           "id": "exitID1PE",
           "type": "binding",
-          "input": {
-            "id": "exitPort1PE",
-            "schema_ref": "schema2",
-            "link": {
-              "node_id_ref": "nodeID2PE"
-            },
-            "app_data": {
-              "ui_data": {
-                "label": "exit Port 1PE"
+          "inputs": [
+            {
+              "id": "exitPort1PE",
+              "schema_ref": "schema2",
+              "links": [
+                {
+                  "node_id_ref": "nodeID2PE"
+                }
+              ],
+              "app_data": {
+                "ui_data": {
+                  "label": "exit Port 1PE"
+                }
               }
             }
-          },
-          "data_asset":{
-            "properties":{
+          ],
+          "data_asset": {
+            "properties": {
               "name": "employee_data.csv"
             }
           }
@@ -189,7 +195,8 @@
   ],
   "runtimes": [
     {
-      "name": "scala-spark-2.0.1",
+      "id": "scala-spark-2.0.1",
+      "name": "Scala-Spark",
       "version": "2.0.1"
     }
   ]
