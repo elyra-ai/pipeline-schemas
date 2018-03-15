@@ -83,42 +83,19 @@ function _update1to2(pipelineFlow) {
 	// Cycle the pipelines...
 	for (let idx = 0; idx < pipelineFlow.pipelines.length; idx++) {
 		const pipeline = pipelineFlow.pipelines[idx];
-		for (let id2 = 0; id2 < pipeline.nodes.length; id2++) {
-			const node = pipeline.nodes[id2];
-			if (node.type === "binding") {
-				// Extract the port and add it to a new array of ports instead
-				if (typeof node.input !== "undefined") {
-					if (node.input.link) {
-						node.input.links = [node.input.link];
-						delete node.input.link;
-					}
-					node.inputs = [node.input];
-					delete node.input;
-				} else if (typeof node.output !== "undefined") {
-					node.outputs = [node.output];
-					delete node.output;
-				}
-			}
-		}
+		updateBindingNodesInPipeline(pipeline);
 	}
 
 	// --> "pipeline_id_ref" was removed from "link_def"
 	for (let idx = 0; idx < pipelineFlow.pipelines.length; idx++) {
 		const pipeline = pipelineFlow.pipelines[idx];
-		for (let id2 = 0; id2 < pipeline.nodes.length; id2++) {
-			const node = pipeline.nodes[id2];
-			if (node.links) {
-				for (let id3 = 0; id3 < node.links.length; id3++) {
-					const link = node.links[id3];
-					if (link.pipeline_id_ref) {
-						delete link.pipeline_id_ref;
-					}
-				}
-			}
-		}
+		updatePipelinesIdRef(pipeline);
 	}
 
 	// --> Renamed "runtime" to "runtime_ref" and added an array of runtime objects that "runtime_ref" refers to
+	if (!pipelineFlow.runtimes) {
+		pipelineFlow.runtimes = [];
+	}
 	for (let idx = 0; idx < pipelineFlow.pipelines.length; idx++) {
 		const pipeline = pipelineFlow.pipelines[idx];
 		if (pipeline.runtime) {
@@ -140,7 +117,6 @@ function _update1to2(pipelineFlow) {
 
 /**
  * Attempts to locate a runtime object with the given name.
- * Adds an empty "runtimes" array to the pipelineFlow if not present
  *
  * @param {Object} pipelineFlow: A pipeline-flow JSON object
  * @param {String} name: The name of the runtime to search for
@@ -155,10 +131,54 @@ function _getRuntime(pipelineFlow, name) {
 				return runtime;
 			}
 		}
-	} else {
-		pipelineFlow.runtimes = [];
 	}
 	return null;
+}
+
+/**
+ * Updates the binding nodes in the given pipeline to 2.0 state.
+ *
+ * @param {object} pipeline: A single pipeline
+ * @return {void}
+ */
+function updateBindingNodesInPipeline(pipeline) {
+	for (let id2 = 0; id2 < pipeline.nodes.length; id2++) {
+		const node = pipeline.nodes[id2];
+		if (node.type === "binding") {
+			// Extract the port and add it to a new array of ports instead
+			if (typeof node.input !== "undefined") {
+				if (node.input.link) {
+					node.input.links = [node.input.link];
+					delete node.input.link;
+				}
+				node.inputs = [node.input];
+				delete node.input;
+			} else if (typeof node.output !== "undefined") {
+				node.outputs = [node.output];
+				delete node.output;
+			}
+		}
+	}
+}
+
+/**
+ * Removes all pipeline_id_ref elements from ports.
+ *
+ * @param {object} pipeline: A single pipeline
+ * @return {void}
+ */
+function updatePipelinesIdRef(pipeline) {
+	for (let id2 = 0; id2 < pipeline.nodes.length; id2++) {
+		const node = pipeline.nodes[id2];
+		if (node.links) {
+			for (let id3 = 0; id3 < node.links.length; id3++) {
+				const link = node.links[id3];
+				if (link.pipeline_id_ref) {
+					delete link.pipeline_id_ref;
+				}
+			}
+		}
+	}
 }
 
 
