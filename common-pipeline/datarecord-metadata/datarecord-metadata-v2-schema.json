@@ -1,6 +1,6 @@
 {
    "$schema":"http://json-schema.org/draft-04/schema#",
-   "id":"http://www.ibm.com/ibm/wdp/flow-v2.0/datarecord-metadata-v2-schema.json#",
+   "id":"http://www.ibm.com/ibm/wdp/flow-v2.0/datarecord-metadata-v2-schema.json",
    "title":"Watson Data Platform Datarecord Metadata Schema",
    "description":"Metadata schema for datarecords in the Watson Data Platform",
    "definitions":{

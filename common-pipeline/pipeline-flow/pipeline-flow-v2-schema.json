@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "WDP Pipeline Flow Schema",
   "type": "object",
-  "id": "http://www.ibm.com/ibm/wdp/flow-v2.0/pipeline-flow-v2-schema.json#",
+  "id": "http://www.ibm.com/ibm/wdp/flow-v2.0/pipeline-flow-v2-schema.json",
   "properties": {
     "doc_type": {
       "description": "Document type",
