@@ -240,7 +240,7 @@
               ]
             },
             "inputs": {
-              "$ref": "#/definitions/bound_ports_def"
+              "$ref": "#/definitions/ports_def"
             },
             "app_data": {
               "$ref": "#/definitions/app_data_def"
@@ -276,7 +276,7 @@
               ]
             },
             "outputs": {
-              "$ref": "#/definitions/bound_ports_def"
+              "$ref": "#/definitions/ports_def"
             },
             "app_data": {
               "$ref": "#/definitions/app_data_def"
