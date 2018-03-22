@@ -60,6 +60,18 @@
         "$ref": "#/definitions/action_definition"
       },
       "type": "array"
+    },
+    "help": {
+      "description": "Help information",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "Data passed in the helpClickHandler.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
     }
   },
   "required": [
