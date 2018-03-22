@@ -18,11 +18,6 @@
       "type": "boolean",
       "default": true
     },
-    "helpAvailable": {
-      "description": "Set to true if additional help info will be provided.",
-      "type": "boolean",
-      "default": false
-    },
     "editorSize": {
       "description": "The editor size.",
       "enum": [
@@ -52,6 +47,18 @@
       "description": "Additional data such as initial settings and data schema.",
       "type": "object",
       "$ref": "#/definitions/form_data_definition"
+    },
+    "help": {
+      "description": "Help information",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "Data passed in the helpClickHandler.",
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
     }
   },
   "required": [
