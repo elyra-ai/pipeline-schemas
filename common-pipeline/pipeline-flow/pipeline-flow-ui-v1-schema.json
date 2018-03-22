@@ -124,16 +124,16 @@
             "$ref": "#/definitions/message_def"
           },
           "uniqueItems": true
-        }
-      },
-      "decorations": {
-        "description": "Array of decorations used to decorate nodes",
-        "type": "array",
-        "minItems": 0,
-        "items": {
-          "$ref": "#/definitions/decoration_def"
         },
-        "uniqueItems": true
+        "decorations": {
+          "description": "Array of decorations used to decorate nodes",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/decoration_def"
+          },
+          "uniqueItems": true
+        }
       },
       "additionalProperties": true
     },
