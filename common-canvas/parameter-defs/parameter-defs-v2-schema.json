@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://www.ibm.com/ibm/wdp/property-defs/v2.0/property-defs-schema.json#",
+  "title": "Property Definitions Schema",
+  "description": "Watson Data Platform Property Definition Schema for the Common Properties editor",
+  "type": "object",
+  "properties": {
+    "titleDefinition": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "editable": {
+          "description": "True if the title can be edited. False if the title should be readonly.",
+          "default": true,
+          "type": "boolean"
+        },
+        "help_available": {
+          "description": "Set to true if additional help info will be provided.",
+          "default": false,
+          "type": "boolean"
+        }
+      }
+    },
+    "current_parameters": {
+      "description": "Current parameter set upon input. Keys are parameter names, values are their values.",
+      "type": "object",
+      "properties": {},
+      "additionalProperties": true
+    },
+    "parameters": {
+      "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/operator-v2-schema.json#parameters"
+    },
+    "complex_types": {
+      "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/operator-v2-schema.json#complex_types"
+    },
+    "uihints": {
+      "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/uihints-v2-schema.json#"
+    },
+    "conditions": {
+      "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/conditions-v2-schema.json#conditions"
+    },
+    "dataset_metadata": {
+      "oneOf": [
+        {
+          "description": "A single datarecord object. Deprecated.",
+          "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/datarecord-metadata-v2-schema.json#"
+        },
+        {
+          "description": "An array of datarecord objects",
+          "type": "array",
+          "items": {
+            "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/datarecord-metadata-v2-schema.json#"
+          }
+        }
+      ]
+    },
+    "resources": {
+      "description": "Map of string resources.",
+      "type": "object",
+      "properties": {},
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "current_parameters",
+    "parameters"
+  ]
+}

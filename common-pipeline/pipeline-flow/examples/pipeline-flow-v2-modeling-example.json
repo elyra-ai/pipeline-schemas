@@ -1,6 +1,6 @@
 {
   "doc_type": "pipeline",
-  "version": "1.0",
+  "version": "2.0",
   "id": "e456f213-f83a-4d38-b15b-8bf541e100fb",
   "app_data": {
     "ui_data": {
@@ -16,7 +16,7 @@
   "pipelines": [
     {
       "id": "modeling-pipeline",
-      "runtime": "scala-spark-2.0.1",
+      "runtime_ref": "scala-spark-2.0.1",
       "app_data": {
         "ui_data": {
           "zoom": 100,
@@ -27,15 +27,17 @@
         {
           "id": "entryID1PE",
           "type": "binding",
-          "output": {
-            "id": "entryPort1PE",
-            "schema_ref": "schema1",
-            "app_data": {
-              "ui_data": {
-                "label": "Output Port"
+          "outputs": [
+            {
+              "id": "entryPort1PE",
+              "schema_ref": "schema1",
+              "app_data": {
+                "ui_data": {
+                  "label": "Output Port"
+                }
               }
             }
-          }
+          ]
         },
         {
           "id": "filter_nodeID2PE",
@@ -166,7 +168,7 @@
                   "type": "trains_model"
                 }
               ]
-            },
+            }
           }
         },
         {
@@ -331,6 +333,13 @@
           }
         }
       ]
+    }
+  ],
+  "runtimes": [
+    {
+      "id": "scala-spark-2.0.1",
+      "name": "Scala-Spark",
+      "version": "2.0.1"
     }
   ]
 }

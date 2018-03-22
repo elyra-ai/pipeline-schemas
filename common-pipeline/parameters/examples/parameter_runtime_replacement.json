@@ -1,0 +1,24 @@
+{
+  "param_runtime_replacement": [ 
+     {
+        "name": "first_param", 
+        "literal_value": {
+           "type": "string",
+           "value": "my_new_table" 
+        }
+     },
+     {
+        "name": "second_param", 
+        "reference_value": {
+           "parameter_set_ref": "e910474b-41d4-4281-b4ce-e99779c48a40",
+           "parameter_set_param_name": "param1" 
+        }
+     },
+     {
+        "name": "third_param", 
+        "reference_value": {
+           "parameter_set_ref": "e910474b-41d4-4281-b4ce-e99779c56f71" 
+        }
+     }
+  ]
+}

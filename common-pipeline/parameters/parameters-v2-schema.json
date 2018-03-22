@@ -1,0 +1,127 @@
+{
+   "$schema":"http://json-schema.org/draft-04/schema#",
+   "id":"http://www.ibm.com/ibm/wdp/flow-v2.0/parameters-v2-schema.json#",
+   "title":"Watson Data Platform Pipeline Parameters Schema",
+   "description":"Parameters schema for pipelines in the Watson Data Platform",
+   "type": "object",
+   "properties": {
+     "json_schema": {
+       "description": "Refers to the JSON schema used to validate documents of this type",
+       "enum": [
+         "http://www.ibm.com/ibm/wdp/flow-v2.0/parameters-v2-schema.json"
+       ]
+     },
+     "parameters": {
+       "type": "array",
+       "items": {
+         "$ref": "#/definitions/param_property_ref"
+       }
+     }
+   },
+   "required": [
+     "parameters"
+   ],
+   "definitions":{
+      "param_property_ref": {
+         "description": "The item marks the location of a parameterized property in the pipeline.",
+         "properties": {
+            "name": {
+               "description": "The name of the parameter.",
+               "type": "string"
+            },
+            "description": {
+               "description": "The description of the parameter.",
+               "type": "string"
+            },
+            "paths": {
+               "description": "The locations of the parameterized properties in the pipeline.",
+               "items": {
+                  "type": "string"
+               },
+               "type": "array"
+            },
+            "type": {
+               "description": "The parameter type.",
+               "enum": [
+                  "string",
+                  "integer",
+                  "object",
+                  "array",
+                  "boolean"
+               ]
+            },
+            "required": {
+              "description": "Whether the parameter is required or not",
+              "type": "boolean"
+            }
+         },
+         "required": [
+            "name",
+            "path",
+            "type"
+         ],
+         "type": "object"
+      },
+      "param_replacement": {
+         "description": "The item used to replace the referenced parameter value at runtime.",
+         "properties": {
+            "name": {
+               "description": "The name of the parameterized property to be replaced.",
+               "type": "string"
+            },
+            "type": {
+               "description": "The type of the property referenced."
+            },
+            "literal_value": {
+               "$ref": "#/definitions/param_value_literal"
+            },
+            "reference_value": {
+               "$ref": "#/definitions/parma_value_ref"
+            }
+         },
+         "required": [
+            "name",
+            "type"
+         ],
+         "type": "object"
+      },
+      "param_value_literal": {
+         "description": "A literal replacement value.",
+         "properties": {
+            "type": {
+               "description": "The param type.",
+               "enum": [
+                  "string",
+                  "integer",
+                  "object",
+                  "array",
+                  "boolean"
+               ]
+            },
+            "value": {
+               "description": "The literal default value to replace at runtime.",
+               "type": "object"
+            }
+         },
+         "required": [
+            "type"
+         ]
+      },
+      "param_value_ref": {
+         "description": "A parameter set reference replacement value.",
+         "properties": {
+            "parameter_set_ref": {
+               "description": "The parameter set reference.",
+               "type": "string"
+            },
+            "parameter_set_param_name": {
+               "description": "The param set name.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "parameter_set_ref"
+         ]
+      }
+   }
+}

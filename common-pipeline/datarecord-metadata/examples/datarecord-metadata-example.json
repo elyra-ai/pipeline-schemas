@@ -1,5 +1,6 @@
 {
-  "json_schema": "http://www.ibm.com/ibm/wdp/flow-v1.0/datarecord-metadata-v1-schema.json",
+  "json_schema": "http://www.ibm.com/ibm/wdp/flow-v2.0/datarecord-metadata-v2-schema.json",
+  "id": "123.456.789",
   "fields": [
     {
       "name": "Age",

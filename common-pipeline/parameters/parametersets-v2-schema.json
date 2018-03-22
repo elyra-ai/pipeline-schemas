@@ -1,0 +1,62 @@
+{
+   "$schema":"http://json-schema.org/draft-04/schema#",
+   "id":"http://www.ibm.com/ibm/wdp/flow-v2.0/parametersets-v2-schema.json#",
+   "title":"Watson Data Platform Pipeline Parametersets Schema",
+   "description":"Parametersets schema for pipelines in the Watson Data Platform",
+   "type": "object",
+   "properties": {
+     "json_schema": {
+       "description": "Refers to the JSON schema used to validate documents of this type",
+       "enum": [
+         "http://www.ibm.com/ibm/wdp/flow-v2.0/parametersets-v2-schema.json"
+       ]
+     },
+     "paramset": {
+       "type": "object",
+       "items": {
+         "$ref": "#/definitions/paramset_def"
+       }
+     }
+   },
+   "required": [
+     "paramset"
+   ],
+   "definitions":{
+      "paramset_def": {
+         "description": "The parameter set definition referenced within a pipleine.",
+         "properties": {
+            "name": {
+               "description": "The name of the parameter set.",
+               "type": "string"
+            },
+            "description": {
+               "description": "The description of the parameter set.",
+               "type": "string"
+            },
+            "parameters": {
+               "items": {
+                  "$ref": "#/definitions/paramset_item"
+               },
+               "type": "array"
+            }
+         },
+         "type": "object"
+      },
+      "paramset_item": {
+         "description": "The parameter to enable a reference in the pipeline to be replaced at runtime.",
+         "properties": {
+            "name": {
+               "description": "The name of the parameter.",
+               "type": "string"
+            },
+            "literal_value": {
+               "$ref": "http://www.ibm.com/ibm/wdp/canvas/v2.0/parameters-v2-schema.json#/definitions/param_value_literal"
+            }
+         },
+         "required": [
+            "name"
+         ],
+         "type": "object"
+      }
+   }
+}

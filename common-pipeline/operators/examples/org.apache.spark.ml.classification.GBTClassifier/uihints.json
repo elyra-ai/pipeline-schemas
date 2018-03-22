@@ -1,6 +1,6 @@
 {
   "id": "org.apache.spark.ml.classification.GBTClassifier",
-  "json_schema": "http://www.ibm.com/ibm/wdp/flow-v1.0/uihints-v1-schema.json",
+  "json_schema": "http://www.ibm.com/ibm/wdp/flow-v2.0/uihints-v2-schema.json",
   "icon": "images/modelbuildspark.svg",
   "label": {
     "default": "Gradient Boosted Tree Classifier"

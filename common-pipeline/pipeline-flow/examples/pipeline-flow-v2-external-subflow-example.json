@@ -1,6 +1,6 @@
 {
   "doc_type": "pipeline",
-  "version": "1.0",
+  "version": "2.0",
   "id": "abdc9881-f83a-4d38-b15b-8bf541e100fb",
   "app_data": {
     "ui_data": {
@@ -16,7 +16,7 @@
   "pipelines": [
     {
       "id": "external-sub-flow-pipeline",
-      "runtime": "scala-spark-2.0.1",
+      "runtime_ref": "scala-spark-2.0.1",
       "app_data": {
         "ui_data": {
           "zoom": 100,
@@ -27,26 +27,28 @@
         {
           "id": "entryID1",
           "type": "binding",
-          "output": {
-            "id": "entryPort1PE",
-            "schema_ref": "schema1",
-            "external_binding": {
-              "description": "A hypothetical external binding to a CSV file in the local file system. Actual contents TBD",
-              "type": "text/csv",
-              "location": "/users/data/File1.csv"
-            },
-            "app_data": {
-              "ui_data": {
-                "label": "entryPort1PE"
+          "outputs": [
+            {
+              "id": "entryPort1PE",
+              "schema_ref": "schema1",
+              "external_binding": {
+                "description": "A hypothetical external binding to a CSV file in the local file system. Actual contents TBD",
+                "type": "text/csv",
+                "location": "/users/data/File1.csv"
+              },
+              "app_data": {
+                "ui_data": {
+                  "label": "entryPort1PE"
+                }
               }
             }
-          }
+          ]
         },
         {
           "id": "superNode1",
           "type": "super_node",
           "subflow_ref": {
-            "url": "https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/blob/master/common-pipeline/pipeline-flow/examples/pipeline-flow-v1-example-simple.json",
+            "url": "https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/blob/master/common-pipeline/pipeline-flow/examples/pipeline-flow-v2-example-simple.json",
             "pipeline_id_ref": "simple-pipeline"
           },
           "inputs": [
@@ -84,13 +86,17 @@
         {
           "id": "exitID1",
           "type": "binding",
-          "input": {
-            "id": "exitPort1",
-            "schema_ref": "schema2",
-            "link": {
-              "node_id_ref": "superNode1"
+          "inputs": [
+            {
+              "id": "exitPort1",
+              "schema_ref": "schema2",
+              "links": [
+                {
+                  "node_id_ref": "superNode1"
+                }
+              ]
             }
-          }
+          ]
         }
       ]
     }
@@ -165,6 +171,13 @@
           }
         }
       ]
+    }
+  ],
+  "runtimes": [
+    {
+      "id": "scala-spark-2.0.1",
+      "name": "Scala-Spark",
+      "version": "2.0.1"
     }
   ]
 }
