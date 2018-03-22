@@ -192,7 +192,7 @@
       "required": [
         "id",
         "type",
-        "sub_flow",
+        "subflow_ref",
         "inputs"
       ],
       "additionalProperties": false
