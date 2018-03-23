@@ -37,7 +37,12 @@
                 }
               }
             }
-          ]
+          ],
+          "app_data": {
+            "ui_data": {
+              "label": "entryID1PE"
+            }
+          }
         },
         {
           "id": "filter_nodeID2PE",
@@ -49,12 +54,7 @@
               "links": [
                 {
                   "node_id_ref": "nodeIDSuperNodePE",
-                  "port_id_ref": "output1SuperNodePE",
-                  "app_data": {
-                    "ui_data": {
-                      "class_name": "linkClass"
-                    }
-                  }
+                  "port_id_ref": "output1SuperNodePE"
                 }
               ],
               "schema_ref": "schema2",
@@ -90,9 +90,8 @@
               "label": "Filter",
               "description": "Filter record data",
               "image": "filter-rows.svg",
-              "x_pos": 784,
-              "y_pos": 202,
-              "class_name": "nodes"
+              "x_pos": 66,
+              "y_pos": 144
             },
             "wml_data": {
               "typeId": "filter-records"
@@ -109,12 +108,7 @@
               "schema_ref": "schema1",
               "links": [
                 {
-                  "node_id_ref": "filter_nodeID2PE",
-                  "app_data": {
-                    "ui_data": {
-                      "class_name": "linkClass"
-                    }
-                  }
+                  "node_id_ref": "filter_nodeID2PE"
                 }
               ],
               "app_data": {
@@ -125,7 +119,18 @@
               }
             }
           ],
-          "outputs": [],
+          "outputs": [
+            {
+              "id": "output1modeling_nodeID3PE",
+              "schema_ref": "schema1",
+              "app_data": {
+                "ui_data": {
+                  "class_name": "portClass",
+                  "label": "output1modeling_nodeID3PE"
+                }
+              }
+            }
+					],
           "parameters": {
             "targetField": [
               "integer2"
@@ -148,14 +153,12 @@
               "label": "Linear Regression",
               "description": "Fit a Linear Regression Model",
               "image": "linearregression.svg",
-              "x_pos": 784,
-              "y_pos": 202,
-              "class_name": "nodes",
+              "x_pos": 405,
+              "y_pos": 187,
               "associations": [
                 {
                   "id": "link_model_nodeID4PE",
-                  "node_ref": "model_nodeID4PE",
-                  "class_name": "dotted_line_link"
+                  "node_ref": "model_nodeID4PE"
                 }
               ]
             },
@@ -209,9 +212,8 @@
               "label": "Linear Regression Model",
               "description": "Fitted Linear Regression Model",
               "image": "modelnuggetspark.svg",
-              "x_pos": 884,
-              "y_pos": 202,
-              "class_name": "nodes"
+              "x_pos": 273,
+              "y_pos": 35
             },
             "wml_data": {
               "typeId": "linearregressionmodel"

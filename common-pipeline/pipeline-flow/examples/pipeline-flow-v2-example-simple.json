@@ -40,6 +40,12 @@
               "schema_name": "GOSALES",
               "table_name": "PRODUCT_NAME_LOOKUP"
             }
+          },
+          "app_data": {
+            "ui_data": {
+              "x_pos": 10,
+              "y_pos": 10
+            }
           }
         },
         {
@@ -84,9 +90,8 @@
               "label": "Filter",
               "description": "Filter columns",
               "image": "filter-columns.svg",
-              "x_pos": 784,
-              "y_pos": 202,
-              "class_name": "nodes"
+              "x_pos": 189,
+              "y_pos": 56
             },
             "wml_data": {
               "typeId": "filter-columns"
@@ -115,6 +120,12 @@
           "data_asset": {
             "properties": {
               "name": "employee_data.csv"
+            }
+          },
+          "app_data": {
+            "ui_data": {
+              "x_pos": 357,
+              "y_pos": 121
             }
           }
         }

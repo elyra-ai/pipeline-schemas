@@ -12,7 +12,7 @@
       "typeId": "stream"
     }
   },
-  "primary_pipeline": "primary-pipeline",
+  "primary_pipeline": "external-sub-flow-pipeline",
   "pipelines": [
     {
       "id": "external-sub-flow-pipeline",
@@ -31,11 +31,6 @@
             {
               "id": "entryPort1PE",
               "schema_ref": "schema1",
-              "external_binding": {
-                "description": "A hypothetical external binding to a CSV file in the local file system. Actual contents TBD",
-                "type": "text/csv",
-                "location": "/users/data/File1.csv"
-              },
               "app_data": {
                 "ui_data": {
                   "label": "entryPort1PE"
@@ -81,7 +76,13 @@
                 }
               }
             }
-          ]
+          ],
+          "app_data": {
+            "ui_data": {
+              "x_pos": 229,
+              "y_pos": 88
+            }
+          }
         },
         {
           "id": "exitID1",
@@ -96,7 +97,13 @@
                 }
               ]
             }
-          ]
+          ],
+          "app_data": {
+            "ui_data": {
+              "x_pos": 446,
+              "y_pos": 69
+            }
+          }
         }
       ]
     }

@@ -24,14 +24,15 @@
           "comments": [
             {
               "id": "4e32ba0a-b234-3e33-b321-d693bf8f8452",
-              "x_pos": 300,
-              "y_pos": 678,
-              "width": 450,
-              "height": 300,
-              "class_name": "comments",
+              "x_pos": 232,
+              "y_pos": 223,
+              "width": 150,
+              "height": 50,
               "content": "This is a comment about the comments array. The text should wrap within a bounded rectangle.",
               "associated_id_refs": [
-                "96121558-3c72-4d43-a92c-3ac92c8fba54"
+                {
+                  "node_ref": "nodeIDSuperNodePE"
+                }
               ]
             }
           ]
@@ -51,7 +52,13 @@
                 }
               }
             }
-          ]
+          ],
+          "app_data": {
+            "ui_data": {
+              "x_pos": 10,
+              "y_pos": 10
+            }
+          }
         },
         {
           "id": "entryID2PE",
@@ -66,7 +73,13 @@
                 }
               }
             }
-          ]
+          ],
+          "app_data": {
+            "ui_data": {
+              "x_pos": 8.002765655517578,
+              "y_pos": 119.84760284423828
+            }
+          }
         },
         {
           "id": "entryID3PE",
@@ -89,6 +102,12 @@
               "schema_name": "GOSALES",
               "table_name": "PRODUCT_NAME_LOOKUP"
             }
+          },
+          "app_data": {
+            "ui_data": {
+              "x_pos": 9.001384735107422,
+              "y_pos": 214.71601104736328
+            }
           }
         },
         {
@@ -100,7 +119,12 @@
               "id": "input1NodeID1PE",
               "links": [
                 {
-                  "node_id_ref": "entryID1PE"
+                  "node_id_ref": "entryID1PE",
+                  "app_data": {
+                    "ui_data": {
+                      "class_name": "d3-data-link"
+                    }
+                  }
                 }
               ],
               "schema_ref": "schema1",
@@ -110,7 +134,6 @@
                     "min": 1,
                     "max": 1
                   },
-                  "class_name": "foobar",
                   "label": "input1NodeID1PE"
                 }
               }
@@ -119,7 +142,12 @@
               "id": "input2NodeID1PE",
               "links": [
                 {
-                  "node_id_ref": "entryID2PE"
+                  "node_id_ref": "entryID2PE",
+                  "app_data": {
+                    "ui_data": {
+                      "class_name": "d3-data-link"
+                    }
+                  }
                 }
               ],
               "schema_ref": "schema2",
@@ -129,7 +157,6 @@
                     "min": 1,
                     "max": 1
                   },
-                  "class_name": "foobar",
                   "label": "input2NodeID1PE"
                 }
               }
@@ -145,7 +172,6 @@
                     "min": 1,
                     "max": -1
                   },
-                  "class_name": "foobar",
                   "label": "output1NodeID1PE"
                 }
               }
@@ -161,9 +187,8 @@
               "label": "Join",
               "description": "Join two or more data records",
               "image": "join.svg",
-              "x_pos": 651,
-              "y_pos": 70,
-              "class_name": "nodes",
+              "x_pos": 167.89193725585938,
+              "y_pos": 32.24104166030884,
               "attributes": "attr1='value1'; attr2='value2'",
               "decorations": [
                 {
@@ -191,7 +216,12 @@
               "id": "input1SuperNodePE",
               "links": [
                 {
-                  "node_id_ref": "nodeID1PE"
+                  "node_id_ref": "nodeID1PE",
+                  "app_data": {
+                    "ui_data": {
+                      "class_name": "d3-data-link"
+                    }
+                  }
                 }
               ],
               "subflow_node_ref": "entryID1SE",
@@ -207,7 +237,12 @@
               "id": "input2SuperNodePE",
               "links": [
                 {
-                  "node_id_ref": "entryID3PE"
+                  "node_id_ref": "entryID3PE",
+                  "app_data": {
+                    "ui_data": {
+                      "class_name": "d3-data-link"
+                    }
+                  }
                 }
               ],
               "subflow_node_ref": "entryID2SE",
@@ -232,7 +267,13 @@
                 }
               }
             }
-          ]
+          ],
+          "app_data": {
+            "ui_data": {
+              "x_pos": 317.99029541015625,
+              "y_pos": 46.97645568847656
+            }
+          }
         },
         {
           "id": "nodeID2PE",
@@ -244,12 +285,7 @@
               "links": [
                 {
                   "node_id_ref": "nodeIDSuperNodePE",
-                  "port_id_ref": "output1SuperNodePE",
-                  "app_data": {
-                    "ui_data": {
-                      "class_name": "linkClass"
-                    }
-                  }
+                  "port_id_ref": "output1SuperNodePE"
                 }
               ],
               "schema_ref": "schema2",
@@ -285,9 +321,8 @@
               "label": "Filter",
               "description": "Filter record data",
               "image": "filter-rows.svg",
-              "x_pos": 784,
-              "y_pos": 202,
-              "class_name": "nodes"
+              "x_pos": 457.16619873046875,
+              "y_pos": 199.00416564941406
             },
             "wml_data": {
               "typeId": "filter-records"
@@ -303,12 +338,7 @@
               "id": "input1NodeID3PE",
               "links": [
                 {
-                  "node_id_ref": "nodeIDSuperNodePE",
-                  "app_data": {
-                    "ui_data": {
-                      "class_name": "linkClass"
-                    }
-                  }
+                  "node_id_ref": "nodeIDSuperNodePE"
                 }
               ],
               "schema_ref": "schema2",
@@ -344,9 +374,8 @@
               "label": "Filter",
               "description": "Filter record data",
               "image": "filter-rows.svg",
-              "x_pos": 784,
-              "y_pos": 202,
-              "class_name": "nodes"
+              "x_pos": 548.6466674804688,
+              "y_pos": 63.175933837890625
             },
             "wml_data": {
               "typeId": "filter-records"
@@ -362,7 +391,12 @@
               "schema_ref": "schema3",
               "links": [
                 {
-                  "node_id_ref": "nodeID2PE"
+                  "node_id_ref": "nodeID2PE",
+                  "app_data": {
+                    "ui_data": {
+                      "class_name": "d3-data-link"
+                    }
+                  }
                 }
               ],
               "app_data": {
@@ -371,7 +405,13 @@
                 }
               }
             }
-          ]
+          ],
+          "app_data": {
+            "ui_data": {
+              "x_pos": 760.0665283203125,
+              "y_pos": 203.84069061279297
+            }
+          }
         },
         {
           "id": "exitID2PE",
@@ -382,7 +422,12 @@
               "schema_ref": "schema3",
               "links": [
                 {
-                  "node_id_ref": "nodeID3PE"
+                  "node_id_ref": "nodeID3PE",
+                  "app_data": {
+                    "ui_data": {
+                      "class_name": "d3-data-link"
+                    }
+                  }
                 }
               ],
               "app_data": {
@@ -391,7 +436,13 @@
                 }
               }
             }
-          ]
+          ],
+          "app_data": {
+            "ui_data": {
+              "x_pos": 774.8226928710938,
+              "y_pos": 100.94320678710938
+            }
+          }
         }
       ]
     },
@@ -444,12 +495,7 @@
               "id": "input1nodeID1SE",
               "links": [
                 {
-                  "node_id_ref": "entryID1SE",
-                  "app_data": {
-                    "ui_data": {
-                      "class_name": "linkClass"
-                    }
-                  }
+                  "node_id_ref": "entryID1SE"
                 }
               ],
               "schema_ref": "schema3",
@@ -482,8 +528,7 @@
               "description": "Filter record data",
               "image": "filter-rows.svg",
               "x_pos": 784,
-              "y_pos": 202,
-              "class_name": "nodes"
+              "y_pos": 202
             },
             "wml_data": {
               "typeId": "filter-records"
@@ -499,12 +544,7 @@
               "id": "input1NodeID2SE",
               "links": [
                 {
-                  "node_id_ref": "nodeID1SE",
-                  "app_data": {
-                    "ui_data": {
-                      "class_name": "linkClass"
-                    }
-                  }
+                  "node_id_ref": "nodeID1SE"
                 }
               ],
               "schema_ref": "schema3",
@@ -514,7 +554,6 @@
                     "min": 1,
                     "max": 1
                   },
-                  "class_name": "foobar",
                   "label": "input1NodeID2SE"
                 }
               }
@@ -523,12 +562,7 @@
               "id": "input2NodeID2SE",
               "links": [
                 {
-                  "node_id_ref": "entryID2SE",
-                  "app_data": {
-                    "ui_data": {
-                      "class_name": "linkClass"
-                    }
-                  }
+                  "node_id_ref": "entryID2SE"
                 }
               ],
               "schema_ref": "schema2",
@@ -538,7 +572,6 @@
                     "min": 1,
                     "max": 1
                   },
-                  "class_name": "foobar",
                   "label": "input2NodeID2SE"
                 }
               }
@@ -550,7 +583,6 @@
               "schema_ref": "schema2",
               "app_data": {
                 "ui_data": {
-                  "class_name": "foobar",
                   "label": "output1NodeID2SE"
                 }
               }
@@ -568,7 +600,6 @@
               "image": "join.svg",
               "x_pos": 651,
               "y_pos": 70,
-              "class_name": "nodes",
               "attributes": "attr1='value1'; attr2='value2'"
             },
             "wml_data": {
@@ -585,13 +616,7 @@
               "schema_ref": "schema2",
               "links": [
                 {
-                  "node_id_ref": "nodeID2SE",
-                  "app_data": {
-                    "ui_data": {
-                      "class_name": "linkClass",
-                      "label": "exitPort1SE"
-                    }
-                  }
+                  "node_id_ref": "nodeID2SE"
                 }
               ]
             }
