@@ -4,6 +4,7 @@
       "category": "import",
       "label": "Import",
       "image":  "/images/palette-categories/sources_open.svg",
+      "version": "2.0",
       "nodetypes": [
         {
           "label": "Var. File",
