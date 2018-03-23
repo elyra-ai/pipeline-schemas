@@ -76,6 +76,7 @@ function _update0to1(pipelineFlow) {
  */
 function _update1to2(pipelineFlow) {
 	pipelineFlow.version = "2.0";
+	pipelineFlow.json_schema = "http://www.ibm.com/ibm/wdp/flow-v2.0/pipeline-flow-v2-schema.json";
 
 	// --> Changed the binding node. Instead of just a single input or output port,
 	// binding nodes can have either an array of input ports or an array of output ports.
@@ -99,13 +100,13 @@ function _update1to2(pipelineFlow) {
 	for (let idx = 0; idx < pipelineFlow.pipelines.length; idx++) {
 		const pipeline = pipelineFlow.pipelines[idx];
 		if (pipeline.runtime) {
-			const name = pipeline.runtime;
-			pipeline.runtime_ref = name;
-			if (_getRuntime(pipelineFlow, name) === null) {
+			const runtimeName = pipeline.runtime;
+			pipeline.runtime_ref = runtimeName;
+			if (_getRuntime(pipelineFlow, runtimeName) === null) {
 				// Add a new runtime object
 				pipelineFlow.runtimes.push({
-					"id": name,
-					"name": name
+					"id": runtimeName,
+					"name": runtimeName
 				});
 			}
 			delete pipeline.runtime;
@@ -123,11 +124,11 @@ function _update1to2(pipelineFlow) {
  *
  * @return {Object} a runtime object or null if not found
  */
-function _getRuntime(pipelineFlow, name) {
+function _getRuntime(pipelineFlow, runtimeName) {
 	if (pipelineFlow.runtimes) {
 		for (let idx = 0; idx < pipelineFlow.runtimes; idx++) {
 			const runtime = pipelineFlow.runtimes[idx];
-			if (runtime.name === name) {
+			if (runtime.name === runtimeName) {
 				return runtime;
 			}
 		}
@@ -202,5 +203,7 @@ function upgrade(pipelineFlow) {
 
 
 module.exports = {
-	upgrade: upgrade
+	upgradePipelineFlow: upgrade,
+	extractVersion: _extractVersion,
+	LATEST_VERSION: LATEST_VERSION
 };
