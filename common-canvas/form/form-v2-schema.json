@@ -832,7 +832,19 @@
           "additionalProperties": true
         },
         "datasetMetadata": {
-          "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/datarecord-metadata-v2-schema.json#"
+          "oneOf": [
+            {
+              "description": "A single datarecord object. Deprecated.",
+              "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/datarecord-metadata-v2-schema.json#"
+            },
+            {
+              "description": "An array of datarecord objects",
+              "type": "array",
+              "items": {
+                "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/datarecord-metadata-v2-schema.json#"
+              }
+            }
+          ]
         }
       },
       "required": [
