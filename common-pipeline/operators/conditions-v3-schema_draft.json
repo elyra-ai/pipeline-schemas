@@ -1,0 +1,480 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://www.ibm.com/ibm/wdp/flow-v3.0/conditions-v3-schema.json#",
+  "title": "Watson Data Platform Validation Schema",
+  "description": "User Interface Condition schema for the Watson Data Platform",
+  "type": "object",
+  "properties": {
+    "json_schema": {
+      "description": "Refers to the JSON schema used to validate documents of this type",
+      "enum": [
+        "http://www.ibm.com/ibm/wdp/flow-v3.0/conditions-v3-schema.json"
+      ]
+    },
+    "conditions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/conditions_definition"
+      }
+    }
+  },
+  "required": [
+    "conditions"
+  ],
+  "definitions": {
+    "conditions_definition": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/validation_definition"
+        },
+        {
+          "$ref": "#/definitions/enabled_definition"
+        },
+        {
+          "$ref": "#/definitions/visible_definition"
+        },
+        {
+          "$ref": "#/definitions/filter_definition"
+        },
+        {
+          "$ref": "#/definitions/enum_filter_definition"
+        }
+      ]
+    },
+    "validation_definition": {
+      "properties": {
+        "validation": {
+          "description": "A single validation. The fail_message is displayed upon validation failure.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "Unique identifier.  Required when multiple fail_message sections have the same focus_parameter_ref value.",
+              "type": "string"
+            },
+            "fail_message": {
+              "description": "Error/warning",
+              "type": "object",
+              "$ref": "#/definitions/fail_message_definition"
+            },
+            "evaluate": {
+              "description": "Evaluates to a boolean result",
+              "type": "object",
+              "$ref": "#/definitions/evaluate_definition"
+            }
+          },
+          "required": [
+            "fail_message",
+            "evaluate"
+          ]
+        }
+      },
+      "required": [
+        "validation"
+      ]
+    },
+    "enabled_definition": {
+      "properties": {
+        "enabled": {
+          "description": "Enablement test. Disables controls if evaluate is false.",
+          "type": "object",
+          "properties": {
+            "parameter_refs": {
+              "description": "Array of parameter names affected by this operation",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
+            "group_refs": {
+              "description": "Array of group ids affected by this operation",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
+            "evaluate": {
+              "description": "Evaluates to a boolean result",
+              "type": "object",
+              "$ref": "#/definitions/evaluate_definition"
+            }
+          },
+          "anyOf": [
+            {
+              "required": [
+                "parameter_refs"
+              ]
+            },
+            {
+              "required": [
+                "group_refs"
+              ]
+            }
+          ],
+          "required": [
+            "evaluate"
+          ]
+        }
+      },
+      "required": [
+        "enabled"
+      ]
+    },
+    "visible_definition": {
+      "properties": {
+        "visible": {
+          "description": "Visibility test. Hides controls if evaluate is false.",
+          "type": "object",
+          "properties": {
+            "parameter_refs": {
+              "description": "Array of parameter names affected by this operation",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
+            "group_refs": {
+              "description": "Array of group ids affected by this operation",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
+            "evaluate": {
+              "description": "Evaluates to a boolean result",
+              "type": "object",
+              "$ref": "#/definitions/evaluate_definition"
+            }
+          },
+          "anyOf": [
+            {
+              "required": [
+                "parameter_refs"
+              ]
+            },
+            {
+              "required": [
+                "group_refs"
+              ]
+            }
+          ],
+          "required": [
+            "evaluate"
+          ]
+        }
+      },
+      "required": [
+        "visible"
+      ]
+    },
+    "evaluate_definition": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/and_definition"
+        },
+        {
+          "$ref": "#/definitions/or_definition"
+        },
+        {
+          "$ref": "#/definitions/condition_definition"
+        },
+        {
+          "$ref": "#/definitions/filter_condition_definition"
+        }
+      ]
+    },
+    "or_definition": {
+      "description": "Container for 'or' operations",
+      "type": "object",
+      "properties": {
+        "or": {
+          "description": "The 'or' condition. Any sub-condition evaluates to true. Can nest any number of additional conditional types.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/and_definition"
+              },
+              {
+                "$ref": "#/definitions/or_definition"
+              },
+              {
+                "$ref": "#/definitions/condition_definition"
+              },
+              {
+                "$ref": "#/definitions/filter_condition_definition"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "or"
+      ]
+    },
+    "and_definition": {
+      "description": "Container for 'and' operations",
+      "type": "object",
+      "properties": {
+        "and": {
+          "description": "The 'and' condition. All sub-conditions evaluate to true. Can nest any number of additional conditional types.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/and_definition"
+              },
+              {
+                "$ref": "#/definitions/or_definition"
+              },
+              {
+                "$ref": "#/definitions/condition_definition"
+              },
+              {
+                "$ref": "#/definitions/filter_condition_definition"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "and"
+      ]
+    },
+    "condition_definition": {
+      "description": "A parameter condition. Evaluates to true or false.",
+      "type": "object",
+      "properties": {
+        "condition": {
+          "description": "The condition that is evaluated",
+          "type": "object",
+          "properties": {
+            "op": {
+              "description": "A single operator for the properties of the condition.",
+              "enum": [
+                "isEmpty",
+                "isNotEmpty",
+                "greaterThan",
+                "lessThan",
+                "equals",
+                "notEquals",
+                "contains",
+                "notContains",
+                "colNotExists",
+                "cellNotEmpty"
+              ]
+            },
+            "parameter_ref": {
+              "description": "The primary parameter - must be present",
+              "type": "string"
+            },
+            "parameter_2_ref": {
+              "description": "Optional second parameter for multi-parameter validation",
+              "type": "string"
+            },
+            "value": {
+              "description": "Optional value against which to compare the primary parameter value",
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            }
+          },
+          "required": [
+            "op",
+            "parameter_ref"
+          ]
+        }
+      },
+      "required": [
+        "condition"
+      ]
+    },
+    "fail_message_definition": {
+      "properties": {
+        "focus_parameter_ref": {
+          "description": "The parameter control to get the error/warning message.",
+          "type": "string"
+        },
+        "message": {
+          "description": "User message",
+          "type": "object",
+          "$ref": "#/definitions/message_definition"
+        },
+        "type": {
+          "enum": [
+            "error",
+            "warning",
+            "info"
+          ]
+        }
+      },
+      "required": [
+        "focus_parameter_ref",
+        "message"
+      ]
+    },
+    "message_definition": {
+      "description": "User message",
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "resource_key": {
+          "type": "string"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "default"
+          ]
+        },
+        {
+          "required": [
+            "resource_key"
+          ]
+        }
+      ]
+    },
+    "filter_definition": {
+      "properties": {
+        "filter": {
+          "description": "Filter test. Includes support for filtering the values to be displayed in a control",
+          "type": "object",
+          "properties": {
+            "parameter_ref": {
+              "description": "Parameter affected by this operation",
+              "type": "string"
+            },
+            "evaluate": {
+              "description": "Evaluates to return values included in a control",
+              "type": "object",
+              "$ref": "#/definitions/evaluate_definition"
+            }
+          },
+          "required": [
+            "evaluate",
+            "parameter_ref"
+          ]
+        }
+      },
+      "required": [
+        "filter"
+      ]
+    },
+    "enum_filter_definition": {
+      "properties": {
+        "enum_filter": {
+          "description": "Allows filtering of available enumeration options",
+          "type": "object",
+          "properties": {
+            "target": {
+              "description": "The target parameter information",
+              "type": "object",
+              "properties": {
+                "parameter_ref": {
+                  "description": "The enumeration parameter affected by this operation",
+                  "type": "string"
+                },
+                "values": {
+                  "description": "Array of available enumeration options when the condition evaluates to 'true'",
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "parameter_ref",
+                "values"
+              ]
+            },
+            "evaluate": {
+              "description": "Evaluates to return values included in an enumeration control",
+              "type": "object",
+              "$ref": "#/definitions/evaluate_definition"
+            }
+          }
+        }
+      },
+      "required": [
+        "target",
+        "evaluate"
+      ]
+    },
+    "filter_condition_definition": {
+      "description": "Allows for filtering available fields in the data record schema(s)",
+      "type": "object",
+      "properties": {
+        "condition": {
+          "description": "The condition that is evaluated",
+          "type": "object",
+          "oneOf": [
+            {
+              "properties": {
+                "op": {
+                  "$ref": "#/definitions/filter_op_definition"
+                },
+                "value": {
+                  "description": "Value to compare against data record schema field attribute",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "op",
+                "value"
+              ]
+            },
+            {
+              "properties": {
+                "op": {
+                  "$ref": "#/definitions/filter_op_definition"
+                },
+                "values": {
+                  "description": "Array of values which are compared to a data record schema field attribute",
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "op",
+                "values"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "condition"
+      ]
+    },
+    "filter_op_definition": {
+      "description": "A single operator for comparing data record schema field attributes",
+      "enum": [
+        "dmMeasurement",
+        "dmType",
+        "dmModelingRole"
+      ]
+    }
+  }
+}
