@@ -100,10 +100,7 @@
                 "$ref": "#/definitions/supernode_def"
               },
               {
-                "$ref": "#/definitions/binding_entry_node_def"
-              },
-              {
-                "$ref": "#/definitions/binding_exit_node_def"
+                "$ref": "#/definitions/binding_node_def"
               },
               {
                 "$ref": "#/definitions/model_node_def"
@@ -226,86 +223,83 @@
       ],
       "additionalProperties": false
     },
-    "binding_entry_node_def": {
-      "description": "Defines an entry point (source) for a pipeline. Bindings can be concrete: the concrete_binding element is present on the port; or bindings can be abstract: bindings are performed externally via configuration or a wrapper document.",
+    "binding_node_def": {
+      "description": "Defines an entry or exit point (source or sink) for a pipeline. Bindings can be concrete: the concrete_binding element is present on the port; or bindings can be abstract: bindings are performed externally via configuration or a wrapper document.",
       "type": "object",
-      "properties": {
-        "id": {
-          "description": "Unique identifier for the binding within the current pipeline",
-          "type": "string"
+      "oneOf": [
+        {
+          "properties": {
+            "id": {
+              "description": "Unique identifier for the binding within the current pipeline",
+              "type": "string"
+            },
+            "type": {
+              "description": "Node type - always 'binding' for binding elements",
+              "enum": [
+                "binding"
+              ]
+            },
+            "inputs": {
+              "$ref": "#/definitions/ports_def"
+            },
+            "app_data": {
+              "$ref": "#/definitions/app_data_def"
+            },
+            "connection": {
+              "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/pipeline-connection-v2-schema.json#/definitions/common_pipeline_connection_def"
+            },
+            "data_asset": {
+              "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/pipeline-connection-v2-schema.json#/definitions/common_pipeline_data_asset_def"
+            },
+            "op": {
+              "description": "Binding node type identifier",
+              "type": "string"
+            },
+            "parameters": {
+              "description": "Parameters for the binding node",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
         },
-        "type": {
-          "description": "Node type - always 'binding' for binding elements",
-          "enum": [
-            "binding"
-          ]
-        },
-        "outputs": {
-          "$ref": "#/definitions/ports_def"
-        },
-        "app_data": {
-          "$ref": "#/definitions/app_data_def"
-        },
-        "connection": {
-          "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/pipeline-connection-v2-schema.json#/definitions/common_pipeline_connection_def"
-        },
-        "data_asset": {
-          "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/pipeline-connection-v2-schema.json#/definitions/common_pipeline_data_asset_def"
-        },
-        "op": {
-          "description": "Binding node type identifier",
-          "type": "string"
-        },
-        "parameters": {
-          "description": "Parameters for the binding node",
-          "type": "object",
-          "properties": {},
-          "additionalProperties": true
+        {
+          "properties": {
+            "id": {
+              "description": "Unique identifier for the binding within the current pipeline",
+              "type": "string"
+            },
+            "type": {
+              "description": "Node type - always 'binding' for binding elements",
+              "enum": [
+                "binding"
+              ]
+            },
+            "outputs": {
+              "$ref": "#/definitions/ports_def"
+            },
+            "app_data": {
+              "$ref": "#/definitions/app_data_def"
+            },
+            "connection": {
+              "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/pipeline-connection-v2-schema.json#/definitions/common_pipeline_connection_def"
+            },
+            "data_asset": {
+              "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/pipeline-connection-v2-schema.json#/definitions/common_pipeline_data_asset_def"
+            },
+            "op": {
+              "description": "Binding node type identifier",
+              "type": "string"
+            },
+            "parameters": {
+              "description": "Parameters for the binding node",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
         }
-      },
-      "required": [
-        "id",
-        "type"
       ],
-      "additionalProperties": false
-    },
-    "binding_exit_node_def": {
-      "description": "Defines an exit point (sink) for a pipeline. Bindings can be concrete: the concrete_binding element is present on the port; or bindings can be abstract: bindings are performed externally via configuration or a wrapper document.",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "Unique identifier for the binding within the current pipeline",
-          "type": "string"
-        },
-        "type": {
-          "description": "Node type - always 'binding' for binding elements",
-          "enum": [
-            "binding"
-          ]
-        },
-        "inputs": {
-          "$ref": "#/definitions/ports_def"
-        },
-        "app_data": {
-          "$ref": "#/definitions/app_data_def"
-        },
-        "connection": {
-          "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/pipeline-connection-v2-schema.json#/definitions/common_pipeline_connection_def"
-        },
-        "data_asset": {
-          "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/pipeline-connection-v2-schema.json#/definitions/common_pipeline_data_asset_def"
-        },
-        "op": {
-          "description": "Binding node type identifier",
-          "type": "string"
-        },
-        "parameters": {
-          "description": "Parameters for the binding node",
-          "type": "object",
-          "properties": {},
-          "additionalProperties": true
-        }
-      },
       "required": [
         "id",
         "type"
@@ -463,7 +457,7 @@
       "type": "object",
       "properties": {
         "ui_data": {
-          "anyOf": [
+          "oneOf": [
             {
               "$ref": "http://www.ibm.com/ibm/wdp/canvas/v2.0/pipeline-flow-ui-v2-schema.json#/definitions/pipeline_overview"
             },
