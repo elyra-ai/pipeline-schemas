@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://www.ibm.com/ibm/wdp/property-defs/v2.0/property-defs-schema.json#",
+  "id": "http://api.dataplatform.ibm.com/schemas/common-canvas/parameter-defs/parameter-defs-v2-schema.json",
   "title": "Property Definitions Schema",
   "description": "Watson Data Platform Property Definition Schema for the Common Properties editor",
   "type": "object",
@@ -25,28 +25,28 @@
       "additionalProperties": true
     },
     "parameters": {
-      "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/operator-v2-schema.json#parameters"
+      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v2-schema.json#parameters"
     },
     "complex_types": {
-      "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/operator-v2-schema.json#complex_types"
+      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v2-schema.json#complex_types"
     },
     "uihints": {
-      "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/uihints-v2-schema.json#"
+      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json#"
     },
     "conditions": {
-      "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/conditions-v2-schema.json#conditions"
+      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/conditions-v2-schema.json#conditions"
     },
     "dataset_metadata": {
       "oneOf": [
         {
           "description": "A single datarecord object. Deprecated.",
-          "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/datarecord-metadata-v2-schema.json#"
+          "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/datarecord-metadata/datarecord-metadata-v2-schema.json#"
         },
         {
           "description": "An array of datarecord objects",
           "type": "array",
           "items": {
-            "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/datarecord-metadata-v2-schema.json#"
+            "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/datarecord-metadata/datarecord-metadata-v2-schema.json#"
           }
         }
       ]

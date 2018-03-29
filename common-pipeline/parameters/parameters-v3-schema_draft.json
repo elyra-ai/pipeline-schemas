@@ -1,6 +1,6 @@
 {
    "$schema":"http://json-schema.org/draft-04/schema#",
-   "id":"http://www.ibm.com/ibm/wdp/flow-v3.0/parameters-v3-schema.json#",
+   "id":"http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parameters-v3-schema.json#",
    "title":"Watson Data Platform Pipeline Parameters Schema",
    "description":"Parameters schema for pipelines in the Watson Data Platform",
    "type": "object",
@@ -8,7 +8,7 @@
      "json_schema": {
        "description": "Refers to the JSON schema used to validate documents of this type",
        "enum": [
-         "http://www.ibm.com/ibm/wdp/flow-v3.0/parameters-v3-schema.json"
+         "http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parameters-v3-schema.json"
        ]
      },
      "parameters": {

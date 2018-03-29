@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://www.ibm.com/ibm/wdp/form/v2.0/form-v2-schema.json#",
+  "id": "http://api.dataplatform.ibm.com/schemas/common-canvas/form/form-v2-schema.json#",
   "title": "Watson Data Platform Form Schema",
   "description": "Form schema for the Watson Data Platform",
   "type": "object",
@@ -41,7 +41,7 @@
       }
     },
     "conditions": {
-      "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/conditions-v2-schema.json#conditions"
+      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/conditions-v2-schema.json#conditions"
     },
     "data": {
       "description": "Additional data such as initial settings and data schema.",
@@ -835,13 +835,13 @@
           "oneOf": [
             {
               "description": "A single datarecord object. Deprecated.",
-              "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/datarecord-metadata-v2-schema.json#"
+              "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/datarecord-metadata/datarecord-metadata-v2-schema.json#"
             },
             {
               "description": "An array of datarecord objects",
               "type": "array",
               "items": {
-                "$ref": "http://www.ibm.com/ibm/wdp/flow-v2.0/datarecord-metadata-v2-schema.json#"
+                "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/datarecord-metadata/datarecord-metadata-v2-schema.json#"
               }
             }
           ]
