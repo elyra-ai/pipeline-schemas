@@ -59,6 +59,15 @@
       },
       "uniqueItems": true
     },
+    "external_parameters": {
+      "description": "Array of parameterized property references",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parameters-v3-schema.json#/definitions/param_property_ref"
+      },
+      "uniqueItems": true
+    },
     "app_data": {
       "$ref": "#/definitions/app_data_def"
     }
@@ -109,15 +118,6 @@
                 "$ref": "#/definitions/model_node_def"
               }
             ]
-          },
-          "uniqueItems": true
-        },
-        "external_parameters": {
-          "description": "Array of parameterized property references",
-          "type": "array",
-          "minItems": 0,
-          "items": {
-            "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parameters-v3-schema.json#/definitions/param_property_ref"
           },
           "uniqueItems": true
         },
