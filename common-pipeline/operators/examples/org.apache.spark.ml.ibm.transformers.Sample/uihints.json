@@ -17,7 +17,8 @@
         "default": "Indicate that sampling be performed with replacement"
       },
       "control": "radioset",
-      "resource_key": "withReplace"
+      "resource_key": "withReplace",
+      "orientation": "vertical"
     },
     {
       "parameter_ref": "samplingRatio",
@@ -29,12 +30,24 @@
       }
     },
     {
+      "parameter_ref": "useSamplingSize",
+      "label": {
+        "sample-size.label": "Use maximum sample size"
+      }
+    },
+    {
       "parameter_ref": "samplingSize",
       "label": {
         "default": "Maximum sample size"
       },
       "description": {
         "default": "Maximum number of rows in the sample"
+      }
+    },
+    {
+      "parameter_ref": "useSamplingSeed",
+      "label": {
+        "resource_key": "sample-seed.label"
       }
     },
     {
@@ -74,23 +87,43 @@
           ]
         },
         {
-          "id": "sample-size",
-          "type": "checkboxPanel",
-          "label": {
-            "default": "Use maximum sample size"
-          },
+          "id": "use-sampling-size",
+          "type": "controls",
           "parameter_refs": [
-            "samplingSize"
+            "useSamplingSize"
           ]
         },
         {
-          "id": "sample-seed",
-          "type": "checkboxPanel",
-          "label": {
-            "default": "Repeatable partition assignment"
-          },
+          "id": "sample-size-panel",
+          "type": "panels",
+          "group_info": [
+            {
+              "id": "sample-size-control",
+              "type": "controls",
+              "parameter_refs": [
+                "samplingSize"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "use-sampling-seed",
+          "type": "controls",
           "parameter_refs": [
-            "samplingSeed"
+            "useSamplingSeed"
+          ]
+        },
+        {
+          "id": "sample-seed-panel",
+          "type": "panels",
+          "group_info": [
+            {
+              "id": "sample-seed-control",
+              "type": "controls",
+              "parameter_refs": [
+                "samplingSeed"
+              ]
+            }
           ]
         }
       ]
