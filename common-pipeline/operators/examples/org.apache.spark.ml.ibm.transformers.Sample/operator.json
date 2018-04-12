@@ -27,6 +27,11 @@
       "required": true
     },
     {
+      "id": "useSamplingSize",
+      "type": "boolean",
+      "default": false
+    },
+    {
       "id": "samplingSize",
       "type": "long",
       "default": -1,
@@ -37,6 +42,11 @@
       "type": "double",
       "default": 1,
       "required": true
+    },
+    {
+      "id": "useSamplingSeed",
+      "type": "boolean",
+      "default": false
     },
     {
       "id": "samplingSeed",

@@ -229,7 +229,6 @@
           "enum": [
             "general",
             "columnSelection",
-            "checkboxPanel",
             "custom",
             "summaryPanel",
             "actionPanel",
@@ -251,7 +250,7 @@
           }
         },
         "label": {
-          "description": "Defines a panel label.  Used in checkboxPanel",
+          "description": "Defines a panel label.",
           "type": "object",
           "properties": {
             "text": {

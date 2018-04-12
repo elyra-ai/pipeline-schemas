@@ -33,6 +33,34 @@
           }
         }
       }
+    },
+    {
+      "enabled": {
+        "group_refs": [
+          "sample-seed-panel"
+        ],
+        "evaluate": {
+          "condition": {
+            "parameter_ref": "useSamplingSeed",
+            "op": "equals",
+            "value": true
+          }
+        }
+      }
+    },
+    {
+      "enabled": {
+        "group_refs": [
+          "sample-size-panel"
+        ],
+        "evaluate": {
+          "condition": {
+            "parameter_ref": "useSamplingSize",
+            "op": "equals",
+            "value": true
+          }
+        }
+      }
     }
   ]
 }
