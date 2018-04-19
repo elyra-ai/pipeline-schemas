@@ -32,8 +32,6 @@ commit_changes()
 {
 	git status
 	git commit -m "$2"
-	echo "Push changes to $1"
-	git push origin $1
 }
 
 # Update package.json version on master
