@@ -24,10 +24,9 @@ checkout_branch()
 	git pull
 }
 
-commit_changes()
+push_changes()
 {
 	git status
-	# git commit -m "$2"
 	echo "Push changes to $1"
 	git push origin $1
 }
@@ -36,14 +35,11 @@ commit_changes()
 	checkout_branch ${MASTER}
 
 	echo "Update patch version of pipeline-schemas"
-	npm version patch
+	npm version patch -m "Update version to ${MASTER_BUILD} ${SKIP_CI}"
 	MASTER_BUILD=`node -p "require('./package.json').version"`
 	echo "Master build $MASTER_BUILD"
 
-	echo "commit files on branch: ${MASTER}"
-	git show --name-only --oneline HEAD
-	
-	commit_changes ${MASTER} "Update version to ${MASTER_BUILD} ${SKIP_CI}"
+	push_changes ${MASTER} 
 	MASTER_NUM=$(echo $MASTER_BUILD | cut -d'.' -f1-2)
 
 	echo "Master major.minor build ${MASTER_NUM}"
