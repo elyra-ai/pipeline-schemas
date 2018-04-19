@@ -20,18 +20,16 @@ checkout_branch()
 {
 	echo "Checkout $1"
 	git checkout $1
-	echo "status after checkout"
-	git status
 	git fetch origin
 	git pull
-	echo "status after pull"
-	git status
 }
 
 commit_changes()
 {
 	git status
-	git commit -m "$2"
+	# git commit -m "$2"
+	echo "Push changes to $1"
+	git push origin $1
 }
 
 # Update package.json version on master
@@ -41,7 +39,10 @@ commit_changes()
 	npm version patch
 	MASTER_BUILD=`node -p "require('./package.json').version"`
 	echo "Master build $MASTER_BUILD"
-  # Need to skip release build otherwise builds will be into a loop
+
+	echo "commit files on branch: ${MASTER}"
+	git show --name-only --oneline HEAD
+	
 	commit_changes ${MASTER} "Update version to ${MASTER_BUILD} ${SKIP_CI}"
 	MASTER_NUM=$(echo $MASTER_BUILD | cut -d'.' -f1-2)
 
