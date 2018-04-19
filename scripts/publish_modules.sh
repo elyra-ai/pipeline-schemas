@@ -20,8 +20,12 @@ checkout_branch()
 {
 	echo "Checkout $1"
 	git checkout $1
+	echo "status after checkout"
+	git status
 	git fetch origin
 	git pull
+	echo "status after pull"
+	git status
 }
 
 commit_changes()
