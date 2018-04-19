@@ -1,0 +1,21 @@
+---
+dist: trusty
+sudo: false
+branches:
+ only:
+  - master
+language: node_js
+node_js: "8.11"
+before_install:
+  - ./scripts/setEnv.sh
+install: true
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: ./scripts/publish_modules.sh
+    on:
+      branch: master
+notifications:
+  slack:
+    rooms:
+      - watsondataplatform:XVNawCZULSfgMLsovgn2Stkp#wdp-canvas-builds
