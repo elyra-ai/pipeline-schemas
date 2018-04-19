@@ -237,6 +237,11 @@
           "description": "Limits the number of characters a user can enter into the control for string parameters only",
           "type": "number"
         },
+        "display_chars": {
+          "description": "Limits the number of characters displayed for a text field in a column in a table.  The text will have an ellipsis appended at this limit.",
+          "type": "number",
+          "default": 64
+        },
         "separator": {
           "description": "Determines where to put a separator relative to the current control",
           "type": "string",

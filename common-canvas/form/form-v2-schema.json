@@ -569,6 +569,11 @@
           "description": "Control text size limit.",
           "type": "integer"
         },
+        "displayChars": {
+          "description": "Limits the number of characters displayed for a text field in a column in a table.  The text will have an ellipsis appended at this limit.",
+          "type": "integer",
+          "default": 64
+        },
         "additionalText": {
           "description": "The additional text to be shown close to the control.",
           "type": "string"
