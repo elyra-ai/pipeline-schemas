@@ -230,7 +230,7 @@
             "general",
             "columnSelection",
             "custom",
-            "summaryPanel",
+            "summary",
             "actionPanel",
             "twisty"
           ]
@@ -248,6 +248,11 @@
           "items": {
             "type": "string"
           }
+        },
+        "data": {
+          "description": "Data passed to customPanel when panelType=custom",
+          "type": "object",
+          "additionalProperties": true
         },
         "label": {
           "description": "Defines a panel label.",
