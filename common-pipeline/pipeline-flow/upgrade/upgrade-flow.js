@@ -35,8 +35,8 @@ const updateFuncs = [
  *
  * @throws {Error} If the version number cannot be extracted
  */
-function _extractVersion(pipelineFlow) {
-	let baseVersion;
+function extractVersion(pipelineFlow) {
+	var baseVersion;
 	// Validate the incoming pipeline-flow
 	if (!pipelineFlow || !pipelineFlow.version ||
 		!(typeof pipelineFlow.version === "string") ||
@@ -82,14 +82,14 @@ function _update1to2(pipelineFlow) {
 	// binding nodes can have either an array of input ports or an array of output ports.
 	// Also added "parameters" and "op" elements in the binding node *
 	// Cycle the pipelines...
-	for (let idx = 0; idx < pipelineFlow.pipelines.length; idx++) {
-		const pipeline = pipelineFlow.pipelines[idx];
+	for (var id1 = 0; id1 < pipelineFlow.pipelines.length; id1++) {
+		const pipeline = pipelineFlow.pipelines[id1];
 		updateBindingNodesInPipeline(pipeline);
 	}
 
 	// --> "pipeline_id_ref" was removed from "link_def"
-	for (let idx = 0; idx < pipelineFlow.pipelines.length; idx++) {
-		const pipeline = pipelineFlow.pipelines[idx];
+	for (var id2 = 0; id2 < pipelineFlow.pipelines.length; id2++) {
+		const pipeline = pipelineFlow.pipelines[id2];
 		updatePipelinesIdRef(pipeline);
 	}
 
@@ -97,8 +97,8 @@ function _update1to2(pipelineFlow) {
 	if (!pipelineFlow.runtimes) {
 		pipelineFlow.runtimes = [];
 	}
-	for (let idx = 0; idx < pipelineFlow.pipelines.length; idx++) {
-		const pipeline = pipelineFlow.pipelines[idx];
+	for (var id3 = 0; id3 < pipelineFlow.pipelines.length; id3++) {
+		const pipeline = pipelineFlow.pipelines[id3];
 		if (pipeline.runtime) {
 			const runtimeName = pipeline.runtime;
 			pipeline.runtime_ref = runtimeName;
@@ -126,7 +126,7 @@ function _update1to2(pipelineFlow) {
  */
 function _getRuntime(pipelineFlow, runtimeName) {
 	if (pipelineFlow.runtimes) {
-		for (let idx = 0; idx < pipelineFlow.runtimes; idx++) {
+		for (var idx = 0; idx < pipelineFlow.runtimes; idx++) {
 			const runtime = pipelineFlow.runtimes[idx];
 			if (runtime.name === runtimeName) {
 				return runtime;
@@ -143,7 +143,7 @@ function _getRuntime(pipelineFlow, runtimeName) {
  * @return {void}
  */
 function updateBindingNodesInPipeline(pipeline) {
-	for (let id2 = 0; id2 < pipeline.nodes.length; id2++) {
+	for (var id2 = 0; id2 < pipeline.nodes.length; id2++) {
 		const node = pipeline.nodes[id2];
 		if (node.type === "binding") {
 			// Extract the port and add it to a new array of ports instead
@@ -169,10 +169,10 @@ function updateBindingNodesInPipeline(pipeline) {
  * @return {void}
  */
 function updatePipelinesIdRef(pipeline) {
-	for (let id2 = 0; id2 < pipeline.nodes.length; id2++) {
+	for (var id2 = 0; id2 < pipeline.nodes.length; id2++) {
 		const node = pipeline.nodes[id2];
 		if (node.links) {
-			for (let id3 = 0; id3 < node.links.length; id3++) {
+			for (var id3 = 0; id3 < node.links.length; id3++) {
 				const link = node.links[id3];
 				if (link.pipeline_id_ref) {
 					delete link.pipeline_id_ref;
@@ -193,9 +193,9 @@ function updatePipelinesIdRef(pipeline) {
  * @returns A pipeline-flow object that has been upgraded to the latest version
  */
 function upgrade(pipelineFlow) {
-	const baseVersion = Math.max(_extractVersion(pipelineFlow), FIRST_VERSION);
-	let flow = JSON.parse(JSON.stringify(pipelineFlow));
-	for (let idx = baseVersion; idx < LATEST_VERSION; idx++) {
+	const baseVersion = Math.max(extractVersion(pipelineFlow), FIRST_VERSION);
+	var flow = JSON.parse(JSON.stringify(pipelineFlow));
+	for (var idx = baseVersion; idx < LATEST_VERSION; idx++) {
 		flow = updateFuncs[idx](flow);
 	}
 	return flow;
@@ -204,6 +204,6 @@ function upgrade(pipelineFlow) {
 
 module.exports = {
 	upgradePipelineFlow: upgrade,
-	extractVersion: _extractVersion,
+	extractVersion: extractVersion,
 	LATEST_VERSION: LATEST_VERSION
 };
