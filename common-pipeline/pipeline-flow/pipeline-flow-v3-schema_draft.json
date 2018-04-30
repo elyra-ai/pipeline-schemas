@@ -107,23 +107,7 @@
           "type": "array",
           "minItems": 0,
           "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/node_def"
-              },
-              {
-                "$ref": "#/definitions/supernode_def"
-              },
-              {
-                "$ref": "#/definitions/binding_entry_node_def"
-              },
-              {
-                "$ref": "#/definitions/binding_exit_node_def"
-              },
-              {
-                "$ref": "#/definitions/model_node_def"
-              }
-            ]
+            "$ref": "#/definitions/node_type_def"
           },
           "uniqueItems": true
         },
@@ -144,8 +128,27 @@
       ],
       "additionalProperties": false
     },
-    "node_def": {
-      "description": "Definition of a single pipeline node",
+    "node_type_def": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/execution_node_def"
+        },
+        {
+          "$ref": "#/definitions/supernode_def"
+        },
+        {
+          "$ref": "#/definitions/binding_entry_node_def"
+        },
+        {
+          "$ref": "#/definitions/binding_exit_node_def"
+        },
+        {
+          "$ref": "#/definitions/model_node_def"
+        }
+      ]
+    },
+    "execution_node_def": {
+      "description": "Definition of a single execution pipeline node",
       "type": "object",
       "properties": {
         "id": {
