@@ -9,18 +9,18 @@
       "3.0"
     ]
   },
-	"properties": {
-		"categories": {
-			"description": "Array of palette categories",
-			"type": "array",
-			"minItems": 0,
-			"items": {
-				"$ref": "#/definitions/category_def"
-			},
-			"uniqueItems": true
-		}
-	},
-	"additionalProperties": false,
+  "properties": {
+    "categories": {
+      "description": "Array of palette categories",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/definitions/category_def"
+      },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false,
   "definitions": {
     "category_def": {
       "description": "Palette Category",
@@ -32,6 +32,10 @@
         },
         "label": {
           "description": "Category label",
+          "type": "string"
+        },
+        "description": {
+          "description": "Category description",
           "type": "string"
         },
         "image": {
