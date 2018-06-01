@@ -9,79 +9,19 @@
       "3.0"
     ]
   },
-  "oneOf": [
-    {
-      "$ref": "#/definitions/tabs_def"
-    },
-    {
-      "$ref": "#/definitions/categories_def"
-    }
-  ],
+	"properties": {
+		"categories": {
+			"description": "Array of palette categories",
+			"type": "array",
+			"minItems": 0,
+			"items": {
+				"$ref": "#/definitions/category_def"
+			},
+			"uniqueItems": true
+		}
+	},
+	"additionalProperties": false,
   "definitions": {
-    "tabs_def": {
-      "description": "Array of palette tabs",
-      "type": "object",
-      "properties": {
-        "tabs": {
-          "description": "Array of tabs",
-          "type": "array",
-          "minItems": 0,
-          "items": {
-            "$ref": "#/definitions/tab_def"
-          },
-          "uniqueItems": true
-        }
-      },
-      "additionalProperties": false
-    },
-    "tab_def": {
-      "description": "Palette tabs",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "ID of the tab",
-          "type": "string"
-        },
-        "label": {
-          "description": "Tab label",
-          "type": "string"
-        },
-        "image": {
-          "description": "Encoded image or image reference for the tab",
-          "type": "string"
-        },
-        "categories": {
-          "description": "Array of categories",
-          "type": "array",
-          "minItems": 0,
-          "items": {
-            "$ref": "#/definitions/category_def"
-          },
-          "uniqueItems": true
-        }
-      },
-      "required": [
-        "id",
-        "label"
-      ],
-      "additionalProperties": false
-    },
-    "categories_def": {
-      "description": "Array of palette categories",
-      "type": "object",
-      "properties": {
-        "categories": {
-          "description": "Array of pipeline categories",
-          "type": "array",
-          "minItems": 0,
-          "items": {
-            "$ref": "#/definitions/category_def"
-          },
-          "uniqueItems": true
-        }
-      },
-      "additionalProperties": false
-    },
     "category_def": {
       "description": "Palette Category",
       "type": "object",
