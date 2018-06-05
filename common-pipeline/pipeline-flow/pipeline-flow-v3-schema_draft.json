@@ -249,8 +249,7 @@
       "required": [
         "id",
         "type",
-        "subflow_ref",
-        "inputs"
+        "subflow_ref"
       ],
       "additionalProperties": false
     },
