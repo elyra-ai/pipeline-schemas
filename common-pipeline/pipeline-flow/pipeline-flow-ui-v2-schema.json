@@ -104,17 +104,17 @@
           "description": "y-position",
           "type": "integer"
         },
-        "height": {
-          "description": "Node height. If not provided an appropriate height is calculated.",
-          "type": "string"
-        },
-        "width": {
-          "description": "Node width. If not provided an appropriate width is calculated.",
-          "type": "string"
-        },
-        "isExpanded": {
+        "is_expanded": {
           "description": "Indicates whether a supernode is shown in expanded state or as a regular node.",
           "type": "boolean"
+        },
+        "expanded_height": {
+          "description": "Height of expanded supernode. If not provided an appropriate height is calculated.",
+          "type": "string"
+        },
+        "expanded_width": {
+          "description": "Width of expanded supernode. If not provided an appropriate width is calculated.",
+          "type": "string"
         },
         "attributes": {
           "description": "additional attributes",
