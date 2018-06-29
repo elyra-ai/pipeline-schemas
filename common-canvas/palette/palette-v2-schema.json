@@ -52,6 +52,13 @@
                     "model_node"
                   ]
                 },
+                "sub_type": {
+                  "description": "Sub-flow editing type. Only used when 'type=super_node'. Default is 'canvas'",
+                  "enum": [
+                    "canvas",
+                    "shaper"
+                  ]
+                },
                 "operator_id_ref": {
                   "description": "Unique node type identifier",
                   "type": "string"
