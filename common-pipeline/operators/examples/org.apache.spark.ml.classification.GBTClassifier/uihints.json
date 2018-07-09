@@ -8,6 +8,25 @@
   "description": {
     "default": "Fit a Gradient Boosted Tree Classifier Model"
   },
+	"ui_parameters": [
+    {
+      "id": "uiOnlyField1",
+      "type": "string",
+      "default": "",
+      "required": true
+    },
+    {
+      "id": "uiOnlyField2",
+      "type": "array[string]",
+      "default": [],
+      "required": true
+    },
+    {
+      "id": "uiOnlyField3",
+      "type": "integer",
+      "default": -1
+    }
+  ],
   "parameter_info": [
     {
       "parameter_ref": "targetField",

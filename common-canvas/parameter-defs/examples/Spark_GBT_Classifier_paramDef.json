@@ -17,6 +17,16 @@
     "stepSize": 0,
     "subsamplingRate": 1
   },
+  "current_ui_parameters": {
+    "uiOnlyField1": "test",
+    "uiOnlyField2": [
+      "alpha",
+      "beta",
+      "gamma",
+      "delta"
+    ],
+    "uiOnlyField3": 23
+  },
   "parameters": [
     {
       "name": "targetField",
@@ -100,7 +110,53 @@
     "description": {
       "default": "Fit a Gradient Boosted Tree Classifier Model"
     },
+    "ui_parameters": [
+      {
+        "id": "uiOnlyField1",
+        "type": "string",
+        "default": "",
+        "required": true
+      },
+      {
+        "id": "uiOnlyField2",
+        "type": "array[string]",
+        "default": [],
+        "required": true
+      },
+      {
+        "id": "uiOnlyField3",
+        "type": "integer",
+        "default": -1
+      }
+    ],
     "parameter_info": [
+      {
+        "parameter_ref": "uiOnlyField1",
+        "label": {
+          "default": "The first Ui field"
+        },
+        "description": {
+          "default": "Select a Ui field value."
+        }
+      },
+      {
+        "parameter_ref": "uiOnlyField2",
+        "label": {
+          "default": "The second Ui field"
+        },
+        "description": {
+          "default": "Select another Ui field value."
+        }
+      },
+      {
+        "parameter_ref": "uiOnlyField3",
+        "label": {
+          "default": "The third Ui field"
+        },
+        "description": {
+          "default": "Select the last Ui field value."
+        }
+      },
       {
         "parameter_ref": "targetField",
         "label": {
@@ -265,10 +321,38 @@
           "stepSize",
           "subsamplingRate"
         ]
+      },
+      {
+        "id": "UIonlyParameters",
+        "label": {
+          "default": "Special Parameters"
+        },
+        "parameter_refs": [
+          "uiOnlyField1",
+          "uiOnlyField2",
+          "uiOnlyField3"
+        ]
       }
     ]
   },
   "conditions": [
+    {
+      "validation": {
+        "fail_message": {
+          "type": "error",
+          "focus_parameter_ref": "uiOnlyField1",
+          "message": {
+            "resource_key": "uiOnlyField1_list_not_empty"
+          }
+        },
+        "evaluate": {
+          "condition": {
+            "parameter_ref": "uiOnlyField1",
+            "op": "isNotEmpty"
+          }
+        }
+      }
+    },
     {
       "validation": {
         "fail_message": {
@@ -596,6 +680,7 @@
     "subsamplingRate.label": "Subsampling Rate",
     "subsamplingRate.desc": "Fraction of the training data used for learning each decision tree (> 0 and <= 1)",
     "fields_settings.label": "Fields",
+    "uiOnlyField1_list_not_empty": "This field cannot be empty.",
     "input_field_list_not_empty": "Select one or more input columns",
     "target_field_not_empty": "Select a target field",
     "checkpoint_interval_not_valid": "The checkpoint interval value must either be >= 1 or -1 to disable",

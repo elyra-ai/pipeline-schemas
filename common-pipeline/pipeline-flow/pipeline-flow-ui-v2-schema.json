@@ -137,6 +137,12 @@
           },
           "uniqueItems": true
         },
+        "ui_parameters": {
+          "description": "UI only parameter values for the node",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
         "decorations": {
           "description": "Array of decorations used to decorate nodes",
           "type": "array",
@@ -152,8 +158,7 @@
     "runtime_info_def": {
       "description": "Runtime information",
       "type": "object",
-      "properties": {
-      },
+      "properties": {},
       "required": [],
       "additionalProperties": true
     },

@@ -56,7 +56,17 @@
           "app_data": {
             "ui_data": {
               "x_pos": 10,
-              "y_pos": 10
+              "y_pos": 10,
+              "ui_parameters": {
+                "uiOnlyField1": "test",
+                "uiOnlyField2": [
+                  "alpha",
+                  "beta",
+                  "gamma",
+                  "delta"
+                ],
+                "uiOnlyField3": 23
+              }
             }
           }
         },
