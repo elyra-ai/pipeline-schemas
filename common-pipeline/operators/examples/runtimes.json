@@ -1,0 +1,28 @@
+{
+  "runtimes": [
+    {
+      "id": "spss-modeler",
+      "platform": "spss-modeler",
+      "version": "18",
+      "label": {
+        "default": "IBM SPSS Modeler"
+      },
+      "metadata": {
+        "language": "clem",
+        "environments" : [ "cloud" , "local" , "desktop" ]
+      }
+    },
+    {
+      "id": "scala-spark-2.0",
+      "platform": "scala-spark",
+      "version": "2.0",
+      "label": {
+        "default": "Scala Spark 2.1"
+      },
+      "metadata": {
+        "language": "spark_sql",
+        "environments" : [ "cloud" ]
+      }
+    }
+  ]
+}

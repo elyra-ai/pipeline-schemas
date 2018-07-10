@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/runtime-v3-schema.json#",
+  "title": "Watson Data Platform Runtime Schema",
+  "description": "Provides runtime environment information in the Watson Data Platform",
+  "type": "object",
+  "properties": {
+    "json_schema": {
+      "description": "Refers to the JSON schema used to validate documents of this type",
+      "enum": ["http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/runtime-v3-schema.json"]
+    },
+    "id": {
+      "description": "Unique runtime identifier",
+      "type": "string"
+    },
+    "platform": {
+      "description": "Backend execution platform (version independent)",
+      "type": "string"
+    },
+    "version": {
+      "description": "Runtime version",
+      "type": "string"
+    },
+    "label": {
+      "description": "Runtime label",
+      "$ref": "#/definitions/resource_def"
+    },
+    "metadata": {
+      "description": "Runtime meta information",
+      "type": "object",
+      "properties": {
+        "language": {
+          "description": "Expression language used by the runtime",
+          "type": "string"
+        },
+        "environments": {
+          "description": "Array of supported runtime environment names",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "platform",
+    "version"
+  ],
+  "definitions": {
+    "resource_def": {
+      "description": "Localizable string resource",
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "string"
+        },
+        "resource_key": {
+          "type": "string"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "default"
+          ]
+        },
+        {
+          "required": [
+            "resource_key"
+          ]
+        }
+      ]
+    }
+  }
+}
