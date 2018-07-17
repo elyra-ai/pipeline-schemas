@@ -1,6 +1,6 @@
 {
   "name": "@wdp/pipeline-schemas",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "WDP pipeline-schemas",
   "main": "common-pipeline/pipeline-flow/upgrade/upgrade-flow.js",
   "homepage": "https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/wiki",
