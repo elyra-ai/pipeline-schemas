@@ -224,6 +224,20 @@
           "description": "Name of the parameter that has the message",
           "type": "string"
         },
+        "table_ref": {
+          "description": "Table message identifier",
+          "type": "object",
+          "properties": {
+            "row": {
+              "description": "If a table row or cell error message, the row of the table.",
+              "type": "string"
+            },
+            "col": {
+              "description": "If a table cell error message, the column of the table cell .",
+              "type": "string"
+            }
+          }
+        },
         "validation_id": {
           "description": "Validation identifier from the fail_message validation section.",
           "type": "string"
