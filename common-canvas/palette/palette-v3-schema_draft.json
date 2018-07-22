@@ -3,13 +3,13 @@
   "type": "object",
   "description": "Common Canvas palette schema",
   "id": "http://api.dataplatform.ibm.com/schemas/common-canvas/palette/palette-v3-schema.json",
-  "version": {
-    "description": "Palette schema version",
-    "enum": [
-      "3.0"
-    ]
-  },
   "properties": {
+    "version": {
+      "description": "Palette schema version",
+      "enum": [
+        "3.0"
+      ]
+    },
     "categories": {
       "description": "Array of palette categories",
       "type": "array",
