@@ -141,7 +141,10 @@
                   "max"
                ]
             },
-            "runtime_type": "string"
+            "runtime_type": {
+              "description": "Type of runtime",
+              "type": "string"
+            }
          },
          "required":[
 
