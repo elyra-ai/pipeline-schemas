@@ -422,7 +422,7 @@
     },
     "ports_def": {
       "type": "array",
-      "minItems": 1,
+      "minItems": 0,
       "items": {
         "$ref": "#/definitions/port_def"
       },
@@ -430,7 +430,7 @@
     },
     "bound_ports_def": {
       "type": "array",
-      "minItems": 1,
+      "minItems": 0,
       "items": {
         "$ref": "#/definitions/bound_port_def"
       },
