@@ -21,7 +21,8 @@ const LATEST_VERSION = 2;
 // Array of major version upgrade functions
 const updateFuncs = [
 	_update0to1,
-	_update1to2
+	_update1to2,
+	_update2to3
 ];
 
 // Private Methods ------------------------------------------------------------>
@@ -112,6 +113,20 @@ function _update1to2(pipelineFlow) {
 			delete pipeline.runtime;
 		}
 	}
+
+	return pipelineFlow;
+}
+
+/**
+ * Updates version 2 to version 3.
+ *
+ * @param {object} pipelineFlow: A pipeline-flow JSON object
+ *
+ * @return A pipeline-flow object that has been upgraded to version 2
+ */
+function _update2to3(pipelineFlow) {
+	pipelineFlow.version = "3.0";
+	pipelineFlow.json_schema = "http://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json";
 
 	return pipelineFlow;
 }
