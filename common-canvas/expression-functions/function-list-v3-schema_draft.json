@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://api.dataplatform.ibm.com/schemas/common-canvas/expression-functions/function-list-v3-schema.json",
+  "title": "Expression Builder Function List Schema",
+  "description": "Watson Data Platform Expression Builder Function List Schema for the Common Properties editor",
+  "type": "object",
+  "properties": {
+    "function_categories": {
+      "description": "Array of categories of functions",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/definitions/function_categories_def"
+      },
+      "uniqueItems": true
+    },
+    "function_info": {
+      "description": "Array of function information",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/function_def"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "function_categories",
+    "function_info"
+  ],
+  "definitions": {
+    "function_categories_def": {
+      "description": "Definition of a information about a function",
+      "type": "object",
+      "properties": {
+        "label": {
+          "description": "User-readable name of category",
+          "type": "string"
+        },
+        "function_refs": {
+          "description": "Array of function ids that are part of this fuction category",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "label",
+        "function_refs"
+      ],
+      "additionalProperties": false
+    },
+    "function_def": {
+      "description": "Definition of a information about a function",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique string to reference this function",
+          "type": "string"
+        },
+        "label": {
+          "description": "User-readable name of function",
+          "type": "string"
+        },
+        "parameters": {
+          "description": "Array of parameter information",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/function_parameter_def"
+          },
+          "uniqueItems": false
+        },
+        "return_type": {
+          "description": "The data type name of what is returned from the function.",
+          "type": "string"
+        },
+        "help": {
+          "description": "The help text for the function.",
+          "type": "string"
+        },
+        "show_button": {
+          "description": "Should the operator be displayed in the list of operator buttons.",
+          "type": "boolean",
+          "default": "false"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "return_type"
+      ],
+      "additionalProperties": false
+    },
+    "function_parameter_def": {
+      "description": "Definition of a information about a functions parameters.",
+      "type": "object",
+      "properties": {
+        "label": {
+          "description": "User-readable name of parameter",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the parameter.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "label"
+      ]
+    }
+  }
+}

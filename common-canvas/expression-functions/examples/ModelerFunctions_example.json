@@ -1,0 +1,69 @@
+{
+  "function_categories": [
+    {
+      "label": "General Functions",
+      "function_refs": [
+        "to_integer",
+        "count_equal"
+      ]
+    },
+    {
+      "label": "@ Functions",
+      "function_refs": [
+        "@BLANK"
+      ]
+    },
+    {
+      "label": "Operators",
+      "function_refs": [
+        "greaterThan",
+        "count_equal"
+      ]
+    }
+  ],
+  "function_info": [
+    {
+      "id": "to_integer",
+      "label": "to_integer",
+      "return_type": "Integer",
+      "parameters": [
+        {
+          "label": "Item"
+        }
+      ],
+      "help": "Converts ITEM to an integer. ITEM must be a string, or a number."
+    },
+    {
+      "id": "count_equal",
+      "label": "count_equal",
+      "return_type": "Integer",
+      "parameters": [
+        {
+          "label": "Item"
+        },
+        {
+          "label": "List"
+        }
+      ],
+      "help": "Returns the number of values from a LIST of fields that are equal to ITEM1, or NULL if ITEM1 is NULL."
+    },
+    {
+      "id": "@BLANK",
+      "label": "@BLANK",
+      "return_type": "Boolean",
+      "parameters": [
+        {
+          "label": "Item"
+        }
+      ],
+      "help": "Returns true if the value of FIELD is blank according to the definition for FIELD in an upstream type node."
+    },
+    {
+      "id": "greaterThan",
+      "label": ">",
+      "return_type": "Boolean",
+      "help": "X is greater than Y.",
+      "show_button": true
+    }
+  ]
+}
