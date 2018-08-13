@@ -517,6 +517,9 @@
               "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_info_def"
             },
             {
+              "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_link_info_def"
+            },
+            {
               "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/runtime_info_def"
             }
           ]

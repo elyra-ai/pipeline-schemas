@@ -69,6 +69,10 @@
           "description": "CSS class name",
           "type": "string"
         },
+        "style": {
+          "description": "A 'style spec' object containing CSS strings to be applied to the SVG objects of the port.",
+          "type": "string"
+        },
         "label": {
           "description": "Port name",
           "type": "string"
@@ -90,6 +94,10 @@
         },
         "class_name": {
           "description": "CSS class name",
+          "type": "string"
+        },
+        "style": {
+          "description": "A 'style spec' object containing CSS strings to be applied to the SVG objects of the node.",
           "type": "string"
         },
         "image": {
@@ -155,6 +163,21 @@
       },
       "additionalProperties": true
     },
+    "node_link_info_def": {
+      "description": "object with app-specific UI-information",
+      "type": "object",
+      "properties": {
+        "class_name": {
+          "description": "CSS class name",
+          "type": "string"
+        },
+        "style": {
+          "description": "A 'style spec' object containing CSS strings to be applied to the SVG objects of the node to node link.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
     "runtime_info_def": {
       "description": "Runtime information",
       "type": "object",
@@ -176,6 +199,10 @@
         },
         "class_name": {
           "description": "CSS class name for link styling",
+          "type": "string"
+        },
+        "style": {
+          "description": "A 'style spec' object containing CSS strings to be applied to the SVG objects of the association link.",
           "type": "string"
         }
       },
@@ -278,6 +305,10 @@
           "description": "CSS class(es) to apply to the comment",
           "type": "string"
         },
+        "style": {
+          "description": "A 'style spec' object containing CSS strings to be applied to the SVG objects of the comment.",
+          "type": "string"
+        },
         "attributes": {
           "description": "Optional attributes to be added to this element. For example: \"attributes\": \"attr1='value1'; attr2='value2'\"",
           "type": "string"
@@ -315,6 +346,10 @@
         },
         "class_name": {
           "description": "CSS class name for link styling",
+          "type": "string"
+        },
+        "style": {
+          "description": "A 'style spec' object containing CSS strings to be applied to the SVG objects of the comment link.",
           "type": "string"
         }
       },
