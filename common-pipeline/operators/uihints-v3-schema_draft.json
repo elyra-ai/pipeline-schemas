@@ -441,11 +441,12 @@
           "default": true
         },
         "row_selection": {
-          "description": "Determines how many rows can be selected at a time.",
+          "description": "Determines how many rows can be selected at a time.  'Multiple-edit': select multiple rows and allow the editing of column values of all seelcted rows.\n\t\t\t\t\t",
           "type": "string",
           "enum": [
             "single",
-            "multiple"
+            "multiple",
+            "multiple-edit"
           ]
         },
         "header": {
