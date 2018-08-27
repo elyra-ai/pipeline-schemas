@@ -507,7 +507,7 @@
         }
       },
       "required": [
-        "enabled"
+        "allow_change"
       ]
     }
   }
