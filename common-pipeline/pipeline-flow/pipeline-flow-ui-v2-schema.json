@@ -190,18 +190,18 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "An identifier used as a token when a hotspot is used",
+          "description": "An identifier used to identify the decoration",
           "type": "string"
         },
         "hotspot": {
-          "description": "Indicates whether teh decorator is a hotspot or not. ie does it send an event to consuming app. when clicked",
+          "description": "Indicates whether the decorator is a hotspot or not. ie does it send an event to consuming app. when clicked",
           "type": "boolean"
         },
         "class_name": {
           "description": "CSS class name for decoration styling",
           "type": "string"
         },
-        "positions": {
+        "position": {
           "description": "Shows where the decoration is displayed with respect to the node",
           "enum": [
             "topLeft",
@@ -209,6 +209,14 @@
             "bottomLeft",
             "bottomRight"
           ]
+        },
+        "x_pos": {
+          "description": "X position of the decorator relative to the node's top right corner. If provided, this is used in preference to the position field.",
+          "type": "integer"
+        },
+        "y_pos": {
+          "description": "Y position of the decorator relative to the node's top right corner. If provided, this is used in preference to the position field.",
+          "type": "integer"
         },
         "image": {
           "description": "Image displayed at the decoration position",
