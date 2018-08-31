@@ -14,6 +14,15 @@
       },
       "uniqueItems": true
     },
+    "operator_refs": {
+      "description": "Array of refs to functions that will be displayed as operators.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
     "function_info": {
       "description": "Array of function information",
       "type": "array",
@@ -33,9 +42,14 @@
       "description": "Definition of a information about a function",
       "type": "object",
       "properties": {
-        "label": {
-          "description": "User-readable name of category",
+        "id": {
+          "description": "Unique string to reference this category",
           "type": "string"
+        },
+        "label": {
+          "description": "External name of category",
+          "type": "object",
+          "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
         },
         "function_refs": {
           "description": "Array of function ids that are part of this fuction category",
@@ -63,7 +77,8 @@
         },
         "label": {
           "description": "User-readable name of function",
-          "type": "string"
+          "type": "object",
+          "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
         },
         "parameters": {
           "description": "Array of parameter information",
@@ -78,14 +93,10 @@
           "description": "The data type name of what is returned from the function.",
           "type": "string"
         },
-        "help": {
+        "description": {
           "description": "The help text for the function.",
-          "type": "string"
-        },
-        "show_button": {
-          "description": "Should the operator be displayed in the list of operator buttons.",
-          "type": "boolean",
-          "default": "false"
+          "type": "object",
+          "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
         }
       },
       "required": [
@@ -101,7 +112,8 @@
       "properties": {
         "label": {
           "description": "User-readable name of parameter",
-          "type": "string"
+          "type": "object",
+          "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
         },
         "type": {
           "description": "The type of the parameter.",
