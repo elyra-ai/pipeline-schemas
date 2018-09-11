@@ -39,6 +39,9 @@
         },
         {
           "$ref": "#/definitions/enum_filter_definition"
+        },
+        {
+          "$ref": "#/definitions/allow_change_definition"
         }
       ]
     },
@@ -474,6 +477,37 @@
         "dmMeasurement",
         "dmType",
         "dmModelingRole"
+      ]
+    },
+    "allow_change_definition": {
+      "properties": {
+        "allow_change": {
+          "description": "Allow change test. Allows a field value to be changed if evaluates to true.",
+          "type": "object",
+          "properties": {
+            "parameter_refs": {
+              "description": "Array of parameter names who values changes are allowed by this operation",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
+            "evaluate": {
+              "description": "Evaluates to a boolean result",
+              "type": "object",
+              "$ref": "#/definitions/evaluate_definition"
+            }
+          },
+          "required": [
+            "parameter_refs",
+            "evaluate"
+          ]
+        }
+      },
+      "required": [
+        "allow_change"
       ]
     }
   }
