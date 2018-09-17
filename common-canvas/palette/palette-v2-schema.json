@@ -21,7 +21,7 @@
             "description": "The palette category that the items belong within",
             "type": "string"
           },
-					"description": {
+          "description": {
             "description": "Category description",
             "type": "string"
           },
