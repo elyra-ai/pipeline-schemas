@@ -496,6 +496,16 @@
           "description": "Determines if the table header should be displayed",
           "type": "boolean",
           "default": true
+        },
+        "dmDefault": {
+          "description": "Used within complex structures containing 'column' key_definition fields. This associates the subControl parameter with a field attribute in the current record schema.",
+          "type": "boolean",
+          "default": false
+        },
+        "includeAllFields": {
+          "description": "Set to true to include all fields in the control at all times",
+          "type": "boolean",
+          "default": false
         }
       },
       "required": [

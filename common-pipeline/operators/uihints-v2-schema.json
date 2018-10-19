@@ -453,6 +453,11 @@
           "description": "Determines if the table header should be displayed",
           "type": "boolean",
           "default": true
+        },
+        "include_all_fields": {
+          "description": "Use when `add_remove_rows` is false. Ensures the control contains a record for each field in the data model.",
+          "type": "boolean",
+          "default": true
         }
       },
       "required": [
