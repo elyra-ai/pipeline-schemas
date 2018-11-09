@@ -40,7 +40,6 @@
         }
       }
     },
-
     "uiItems": {
       "description": "List of UI items.",
       "type": "array",

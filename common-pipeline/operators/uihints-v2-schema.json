@@ -43,6 +43,20 @@
         "large"
       ]
     },
+    "pixel_width": {
+      "description": "Gives more control of editor panel width. The panel is shown at min size if editor_size is small and max size if editor_size is medium. If min and max are the same no sizing button is displayed.",
+      "type": "object",
+      "properties": {
+        "min": {
+          "description": "Minimum size in pixels for the right side editor flyout",
+          "type": "number"
+        },
+        "max": {
+          "description": "Maximum size in pixels for the right side editor flyout",
+          "type": "number"
+        }
+      }
+    },
     "parameter_info": {
       "items": {
         "$ref": "#/definitions/parameter_definition"
