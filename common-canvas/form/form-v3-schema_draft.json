@@ -26,6 +26,21 @@
         "small"
       ]
     },
+    "pixelWidth": {
+      "description": "Gives more control of editor panel width. The panel is shown at min size if editorSize is small (and max size if editorSize is medium) with a resize button. If min and max are the same no sizing button is displayed.",
+      "type": "object",
+      "properties": {
+        "min": {
+          "description": "Minimum size in pixels for the right side editor flyout",
+          "type": "number"
+        },
+        "max": {
+          "description": "Maximum size in pixels for the right side editor flyout",
+          "type": "number"
+        }
+      }
+    },
+
     "uiItems": {
       "description": "List of UI items.",
       "type": "array",
