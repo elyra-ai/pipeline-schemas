@@ -116,6 +116,7 @@
             "subTabs",
             "panels",
             "columnSelection",
+            "columnSelectionRecursive",
             "panelSelector",
             "customPanel",
             "summaryPanel",
