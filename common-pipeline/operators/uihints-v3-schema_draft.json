@@ -324,7 +324,9 @@
           "type": "string",
           "enum": [
             "CLEM",
-            "text/x-hive"
+            "text/x-hive",
+            "text/x-rsrc",
+            "text/x-python"
           ]
         },
         "summary": {
