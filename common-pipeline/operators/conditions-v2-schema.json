@@ -272,7 +272,11 @@
                 "contains",
                 "notContains",
                 "colNotExists",
-                "cellNotEmpty"
+                "cellNotEmpty",
+                "colDoesExist",
+                "isDateTime",
+                "dmTypeEquals",
+                "dmTypeNotEquals"
               ]
             },
             "parameter_ref": {
