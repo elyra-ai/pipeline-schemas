@@ -370,6 +370,10 @@
               "description": "Parameter affected by this operation",
               "type": "string"
             },
+            "parameter_refs": {
+              "description": "Parameters affected by this operation - exclusive with parameter_ref",
+              "type": "string"
+            },
             "evaluate": {
               "description": "Evaluates to return values included in a control",
               "type": "object",
@@ -476,11 +480,12 @@
       ]
     },
     "filter_op_definition": {
-      "description": "A single operator for comparing data record schema field attributes",
+      "description": "A single operator for comparing data record schema field attributes and sharing source fields",
       "enum": [
         "dmMeasurement",
         "dmType",
-        "dmModelingRole"
+        "dmModelingRole",
+        "dmSharedFields"
       ]
     },
     "allow_change_definition": {
