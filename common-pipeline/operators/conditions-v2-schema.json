@@ -276,7 +276,11 @@
                 "colDoesExist",
                 "isDateTime",
                 "dmTypeEquals",
-                "dmTypeNotEquals"
+                "dmTypeNotEquals",
+                "dmMeasurementEquals",
+                "dmMeasurementNotEquals",
+                "dmRoleEquals",
+                "dmRoleNotEquals"
               ]
             },
             "parameter_ref": {
