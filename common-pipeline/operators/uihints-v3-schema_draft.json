@@ -260,7 +260,7 @@
           "type": "number"
         },
         "display_chars": {
-          "description": "Limits the number of characters displayed for a text field in a column in a table.  The text will have an ellipsis appended at this limit.",
+          "description": "This has been deprecated and is subject to removal. Limits the number of characters displayed for a text field in a column in a table.  The text will have an ellipsis appended at this limit.",
           "type": "number",
           "default": 64
         },
