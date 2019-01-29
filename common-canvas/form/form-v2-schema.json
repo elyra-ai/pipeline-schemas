@@ -347,6 +347,7 @@
             "structuretable",
             "structureeditor",
             "structurelisteditor",
+            "structureeditor",
             "custom",
             "datefield",
             "timefield"
@@ -522,6 +523,18 @@
           "description": "Set to true to include all fields in the control at all times",
           "type": "boolean",
           "default": false
+        },
+        "layout": {
+          "description": "Array of rows containing structure element names",
+          "type": "array",
+          "items": {
+            "description": "A single row of structure parameter names for laying out horizontally",
+            "type": "array",
+            "items": {
+              "description": "A parameter name within the current structure",
+              "type": "string"
+            }
+          }
         }
       },
       "required": [
