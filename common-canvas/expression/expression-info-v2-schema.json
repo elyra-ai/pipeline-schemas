@@ -1,0 +1,204 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://api.dataplatform.ibm.com/schemas/common-canvas/expression/expression-info-v2-schema.json",
+  "title": "Expression Builder Expression Info Schema",
+  "description": "Watson Data Platform Expression Builder Expression Info Schema for the Common Properties editor",
+  "type": "object",
+  "properties": {
+    "functions": {
+      "$ref": "http://api.dataplatform.ibm.com/schemas/common-canvas/expression/function-list-v2-schema.json"
+    },
+    "fields": {
+      "description": "Metadata and content for field and value tables",
+      "type": "object",
+      "properties": {
+        "field_categories": {
+          "$ref": "#/definitions/field_categories_def"
+        },
+        "field_table_info": {
+          "$ref": "#/definitions/field_table_info_def"
+        }
+      }
+    },
+    "resources": {
+      "description": "Map of string resources.",
+      "type": "object",
+      "properties": {},
+      "additionalProperties": true
+    },
+    "validateLink": {
+      "description": "Controls if the validate schema link is shown",
+      "type": "boolean"
+    }
+  },
+  "required": [
+  ],
+  "definitions": {
+    "field_categories_def": {
+      "description": "Array of categories for the field dropdown menu",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/definitions/field_categories_item_def"
+      },
+      "uniqueItems": true
+    },
+    "field_table_info_def": {
+      "description": "Array of table contents for each field category",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/definitions/field_table_info_item_def"
+      },
+      "uniqueItems": true
+    },
+    "field_categories_item_def": {
+      "description": "Metadata of a field dropdown menu item",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique string to reference this category",
+          "type": "string"
+        },
+        "label": {
+          "description": "User-readable name of field category",
+          "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json#definitions/resource_definition"
+        },
+        "field_columns": {
+          "description": "Title of the field column",
+          "type": "object",
+          "properties": {
+            "field_column_info": {
+              "$ref": "#/definitions/column_header_label"
+            },
+            "value_column_info": {
+              "$ref": "#/definitions/column_header_label"
+            },
+            "additional_column_info": {
+              "$ref": "#/definitions/additional_info_header_label"
+            }
+          },
+          "required": [
+            "field_column_info",
+            "value_column_info"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "field_columns"
+      ]
+    },
+    "column_header_label": {
+      "description": "Info about columns headers",
+      "type": "object",
+      "properties":{
+        "label": {
+          "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json#definitions/resource_definition"
+        }
+      }
+    },
+    "additional_info_header_label": {
+      "description": "Info about info columns headers",
+      "type": "object",
+      "properties":{
+        "id": {
+          "description": "Unique string to reference this info column "
+        },
+        "label": {
+          "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json#definitions/resource_definition"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "field_table_info_item_def": {
+      "description": "Wrapper for all the field/value groups of a single category",
+      "type": "object",
+      "properties": {
+        "field_category_ref": {
+          "description": "Unique string to reference this category",
+          "type": "string"
+        },
+        "field_value_groups": {
+          "description": "Array of all the field/value groups of a single category",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/field_value_groups_item_def"
+          }
+        }
+      },
+      "required": [
+        "field_category_ref"
+      ]
+    },
+    "field_value_groups_item_def": {
+      "description": "A field entry, and all associated values and informational columns",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique identifier for this field entry",
+          "type": "string"
+        },
+        "values": {
+          "description": "A list of all values that are associated with this field",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/value_def"
+          }
+        },
+        "value_type": {
+          "description":"Value type that will be used in the value array. Can be a primitive type (string, integer, double, date, time, timestamp, binary, boolean, or other)",
+          "type":"string"
+        },
+        "additional_column_entries": {
+          "description": "A list of all informational column entries that are associated with this field",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/additional_info_item"
+          }
+        },
+        "additional_column_type": {
+          "description":"Object/primitive type used in the info array (string, integer, double, date, time, timestamp, binary, boolean, or custom types)",
+          "type":"string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "value_def": {
+      "description": "A wrapper a value of any basic type",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": ["string","number","integer","boolean", "object", "array", "null"]
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "additional_info_item": {
+      "description": "A wrapper a value of any basic type and a column id",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "A string that uniquely identifies this column, ",
+          "type": "string"
+        },
+        "value": {
+          "type": ["string","number","integer","boolean", "object", "array", "null"]
+        }
+      },
+      "required": [
+        "id",
+        "value"
+      ]
+    }
+  }
+}

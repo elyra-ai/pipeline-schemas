@@ -130,7 +130,7 @@
                 }
               }
             }
-					],
+          ],
           "parameters": {
             "targetField": [
               "integer2"
