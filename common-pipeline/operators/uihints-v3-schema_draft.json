@@ -392,6 +392,14 @@
             "modeling_role"
           ]
         },
+        "dm_icon": {
+          "description": "This can be set to display an icon of the corresponding dm type in the `role`:`column' field of a table.",
+          "type": "string",
+          "enum": [
+            "measure",
+            "none"
+          ]
+        },
         "custom_control_id": {
           "description": "Used to determine which custom control to use when control=custom.",
           "type": "string"
