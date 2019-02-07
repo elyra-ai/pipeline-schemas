@@ -519,6 +519,10 @@
           "type": "boolean",
           "default": false
         },
+        "dmImage": {
+          "description": "This can be set to display an icon of the corresponding dm type in the `role`:`column' field of a table.",
+          "type": "string",
+        },
         "includeAllFields": {
           "description": "Set to true to include all fields in the control at all times",
           "type": "boolean",
@@ -561,6 +565,10 @@
         "visible": {
           "description": "Whether the table showing the structures includes a column for this sub-parameter.",
           "type": "boolean"
+        },
+        "dmImage": {
+          "description": "This can be set to display an icon of the corresponding dm type in the `role`:`column' field of a table.",
+          "type": "string",
         },
         "width": {
           "description": "Suggested width of the column in the table that shows the current value.",
