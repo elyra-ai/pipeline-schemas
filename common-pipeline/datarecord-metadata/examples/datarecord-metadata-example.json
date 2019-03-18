@@ -91,6 +91,29 @@
         "measure": "discrete",
         "modeling_role": "input"
       }
+    },
+    {
+      "name": "fullname",
+      "type": "array[fullname]",
+      "metadata": {
+        "description": "",
+        "measure": "discrete",
+        "modeling_role": "input"
+      }
     }
-  ]
+  ],
+  "struct_types": {
+    "fullname": {
+      "fields": [
+        {
+          "name": "first",
+          "type": "string"
+        },
+        {
+          "name": "last",
+          "type": "string"
+        }
+      ]
+    }
+  }
 }
