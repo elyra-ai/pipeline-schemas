@@ -836,10 +836,42 @@
           "description": "The type of action.",
           "type": "string",
           "enum": [
-            "button"
-          ]
+            "button",
+            "image"
+                   ]
         },
-        "data": {
+        "image": {
+          "description": "Properties for how the image will look.  Use when control=image.",
+          "type": "object",
+          "properties": {
+            "url": {
+              "description": "image url to be used for action",
+              "type": "string"
+            },
+            "placement": {
+              "description": "placement of the action image",
+              "enum": [
+                "right",
+                "left"
+              ]
+            },
+            "size": {
+              "description": "pixel size of the image.",
+              "type": "object",
+              "properties": {
+                "height": {
+                  "description": "image height in pixels",
+                  "type": "number"
+                },
+                "width": {
+                  "description": "image width in pixels",
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+      "data": {
           "description": "Data returned when action called",
           "type": "object",
           "additionalProperties": true
