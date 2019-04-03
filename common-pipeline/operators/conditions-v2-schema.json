@@ -109,6 +109,15 @@
               },
               "uniqueItems": true
             },
+            "action_refs": {
+              "description": "Array of action ids affected by this operation",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
             "evaluate": {
               "description": "Evaluates to a boolean result",
               "type": "object",
@@ -124,6 +133,11 @@
             {
               "required": [
                 "group_refs"
+              ]
+            },
+            {
+              "required": [
+                "action_refs"
               ]
             }
           ],
@@ -169,6 +183,15 @@
               },
               "uniqueItems": true
             },
+            "action_refs": {
+              "description": "Array of action ids affected by this operation",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
             "evaluate": {
               "description": "Evaluates to a boolean result",
               "type": "object",
@@ -184,6 +207,11 @@
             {
               "required": [
                 "group_refs"
+              ]
+            },
+            {
+              "required": [
+                "action_refs"
               ]
             }
           ],

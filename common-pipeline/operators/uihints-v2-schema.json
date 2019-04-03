@@ -515,6 +515,11 @@
           "description": "Identifier for this action",
           "type": "string"
         },
+        "description": {
+          "description": "Description of action.  Use for tooltip.",
+          "type": "object",
+          "$ref": "#/definitions/resource_definition"
+        },
         "control": {
           "description": "The action type to be displayed",
           "type": "string",

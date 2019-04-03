@@ -521,7 +521,7 @@
         },
         "dmImage": {
           "description": "This can be set to display an icon of the corresponding dm type in the `role`:`column' field of a table.",
-          "type": "string",
+          "type": "string"
         },
         "includeAllFields": {
           "description": "Set to true to include all fields in the control at all times",
@@ -568,7 +568,7 @@
         },
         "dmImage": {
           "description": "This can be set to display an icon of the corresponding dm type in the `role`:`column' field of a table.",
-          "type": "string",
+          "type": "string"
         },
         "width": {
           "description": "Suggested width of the column in the table that shows the current value.",
@@ -831,6 +831,16 @@
           "description": "The action label.  Usually the label on a button.",
           "type": "object",
           "$ref": "#/definitions/control_label_definition"
+        },
+        "description": {
+          "description": "Defines a action description. Used for tooltip.",
+          "type": "object",
+          "properties": {
+            "text": {
+              "description": "The description text.",
+              "type": "string"
+            }
+          }
         },
         "actionType": {
           "description": "The type of action.",
