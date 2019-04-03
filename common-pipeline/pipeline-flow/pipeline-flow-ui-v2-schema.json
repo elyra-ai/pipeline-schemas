@@ -211,15 +211,19 @@
           ]
         },
         "x_pos": {
-          "description": "X position of the decorator relative to the node's top right corner. If provided, this is used in preference to the position field.",
+          "description": "X position of the decorator relative to the node's top left corner. If provided, this is used in preference to the position field.",
           "type": "integer"
         },
         "y_pos": {
-          "description": "Y position of the decorator relative to the node's top right corner. If provided, this is used in preference to the position field.",
+          "description": "Y position of the decorator relative to the node's top left corner. If provided, this is used in preference to the position field.",
           "type": "integer"
         },
         "image": {
-          "description": "Image displayed at the decoration position",
+          "description": "Image displayed at the decoration position. Provide either this or a label.",
+          "type": "string"
+        },
+        "label": {
+          "description": "Label displayed at the decoration position. Provide either this or an image.",
           "type": "string"
         }
       }
