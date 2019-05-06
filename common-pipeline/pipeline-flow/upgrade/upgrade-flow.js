@@ -16,7 +16,7 @@
 const FIRST_VERSION = 1;
 
 // The latest pipeline-flow version - update as new versions are developed
-const LATEST_VERSION = 2;
+const LATEST_VERSION = 3;
 
 // Array of major version upgrade functions
 const updateFuncs = [
