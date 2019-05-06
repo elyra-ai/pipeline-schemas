@@ -229,20 +229,25 @@
           "type": "string"
         },
         "position": {
-          "description": "Shows where the decoration is displayed with respect to the node",
+          "description": "Indicates an anchor point on the node from which the decoration will be displayed. If x_pos and y_pos are not provided the decoration is displayed with a default offset from this position.",
           "enum": [
             "topLeft",
+            "topCenter",
             "topRight",
+            "middleLeft",
+            "middleCenter",
+            "middleRight",
             "bottomLeft",
+            "bottomCenter",
             "bottomRight"
           ]
         },
         "x_pos": {
-          "description": "X position of the decorator relative to the node's top left corner. If provided, this is used in preference to the position field.",
+          "description": "X position of the decorator relative to the node's position field. If position is not provided it is relative to the 'topLeft' position",
           "type": "integer"
         },
         "y_pos": {
-          "description": "Y position of the decorator relative to the node's top left corner. If provided, this is used in preference to the position field.",
+          "description": "Y position of the decorator relative to the node's position field. If position is not provided it is relative to the 'topLeft' position",
           "type": "integer"
         },
         "image": {
