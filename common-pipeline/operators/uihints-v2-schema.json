@@ -236,7 +236,8 @@
             "structureeditor",
             "custom",
             "datefield",
-            "timefield"
+            "timefield",
+            "timestampfield"
           ]
         },
         "increment": {
