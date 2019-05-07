@@ -350,7 +350,8 @@
             "structureeditor",
             "custom",
             "datefield",
-            "timefield"
+            "timefield",
+            "timestampfield"
           ]
         },
         "valueDef": {
