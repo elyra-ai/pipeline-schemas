@@ -1,7 +1,7 @@
 ## The WDP Common Pipeline Flow Specification
 
 ### Overview
-This note contains an overview of a version 1 proposal for a Common Pipeline JSON specification. The purpose of the common specification is to enable interoperability between various data processing and modeling applications within the Watson Data Platform. The eventual goal is to standardize on this format across WDP applications.
+This note contains an overview of the Common Pipeline JSON specification. The purpose of the common specification is to enable interoperability between various data processing and modeling applications. The eventual goal is to standardize on this format across applications.
 
 Previously there existed the notion of two separate document types: One for pipeline flow authoring and another for execution. The Common Pipeline Flow specification was designed with both use cases in mind, such that it can be used as both a persistence format in flow authoring tools and as the executable pipeline format for backend processors.
 
@@ -47,6 +47,6 @@ The mime-type for pipeline-flow documents is `application/vnd+ibm.dataplatform-p
 
 
 ### An Example
- See the 'pipeline-flow-v1-example.png' diagram describing the pipeline-flow-v1-example.json file in the examples folder that accompanies this note. The data binding nodes are expressed as circles on the edges of each pipeline and the super node uses a rounded rectangle, although physically they are all just types of node in the DAG.
+See the 'pipeline-flow-v1-example.png' diagram describing the pipeline-flow-v1-example.json file in the examples folder that accompanies this note. The data binding nodes are expressed as circles on the edges of each pipeline and the super node uses a rounded rectangle, although physically they are all just types of node in the DAG.
 
 Shaded binding nodes are statically bound at design time in the example. The external binding is overridden externally in the "External binding" directive. Node bindings can also be overridden in an external configuration as well, although they are not overridden in this diagram. Note the dashed arrow links in green which represent the linkage between the super node and the sub-pipeline that it refers to.
