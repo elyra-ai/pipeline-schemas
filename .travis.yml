@@ -16,6 +16,8 @@ deploy:
     on:
       branch: master
 notifications:
-  slack:
-    rooms:
-      - watsondataplatform:XVNawCZULSfgMLsovgn2Stkp#wdp-canvas-builds
+  email:
+    recipients:
+      - mwhoward@us.ibm.com
+    on_success: never
+    on_failure: always

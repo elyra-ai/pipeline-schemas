@@ -39,7 +39,7 @@ push_changes()
 	MASTER_BUILD=`node -p "require('./package.json').version"`
 	echo "Master build $MASTER_BUILD"
 
-	push_changes ${MASTER} 
+	push_changes ${MASTER}
 	MASTER_NUM=$(echo $MASTER_BUILD | cut -d'.' -f1-2)
 
 	echo "Master major.minor build ${MASTER_NUM}"
