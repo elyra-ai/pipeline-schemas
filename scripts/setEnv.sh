@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #
 # Copyright 2017-2019 IBM Corporation
 #
@@ -14,18 +16,7 @@
 # limitations under the License.
 #
 
-# Logs
-logs
-*.log
+set -e
 
-# Dependency directory
-node_modules
-
-# script files for build
-scripts
-
-# misc control files
-.travis.yml
-.npmignore
-.gitignore
-package-lock.json
+printf "registry=https://na.artifactory.swg-devops.com:443/artifactory/api/npm/wcp-wdp-npm-virtual/\n" >> .npmrc
+curl -H "X-JFrog-Art-Api:${ARTIFACTORY_NPM_API_KEY}" -X GET https://na.artifactory.swg-devops.com/artifactory/api/npm/auth >> .npmrc
