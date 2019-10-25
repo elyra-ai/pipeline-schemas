@@ -4,6 +4,7 @@
   "description": "canvas-schemas",
   "main": "common-pipeline/pipeline-flow/upgrade/upgrade-flow.js",
   "homepage": "https://github.com/ai-workspace/canvas-schemas/wiki",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/ai-workspace/canvas-schemas/tree/master/common-pipeline"
