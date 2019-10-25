@@ -11,9 +11,6 @@
   "bugs": {
     "url": "https://github.com/ai-workspace/canvas-schemas/issues"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.com/"
-  },
   "devDependencies": {},
   "dependencies": {}
 }
