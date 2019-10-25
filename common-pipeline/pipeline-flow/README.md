@@ -1,9 +1,11 @@
-## The WDP Common Pipeline Flow Specification
+## The Common Pipeline Flow Specification
 
 ### Overview
 This note contains an overview of the Common Pipeline JSON specification. The purpose of the common specification is to enable interoperability between various data processing and modeling applications. The eventual goal is to standardize on this format across applications.
 
-Previously there existed the notion of two separate document types: One for pipeline flow authoring and another for execution. The Common Pipeline Flow specification was designed with both use cases in mind, such that it can be used as both a persistence format in flow authoring tools and as the executable pipeline format for backend processors.
+The Common Pipeline Flow specification was designed with two use cases in mind:
+- so that it can be used as both a persistence format in flow authoring tools and
+- as the executable pipeline format for backend processors.
 
 
 ### Scope
