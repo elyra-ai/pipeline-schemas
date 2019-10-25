@@ -1,21 +1,19 @@
 {
-  "name": "@wdp/pipeline-schemas",
+  "name": "@ai-workspace/canvas-schemas",
   "version": "3.0.4",
-  "description": "WDP pipeline-schemas",
+  "description": "canvas-schemas",
   "main": "common-pipeline/pipeline-flow/upgrade/upgrade-flow.js",
-  "homepage": "https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/wiki",
+  "homepage": "https://github.com/ai-workspace/canvas-schemas/wiki",
   "repository": {
     "type": "git",
-    "url": "https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/tree/master/common-pipeline"
+    "url": "https://github.com/ai-workspace/canvas-schemas/tree/master/common-pipeline"
   },
   "bugs": {
-    "url": "https://github.ibm.com/NGP-TWC/wdp-pipeline-schemas/issues"
+    "url": "https://github.com/ai-workspace/canvas-schemas/issues"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.com/"
   },
-  "devDependencies": {
-    "@dap/eslint-config-portal-common": "1.0.2"
-  },
+  "devDependencies": {},
   "dependencies": {}
 }
