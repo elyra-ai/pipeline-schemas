@@ -1,16 +1,16 @@
 {
-  "name": "@ai-workspace/canvas-schemas",
+  "name": "@elyra/pipeline-schemas",
   "version": "3.0.4",
-  "description": "canvas-schemas",
+  "description": "pipeline-schemas",
   "main": "common-pipeline/pipeline-flow/upgrade/upgrade-flow.js",
-  "homepage": "https://github.com/ai-workspace/canvas-schemas/wiki",
+  "homepage": "https://github.com/elyra-ai/pipeline-schemas",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ai-workspace/canvas-schemas/tree/master/common-pipeline"
+    "url": "https://github.com/elyra-ai/pipeline-schemas/tree/master/common-pipeline"
   },
   "bugs": {
-    "url": "https://github.com/ai-workspace/canvas-schemas/issues"
+    "url": "https://github.com/elyra-ai/pipeline-schemas/issues"
   },
   "devDependencies": {},
   "dependencies": {}
