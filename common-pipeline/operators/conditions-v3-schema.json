@@ -326,7 +326,9 @@
                 "dmMeasurementEquals",
                 "dmMeasurementNotEquals",
                 "dmRoleEquals",
-                "dmRoleNotEquals"
+                "dmRoleNotEquals",
+                "matches",
+                "notMatches"
               ]
             },
             "parameter_ref": {
