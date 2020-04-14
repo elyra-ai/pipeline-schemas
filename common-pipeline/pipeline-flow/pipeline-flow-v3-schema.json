@@ -360,6 +360,10 @@
         "outputs": {
           "$ref": "#/definitions/ports_def"
         },
+        "op": {
+          "description": "Node type identifier of modeling node that created this model.",
+          "type": "string"
+        },
         "parameters": {
           "description": "Input parameters for the operator",
           "type": "object",
