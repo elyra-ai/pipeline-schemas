@@ -19,7 +19,7 @@
 set -e
 
 WORKING_DIR="$PWD"
-MASTER="mhoward-setup-pipeline-schema-build"
+MASTER="master"
 SKIP_CI="[skip ci]"
 
 checkout_branch()
