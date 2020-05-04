@@ -209,7 +209,7 @@
           "type": "string"
         },
         "description": {
-          "description": "Super node description",
+          "description": "Supernode description",
           "type": "string"
         },
         "type": {
@@ -518,7 +518,7 @@
           "type": "string"
         },
         "link_type": {
-          "description": "link type",
+          "description": "Link type",
           "enum": [
             "primary",
             "secondary",
@@ -526,7 +526,7 @@
           ]
         },
         "description": {
-          "description": "link description",
+          "description": "Link description",
           "type": "string"
         },
         "app_data": {

@@ -176,7 +176,7 @@
           "type": "boolean"
         },
         "is_signed": {
-          "description": "Siged or Unsigned for number (bigint, integer, smallint, tinyint)",
+          "description": "Signed or Unsigned for number (bigint, integer, smallint, tinyint)",
           "type": "boolean"
         },
         "item_index": {
