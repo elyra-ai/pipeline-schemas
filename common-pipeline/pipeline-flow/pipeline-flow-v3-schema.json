@@ -94,6 +94,10 @@
           "description": "Unique identifier",
           "type": "string"
         },
+        "description": {
+          "description": "Pipeline flow description",
+          "type": "string"
+        },
         "name": {
           "description": "User-readable name",
           "type": "string"
@@ -155,6 +159,10 @@
           "description": "Unique identifier for node within the current pipeline",
           "type": "string"
         },
+        "description": {
+          "description": "Execution node description",
+          "type": "string"
+        },
         "type": {
           "description": "Node type - always 'execution_node' for non-model pipeline elements",
           "enum": [
@@ -198,6 +206,10 @@
       "properties": {
         "id": {
           "description": "Unique identifier for the supernode within the current pipeline",
+          "type": "string"
+        },
+        "description": {
+          "description": "Super node description",
           "type": "string"
         },
         "type": {
@@ -258,6 +270,10 @@
           "description": "Unique identifier for the binding within the current pipeline",
           "type": "string"
         },
+        "description": {
+          "description": "Binding entry node description",
+          "type": "string"
+        },
         "type": {
           "description": "Node type - always 'binding' for binding elements",
           "enum": [
@@ -301,6 +317,10 @@
           "description": "Unique identifier for the binding within the current pipeline",
           "type": "string"
         },
+        "description": {
+          "description": "Binding exit node description",
+          "type": "string"
+        },
         "type": {
           "description": "Node type - always 'binding' for binding elements",
           "enum": [
@@ -342,6 +362,10 @@
       "properties": {
         "id": {
           "description": "Unique identifier for the model within the current pipeline",
+          "type": "string"
+        },
+        "description": {
+          "description": "Model node description",
           "type": "string"
         },
         "type": {
@@ -491,6 +515,18 @@
         },
         "link_name": {
           "description": "optional link name (used in parameter sets when there are multiple input sources)",
+          "type": "string"
+        },
+        "link_type": {
+          "description": "link type",
+          "enum": [
+            "primary",
+            "secondary",
+            "tertiary"
+          ]
+        },
+        "description": {
+          "description": "link description",
           "type": "string"
         },
         "app_data": {

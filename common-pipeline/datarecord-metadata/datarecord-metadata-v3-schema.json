@@ -166,6 +166,30 @@
         "runtime_type": {
           "description": "Type of runtime",
           "type": "string"
+        },
+        "fraction_digits": {
+          "description": "Microsecond length for time and timestamp",
+          "type": "number"
+        },
+        "is_key": {
+          "description": "A field is key",
+          "type": "boolean"
+        },
+        "is_signed": {
+          "description": "Siged or Unsigned for number (bigint, integer, smallint, tinyint)",
+          "type": "boolean"
+        },
+        "item_index": {
+          "description": "Item record level",
+          "type": "number"
+        },
+        "min_length": {
+          "description": "Minimum length for fields (binary, bit, char, nchar)",
+          "type": "number"
+        },
+        "source_column_id": {
+          "description": "Source field for a target field",
+          "type": "string"
         }
       },
       "required": []
