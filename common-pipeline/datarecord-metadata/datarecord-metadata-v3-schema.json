@@ -81,6 +81,9 @@
         },
         "metadata": {
           "$ref": "#/definitions/metadata"
+        },
+        "app_data": {
+          "$ref": "#/definitions/app_data_def"
         }
       },
       "required": [
@@ -193,6 +196,13 @@
         }
       },
       "required": []
+    },
+    "app_data_def": {
+      "description": "Object containing app-specific data",
+      "type": "object",
+      "properties": {
+      },
+      "additionalProperties": true
     }
   }
 }
