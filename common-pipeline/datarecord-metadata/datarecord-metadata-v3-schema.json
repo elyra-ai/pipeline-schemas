@@ -130,6 +130,10 @@
           "description": "Maximum length for fields. Length is unlimited when not present",
           "type": "number"
         },
+        "min_length": {
+          "description": "Minimum length for fields",
+          "type": "number"
+        },
         "decimal_precision": {
           "description": "Precision for decimal types",
           "type": "number"
@@ -179,15 +183,11 @@
           "type": "boolean"
         },
         "is_signed": {
-          "description": "Signed or Unsigned for number (bigint, integer, smallint, tinyint)",
+          "description": "Signed or Unsigned for number",
           "type": "boolean"
         },
         "item_index": {
           "description": "Item record level",
-          "type": "number"
-        },
-        "min_length": {
-          "description": "Minimum length for fields (binary, bit, char, nchar)",
           "type": "number"
         },
         "source_column_id": {
