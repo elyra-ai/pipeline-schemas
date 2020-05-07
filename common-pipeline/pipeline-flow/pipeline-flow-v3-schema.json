@@ -519,11 +519,7 @@
         },
         "link_type": {
           "description": "Link type",
-          "enum": [
-            "primary",
-            "secondary",
-            "tertiary"
-          ]
+          "type": "string"
         },
         "description": {
           "description": "Link description",
