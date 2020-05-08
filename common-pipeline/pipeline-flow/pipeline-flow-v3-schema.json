@@ -480,11 +480,11 @@
     "link_def": {
       "description": "Node link definition",
       "type": "object",
-      "id": {
-        "description": "Unique id of this link within the pipelineFlow. If omitted a new link id will be generated.",
-        "type": "string"
-      },
       "properties": {
+        "id": {
+          "description": "Unique id of this link within the pipelineFlow. If omitted a new link id will be generated.",
+          "type": "string"
+        },
         "node_id_ref": {
           "description": "id of a node this link connects to",
           "type": "string"
