@@ -209,19 +209,19 @@
           "additionalProperties": false
         },
         "parameters": {
-      		"description": "List of parameters",
-      		"type": "array",
-      		"items": {
-        		"$ref": "#/definitions/parameter_definition"
-      		}
-    	},
-    	"complex_types": {
-      		"description": "List of complex types",
-      		"type": "array",
-      		"items": {
-        		"$ref": "#/definitions/complex_type_definition"
-      	}
-    	}
+          "description": "List of parameters",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parameter_definition"
+          }
+        },
+        "complex_types": {
+          "description": "List of complex types",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/complex_type_definition"
+          }
+        }
       }
     },
     "app_data_def": {
