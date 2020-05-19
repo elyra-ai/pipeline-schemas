@@ -81,6 +81,9 @@
         },
         "metadata": {
           "$ref": "#/definitions/metadata"
+        },
+        "app_data": {
+          "$ref": "#/definitions/app_data_def"
         }
       },
       "required": [
@@ -127,12 +130,16 @@
           "description": "Maximum length for fields. Length is unlimited when not present",
           "type": "number"
         },
+        "min_length": {
+          "description": "Minimum length for fields",
+          "type": "number"
+        },
         "decimal_precision": {
-          "description": "Precision for decimal types",
+          "description": "Precision for decimal, time, and timestamp types",
           "type": "number"
         },
         "decimal_scale": {
-          "description": "Scale for decimal types",
+          "description": "Scale for decimal, time, and timestamp types",
           "type": "number"
         },
         "values": {
@@ -166,9 +173,32 @@
         "runtime_type": {
           "description": "Type of runtime",
           "type": "string"
+        },
+        "is_key": {
+          "description": "A field is key",
+          "type": "boolean"
+        },
+        "is_signed": {
+          "description": "Signed or Unsigned for number",
+          "type": "boolean"
+        },
+        "item_index": {
+          "description": "Item record level",
+          "type": "number"
+        },
+        "source_field_id": {
+          "description": "Source field for a target field",
+          "type": "string"
         }
       },
       "required": []
+    },
+    "app_data_def": {
+      "description": "Object containing app-specific data",
+      "type": "object",
+      "properties": {
+      },
+      "additionalProperties": true
     }
   }
 }
