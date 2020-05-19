@@ -135,11 +135,11 @@
           "type": "number"
         },
         "decimal_precision": {
-          "description": "Precision for decimal types",
+          "description": "Precision for decimal, time, and timestamp types",
           "type": "number"
         },
         "decimal_scale": {
-          "description": "Scale for decimal types",
+          "description": "Scale for decimal, time, and timestamp types",
           "type": "number"
         },
         "values": {
@@ -174,10 +174,6 @@
           "description": "Type of runtime",
           "type": "string"
         },
-        "fraction_digits": {
-          "description": "Microsecond length for time and timestamp",
-          "type": "number"
-        },
         "is_key": {
           "description": "A field is key",
           "type": "boolean"
@@ -190,7 +186,7 @@
           "description": "Item record level",
           "type": "number"
         },
-        "source_column_id": {
+        "source_field_id": {
           "description": "Source field for a target field",
           "type": "string"
         }
