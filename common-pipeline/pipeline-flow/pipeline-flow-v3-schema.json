@@ -521,8 +521,8 @@
           "description": "optional link name (used in parameter sets when there are multiple input sources)",
           "type": "string"
         },
-        "link_type": {
-          "description": "Link type",
+        "type_attr": {
+          "description": "Link type attribute",
           "type": "string"
         },
         "description": {
