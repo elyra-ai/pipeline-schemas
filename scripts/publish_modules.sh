@@ -49,7 +49,7 @@ push_changes ${MASTER}
 MASTER_NUM=$(echo $MASTER_BUILD | cut -d'.' -f1-2)
 # Tag release build
 cd ./scripts
-./tagBuild.sh "${MASTER}_${MASTER_NUM}"
+./tagBuild.sh "${MASTER}_${MASTER_BUILD}"
 cd $WORKING_DIR
 
 echo "Master major.minor build ${MASTER_NUM}"
