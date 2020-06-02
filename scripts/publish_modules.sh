@@ -38,18 +38,22 @@ push_changes()
 }
 
 # Update package.json version on master
-	checkout_branch ${MASTER}
+checkout_branch ${MASTER}
 
-	echo "Update patch version of pipeline-schemas"
-	npm version patch -m "Update version to ${MASTER_BUILD} ${SKIP_CI}"
-	MASTER_BUILD=`node -p "require('./package.json').version"`
-	echo "Master build $MASTER_BUILD"
+echo "Update patch version of pipeline-schemas"
+npm version patch -m "Update version to ${MASTER_BUILD} ${SKIP_CI}"
+MASTER_BUILD=`node -p "require('./package.json').version"`
+echo "Master build $MASTER_BUILD"
 
-	push_changes ${MASTER}
-	MASTER_NUM=$(echo $MASTER_BUILD | cut -d'.' -f1-2)
+push_changes ${MASTER}
+MASTER_NUM=$(echo $MASTER_BUILD | cut -d'.' -f1-2)
+# Tag release build
+cd ./scripts
+./tagBuild.sh "${MASTER}_${MASTER_NUM}"
+cd $WORKING_DIR
 
-	echo "Master major.minor build ${MASTER_NUM}"
-	echo "Publishing pipeline schemas to Artifactory NPM"
-	echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
-	npm publish
-	cd $WORKING_DIR
+echo "Master major.minor build ${MASTER_NUM}"
+echo "Publishing pipeline schemas to Artifactory NPM"
+echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
+npm publish
+cd $WORKING_DIR
