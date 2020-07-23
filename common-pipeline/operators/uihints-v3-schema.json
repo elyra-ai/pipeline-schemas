@@ -122,7 +122,8 @@
             "summaryPanel",
             "actionPanel",
             "textPanel",
-            "twistyPanel"
+            "twistyPanel",
+            "columnPanel"
           ]
         },
         "depends_on_ref": {
@@ -237,7 +238,10 @@
             "custom",
             "datefield",
             "timefield",
-            "timestampfield"
+            "timestampfield",
+            "code",
+            "list",
+            "hidden"
           ]
         },
         "increment": {
