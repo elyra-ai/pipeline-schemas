@@ -162,7 +162,7 @@
           "type": "string"
         },
         "type": {
-          "description": "Determine how parameters in complex type stored. Valid values are array and object.",
+          "description": "Used to determine how parameters in the complex_type stored. Valid values are array and object.",
           "type": "string"
         },
         "key_definition": {
