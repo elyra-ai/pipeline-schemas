@@ -161,6 +161,10 @@
           "description": "Identifier of complex type, can be referenced in other places.",
           "type": "string"
         },
+        "type": {
+          "description": "Used to determine how parameters in the complex_type stored. Valid values are array and object.",
+          "type": "string"
+        },
         "key_definition": {
           "$ref": "#/definitions/parameter_definition"
         },
