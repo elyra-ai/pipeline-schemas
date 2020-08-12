@@ -28,9 +28,6 @@
         },
         "properties": {
           "description": "The properties for the connection. The specific properties allowed depend on the type of connection referenced.",
-          "additionalProperties": {
-            "type": "object"
-          },
           "type": "object"
         }
       },
