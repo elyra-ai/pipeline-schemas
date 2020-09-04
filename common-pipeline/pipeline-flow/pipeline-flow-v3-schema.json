@@ -436,6 +436,12 @@
           "properties": {},
           "additionalProperties": true
         },
+        "interactive_properties": {
+          "description": "The interactive properties for the connection. The specific properties allowed depend on the type of connection referenced.",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
         "app_data": {
           "$ref": "#/definitions/app_data_def"
         }
