@@ -137,7 +137,7 @@
           }
         },
         "messages": {
-          "descriptions": "An array of messages for the node",
+          "description": "An array of messages for the node",
           "type": "array",
           "minItems": 0,
           "items": {
@@ -191,7 +191,6 @@
       "description": "Runtime information",
       "type": "object",
       "properties": {},
-      "required": [],
       "additionalProperties": true
     },
     "association_def": {

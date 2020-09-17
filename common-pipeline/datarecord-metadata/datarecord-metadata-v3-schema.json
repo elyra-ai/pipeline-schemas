@@ -190,8 +190,7 @@
           "description": "Source field for a target field",
           "type": "string"
         }
-      },
-      "required": []
+      }
     },
     "app_data_def": {
       "description": "Object containing app-specific data",
