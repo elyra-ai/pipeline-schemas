@@ -643,7 +643,7 @@
         "type": "string"
       },
       "action_key": {
-        "description": "ID of function to call upon button click, specified in properties config callback section",
+        "description": "ID of function to call upon button click, specified in properties callback object section",
         "type": "string"
       }
     }
