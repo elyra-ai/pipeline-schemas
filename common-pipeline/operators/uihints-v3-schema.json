@@ -487,6 +487,16 @@
           "type": "boolean",
           "default": true
         },
+        "primary_action": {
+          "description": "Primary action button to dispay inplace of add/remove rows button. Can be defined with secondary_action",
+          "type": "object",
+          "$ref": "#/definitions/button_definition"
+        },
+        "secondary_action": {
+          "description": "Secondary action button to dispay inplace of add/remove rows button. Can be defined with primary_action and will be placed to the left of the primary_action button.",
+          "type": "object",
+          "$ref": "#/definitions/button_definition"
+        },
         "row_selection": {
           "description": "Determines how many rows can be selected at a time.  'multiple-edit': select multiple rows and allow the editing of column values for all selected rows.",
           "type": "string",
@@ -621,6 +631,21 @@
           }
         }
       ]
+    },
+    "button_definition": {
+      "label": {
+        "description": "Action label",
+        "type": "object",
+        "$ref": "#/definitions/resource_definition"
+      },
+      "icon": {
+        "description": "URL to button icon",
+        "type": "string"
+      },
+      "action_key": {
+        "description": "ID of function to call upon button click, specified in properties config callback section",
+        "type": "string"
+      }
     }
   }
 }
