@@ -71,7 +71,7 @@
         },
         "style": {
           "description": "A 'style spec' object containing CSS strings to be applied to the SVG objects of the port.",
-          "type": "string"
+          "type": ["string", "object"]
         },
         "label": {
           "description": "Port name",
@@ -98,7 +98,7 @@
         },
         "style": {
           "description": "A 'style spec' object containing CSS strings to be applied to the SVG objects of the node.",
-          "type": "string"
+          "type": ["string", "object"]
         },
         "image": {
           "description": "Image name (do not embed images inline!)",
@@ -106,11 +106,11 @@
         },
         "x_pos": {
           "description": "x-position",
-          "type": "integer"
+          "type": "number"
         },
         "y_pos": {
           "description": "y-position",
-          "type": "integer"
+          "type": "number"
         },
         "is_expanded": {
           "description": "Indicates whether a supernode is shown in expanded state or as a regular node.",
@@ -118,11 +118,11 @@
         },
         "expanded_height": {
           "description": "Height of expanded supernode. If not provided an appropriate height is calculated.",
-          "type": "string"
+          "type": "number"
         },
         "expanded_width": {
           "description": "Width of expanded supernode. If not provided an appropriate width is calculated.",
-          "type": "string"
+          "type": "number"
         },
         "attributes": {
           "description": "additional attributes",
@@ -137,7 +137,7 @@
           }
         },
         "messages": {
-          "descriptions": "An array of messages for the node",
+          "description": "An array of messages for the node",
           "type": "array",
           "minItems": 0,
           "items": {
@@ -173,7 +173,7 @@
         },
         "style": {
           "description": "A 'style spec' object containing CSS strings to be applied to the SVG objects of the node to node link.",
-          "type": "string"
+          "type": ["string", "object"]
         },
         "decorations": {
           "description": "Array of decorations used to decorate node links",
@@ -191,7 +191,6 @@
       "description": "Runtime information",
       "type": "object",
       "properties": {},
-      "required": [],
       "additionalProperties": true
     },
     "association_def": {
@@ -212,7 +211,7 @@
         },
         "style": {
           "description": "A 'style spec' object containing CSS strings to be applied to the SVG objects of the association link.",
-          "type": "string"
+          "type": ["string", "object"]
         },
         "decorations": {
           "description": "Array of decorations used to decorate association links",
@@ -321,22 +320,22 @@
         },
         "x_pos": {
           "description": "Horizontal comment position",
-          "type": "integer",
+          "type": "number",
           "minimum": 0
         },
         "y_pos": {
           "description": "Vertical comment position",
-          "type": "integer",
+          "type": "number",
           "minimum": 0
         },
         "width": {
           "description": "Comment width",
-          "type": "integer",
+          "type": "number",
           "minimum": 10
         },
         "height": {
           "description": "Comment height",
-          "type": "integer",
+          "type": "number",
           "minimum": 10
         },
         "class_name": {
@@ -345,7 +344,7 @@
         },
         "style": {
           "description": "A 'style spec' object containing CSS strings to be applied to the SVG objects of the comment.",
-          "type": "string"
+          "type": ["string", "object"]
         },
         "attributes": {
           "description": "Optional attributes to be added to this element. For example: \"attributes\": \"attr1='value1'; attr2='value2'\"",
@@ -388,7 +387,7 @@
         },
         "style": {
           "description": "A 'style spec' object containing CSS strings to be applied to the SVG objects of the comment link.",
-          "type": "string"
+          "type": ["string", "object"]
         }
       },
       "required": [
