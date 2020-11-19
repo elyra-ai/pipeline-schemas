@@ -327,6 +327,7 @@
           "type": "string",
           "enum": [
             "readonly",
+            "readonlyTable",
             "textfield",
             "passwordfield",
             "textarea",
