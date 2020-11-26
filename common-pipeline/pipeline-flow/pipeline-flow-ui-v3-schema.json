@@ -30,8 +30,38 @@
       "type": "object",
       "properties": {
         "zoom": {
-          "description": "Zoom factor",
-          "type": "integer"
+          "oneOf": [
+            {
+              "description": "Deprecated - use zoom object instead. Scale factor as a percentage. 100% is standard scale amount. Smaller values zoom out. Larger values zoom in.",
+              "type": "integer"
+            },
+            {
+              "description": "A zoom object containing translation and scale amounts.",
+              "type": "object",
+              "properties": {
+                "x": {
+                  "description": "Horizontal translation amount. Positive value moves right, negative to the left.",
+                  "type": "number"
+                },
+                "y": {
+                  "description": "Vertical translation amount. Positive value moves down, negative moves up.",
+                  "type": "number"
+                },
+                "k": {
+                  "description": "Scale amount. 1.0 is the standard scale amount. Smaller values zoom out. Larger values zoom in.",
+                  "type": "number",
+                  "minimum": 0.2,
+                  "maximum": 1.8
+                }
+              },
+              "required": [
+                "x",
+                "y",
+                "k"
+              ],
+              "additionalProperties": false
+            }
+          ]
         },
         "comments": {
           "description": "Array of Comments, optionally associated with nodes",
