@@ -41,4 +41,4 @@ cd $WORKING_DIR
 echo "Master major.minor build ${MASTER_NUM}"
 echo "Publishing pipeline schemas to Artifactory NPM"
 echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
-#npm publish
+npm publish
