@@ -36,6 +36,9 @@ push_changes()
 	git push https://$GIT_TOKEN@github.com/${GITHUB_REPOSITORY} $1
 }
 
+git config --global user.email "elyra-pipeline-schemas@users.noreply.github.com"
+git config --global user.name "Automated build"
+
 # Update package.json version on master
 checkout_branch ${MASTER}
 
