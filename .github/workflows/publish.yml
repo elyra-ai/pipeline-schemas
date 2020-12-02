@@ -33,3 +33,4 @@ jobs:
     - run: ./scripts/publish_modules.sh
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
