@@ -21,24 +21,17 @@ WORKING_DIR="$PWD"
 MASTER="master"
 SKIP_CI="[skip ci]"
 
-push_changes()
-{
-	git status
-	echo "Push changes to $1"
-	git push https://$GIT_TOKEN@github.com/${GITHUB_REPOSITORY} $1
-}
-
 git config --global user.email "elyra-pipeline-schemas@users.noreply.github.com"
 git config --global user.name "Automated build"
 
 # Update package.json version on master
 
 echo "Update patch version of pipeline-schemas"
-npm version patch -m "Update version to ${MASTER_BUILD} ${SKIP_CI}"
+npm version patch -m "Update package.json version ${SKIP_CI}"
 MASTER_BUILD=`node -p "require('./package.json').version"`
 echo "Master build $MASTER_BUILD"
+git push
 
-push_changes ${MASTER}
 MASTER_NUM=$(echo $MASTER_BUILD | cut -d'.' -f1-2)
 # Tag release build
 cd ./scripts
@@ -49,4 +42,3 @@ echo "Master major.minor build ${MASTER_NUM}"
 echo "Publishing pipeline schemas to Artifactory NPM"
 echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
 #npm publish
-cd $WORKING_DIR
