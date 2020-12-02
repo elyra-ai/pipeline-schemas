@@ -350,13 +350,11 @@
         },
         "x_pos": {
           "description": "Horizontal comment position",
-          "type": "number",
-          "minimum": 0
+          "type": "number"
         },
         "y_pos": {
           "description": "Vertical comment position",
-          "type": "number",
-          "minimum": 0
+          "type": "number"
         },
         "width": {
           "description": "Comment width",
