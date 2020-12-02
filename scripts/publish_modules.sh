@@ -21,14 +21,6 @@ WORKING_DIR="$PWD"
 MASTER="master"
 SKIP_CI="[skip ci]"
 
-checkout_branch()
-{
-	echo "Checkout $1"
-	git checkout $1
-	git fetch origin
-	git pull
-}
-
 push_changes()
 {
 	git status
@@ -40,7 +32,6 @@ git config --global user.email "elyra-pipeline-schemas@users.noreply.github.com"
 git config --global user.name "Automated build"
 
 # Update package.json version on master
-# checkout_branch ${MASTER}
 
 echo "Update patch version of pipeline-schemas"
 npm version patch -m "Update version to ${MASTER_BUILD} ${SKIP_CI}"
