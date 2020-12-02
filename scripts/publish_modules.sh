@@ -33,7 +33,7 @@ push_changes()
 {
 	git status
 	echo "Push changes to $1"
-	git push https://$GITHUB_TOKEN@github.com/${GIT_ORG}/pipeline-schemas $1
+	git push https://$GIT_TOKEN@github.com/${GITHUB_REPOSITORY} $1
 }
 
 # Update package.json version on master
@@ -54,5 +54,5 @@ cd $WORKING_DIR
 echo "Master major.minor build ${MASTER_NUM}"
 echo "Publishing pipeline schemas to Artifactory NPM"
 echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
-npm publish
+#npm publish
 cd $WORKING_DIR
