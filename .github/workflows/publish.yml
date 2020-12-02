@@ -23,11 +23,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GIT_TOKEN }}
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
     - run: ./scripts/publish_modules.sh
       env:
-        GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
