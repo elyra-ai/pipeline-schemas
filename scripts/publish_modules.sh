@@ -33,7 +33,7 @@ push_changes()
 {
 	git status
 	echo "Push changes to $1"
-	git push https://$GIT_TOKEN@github.com/${GITHUB_REPOSITORY} $1
+	git push
 }
 
 git config --global user.email "elyra-pipeline-schemas@users.noreply.github.com"
