@@ -434,6 +434,33 @@
         "action_ref": {
           "description": "Determines an action should be added to the control",
           "type": "string"
+        },
+        "icon": {
+          "description": "Properties for how the icon will be positioned in a readonly control.",
+          "type": "object",
+          "properties": {
+            "url": {
+              "description": "icon url to be used for when 'type' is 'custom'",
+              "type": "string"
+            },
+            "placement": {
+              "description": "placement of the icon 'left' or 'right' of the text",
+              "enum": [
+                "right",
+                "left"
+              ]
+            },
+            "icon": {
+              "description": "Predefined icon to display. Besides 'custom', these icons are from the Carbon library",
+              "enum": [
+                "custom",
+                "info",
+                "error",
+                "warning",
+                "success"
+              ]
+            }
+          }
         }
       },
       "required": [
