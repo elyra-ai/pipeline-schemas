@@ -73,6 +73,14 @@
         }
       },
       "additionalProperties": true
+    },
+    "icon": {
+      "description": "URL to heading icon",
+      "type": "string"
+    },
+    "heading": {
+      "description": "The component heading",
+      "type": "string"
     }
   },
   "required": [
