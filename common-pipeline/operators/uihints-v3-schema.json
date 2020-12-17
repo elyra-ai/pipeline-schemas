@@ -435,6 +435,10 @@
         "action_ref": {
           "description": "Determines an action should be added to the control",
           "type": "string"
+        },
+        "custom_value_allowed": {
+          "description": "Determines if a dropdown can allow a custom value to be entered",
+          "type": "boolean"
         }
       },
       "required": [
