@@ -578,7 +578,11 @@
             "text/x-rsrc",
             "text/x-python"
           ]
-        }
+        },
+        "customValueAllowed": {
+          "description": "Determines if a dropdown, outside of a table, can allow a custom value to be entered",
+          "type": "boolean"
+        },
       },
       "required": [
         "name",

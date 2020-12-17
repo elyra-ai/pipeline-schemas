@@ -437,7 +437,7 @@
           "type": "string"
         },
         "custom_value_allowed": {
-          "description": "Determines if a dropdown can allow a custom value to be entered",
+          "description": "Determines if a dropdown, outside of a table, can allow a custom value to be entered",
           "type": "boolean"
         }
       },
