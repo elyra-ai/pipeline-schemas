@@ -168,6 +168,10 @@
             "$ref": "#/definitions/group_definition"
           },
           "type": "array"
+        },
+        "class_name": {
+          "description": "Optional class name to set for this group",
+          "type": "string"
         }
       },
       "required": [
@@ -439,6 +443,10 @@
         "custom_value_allowed": {
           "description": "Determines if a dropdown, outside of a table, can allow a custom value to be entered",
           "type": "boolean"
+        },
+        "class_name": {
+          "description": "Optional class name to set for this control",
+          "type": "string"
         }
       },
       "required": [
