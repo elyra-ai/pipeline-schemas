@@ -170,6 +170,10 @@
           "description": "Action definition for 'action' items.",
           "type": "object",
           "$ref": "#/definitions/action_definition"
+        },
+        "className": {
+          "description": "Optional class name to set for this uiItem",
+          "type": "string"
         }
       },
       "required": [
@@ -548,20 +552,20 @@
             }
           }
         },
-				"visible": {
+        "visible": {
           "description": "Whether the table showing the structures includes a column for this sub-parameter for subControls",
           "type": "boolean"
         },
-				"width": {
+        "width": {
           "description": "Suggested width of the column in the table that shows the current value for subControls.",
           "type": "integer"
         },
-				"displayChars": {
+        "displayChars": {
           "description": "Limits the number of characters displayed for a text field in a column in a table.  The text will have an ellipsis appended at this limit.",
           "type": "integer",
           "default": 64
         },
-				"sortable": {
+        "sortable": {
           "description": "Determines if this column values can be sorted into ascending/descending order in a table",
           "type": "boolean"
         },
@@ -569,7 +573,7 @@
           "description": "Determines if this column values can be filtered so that only rows that match the filter in column values are shown in the table",
           "type": "boolean"
         },
-				"language": {
+        "language": {
           "description": "The language for the expression editor syntax highlight and autocomplete workds. Applies to expression control type.",
           "type": "string",
           "enum": [
@@ -583,6 +587,10 @@
           "description": "Determines if a dropdown, outside of a table, can allow a custom value to be entered",
           "type": "boolean"
         },
+        "className": {
+          "description": "Optional class name to set for this control",
+          "type": "string"
+        }
       },
       "required": [
         "name",
