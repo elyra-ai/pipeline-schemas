@@ -308,27 +308,35 @@
           "properties": {
             "op": {
               "description": "A single operator for the properties of the condition.",
-              "enum": [
-                "isEmpty",
-                "isNotEmpty",
-                "greaterThan",
-                "lessThan",
-                "equals",
-                "notEquals",
-                "contains",
-                "notContains",
-                "colNotExists",
-                "cellNotEmpty",
-                "colDoesExist",
-                "isDateTime",
-                "dmTypeEquals",
-                "dmTypeNotEquals",
-                "dmMeasurementEquals",
-                "dmMeasurementNotEquals",
-                "dmRoleEquals",
-                "dmRoleNotEquals",
-                "matches",
-                "notMatches"
+              "anyOf": [
+                  {
+                    "enum": [
+                      "isEmpty",
+                      "isNotEmpty",
+                      "greaterThan",
+                      "lessThan",
+                      "equals",
+                      "notEquals",
+                      "contains",
+                      "notContains",
+                      "colNotExists",
+                      "cellNotEmpty",
+                      "colDoesExist",
+                      "isDateTime",
+                      "dmTypeEquals",
+                      "dmTypeNotEquals",
+                      "dmMeasurementEquals",
+                      "dmMeasurementNotEquals",
+                      "dmRoleEquals",
+                      "dmRoleNotEquals",
+                      "matches",
+                      "notMatches"
+                    ]
+                  },
+                  {
+                    "description": "The name of the custom operator",
+                    "type": "string"
+                  }
               ]
             },
             "parameter_ref": {
@@ -399,7 +407,7 @@
           "type": "string"
         }
       },
-      "oneOf": [
+      "anyOf": [
         {
           "required": [
             "default"
