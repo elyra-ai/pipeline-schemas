@@ -31,16 +31,16 @@
       "additionalProperties": true
     },
     "parameters": {
-      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v3-schema.json#parameters"
+      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v3-schema.json#/properties/parameters"
     },
     "complex_types": {
-      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v3-schema.json#complex_types"
+      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v3-schema.json#/properties/complex_types"
     },
     "uihints": {
       "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#"
     },
     "conditions": {
-      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/conditions-v3-schema.json#conditions"
+      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/conditions-v3-schema.json#/properties/conditions"
     },
     "dataset_metadata": {
       "oneOf": [
@@ -63,9 +63,5 @@
       "properties": {},
       "additionalProperties": true
     }
-  },
-  "required": [
-    "current_parameters",
-    "parameters"
-  ]
+  }
 }
