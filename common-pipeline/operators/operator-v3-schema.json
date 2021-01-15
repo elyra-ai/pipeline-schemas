@@ -128,11 +128,6 @@
       "anyOf": [
         {
           "required": [
-            "id"
-          ]
-        },
-        {
-          "required": [
             "id",
             "type"
           ]
