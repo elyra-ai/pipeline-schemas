@@ -160,8 +160,15 @@
         },
         "data": {
           "description": "Data passed to custom panel when group type is 'customPanel'",
-          "type": "object",
-          "additionalProperties": true
+          "additionalProperties": true,
+          "oneOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "array"
+            }
+          ]
         },
         "group_info": {
           "items": {
@@ -237,6 +244,7 @@
             "someofselect",
             "selectcolumn",
             "selectcolumns",
+            "selectschema",
             "structuretable",
             "structurelisteditor",
             "structureeditor",
@@ -335,6 +343,7 @@
           "type": "string",
           "enum": [
             "CLEM",
+            "javascript",
             "text/x-hive",
             "text/x-rsrc",
             "text/x-python"

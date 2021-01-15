@@ -63,9 +63,5 @@
       "properties": {},
       "additionalProperties": true
     }
-  },
-  "required": [
-    "current_parameters",
-    "parameters"
-  ]
+  }
 }

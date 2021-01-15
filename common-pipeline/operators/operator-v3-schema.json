@@ -125,7 +125,12 @@
           ]
         }
       },
-      "oneOf": [
+      "anyOf": [
+        {
+          "required": [
+            "id"
+          ]
+        },
         {
           "required": [
             "id",
@@ -135,6 +140,13 @@
         {
           "required": [
             "id",
+            "enum"
+          ]
+        },
+        {
+          "required": [
+            "id",
+            "type",
             "enum"
           ]
         }

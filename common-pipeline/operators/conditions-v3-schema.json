@@ -358,6 +358,12 @@
                 },
                 {
                   "type": "boolean"
+                },
+                {
+                  "type": "array"
+                },
+                {
+                  "type": "null"
                 }
               ]
             }
@@ -432,7 +438,10 @@
             },
             "parameter_refs": {
               "description": "Parameters affected by this operation - exclusive with parameter_ref",
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "evaluate": {
               "description": "Evaluates to return values included in a control",
@@ -440,9 +449,19 @@
               "$ref": "#/definitions/evaluate_definition"
             }
           },
-          "required": [
-            "evaluate",
-            "parameter_ref"
+          "oneOf": [
+            {
+              "required": [
+                "evaluate",
+                "parameter_ref"
+              ]
+            },
+            {
+              "required": [
+                "evaluate",
+                "parameter_refs"
+              ]
+            }
           ]
         }
       },
@@ -481,12 +500,15 @@
               "type": "object",
               "$ref": "#/definitions/evaluate_definition"
             }
-          }
+          },
+          "required": [
+            "target",
+            "evaluate"
+          ]
         }
       },
       "required": [
-        "target",
-        "evaluate"
+        "enum_filter"
       ]
     },
     "filter_condition_definition": {
@@ -496,7 +518,7 @@
         "condition": {
           "description": "The condition that is evaluated",
           "type": "object",
-          "oneOf": [
+          "anyOf": [
             {
               "properties": {
                 "op": {
@@ -530,6 +552,16 @@
               "required": [
                 "op",
                 "values"
+              ]
+            },
+            {
+              "properties": {
+                "op": {
+                  "$ref": "#/definitions/filter_op_definition"
+                }
+              },
+              "required": [
+                "op"
               ]
             }
           ]
