@@ -530,8 +530,7 @@
                 }
               },
               "required": [
-                "op",
-                "value"
+                "op"
               ]
             },
             {
@@ -552,16 +551,6 @@
               "required": [
                 "op",
                 "values"
-              ]
-            },
-            {
-              "properties": {
-                "op": {
-                  "$ref": "#/definitions/filter_op_definition"
-                }
-              },
-              "required": [
-                "op"
               ]
             }
           ]
