@@ -591,7 +591,7 @@
           "description": "Optional class name to set for this control",
           "type": "string"
         },
-        "dropdown_selection": {
+        "dropdownSelection": {
           "description": "Determines how many items can be selected at a time.",
           "type": "string",
           "enum": [
