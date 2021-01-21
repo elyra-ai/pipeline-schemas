@@ -352,6 +352,7 @@
             "checkboxset",
             "toggletext",
             "oneofselect",
+            "multiselect",
             "someofselect",
             "selectcolumn",
             "selectcolumns",
