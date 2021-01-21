@@ -336,7 +336,7 @@
           "type": "boolean"
         },
         "filterable": {
-          "description": "Determines if this column values can be filtered so that only rows that match the filter in column values are shown in the table. Applies to structure parameters only.",
+          "description": "Determines if this column values can be filtered so that only rows that match the filter in column values are shown in the table. Applies to structure parameters and multiselect control only.",
           "type": "boolean"
         },
         "language": {
