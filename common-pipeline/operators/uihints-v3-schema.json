@@ -457,14 +457,6 @@
         "class_name": {
           "description": "Optional class name to set for this control",
           "type": "string"
-        },
-        "dropdown_selection": {
-          "description": "Determines how many items can be selected at a time.",
-          "type": "string",
-          "enum": [
-            "single",
-            "multiple"
-          ]
         }
       },
       "required": [
