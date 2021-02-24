@@ -26,7 +26,7 @@
          "description": "The parameter set definition referenced within a pipleine.",
          "properties": {
             "name": {
-               "description": "The name of the parameter set.",
+               "description": "The disambiguating name of the parameter set.",
                "type": "string"
             },
             "description": {
@@ -34,23 +34,12 @@
                "type": "string"
             },
             "parameters": {
+               "type": "array",
+               "minItems": 0,
                "items": {
-                  "$ref": "#/definitions/paramset_item"
+                  "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parameters-v3-schema.json#/definitions/param_property_def"
                },
-               "type": "array"
-            }
-         },
-         "type": "object"
-      },
-      "paramset_item": {
-         "description": "The parameter to enable a reference in the pipeline to be replaced at runtime.",
-         "properties": {
-            "name": {
-               "description": "The name of the parameter.",
-               "type": "string"
-            },
-            "literal_value": {
-               "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parameters-v3-schema.json#/definitions/param_value_literal"
+               "uniqueItems": true
             }
          },
          "required": [

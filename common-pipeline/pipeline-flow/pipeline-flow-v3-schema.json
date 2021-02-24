@@ -65,12 +65,12 @@
       },
       "uniqueItems": true
     },
-    "external_parameters": {
-      "description": "Array of parameterized property references",
+    "external_paramsets": {
+      "description": "Array of parameter set references",
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parameters-v3-schema.json#/definitions/param_property_ref"
+        "$ref": "#/definitions/external_paramset_def"
       },
       "uniqueItems": true
     },
@@ -638,6 +638,31 @@
       "required": [
         "id",
         "name"
+      ]
+    },
+    "external_paramset_def": {
+      "description": "Refers to the external parameter set associated with current pipeline",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The disambiguating name of the parameter set.",
+          "type": "string"
+        },
+        "ref": {
+          "description": "A reference to a parameter set by ID.",
+          "type": "string"
+        },
+        "catalog_ref": {
+          "description": "If ref is set, this refers to the ID of the catalog which contains the parameter set. If neither this attribute nor catalog_ref are specified, the parameter set will be assumed to exist in the project or catalog which contains the pipeline.",
+          "type": "string"
+        },
+        "project_ref": {
+          "description": "If ref is set, this refers to the ID of the project which contains the parameter set. If neither this attribute nor catalog_ref are specified, the parameter set will be assumed to exist in the project or catalog which contains the pipeline.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ref"
       ]
     }
   }
