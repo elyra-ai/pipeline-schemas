@@ -1,6 +1,6 @@
 {
    "$schema":"http://json-schema.org/draft-04/schema#",
-   "id":"http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parametersets-v3-schema.json#",
+   "id":"http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parametersets-v3-schema.json",
    "title":"Watson Data Platform Pipeline Parametersets Schema",
    "description":"Parametersets schema for pipelines in the Watson Data Platform",
    "type": "object",
@@ -24,6 +24,7 @@
    "definitions":{
       "paramset_def": {
          "description": "The parameter set definition referenced within a pipleine.",
+         "type": "object",
          "properties": {
             "name": {
                "description": "The disambiguating name of the parameter set.",
@@ -44,8 +45,32 @@
          },
          "required": [
             "name"
-         ],
-         "type": "object"
+         ]
+      },
+      "paramset_ref": {
+         "description": "Refers to the external parameter set.",
+         "type": "object",
+         "properties": {
+            "name": {
+               "description": "The disambiguating name of the parameter set.",
+               "type": "string"
+            },
+            "ref": {
+               "description": "A reference to a parameter set by ID.",
+               "type": "string"
+            },
+            "catalog_ref": {
+               "description": "If ref is set, this refers to the ID of the catalog which contains the parameter set. If neither this attribute nor catalog_ref are specified, the parameter set will be assumed to exist in the project or catalog which contains the pipeline.",
+               "type": "string"
+            },
+            "project_ref": {
+               "description": "If ref is set, this refers to the ID of the project which contains the parameter set. If neither this attribute nor catalog_ref are specified, the parameter set will be assumed to exist in the project or catalog which contains the pipeline.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "ref"
+         ]
       }
    }
 }
