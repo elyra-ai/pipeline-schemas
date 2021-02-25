@@ -60,11 +60,15 @@
                "type": "string"
             },
             "catalog_ref": {
-               "description": "If ref is set, this refers to the ID of the catalog which contains the parameter set. If neither this attribute nor catalog_ref are specified, the parameter set will be assumed to exist in the project or catalog which contains the pipeline.",
+               "description": "If ref is set, this refers to the ID of the catalog which contains the parameter set. If neither this attribute nor project_ref and space_ref are specified, the parameter set will be assumed to exist in the project, catalog or space which contains the pipeline.",
                "type": "string"
             },
             "project_ref": {
-               "description": "If ref is set, this refers to the ID of the project which contains the parameter set. If neither this attribute nor catalog_ref are specified, the parameter set will be assumed to exist in the project or catalog which contains the pipeline.",
+               "description": "If ref is set, this refers to the ID of the project which contains the parameter set. If neither this attribute nor catalog_ref and space_ref are specified, the parameter set will be assumed to exist in the project, catalog or space which contains the pipeline.",
+               "type": "string"
+            },
+            "space_ref": {
+               "description": "If ref is set, this refers to the ID of the space which contains the parameter set. If neither this attribute nor catalog_ref and project_ref are specified, the parameter set will be assumed to exist in the project, catalog or space which contains the pipeline.",
                "type": "string"
             }
          },
