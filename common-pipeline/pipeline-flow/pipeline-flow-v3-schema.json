@@ -340,7 +340,8 @@
       },
       "required": [
         "id",
-        "type"
+        "type",
+        "outputs"
       ],
       "additionalProperties": false
     },
@@ -394,7 +395,8 @@
       },
       "required": [
         "id",
-        "type"
+        "type",
+        "inputs"
       ],
       "additionalProperties": false
     },
