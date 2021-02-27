@@ -29,11 +29,16 @@
       "description": "Pipeline level UI information",
       "type": "object",
       "properties": {
+        "description": {
+          "description": "User-defined description",
+          "type": "string"
+        },
         "zoom": {
           "oneOf": [
             {
               "description": "Deprecated - use zoom object instead. Scale factor as a percentage. 100% is standard scale amount. Smaller values zoom out. Larger values zoom in.",
-              "type": "integer"
+              "type": "integer",
+              "deprecated": true
             },
             {
               "description": "A zoom object containing translation and scale amounts.",
@@ -197,6 +202,10 @@
       "description": "object with app-specific UI-information",
       "type": "object",
       "properties": {
+        "description": {
+          "description": "User-defined description",
+          "type": "string"
+        },
         "class_name": {
           "description": "CSS class name",
           "type": "string"

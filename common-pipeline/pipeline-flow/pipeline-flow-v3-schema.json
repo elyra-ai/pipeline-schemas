@@ -102,8 +102,9 @@
           "type": "string"
         },
         "description": {
-          "description": "Pipeline flow description",
-          "type": "string"
+          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/pipeline_def instead.",
+          "type": "string",
+          "deprecated": true
         },
         "name": {
           "description": "User-readable name",
@@ -174,8 +175,9 @@
           "type": "string"
         },
         "description": {
-          "description": "Execution node description",
-          "type": "string"
+          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_info_def instead.",
+          "type": "string",
+          "deprecated": true
         },
         "type": {
           "description": "Node type - always 'execution_node' for non-model pipeline elements",
@@ -230,8 +232,9 @@
           "type": "string"
         },
         "description": {
-          "description": "Supernode description",
-          "type": "string"
+          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_info_def instead.",
+          "type": "string",
+          "deprecated": true
         },
         "type": {
           "description": "Node type - always 'super_node' for supernode elements",
@@ -299,8 +302,9 @@
           "type": "string"
         },
         "description": {
-          "description": "Binding entry node description",
-          "type": "string"
+          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_info_def instead.",
+          "type": "string",
+          "deprecated": true
         },
         "type": {
           "description": "Node type - always 'binding' for binding elements",
@@ -353,8 +357,9 @@
           "type": "string"
         },
         "description": {
-          "description": "Binding exit node description",
-          "type": "string"
+          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_info_def instead.",
+          "type": "string",
+          "deprecated": true
         },
         "type": {
           "description": "Node type - always 'binding' for binding elements",
@@ -407,8 +412,9 @@
           "type": "string"
         },
         "description": {
-          "description": "Model node description",
-          "type": "string"
+          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_info_def instead.",
+          "type": "string",
+          "deprecated": true
         },
         "type": {
           "description": "Node type - always 'model_node' for model pipeline elements",
@@ -589,7 +595,7 @@
           "type": "string"
         },
         "description": {
-          "description": "Link description",
+          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_link_info_def instead.",
           "type": "string"
         },
         "app_data": {
