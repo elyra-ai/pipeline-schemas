@@ -215,23 +215,11 @@
         },
         "label": {
           "description": "Defines a panel label.",
-          "type": "object",
-          "properties": {
-            "text": {
-              "description": "The label text.",
-              "type": "string"
-            }
-          }
+          "type": "string"
         },
         "description": {
           "description": "Defines a panel description.",
-          "type": "object",
-          "properties": {
-            "text": {
-              "description": "The description text.",
-              "type": "string"
-            }
-          }
+          "type": "string"
         }
       },
       "required": [
@@ -280,13 +268,7 @@
         },
         "label": {
           "description": "Defines a panel label.",
-          "type": "object",
-          "properties": {
-            "text": {
-              "description": "The label text.",
-              "type": "string"
-            }
-          }
+          "type": "string"
         }
       },
       "required": [
