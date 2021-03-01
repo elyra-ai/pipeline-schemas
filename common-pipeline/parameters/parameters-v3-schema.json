@@ -35,26 +35,12 @@
                "description": "The description of the parameter.",
                "type": "string"
             },
-            "type_code": {
-               "description": "The parameter type.",
-               "enum": [
-                  "string",
-                  "encrypted",
-                  "int64",
-                  "sfloat",
-                  "json_object",
-                  "json_array",
-                  "path",
-                  "enum",
-                  "date",
-                  "time",
-                  "timestamp",
-                  "asset_id",
-                  "envvar"
-               ]
+            "type": {
+               "description": "The parameter type. Each product manages its own list of parameter type. The parameter type should be an enum list ideally. As schema is common to all products, use string instead.",
+               "type": "string"
             },
             "subtype": {
-               "description": "Subtype of this parameter only if type_code in {asset_id, envvar}.",
+               "description": "The parameter subtype.",
                "type": "string"
             },
             "value": {
@@ -62,7 +48,7 @@
                "type": "object"
             },
             "valid_values": {
-               "description": "Valid values only present for type_codes {enum, envvar}.",
+               "description": "Valid values.",
                "type": "object"
             }
          },
