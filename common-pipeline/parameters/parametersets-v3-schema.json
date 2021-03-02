@@ -1,6 +1,6 @@
 {
    "$schema":"http://json-schema.org/draft-04/schema#",
-   "id":"http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parametersets-v3-schema.json#",
+   "id":"http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parametersets-v3-schema.json",
    "title":"Watson Data Platform Pipeline Parametersets Schema",
    "description":"Parametersets schema for pipelines in the Watson Data Platform",
    "type": "object",
@@ -24,9 +24,10 @@
    "definitions":{
       "paramset_def": {
          "description": "The parameter set definition referenced within a pipleine.",
+         "type": "object",
          "properties": {
             "name": {
-               "description": "The name of the parameter set.",
+               "description": "The disambiguating name of the parameter set.",
                "type": "string"
             },
             "description": {
@@ -34,29 +35,46 @@
                "type": "string"
             },
             "parameters": {
+               "type": "array",
+               "minItems": 0,
                "items": {
-                  "$ref": "#/definitions/paramset_item"
+                  "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parameters-v3-schema.json#/definitions/param_property_def"
                },
-               "type": "array"
-            }
-         },
-         "type": "object"
-      },
-      "paramset_item": {
-         "description": "The parameter to enable a reference in the pipeline to be replaced at runtime.",
-         "properties": {
-            "name": {
-               "description": "The name of the parameter.",
-               "type": "string"
-            },
-            "literal_value": {
-               "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parameters-v3-schema.json#/definitions/param_value_literal"
+               "uniqueItems": true
             }
          },
          "required": [
             "name"
-         ],
-         "type": "object"
+         ]
+      },
+      "paramset_ref": {
+         "description": "Refers to the external parameter set.",
+         "type": "object",
+         "properties": {
+            "name": {
+               "description": "The disambiguating name of the parameter set.",
+               "type": "string"
+            },
+            "ref": {
+               "description": "A reference to a parameter set by ID.",
+               "type": "string"
+            },
+            "catalog_ref": {
+               "description": "If ref is set, this refers to the ID of the catalog which contains the parameter set. If neither this attribute nor project_ref and space_ref are specified, the parameter set will be assumed to exist in the project, catalog or space which contains the pipeline.",
+               "type": "string"
+            },
+            "project_ref": {
+               "description": "If ref is set, this refers to the ID of the project which contains the parameter set. If neither this attribute nor catalog_ref and space_ref are specified, the parameter set will be assumed to exist in the project, catalog or space which contains the pipeline.",
+               "type": "string"
+            },
+            "space_ref": {
+               "description": "If ref is set, this refers to the ID of the space which contains the parameter set. If neither this attribute nor catalog_ref and project_ref are specified, the parameter set will be assumed to exist in the project, catalog or space which contains the pipeline.",
+               "type": "string"
+            }
+         },
+         "required": [
+            "ref"
+         ]
       }
    }
 }
