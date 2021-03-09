@@ -1,6 +1,6 @@
 {
-   "$schema":"http://json-schema.org/draft-04/schema#",
-   "id":"http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parametersets-v3-schema.json",
+   "$schema":"https://json-schema.org/draft-04/schema#",
+   "id":"https://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parametersets-v3-schema.json",
    "title":"Watson Data Platform Pipeline Parametersets Schema",
    "description":"Parametersets schema for pipelines in the Watson Data Platform",
    "type": "object",
@@ -8,7 +8,7 @@
      "json_schema": {
        "description": "Refers to the JSON schema used to validate documents of this type",
        "enum": [
-         "http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parametersets-v3-schema.json"
+         "https://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parametersets-v3-schema.json"
        ]
      },
      "paramset": {
@@ -38,7 +38,7 @@
                "type": "array",
                "minItems": 0,
                "items": {
-                  "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parameters-v3-schema.json#/definitions/param_property_def"
+                  "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parameters-v3-schema.json#/definitions/param_property_def"
                },
                "uniqueItems": true
             }

@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -84,7 +84,7 @@ function _update0to1(pipelineFlow) {
  */
 function _update1to2(pipelineFlow) {
 	pipelineFlow.version = "2.0";
-	pipelineFlow.json_schema = "http://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v2-schema.json";
+	pipelineFlow.json_schema = "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v2-schema.json";
 
 	// --> Changed the binding node. Instead of just a single input or output port,
 	// binding nodes can have either an array of input ports or an array of output ports.
@@ -133,7 +133,7 @@ function _update1to2(pipelineFlow) {
  */
 function _update2to3(pipelineFlow) {
 	pipelineFlow.version = "3.0";
-	pipelineFlow.json_schema = "http://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json";
+	pipelineFlow.json_schema = "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json";
 
 	return pipelineFlow;
 }

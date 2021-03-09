@@ -1,6 +1,6 @@
 {
   "id":"org.apache.spark.ml.classification.GBTClassifier",
-  "json_schema": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v2-schema.json",
+  "json_schema": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v2-schema.json",
   "label":"Gradient Boosted Tree Classifier",
   "description":"Fit a Gradient Boosted Tree Classifier Model",
   "operator_type":"estimator",

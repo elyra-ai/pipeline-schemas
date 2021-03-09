@@ -1,6 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json",
+  "$schema": "https://json-schema.org/draft-04/schema#",
+  "id": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json",
   "description": "WDP UI Hints schema",
   "title": "WDP UI Hints schema",
   "type": "object",
@@ -12,7 +12,7 @@
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
       "enum": [
-        "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json"
+        "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json"
       ]
     },
     "label": {
@@ -73,7 +73,7 @@
       "description": "List of UI only parameters",
       "type": "array",
       "items": {
-        "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operator/operator-v2-schema.json#/definitions/parameter_definition"
+        "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operator/operator-v2-schema.json#/definitions/parameter_definition"
       }
     },
     "action_info": {
