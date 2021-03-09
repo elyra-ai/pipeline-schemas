@@ -1,6 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/conditions-v3-schema.json#",
+  "$schema": "https://json-schema.org/draft-04/schema#",
+  "id": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/conditions-v3-schema.json#",
   "title": "Watson Data Platform Validation Schema",
   "description": "User Interface Condition schema for the Watson Data Platform",
   "type": "object",
@@ -8,7 +8,7 @@
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
       "enum": [
-        "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/conditions-v3-schema.json"
+        "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/conditions-v3-schema.json"
       ]
     },
     "conditions": {

@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "https://json-schema.org/draft-04/schema#",
   "type": "object",
   "description": "Common Canvas palette schema",
-  "id": "http://api.dataplatform.ibm.com/schemas/common-canvas/palette/palette-v2-schema.json",
+  "id": "https://api.dataplatform.ibm.com/schemas/common-canvas/palette/palette-v2-schema.json",
   "version": {
     "description": "Palette schema version",
     "enum": [

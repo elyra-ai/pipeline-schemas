@@ -1,6 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://api.dataplatform.ibm.com/schemas/common-canvas/expression/function-list-v3-schema.json",
+  "$schema": "https://json-schema.org/draft-04/schema#",
+  "id": "https://api.dataplatform.ibm.com/schemas/common-canvas/expression/function-list-v3-schema.json",
   "title": "Expression Builder Function List Schema",
   "description": "Watson Data Platform Expression Builder Function List Schema for the Common Properties editor",
   "type": "object",
@@ -49,7 +49,7 @@
         "label": {
           "description": "External name of category",
           "type": "object",
-          "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
         },
         "function_refs": {
           "description": "Array of function ids that are part of this fuction category",
@@ -78,7 +78,7 @@
         "label": {
           "description": "User-readable name of function",
           "type": "object",
-          "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
         },
         "parameters": {
           "description": "Array of parameter information",
@@ -96,7 +96,7 @@
         "description": {
           "description": "The help text for the function.",
           "type": "object",
-          "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
         }
       },
       "required": [
@@ -113,7 +113,7 @@
         "label": {
           "description": "User-readable name of parameter",
           "type": "object",
-          "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
         },
         "type": {
           "description": "The type of the parameter.",

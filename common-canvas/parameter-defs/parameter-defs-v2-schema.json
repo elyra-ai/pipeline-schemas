@@ -1,6 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://api.dataplatform.ibm.com/schemas/common-canvas/parameter-defs/parameter-defs-v2-schema.json",
+  "$schema": "https://json-schema.org/draft-04/schema#",
+  "id": "https://api.dataplatform.ibm.com/schemas/common-canvas/parameter-defs/parameter-defs-v2-schema.json",
   "title": "Property Definitions Schema",
   "description": "Watson Data Platform Property Definition Schema for the Common Properties editor",
   "type": "object",
@@ -31,28 +31,28 @@
       "additionalProperties": true
     },
     "parameters": {
-      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v2-schema.json#parameters"
+      "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v2-schema.json#parameters"
     },
     "complex_types": {
-      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v2-schema.json#complex_types"
+      "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v2-schema.json#complex_types"
     },
     "uihints": {
-      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json#"
+      "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json#"
     },
     "conditions": {
-      "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/operators/conditions-v2-schema.json#conditions"
+      "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/conditions-v2-schema.json#conditions"
     },
     "dataset_metadata": {
       "oneOf": [
         {
           "description": "A single datarecord object. Deprecated.",
-          "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/datarecord-metadata/datarecord-metadata-v2-schema.json#"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/datarecord-metadata/datarecord-metadata-v2-schema.json#"
         },
         {
           "description": "An array of datarecord objects",
           "type": "array",
           "items": {
-            "$ref": "http://api.dataplatform.ibm.com/schemas/common-pipeline/datarecord-metadata/datarecord-metadata-v2-schema.json#"
+            "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/datarecord-metadata/datarecord-metadata-v2-schema.json#"
           }
         }
       ]
