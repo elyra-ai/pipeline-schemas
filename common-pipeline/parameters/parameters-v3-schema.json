@@ -54,7 +54,7 @@
          },
          "required": [
             "name",
-            "type_code"
+            "type"
          ],
          "type": "object"
       }
