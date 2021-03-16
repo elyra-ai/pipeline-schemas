@@ -17,6 +17,7 @@
     "json_schema": {
       "description": "Refers to the JSON schema used to validate documents of this type",
       "enum": [
+        "http://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v2-schema.json",
         "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v2-schema.json"
       ]
     },
