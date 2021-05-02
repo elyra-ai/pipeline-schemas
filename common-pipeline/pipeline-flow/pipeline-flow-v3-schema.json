@@ -372,6 +372,10 @@
         "inputs": {
           "$ref": "#/definitions/ports_def"
         },
+        "alt_outputs": {
+          "description": "An alternative set of output ports used for directing error information out of the binding node.",
+          "$ref": "#/definitions/ports_def"
+        },
         "app_data": {
           "description": "Object containing app-specific data",
           "type": "object",
