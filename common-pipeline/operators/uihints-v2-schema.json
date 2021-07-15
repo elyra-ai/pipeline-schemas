@@ -133,6 +133,10 @@
           "description": "Indicates whether panels, contained with a panelSelector, should be inserted between the radio buttons of a radio button set indicated by the depends_on_ref parameter.",
           "type": "boolean"
         },
+        "nested_panel": {
+          "description": "Indicate whether panel should be nested. Nested panels are indented by 16px from the left and display left border. Default is false.",
+          "type": "boolean"
+        },
         "label": {
           "description": "Group label",
           "type": "object",
