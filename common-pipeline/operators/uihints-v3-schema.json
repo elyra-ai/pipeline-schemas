@@ -138,6 +138,10 @@
           "description": "Indicate whether panel should be nested. Nested panels are indented by 16px from the left and display left border. Default is false.",
           "type": "boolean"
         },
+        "open": {
+          "description": "Used to determine if a panel is open or closed when UI is displayed.  Currenty only supported with twistyPanel. Default is false.",
+          "type": "boolean"
+        },
         "label": {
           "description": "Group label",
           "type": "object",
