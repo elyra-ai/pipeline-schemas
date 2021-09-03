@@ -42,6 +42,9 @@
         },
         {
           "$ref": "#/definitions/allow_change_definition"
+        },
+        {
+          "$ref": "#/definitions/default_value_definition"
         }
       ]
     },
@@ -598,6 +601,50 @@
       },
       "required": [
         "allow_change"
+      ]
+    },
+    "default_value_definition": {
+      "properties": {
+        "default_value": {
+          "description": "Set default value of the parameter_ref if condition evaluates to true.",
+          "type": "object",
+          "properties": {
+            "parameter_ref": {
+              "description": "Parameter whose default value is to be set.",
+              "type": "string",
+            },
+            "value": {
+              "description": "This will be the default value of parameter_ref if condition evaluates to true.",
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "array"
+                }
+              ]
+            },
+            "evaluate": {
+              "description": "Evaluates to a boolean result",
+              "type": "object",
+              "$ref": "#/definitions/evaluate_definition"
+            }
+          },
+          "required": [
+            "parameter_ref",
+            "value",
+            "evaluate"
+          ]
+        }
+      },
+      "required": [
+        "default_value"
       ]
     }
   }
