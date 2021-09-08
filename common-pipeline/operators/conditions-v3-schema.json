@@ -611,7 +611,7 @@
           "properties": {
             "parameter_ref": {
               "description": "Parameter whose default value is to be set.",
-              "type": "string",
+              "type": "string"
             },
             "value": {
               "description": "This will be the default value of parameter_ref if condition evaluates to true.",
@@ -627,6 +627,12 @@
                 },
                 {
                   "type": "array"
+                },
+                {
+                  "type": "date"
+                },
+                {
+                  "type": "time"
                 }
               ]
             },
