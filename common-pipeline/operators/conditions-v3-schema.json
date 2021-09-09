@@ -615,25 +615,12 @@
             },
             "value": {
               "description": "This will be the default value of parameter_ref if condition evaluates to true.",
-              "oneOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "boolean"
-                },
-                {
-                  "type": "array"
-                },
-                {
-                  "type": "date"
-                },
-                {
-                  "type": "time"
-                }
+              "type": [
+                "number",
+                "string",
+                "boolean",
+                "object",
+                "array"
               ]
             },
             "evaluate": {
