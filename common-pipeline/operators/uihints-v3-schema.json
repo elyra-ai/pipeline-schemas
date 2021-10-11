@@ -383,11 +383,11 @@
           ]
         },
         "number_generator": {
-          "description": "Adds a number generation link beside the label of this control",
+          "description": "Adds a number generation button beside the numeric control",
           "type": "object",
           "properties": {
             "label": {
-              "description": "Link text",
+              "description": "Number generator button label. It is visible on hover.",
               "type": "object",
               "$ref": "#/definitions/resource_definition"
             },
