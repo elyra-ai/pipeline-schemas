@@ -149,7 +149,7 @@
           "minItems": 0,
           "items": {
             "description": "A value discovered in the data",
-            "type": "string"
+            "type": "Can be a primitive type (string, integer, double, date, time, timestamp, binary, boolean)"
           },
           "uniqueItems": true
         },
