@@ -152,9 +152,6 @@
             "type": [
               "string",
               "number",
-              "integer",
-              "object",
-              "array",
               "boolean"
             ]
           },
