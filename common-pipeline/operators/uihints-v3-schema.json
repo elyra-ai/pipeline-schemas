@@ -598,14 +598,15 @@
                 }
               }
             },
-            "tooltipDirection": {
-              "description": "Action image tooltip direction. Default is bottom.",
+            "tooltip_direction": {
+              "description": "Action image tooltip direction.",
               "enum": [
                 "right",
                 "left",
                 "top",
                 "bottom"
-              ]
+              ],
+              "default": "bottom"
             }
           }
         },
