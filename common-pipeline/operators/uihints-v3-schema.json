@@ -597,6 +597,16 @@
                   "type": "number"
                 }
               }
+            },
+            "tooltip_direction": {
+              "description": "Action image tooltip direction.",
+              "enum": [
+                "right",
+                "left",
+                "top",
+                "bottom"
+              ],
+              "default": "bottom"
             }
           }
         },
