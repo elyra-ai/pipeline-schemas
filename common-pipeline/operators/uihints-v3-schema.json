@@ -689,12 +689,17 @@
           "$ref": "#/definitions/resource_definition"
         },
         "icon": {
-          "description": "URL to image to display",
+          "description": "URL to .svg image to display",
           "type": "string"
         },
         "carbon_icon": {
-          "description": "Host provided name of Carbon icon to display in the button's 'renderIcon'. A callback function is required for the host application to return the actual imported icon from @carbon/icons-react library",
-          "type": "string"
+          "description": "Host provided name of Carbon icon to display. A callback function is required for the host application to return the jsx icon object imported from @carbon/icons-react library",
+          "type": "object"
+        },
+        "enable": {
+          "description": "Button will be enabled if true, disabled if false",
+          "type": "boolean",
+          "default": false
         },
         "divider": {
           "description": "Display a divider before or after this button",
