@@ -536,6 +536,13 @@
           "description": "Use when `add_remove_rows` is false. Ensures the control contains a record for each field in the data model.",
           "type": "boolean",
           "default": true
+        },
+        "buttons": {
+          "description": "Display custom buttons in place of any buttons from the table. Will override 'add_remove_rows' and readonlyTable edit buttons.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/button_definition"
+          }
         }
       },
       "required": [
@@ -660,6 +667,70 @@
               ]
             }
           }
+        }
+      ]
+    },
+    "button_definition": {
+      "description": "Button to be displayed after the table's search bar",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Button identifier used to idenify the button in the callback function",
+          "type": "string"
+        },
+        "label": {
+          "description": "Button label to display. If an icon is specified as well, the icon will be shown to the right of the label.",
+          "type": "object",
+          "$ref": "#/definitions/resource_definition"
+        },
+        "description": {
+          "description": "Tooltip text to display when the button is hovered",
+          "type": "object",
+          "$ref": "#/definitions/resource_definition"
+        },
+        "icon": {
+          "description": "URL to .svg image to display",
+          "type": "string"
+        },
+        "carbon_icon": {
+          "description": "Host provided name of Carbon icon to display. A callback function is required for the host application to return the jsx icon object imported from @carbon/icons-react library",
+          "type": "object"
+        },
+        "enabled": {
+          "description": "Button will be enabled if true, disabled if false",
+          "type": "boolean",
+          "default": false
+        },
+        "divider": {
+          "description": "Display a divider before or after this button",
+          "type": "string",
+          "enum": [
+            "before",
+            "after"
+          ],
+          "default": "after"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "id",
+            "label"
+          ]
+        },
+        {
+          "required": [
+            "id",
+            "icon",
+            "description"
+          ]
+        },
+        {
+          "required": [
+            "id",
+            "carbon_icon",
+            "description"
+          ]
         }
       ]
     }
