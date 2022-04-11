@@ -212,7 +212,7 @@
           "default": true
         },
         "description": {
-          "description": "Description of parameter with optional placement context",
+          "description": "Description of parameter with optional placement context and optional link",
           "type": "object",
           "allOf": [
             {
@@ -227,6 +227,24 @@
                     "on_panel"
                   ],
                   "default": "as_tooltip"
+                },
+                "link": {
+                  "description": "Optional link in the description. tooltipLinkHandler callback must be defined whenever link object is added in uiHints.",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "link id",
+                      "type": "string"
+                    },
+                    "data": {
+                      "description": "Data passed to the tooltipLinkHandler callback",
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
                 }
               }
             }
