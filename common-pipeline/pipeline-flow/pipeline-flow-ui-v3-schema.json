@@ -159,6 +159,18 @@
           "description": "Width of expanded supernode. If not provided an appropriate width is calculated.",
           "type": "number"
         },
+        "is_resized": {
+          "description": "Indicates whether a node has been resized or not. If true, resize_width and resize_height are used for node display. If false, the default width and height are used.",
+          "type": "boolean"
+        },
+        "resize_height": {
+          "description": "Height of resized node. The node will be displayed with this height, when is_resized is true, in preference to its default height.",
+          "type": "boolean"
+        },
+        "resize_width": {
+          "description": "Width of resized node. The node will be displayed with this width, when is_resized is true, in preference to its default width.",
+          "type": "boolean"
+        },
         "attributes": {
           "description": "additional attributes",
           "type": "string"
