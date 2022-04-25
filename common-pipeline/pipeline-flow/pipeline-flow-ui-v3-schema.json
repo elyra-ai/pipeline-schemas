@@ -165,11 +165,11 @@
         },
         "resize_height": {
           "description": "Height of resized node. The node will be displayed with this height, when is_resized is true, in preference to its default height.",
-          "type": "boolean"
+          "type": "number"
         },
         "resize_width": {
           "description": "Width of resized node. The node will be displayed with this width, when is_resized is true, in preference to its default width.",
-          "type": "boolean"
+          "type": "number"
         },
         "attributes": {
           "description": "additional attributes",
