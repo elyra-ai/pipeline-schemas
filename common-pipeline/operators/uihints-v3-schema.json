@@ -599,6 +599,40 @@
           "type": "object",
           "$ref": "#/definitions/resource_definition"
         },
+        "button": {
+          "description": "Properties for button kind and size. Use when control=button.",
+          "type": "object",
+          "properties": {
+            "kind": {
+              "description": "button kind",
+              "type": "string",
+              "enum": [
+                "primary",
+                "secondary",
+                "tertiary",
+                "ghost",
+                "danger",
+                "danger--tertiary",
+                "danger--ghost"
+              ],
+              "default": "tertiary"
+            },
+            "size": {
+              "description": "button size",
+              "enum": [
+                "field",
+                "sm",
+                "lg",
+                "xl",
+                "default",
+                "small",
+                "medium",
+                "large"
+              ],
+              "default": "sm"
+            }
+          }
+        },
         "image": {
           "description": "Properties for how the image will look.  Use when control=image.",
           "type": "object",
