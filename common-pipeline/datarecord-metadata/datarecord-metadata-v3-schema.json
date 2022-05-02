@@ -163,11 +163,17 @@
           "properties": {
             "min": {
               "description": "Lowest value discovered in the data",
-              "type": "number"
+              "type": [
+                "string",
+                "number"
+              ]
             },
             "max": {
               "description": "Highest value discovered in the data",
-              "type": "number"
+              "type": [
+                "string",
+                "number"
+              ]
             }
           },
           "required": [
