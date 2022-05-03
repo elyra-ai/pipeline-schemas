@@ -620,14 +620,10 @@
             "size": {
               "description": "button size",
               "enum": [
-                "field",
                 "sm",
+                "md",
                 "lg",
-                "xl",
-                "default",
-                "small",
-                "medium",
-                "large"
+                "xl"
               ],
               "default": "sm"
             }
