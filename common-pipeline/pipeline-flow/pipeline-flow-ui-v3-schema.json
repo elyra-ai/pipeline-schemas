@@ -54,9 +54,7 @@
                 },
                 "k": {
                   "description": "Scale amount. 1.0 is the standard scale amount. Smaller values zoom out. Larger values zoom in.",
-                  "type": "number",
-                  "minimum": 0.2,
-                  "maximum": 1.8
+                  "type": "number"
                 }
               },
               "required": [
