@@ -169,6 +169,15 @@
           "description": "Width of resized node. The node will be displayed with this width, when is_resized is true, in preference to its default width.",
           "type": "number"
         },
+        "sub_pipelines": {
+          "description": "An array of pipelines referenced when this node is a supernode. This field is only used when the supernode is in a palette or on the clipboard. It will be an empty array when the supernode references an external pipeline.",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json#/definitions/pipeline_def"
+          },
+          "uniqueItems": true
+        },
         "attributes": {
           "description": "additional attributes",
           "type": "string"
