@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright 2017-2020 Elyra Authors
+# Copyright 2017-2022 Elyra Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,27 +18,27 @@
 set -e
 
 WORKING_DIR="$PWD"
-MASTER="master"
+MAIN="main"
 SKIP_CI="[skip ci]"
 
 git config --global user.email "elyra-pipeline-schemas@users.noreply.github.com"
 git config --global user.name "Automated build"
 
-# Update package.json version on master
+# Update package.json version on main
 
 echo "Update patch version of pipeline-schemas"
 npm version patch -m "Update package.json version ${SKIP_CI}"
-MASTER_BUILD=`node -p "require('./package.json').version"`
-echo "Master build $MASTER_BUILD"
+MAIN_BUILD=`node -p "require('./package.json').version"`
+echo "Main build $MAIN_BUILD"
 git push
 
-MASTER_NUM=$(echo $MASTER_BUILD | cut -d'.' -f1-2)
+MAIN_NUM=$(echo $MAIN_BUILD | cut -d'.' -f1-2)
 # Tag release build
 cd ./scripts
-./tagBuild.sh "${MASTER}_${MASTER_BUILD}"
+./tagBuild.sh "${MAIN}_${MAIN_BUILD}"
 cd $WORKING_DIR
 
-echo "Master major.minor build ${MASTER_NUM}"
+echo "Main major.minor build ${MAIN_NUM}"
 echo "Publishing pipeline schemas to Artifactory NPM"
 echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
 npm publish

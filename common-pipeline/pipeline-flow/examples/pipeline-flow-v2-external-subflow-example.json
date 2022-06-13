@@ -44,7 +44,7 @@
           "type": "super_node",
           "sub_type": "shaper",
           "subflow_ref": {
-            "url": "https://github.com/elyra-ai/pipeline-schemas/blob/master/common-pipeline/pipeline-flow/examples/pipeline-flow-v2-example-simple.json",
+            "url": "https://github.com/elyra-ai/pipeline-schemas/blob/main/common-pipeline/pipeline-flow/examples/pipeline-flow-v2-example-simple.json",
             "pipeline_id_ref": "simple-pipeline"
           },
           "inputs": [

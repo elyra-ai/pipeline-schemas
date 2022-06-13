@@ -7,7 +7,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elyra-ai/pipeline-schemas/tree/master/common-pipeline"
+    "url": "https://github.com/elyra-ai/pipeline-schemas/tree/main/common-pipeline"
   },
   "bugs": {
     "url": "https://github.com/elyra-ai/pipeline-schemas/issues"
