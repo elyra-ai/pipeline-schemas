@@ -19,11 +19,15 @@
           "type": "string"
         },
         "catalog_ref": {
-          "description": "If ref is set, this refers to the ID of the catalog which contains the connection. If neither this attribute nor project_ref are specified, the connection will be assumed to exist in the project or catalog which contains the pipeline.",
+          "description": "If ref is set, this refers to the ID of the catalog which contains the connection. If neither this attribute nor project_ref are specified, the connection will be assumed to exist in the project, space, or catalog which contains the pipeline.",
           "type": "string"
         },
         "project_ref": {
-          "description": "If ref is set, this refers to the ID of the project which contains the connection. If neither this attribute nor catalog_ref are specified, the connection will be assumed to exist in the project or catalog which contains the pipeline.",
+          "description": "If ref is set, this refers to the ID of the project which contains the connection. If neither this attribute nor catalog_ref are specified, the connection will be assumed to exist in the project, space, or catalog which contains the pipeline.",
+          "type": "string"
+        },
+        "space_ref": {
+          "description": "If ref is set, this refers to the ID of the space which contains the connection. If neither this attribute nor space_ref are specified, the connection will be assumed to exist in the project, space, or catalog which contains the pipeline.",
           "type": "string"
         },
         "properties": {
@@ -47,11 +51,15 @@
           "type": "string"
         },
         "catalog_ref": {
-          "description": "If ref is set, this refers to the ID of the catalog which contains the data asset. If neither this attribute nor project_ref are specified, the data asset will be assumed to exist in the project or catalog which contains the pipeline.",
+          "description": "If ref is set, this refers to the ID of the catalog which contains the data asset. If neither this attribute nor project_ref are specified, the data asset will be assumed to exist in the project, space, or catalog which contains the pipeline.",
           "type": "string"
         },
         "project_ref": {
-          "description": "If ref is set, this refers to the ID of the project which contains the data asset. If neither this attribute nor catalog_ref are specified, the data asset will be assumed to exist in the project or catalog which contains the pipeline.",
+          "description": "If ref is set, this refers to the ID of the project which contains the data asset. If neither this attribute nor catalog_ref are specified, the data asset will be assumed to exist in the project, space, or catalog which contains the pipeline.",
+          "type": "string"
+        },
+        "space_ref": {
+          "description": "If ref is set, this refers to the ID of the space which contains the data asset. If neither this attribute nor space_ref are specified, the data asset will be assumed to exist in the project, space, or catalog which contains the pipeline.",
           "type": "string"
         },
         "properties": {
@@ -88,8 +96,7 @@
     "app_data_def": {
       "description": "Object containing app-specific data",
       "type": "object",
-      "properties": {
-      },
+      "properties": {},
       "additionalProperties": true
     }
   }
