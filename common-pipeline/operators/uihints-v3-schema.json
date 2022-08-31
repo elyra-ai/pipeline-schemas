@@ -266,6 +266,7 @@
             "radioset",
             "checkboxset",
             "toggletext",
+            "toggle",
             "oneofselect",
             "multiselect",
             "someofselect",
