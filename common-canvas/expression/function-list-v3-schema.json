@@ -49,7 +49,7 @@
         "label": {
           "description": "External name of category",
           "type": "object",
-          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
+          "$ref": "https://github.com/elyra-ai/pipeline-schemas/blob/main/common-pipeline/operators/uihints-v3-schema.json#/definitions/resource_definition"
         },
         "function_refs": {
           "description": "Array of function ids that are part of this fuction category",
@@ -78,7 +78,7 @@
         "label": {
           "description": "User-readable name of function",
           "type": "object",
-          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
+          "$ref": "https://github.com/elyra-ai/pipeline-schemas/blob/main/common-pipeline/operators/uihints-v3-schema.json#/definitions/resource_definition"
         },
         "parameters": {
           "description": "Array of parameter information",
@@ -89,6 +89,11 @@
           },
           "uniqueItems": false
         },
+        "return_type_label": {
+          "description": "Translatable data type name of what is returned from the function. If this is not provided, default to return_type",
+          "type": "object",
+          "$ref": "https://github.com/elyra-ai/pipeline-schemas/blob/main/common-pipeline/operators/uihints-v3-schema.json#/definitions/resource_definition"
+        },
         "return_type": {
           "description": "The data type name of what is returned from the function.",
           "type": "string"
@@ -96,7 +101,7 @@
         "description": {
           "description": "The help text for the function.",
           "type": "object",
-          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
+          "$ref": "https://github.com/elyra-ai/pipeline-schemas/blob/main/common-pipeline/operators/uihints-v3-schema.json#/definitions/resource_definition"
         }
       },
       "required": [
@@ -113,7 +118,7 @@
         "label": {
           "description": "User-readable name of parameter",
           "type": "object",
-          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
+          "$ref": "https://github.com/elyra-ai/pipeline-schemas/blob/main/common-pipeline/operators/uihints-v3-schema.json#/definitions/resource_definition"
         },
         "type": {
           "description": "The type of the parameter.",
