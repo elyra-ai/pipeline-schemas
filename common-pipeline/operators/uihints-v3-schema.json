@@ -490,6 +490,10 @@
         "class_name": {
           "description": "Optional class name to set for this control",
           "type": "string"
+        },
+        "enable_maximize": {
+          "description": "Determines if maximize/minimze buttons are shows for code control",
+          "type": "boolean"
         }
       },
       "required": [
