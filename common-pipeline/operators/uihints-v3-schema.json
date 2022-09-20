@@ -492,7 +492,7 @@
           "type": "string"
         },
         "enable_maximize": {
-          "description": "Determines if maximize/minimze buttons are shows for code control",
+          "description": "Determines if maximize/minimze buttons are shown for code control",
           "type": "boolean"
         }
       },
