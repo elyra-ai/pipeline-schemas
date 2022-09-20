@@ -149,7 +149,7 @@
           "$ref": "#/definitions/resource_definition"
         },
         "description": {
-          "description": "Group description. Used in a textPanel",
+          "description": "Group description. Used in a textPanel and tearsheetPanel",
           "type": "object",
           "$ref": "#/definitions/resource_definition"
         },
