@@ -123,6 +123,7 @@
             "actionPanel",
             "textPanel",
             "twistyPanel",
+            "tearsheetPanel",
             "columnPanel"
           ]
         },
@@ -148,7 +149,7 @@
           "$ref": "#/definitions/resource_definition"
         },
         "description": {
-          "description": "Group description. Used in a textPanel",
+          "description": "Group description. Used in a textPanel and tearsheetPanel",
           "type": "object",
           "$ref": "#/definitions/resource_definition"
         },
@@ -489,6 +490,10 @@
         "class_name": {
           "description": "Optional class name to set for this control",
           "type": "string"
+        },
+        "enable_maximize": {
+          "description": "Determines if maximize/minimze buttons are shown for code control",
+          "type": "boolean"
         }
       },
       "required": [
