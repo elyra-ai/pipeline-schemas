@@ -567,7 +567,8 @@
             "CLEM",
             "text/x-hive",
             "text/x-rsrc",
-            "text/x-python"
+            "text/x-python",
+            "text/x-sql"
           ]
         },
         "customValueAllowed": {
