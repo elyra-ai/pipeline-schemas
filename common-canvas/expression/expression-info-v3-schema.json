@@ -95,6 +95,9 @@
       "properties":{
         "label": {
           "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json#definitions/resource_definition"
+        },
+        "description": {
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json#definitions/resource_definition"
         }
       }
     },
