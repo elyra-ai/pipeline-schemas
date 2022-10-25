@@ -62,7 +62,7 @@
         },
         "label": {
           "description": "User-readable name of field category",
-          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json#definitions/resource_definition"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
         },
         "field_columns": {
           "description": "Title of the field column",
@@ -94,10 +94,10 @@
       "type": "object",
       "properties":{
         "label": {
-          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json#definitions/resource_definition"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
         },
         "description": {
-          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json#definitions/resource_definition"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
         }
       }
     },
@@ -109,7 +109,7 @@
           "description": "Unique string to reference this info column "
         },
         "label": {
-          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v2-schema.json#definitions/resource_definition"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
         }
       },
       "required": [
