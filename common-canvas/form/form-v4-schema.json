@@ -578,6 +578,11 @@
         "className": {
           "description": "Optional class name to set for this control",
           "type": "string"
+        },
+        "light": {
+          "description": "The background color of controls such as text input. Can be set at the Common Properties level for all or at the control",
+          "type": "boolean",
+          "default": false
         }
       },
       "required": [
