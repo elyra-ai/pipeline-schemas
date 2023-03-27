@@ -337,6 +337,7 @@
             "radioset",
             "checkboxset",
             "toggletext",
+            "toggle",
             "oneofselect",
             "multiselect",
             "someofselect",
@@ -348,6 +349,8 @@
             "structureeditor",
             "custom",
             "datefield",
+            "datepicker",
+            "datepickerRange",
             "timefield",
             "timestampfield"
           ]
