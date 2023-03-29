@@ -279,6 +279,8 @@
             "structureeditor",
             "custom",
             "datefield",
+            "datepicker",
+            "datepickerRange",
             "timefield",
             "timestampfield",
             "code",
