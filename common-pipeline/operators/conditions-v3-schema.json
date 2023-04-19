@@ -566,12 +566,14 @@
     "filter_op_definition": {
       "description": "A single operator for comparing data record schema field attributes and sharing source fields",
       "anyOf": [
-        "enum": [
-          "dmMeasurement",
-          "dmType",
-          "dmModelingRole",
-          "dmSharedFields"
-        ],
+        {
+          "enum": [
+            "dmMeasurement",
+            "dmType",
+            "dmModelingRole",
+            "dmSharedFields"
+          ]
+        },
         {
           "description": "The name of the custom operator",
           "type": "string"
