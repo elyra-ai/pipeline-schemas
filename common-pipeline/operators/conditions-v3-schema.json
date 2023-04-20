@@ -555,6 +555,25 @@
                 "op",
                 "values"
               ]
+            },
+            {
+              "properties": {
+                "op": {
+                  "$ref": "#/definitions/filter_op_definition"
+                },
+                "parameter_ref": {
+                  "description": "The primary parameter - must be present",
+                  "type": "string"
+                },
+                "parameter_2_ref": {
+                  "description": "Optional second parameter for multi-parameter validation",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "op",
+                "parameter_ref"
+              ]
             }
           ]
         }
