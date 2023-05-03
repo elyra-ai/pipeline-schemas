@@ -603,6 +603,10 @@
             "image"
           ]
         },
+        "class_name": {
+          "description": "Optional class name to set for this action",
+          "type": "string"
+        },
         "label": {
           "description": "Action label",
           "type": "object",
