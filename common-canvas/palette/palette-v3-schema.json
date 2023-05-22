@@ -38,6 +38,10 @@
           "description": "Category description",
           "type": "string"
         },
+        "is_open": {
+          "description": "Boolean to indicate if the category is open (true) or not (false).",
+          "type": "boolean"
+        },
         "empty_text": {
           "description": "When set to a non-empty string and node_types is empty, is used to indicate that no nodes exist",
           "type": "string"
