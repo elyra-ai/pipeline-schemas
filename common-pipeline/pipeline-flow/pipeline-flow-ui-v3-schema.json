@@ -214,7 +214,7 @@
           "type": "string"
         },
         "palette_disabled": {
-          "description": "Indicates whether the node in the palette is disabled. If true, prevents the node being dragged from palette.",
+          "description": "Indicates whether the node in the palette is disabled. If true, prevents the node being dragged or double-clicked from palette.",
           "type": "boolean"
         },
         "decorations": {
