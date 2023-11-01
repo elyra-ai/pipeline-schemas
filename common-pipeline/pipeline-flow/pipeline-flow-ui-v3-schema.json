@@ -205,6 +205,18 @@
           "properties": {},
           "additionalProperties": true
         },
+        "palette_image": {
+          "description": "Image name for the node displayed in palette. If omitted the image from 'image' field will be used.",
+          "type": "string"
+        },
+        "palette_class_name": {
+          "description": "CSS class name applied to the <div> shown in palette for the node",
+          "type": "string"
+        },
+        "palette_disabled": {
+          "description": "Indicates whether the node in the palette is disabled. If true, prevents the node being dragged or double-clicked from palette.",
+          "type": "boolean"
+        },
         "decorations": {
           "description": "Array of decorations used to decorate nodes",
           "type": "array",
