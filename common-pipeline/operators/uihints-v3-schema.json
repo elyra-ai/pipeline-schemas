@@ -283,6 +283,7 @@
             "datepickerRange",
             "timefield",
             "timestampfield",
+            "slider",
             "code",
             "list",
             "hidden"
