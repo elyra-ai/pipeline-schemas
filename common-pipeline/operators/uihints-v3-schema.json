@@ -290,16 +290,16 @@
           ]
         },
         "increment": {
-          "description": "Determines the increment/decrement value for the spinner control only",
+          "description": "Determines the step value to increment/decrement for the slider control",
           "type": "number",
           "default": 1
         },
-        "min": {
+        "min_value": {
           "description": "Determines the minimum value for the slider control only",
           "type": "number",
           "default": 1
         },
-        "max": {
+        "max_value": {
           "description": "Determines the max value for the slider control only",
           "type": "number",
           "default": 1
