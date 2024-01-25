@@ -294,6 +294,16 @@
           "type": "number",
           "default": 1
         },
+        "min": {
+          "description": "Determines the minimum value for the slider control only",
+          "type": "number",
+          "default": 1
+        },
+        "max": {
+          "description": "Determines the max value for the slider control only",
+          "type": "number",
+          "default": 1
+        },
         "orientation": {
           "description": "Determines how the control is displayed",
           "type": "string",
