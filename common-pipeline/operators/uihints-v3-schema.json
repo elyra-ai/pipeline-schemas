@@ -290,7 +290,7 @@
           ]
         },
         "increment": {
-          "description": "Determines the step value to increment/decrement for the slider control",
+          "description": "Determines the step value to increment/decrement for spinner and slider control",
           "type": "number",
           "default": 1
         },
