@@ -1,0 +1,809 @@
+{
+	"doc_type": "pipeline",
+	"version": "3.0",
+	"json_schema": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+	"id": "24cc9881-f83a-4d38-b15b-8bf541e100fa",
+	"app_data": {
+	  "ui_data": {
+		"name": "Pipeline Flow Example",
+		"description": "An example pipeline flow document with a sub-pipeline",
+		"class_name": "pipeline-flow-overall"
+	  },
+	  "wml_data": {
+		"typeId": "stream"
+	  }
+	},
+	"primary_pipeline": "primary-pipeline",
+	"pipelines": [
+	  {
+		"id": "primary-pipeline",
+		"nodes": [
+		  {
+			"id": "entryID1PE",
+			"type": "binding",
+			"app_data": {
+			  "ui_data": {
+				"label": "Load 1",
+				"x_pos": 10,
+				"y_pos": 10,
+				"ui_parameters": {
+				  "uiOnlyField1": "test",
+				  "uiOnlyField2": [
+					"alpha",
+					"beta",
+					"gamma",
+					"delta"
+				  ],
+				  "uiOnlyField3": 23
+				}
+			  }
+			},
+			"outputs": [
+			  {
+				"id": "entryPort1PE",
+				"schema_ref": "schema1",
+				"app_data": {
+				  "ui_data": {
+					"label": "exit Port 1PE"
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"id": "entryID2PE",
+			"type": "binding",
+			"app_data": {
+			  "ui_data": {
+				"label": "Load 2",
+				"x_pos": 8.002765655517578,
+				"y_pos": 244.84760284423828
+			  }
+			},
+			"outputs": [
+			  {
+				"id": "entryPort2PE",
+				"schema_ref": "schema2",
+				"app_data": {
+				  "ui_data": {
+					"label": "exit Port 1PE"
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"id": "entryID3PE",
+			"type": "binding",
+			"app_data": {
+			  "ui_data": {
+				"label": "Load 3",
+				"x_pos": 9.001384735107422,
+				"y_pos": 339.7160110473633
+			  }
+			},
+			"outputs": [
+			  {
+				"id": "entryPort3PE",
+				"schema_ref": "schema2",
+				"app_data": {
+				  "ui_data": {
+					"label": "entryID3PE"
+				  }
+				}
+			  }
+			],
+			"connection": {
+			  "ref": "d7c75790-90fc-4883-a5fc-3bb589166a52",
+			  "project_ref": "0a0a20e8-e8a8-4710-b90a-6df3ff775b04",
+			  "properties": {
+				"schema_name": "GOSALES",
+				"table_name": "PRODUCT_NAME_LOOKUP"
+			  }
+			}
+		  },
+		  {
+			"id": "nodeID1PE",
+			"type": "execution_node",
+			"op": "org.apache.spark.ml.ibm.transformers.Join",
+			"app_data": {
+			  "wml_data": {
+				"typeId": "Join"
+			  },
+			  "ui_data": {
+				"label": "Join",
+				"image": "join.svg",
+				"x_pos": 167.89193725585938,
+				"y_pos": 32.24104166030884,
+				"description": "Join two or more data records",
+				"decorations": [
+				  {
+					"position": "topRight",
+					"class_name": "zoom-in-decoration",
+					"hotspot": true,
+					"id": "zoomInDecorator",
+					"image": "/images/decorators/zoom-in_32.svg"
+				  }
+				]
+			  }
+			},
+			"inputs": [
+			  {
+				"id": "input1NodeID1PE",
+				"schema_ref": "schema1",
+				"app_data": {
+				  "ui_data": {
+					"cardinality": {
+					  "min": 1,
+					  "max": 1
+					},
+					"label": "input1NodeID1PE"
+				  }
+				},
+				"links": [
+				  {
+					"id": "e0e62a14-6107-4dba-83b8-827575d17335",
+					"node_id_ref": "entryID1PE",
+					"app_data": {
+					  "ui_data": {
+						"class_name": "d3-data-link"
+					  }
+					}
+				  }
+				]
+			  },
+			  {
+				"id": "input2NodeID1PE",
+				"schema_ref": "schema2",
+				"app_data": {
+				  "ui_data": {
+					"cardinality": {
+					  "min": 1,
+					  "max": 1
+					},
+					"label": "input2NodeID1PE"
+				  }
+				},
+				"links": [
+				  {
+					"id": "54fd09ff-17c9-4807-bdfe-143329f61b86",
+					"node_id_ref": "entryID2PE",
+					"app_data": {
+					  "ui_data": {
+						"class_name": "d3-data-link"
+					  }
+					}
+				  }
+				]
+			  }
+			],
+			"outputs": [
+			  {
+				"id": "output1NodeID1PE",
+				"schema_ref": "schema3",
+				"app_data": {
+				  "ui_data": {
+					"cardinality": {
+					  "min": 1,
+					  "max": -1
+					},
+					"label": "output1NodeID1PE"
+				  }
+				}
+			  }
+			],
+			"parameters": {
+			  "join-type": "inner",
+			  "key1": "inputDS1.NAME",
+			  "key2": "inputDS2.name"
+			}
+		  },
+		  {
+			"id": "nodeIDSuperNodePE",
+			"type": "super_node",
+			"subflow_ref": {
+			  "pipeline_id_ref": "modeler-sub-pipeline"
+			},
+			"app_data": {
+			  "ui_data": {
+				"label": "Supernode",
+				"x_pos": 317.99029541015625,
+				"y_pos": 46.97645568847656,
+				"is_expanded": true,
+				"expanded_width": 200,
+				"expanded_height": 200
+			  }
+			},
+			"inputs": [
+			  {
+				"id": "input1SuperNodePE",
+				"subflow_node_ref": "entryID1SE",
+				"schema_ref": "schema3",
+				"app_data": {
+				  "ui_data": {
+					"class_name": "port-class",
+					"label": "input1SuperNodePE"
+				  }
+				},
+				"links": [
+				  {
+					"id": "edbb27d1-d94a-4532-9a6b-6f78bbebdb13",
+					"node_id_ref": "nodeID1PE",
+					"app_data": {
+					  "ui_data": {
+						"class_name": "d3-data-link"
+					  }
+					}
+				  }
+				]
+			  },
+			  {
+				"id": "input2SuperNodePE",
+				"subflow_node_ref": "entryID2SE",
+				"schema_ref": "schema2",
+				"app_data": {
+				  "ui_data": {
+					"class_name": "port-class",
+					"label": "input2SuperNodePE"
+				  }
+				},
+				"links": [
+				  {
+					"id": "14f08fac-e041-48ff-89d3-85cac13ecacc",
+					"node_id_ref": "entryID3PE",
+					"app_data": {
+					  "ui_data": {
+						"class_name": "d3-data-link"
+					  }
+					}
+				  }
+				]
+			  }
+			],
+			"outputs": [
+			  {
+				"id": "output1SuperNodePE",
+				"subflow_node_ref": "exitID1SE",
+				"schema_ref": "schema2",
+				"app_data": {
+				  "ui_data": {
+					"class_name": "port-class",
+					"label": "output1SuperNodePE"
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"id": "nodeID2PE",
+			"type": "execution_node",
+			"op": "org.apache.spark.ml.ibm.transformers.Filter",
+			"app_data": {
+			  "wml_data": {
+				"typeId": "filter-records"
+			  },
+			  "ui_data": {
+				"label": "Filter 1",
+				"image": "filter-rows.svg",
+				"x_pos": 587.1661987304688,
+				"y_pos": 324.00416564941406,
+				"description": "Filter record data"
+			  }
+			},
+			"inputs": [
+			  {
+				"id": "input1NodeID2PE",
+				"schema_ref": "schema2",
+				"app_data": {
+				  "ui_data": {
+					"cardinality": {
+					  "min": 1,
+					  "max": 1
+					},
+					"class_name": "port-class",
+					"label": "input1NodeID2PE"
+				  }
+				},
+				"links": [
+				  {
+					"id": "7bed5dc3-617f-4683-99e4-d9759c754c79",
+					"node_id_ref": "nodeIDSuperNodePE",
+					"port_id_ref": "output1SuperNodePE"
+				  }
+				]
+			  }
+			],
+			"outputs": [
+			  {
+				"id": "output1NodeID2PE",
+				"schema_ref": "schema3",
+				"app_data": {
+				  "ui_data": {
+					"class_name": "port-class",
+					"label": "output1NodeID2PE"
+				  }
+				}
+			  }
+			],
+			"parameters": {
+			  "conditionExpr": "Age > 20"
+			}
+		  },
+		  {
+			"id": "nodeID3PE",
+			"type": "execution_node",
+			"op": "org.apache.spark.ml.ibm.transformers.Filter",
+			"app_data": {
+			  "wml_data": {
+				"typeId": "filter-records"
+			  },
+			  "ui_data": {
+				"label": "Filter 2",
+				"image": "filter-rows.svg",
+				"x_pos": 678.6466674804688,
+				"y_pos": 63.175933837890625,
+				"description": "Filter record data"
+			  }
+			},
+			"inputs": [
+			  {
+				"id": "input1NodeID3PE",
+				"schema_ref": "schema2",
+				"app_data": {
+				  "ui_data": {
+					"cardinality": {
+					  "min": 1,
+					  "max": -1
+					},
+					"class_name": "port-class",
+					"label": "input1NodeID3PE"
+				  }
+				},
+				"links": [
+				  {
+					"id": "5c4f1667-6625-4f96-82ce-5b93af2b40b2",
+					"node_id_ref": "nodeIDSuperNodePE"
+				  }
+				]
+			  }
+			],
+			"outputs": [
+			  {
+				"id": "output1NodeID3PE",
+				"schema_ref": "schema3",
+				"app_data": {
+				  "ui_data": {
+					"class_name": "port-class",
+					"label": "output1NodeID3PE"
+				  }
+				}
+			  }
+			],
+			"parameters": {
+			  "conditionExpr": "Age > ${age}"
+			}
+		  },
+		  {
+			"id": "exitID1PE",
+			"type": "binding",
+			"app_data": {
+			  "ui_data": {
+				"label": "Save 1",
+				"x_pos": 890.0665283203125,
+				"y_pos": 328.84069061279297
+			  }
+			},
+			"inputs": [
+			  {
+				"id": "exitPort1PE",
+				"schema_ref": "schema3",
+				"app_data": {
+				  "ui_data": {
+					"label": "exitPort1PE"
+				  }
+				},
+				"links": [
+				  {
+					"id": "a8417cbb-82a6-4d46-a56e-0de1f0460b5c",
+					"node_id_ref": "nodeID2PE",
+					"app_data": {
+					  "ui_data": {
+						"class_name": "d3-data-link"
+					  }
+					}
+				  }
+				]
+			  }
+			]
+		  },
+		  {
+			"id": "exitID2PE",
+			"type": "binding",
+			"app_data": {
+			  "ui_data": {
+				"label": "Save 2",
+				"x_pos": 904.8226928710938,
+				"y_pos": 225.94320678710938
+			  }
+			},
+			"inputs": [
+			  {
+				"id": "exitPort2PE",
+				"schema_ref": "schema3",
+				"app_data": {
+				  "ui_data": {
+					"label": "exitID2PE"
+				  }
+				},
+				"links": [
+				  {
+					"id": "0ff622eb-e345-4bf3-8459-eeb9eee7b9b2",
+					"node_id_ref": "nodeID3PE",
+					"app_data": {
+					  "ui_data": {
+						"class_name": "d3-data-link"
+					  }
+					}
+				  }
+				]
+			  }
+			]
+		  }
+		],
+		"app_data": {
+		  "ui_data": {
+			"zoom": {
+			  "x": 0,
+			  "y": 0,
+			  "k": 1
+			},
+			"comments": [
+			  {
+				"id": "4e32ba0a-b234-3e33-b321-d693bf8f8452",
+				"x_pos": 232,
+				"y_pos": 348,
+				"width": 197.35403442382812,
+				"height": 58.010650634765625,
+				"content": "This is a comment indicating the Supernode. The Supernode contains the sub-flow.",
+				"associated_id_refs": [
+				  {
+					"id": "980339b0-64b5-40b2-85fb-3302ab6e53e8",
+					"node_ref": "nodeIDSuperNodePE"
+				  }
+				]
+			  }
+			]
+		  }
+		},
+		"runtime_ref": "scala-spark-2.0.1"
+	  },
+	  {
+		"id": "modeler-sub-pipeline",
+		"nodes": [
+		  {
+			"id": "entryID1SE",
+			"type": "binding",
+			"app_data": {
+			  "ui_data": {
+				"label": "Binding 1",
+				"x_pos": 10,
+				"y_pos": 10
+			  }
+			},
+			"outputs": [
+			  {
+				"id": "entryPort1SE",
+				"schema_ref": "schema3",
+				"app_data": {
+				  "ui_data": {
+					"label": "entryPort1SE"
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"id": "entryID2SE",
+			"type": "binding",
+			"app_data": {
+			  "ui_data": {
+				"label": "Binding 2",
+				"x_pos": 10,
+				"y_pos": 10
+			  }
+			},
+			"outputs": [
+			  {
+				"id": "entryPort2SE",
+				"schema_ref": "schema2",
+				"app_data": {
+				  "ui_data": {
+					"label": "entryPort2SE"
+				  }
+				}
+			  }
+			]
+		  },
+		  {
+			"id": "nodeID1SE",
+			"type": "execution_node",
+			"op": "org.apache.spark.ml.ibm.transformers.Filter",
+			"app_data": {
+			  "wml_data": {
+				"typeId": "filter-records"
+			  },
+			  "ui_data": {
+				"label": "Filter",
+				"image": "filter-rows.svg",
+				"x_pos": 879.9398803710938,
+				"y_pos": -62.2780704498291,
+				"description": "Filter record data"
+			  }
+			},
+			"inputs": [
+			  {
+				"id": "input1nodeID1SE",
+				"schema_ref": "schema3",
+				"app_data": {
+				  "ui_data": {
+					"class_name": "port-class",
+					"label": "input1nodeID1SE"
+				  }
+				},
+				"links": [
+				  {
+					"id": "5e0d1299-6315-4d2a-8adb-4f8e549b2bf0",
+					"node_id_ref": "entryID1SE"
+				  }
+				]
+			  }
+			],
+			"outputs": [
+			  {
+				"id": "output1nodeID1SE",
+				"schema_ref": "schema3",
+				"app_data": {
+				  "ui_data": {
+					"class_name": "port-class",
+					"label": "output1nodeID1SE"
+				  }
+				}
+			  }
+			],
+			"parameters": {
+			  "conditionExpr": "Age > ${age}"
+			}
+		  },
+		  {
+			"id": "nodeID2SE",
+			"type": "execution_node",
+			"op": "org.apache.spark.ml.ibm.transformers.Join",
+			"app_data": {
+			  "wml_data": {
+				"typeId": "Join"
+			  },
+			  "ui_data": {
+				"label": "Join",
+				"image": "join.svg",
+				"x_pos": 929.9966430664062,
+				"y_pos": 84.91569519042969,
+				"description": "Join two or more data records"
+			  }
+			},
+			"inputs": [
+			  {
+				"id": "input1NodeID2SE",
+				"schema_ref": "schema3",
+				"app_data": {
+				  "ui_data": {
+					"cardinality": {
+					  "min": 1,
+					  "max": 1
+					},
+					"label": "input1NodeID2SE"
+				  }
+				},
+				"links": [
+				  {
+					"id": "c5127765-f412-4755-a633-56d7e8b32d0c",
+					"node_id_ref": "nodeID1SE"
+				  }
+				]
+			  },
+			  {
+				"id": "input2NodeID2SE",
+				"schema_ref": "schema2",
+				"app_data": {
+				  "ui_data": {
+					"cardinality": {
+					  "min": 1,
+					  "max": 1
+					},
+					"label": "input2NodeID2SE"
+				  }
+				},
+				"links": [
+				  {
+					"id": "db60a714-c295-4a3f-abf4-4f65fc45bd21",
+					"node_id_ref": "entryID2SE"
+				  }
+				]
+			  }
+			],
+			"outputs": [
+			  {
+				"id": "output1NodeID2SE",
+				"schema_ref": "schema2",
+				"app_data": {
+				  "ui_data": {
+					"label": "output1NodeID2SE"
+				  }
+				}
+			  }
+			],
+			"parameters": {
+			  "join-type": "inner",
+			  "key1": "inputDS1.NAME",
+			  "key2": "inputDS2.name"
+			}
+		  },
+		  {
+			"id": "exitID1SE",
+			"type": "binding",
+			"app_data": {
+			  "ui_data": {
+				"label": "Binding 3",
+				"x_pos": 10,
+				"y_pos": 10
+			  }
+			},
+			"inputs": [
+			  {
+				"id": "exitPort1SE",
+				"schema_ref": "schema2",
+				"app_data": {
+				  "ui_data": {
+					"label": ""
+				  }
+				},
+				"links": [
+				  {
+					"id": "be8d3c92-6ee2-4973-9dbf-e91dd3c23b59",
+					"node_id_ref": "nodeID2SE"
+				  }
+				]
+			  }
+			]
+		  }
+		],
+		"app_data": {
+		  "ui_data": {
+			"zoom": {
+			  "x": 0,
+			  "y": 0,
+			  "k": 1.5
+			},
+			"comments": []
+		  }
+		},
+		"runtime_ref": "SPSS-Modeler"
+	  }
+	],
+	"schemas": [
+	  {
+		"id": "schema1",
+		"fields": [
+		  {
+			"name": "integer2",
+			"type": "integer",
+			"nullable": false,
+			"metadata": {
+			  "description": "Field integer2 is an integer field",
+			  "measure": "range",
+			  "modeling_role": "input",
+			  "range": {
+				"min": -1,
+				"max": 400
+			  }
+			}
+		  },
+		  {
+			"name": "double4",
+			"type": "double",
+			"nullable": false,
+			"metadata": {
+			  "description": "Field double4 is a double field",
+			  "measure": "range",
+			  "modeling_role": "input",
+			  "range": {
+				"min": 0.101,
+				"max": 100.211
+			  }
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "schema2",
+		"fields": [
+		  {
+			"name": "string1",
+			"type": "string",
+			"nullable": true,
+			"metadata": {
+			  "description": "Field string1 is a string field",
+			  "measure": "set",
+			  "modeling_role": "input",
+			  "max_length": 24,
+			  "values": [
+				"One",
+				"Two",
+				"Three"
+			  ]
+			}
+		  }
+		]
+	  },
+	  {
+		"id": "schema3",
+		"fields": [
+		  {
+			"name": "integer2",
+			"type": "integer",
+			"nullable": false,
+			"metadata": {
+			  "description": "Field integer2 is an integer field",
+			  "measure": "range",
+			  "modeling_role": "input",
+			  "range": {
+				"min": -1,
+				"max": 400
+			  }
+			}
+		  },
+		  {
+			"name": "double4",
+			"type": "double",
+			"nullable": false,
+			"metadata": {
+			  "description": "Field double4 is a double field",
+			  "measure": "range",
+			  "modeling_role": "input",
+			  "range": {
+				"min": 0.101,
+				"max": 100.211
+			  }
+			}
+		  },
+		  {
+			"name": "string1",
+			"type": "string",
+			"nullable": true,
+			"metadata": {
+			  "description": "Field string1 is a string field",
+			  "measure": "set",
+			  "modeling_role": "input",
+			  "max_length": 24,
+			  "values": [
+				"One",
+				"Two",
+				"Three"
+			  ]
+			}
+		  }
+		]
+	  }
+	],
+	"runtimes": [
+	  {
+		"id": "scala-spark-2.0.1",
+		"name": "Scala-Spark",
+		"version": "2.0.1"
+	  },
+	  {
+		"id": "SPSS-Modeler",
+		"name": "SPSS Modeler",
+		"version": "18.0"
+	  }
+	]
+  }
