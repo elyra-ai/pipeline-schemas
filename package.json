@@ -1,6 +1,6 @@
 {
   "name": "@elyra/pipeline-schemas",
-  "version": "3.0.71",
+  "version": "3.0.74",
   "description": "pipeline-schemas",
   "main": "common-pipeline/pipeline-flow/upgrade/upgrade-flow.js",
   "homepage": "https://github.com/elyra-ai/pipeline-schemas",

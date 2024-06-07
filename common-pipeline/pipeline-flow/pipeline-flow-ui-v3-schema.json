@@ -134,8 +134,8 @@
           "type": ["string", "object"]
         },
         "image": {
-          "description": "Image name (do not embed images inline!)",
-          "type": "string"
+          "description": "URL to image source. Although a data URL can be used to embed an image inline, it is not recommended. The 'image' property can also be a JSX object that displays an image using an <svg> element however, JSX images must be set programmatically and cannot be stringified into JSON.",
+          "type": ["string", "object"]
         },
         "x_pos": {
           "description": "x-position",
