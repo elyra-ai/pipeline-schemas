@@ -342,6 +342,11 @@
           "type": "object",
           "$ref": "#/definitions/resource_definition"
         },
+        "helper_text": {
+          "description": "Additional text to be displayed below the control",
+          "type": "object",
+          "$ref": "#/definitions/resource_definition"
+        },
         "text_before": {
           "description": "Static text to be displayed before the control",
           "type": "object",
