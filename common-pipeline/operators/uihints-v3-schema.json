@@ -347,6 +347,10 @@
           "type": "object",
           "$ref": "#/definitions/resource_definition"
         },
+        "read_only": {
+          "description": "Determines whether the control should be readonly or can be edited",
+          "type": "boolean"
+        },
         "text_before": {
           "description": "Static text to be displayed before the control",
           "type": "object",
