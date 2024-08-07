@@ -29,6 +29,18 @@
       "description": "URL to operation icon",
       "type": "string"
     },
+    "title_info": {
+      "type": "object",
+      "properties": {
+        "action_refs": {
+          "description": "List of actions to be displayed in the title section",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "group_info": {
       "type": "array",
       "items": {
