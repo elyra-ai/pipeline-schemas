@@ -603,7 +603,8 @@
         },
         "description": {
           "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_link_info_def instead.",
-          "type": "string"
+          "type": "string",
+          "deprecated": true
         },
         "app_data": {
           "description": "Object containing app-specific data",
