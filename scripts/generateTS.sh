@@ -72,6 +72,10 @@ cp ../common-pipeline/pipeline-connection/pipeline-connection-v3-schema.json .
 cp ../common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json .
 cp ../common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json .
 
+# Check files were copied OK.
+
+ls -la
+
 # Replace the "ref": "http://...  references to become "ref": "./...
 
 replace_string_schema "canvas-info-v3-schema.json"
