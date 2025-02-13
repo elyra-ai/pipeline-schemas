@@ -35,6 +35,7 @@ git push
 MAIN_NUM=$(echo $MAIN_BUILD | cut -d'.' -f1-2)
 # Tag release build
 cd ./scripts
+./generateTS.sh
 ./tagBuild.sh "${MAIN}_${MAIN_BUILD}"
 cd $WORKING_DIR
 
