@@ -297,7 +297,7 @@
       "additionalProperties": false
     },
     "decoration_def": {
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "#/definitions/node_decoration_def"
         },
@@ -324,7 +324,7 @@
           ]
         }
       },
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "#/definitions/image_decoration_def"
         },
@@ -355,7 +355,7 @@
           "type": "integer"
         }
       },
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "#/definitions/image_decoration_def"
         },
