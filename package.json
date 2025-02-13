@@ -13,5 +13,7 @@
     "url": "https://github.com/elyra-ai/pipeline-schemas/issues"
   },
   "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "json-schema-to-typescript": "^15.0.4"
+  }
 }

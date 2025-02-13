@@ -80,7 +80,7 @@
       "type": "object",
       "properties": {
         "ui_data": {
-          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/pipeline_overview_def"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/pipeline_flow_ui_def"
         }
       },
       "additionalProperties": true
@@ -135,7 +135,7 @@
           "type": "object",
           "properties": {
             "ui_data": {
-              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/pipeline_def"
+              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/pipeline_ui_def"
             }
           },
           "additionalProperties": true

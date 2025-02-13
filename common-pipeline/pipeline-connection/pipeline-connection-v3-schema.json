@@ -65,9 +65,7 @@
         "properties": {
           "description": "Properties controlling how the data asset is used.",
           "type": "object",
-          "additionalProperties": {
-            "type": "object"
-          },
+          "additionalProperties": true,
           "properties": {
             "attachment_ref": {
               "description": "The ID of the data asset attachment to use. If not specified and used as a source, the first suitable attachment found will be used. If not specified and used as a target, a new attachment will be created.",
