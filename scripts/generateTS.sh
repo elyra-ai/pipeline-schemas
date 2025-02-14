@@ -38,8 +38,8 @@ replace_string_in_file() {
 	# Look for old strings of this form
   #
 	# local new_string=":\s\"\."
-	local old_string="\":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url
-	local new_string="\":\ \"\."
+	local old_string="\"\$ref\":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url
+	local new_string="\"\$ref\":\ \"\."
 
 	sed  -i'' "s/$old_string/$new_string/g" "$file_path"
 }
