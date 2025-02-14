@@ -41,7 +41,7 @@ replace_string_in_file() {
 	local old_string="\":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url
 	local new_string="\":\ \"\."
 
-	sed  -i '' "s/$old_string/$new_string/g" "$file_path"
+	sed  -i'' "s/$old_string/$new_string/g" "$file_path"
 }
 #---------------------------------------------------------------
 # Call the replace string for each of the types of child schema
