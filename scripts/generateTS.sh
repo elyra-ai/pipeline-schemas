@@ -33,8 +33,11 @@ replace_string_in_file() {
 	local file_path="$1"
 	local url="$2"
 
-	local old_string=":\s\"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url
-	local new_string=":\s\"\."
+	# local old_string=":\s\"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url
+	# local new_string=":\s\"\."
+
+	local old_string="https"
+	local new_string="xxxx"
 
   echo "$file_path"
   echo "$url"
@@ -42,6 +45,8 @@ replace_string_in_file() {
   echo "$new_string"
 
 	sed  -i '' "s/$old_string/$new_string/g" "$file_path"
+
+  cat canvas-info-v3-schema.json
 }
 
 # Call the replace string for each of the types of child schema
@@ -95,16 +100,15 @@ ls -la
 
 # Replace the "ref": "http://...  references to become "ref": "./...
 replace_string_schema "canvas-info-v3-schema.json"
-replace_string_schema "pipeline-flow-v3-schema.json"
+# replace_string_schema "pipeline-flow-v3-schema.json"
 
-replace_string_schema "canvas-info-v3-schema.json"
-replace_string_schema "palette-v3-schema.json"
-replace_string_schema "datarecord-metadata-v3-schema.json"
-replace_string_schema "parameters-v3-schema.json"
-replace_string_schema "parametersets-v3-schema.json"
-replace_string_schema "pipeline-connection-v3-schema.json"
-replace_string_schema "pipeline-flow-ui-v3-schema.json"
-replace_string_schema "pipeline-flow-v3-schema.json"
+# replace_string_schema "palette-v3-schema.json"
+# replace_string_schema "datarecord-metadata-v3-schema.json"
+# replace_string_schema "parameters-v3-schema.json"
+# replace_string_schema "parametersets-v3-schema.json"
+# replace_string_schema "pipeline-connection-v3-schema.json"
+# replace_string_schema "pipeline-flow-ui-v3-schema.json"
+# replace_string_schema "pipeline-flow-v3-schema.json"
 
 # Create a prologue to use for our TS declaration files
 prologue1="
@@ -146,9 +150,9 @@ mkdir ../types
 
 # Run the json2ts utilities for the top level schemas
 
-npx json2ts --bannerComment "$ts_prologue" canvas-info-v3-schema.json ../types/canvas-info-v3.ts
-npx json2ts --bannerComment "$ts_prologue" pipeline-flow-v3-schema.json ../types/pipeline-flow-v3.ts
-npx json2ts --bannerComment "$ts_prologue" palette-v3-schema.json ../types/palette-v3.ts
+# npx json2ts --bannerComment "$ts_prologue" canvas-info-v3-schema.json ../types/canvas-info-v3.ts
+# npx json2ts --bannerComment "$ts_prologue" pipeline-flow-v3-schema.json ../types/pipeline-flow-v3.ts
+# npx json2ts --bannerComment "$ts_prologue" palette-v3-schema.json ../types/palette-v3.ts
 
 # Create an Typescript index file
 # We have to export explicitely from canvas-info and palete because they reference
