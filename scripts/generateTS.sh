@@ -66,6 +66,10 @@ npm install
 
 # Make sure we have an empty ../schemas directory and change to it
 
+echo "Initial Working directory is:"
+ls -la
+pwd
+
 rm -rf ../schemas
 mkdir ../schemas
 cd ../schemas
