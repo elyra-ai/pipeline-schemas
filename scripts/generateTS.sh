@@ -43,6 +43,9 @@ replace_string_in_file() {
   local new_string="\"\$ref\":\ \"\.\/"
 
   sed  -i'' "s/$old_string/$new_string/g" "$file_path"
+
+  # Warning: For the sed command above to run OK on the Mac, there must
+  # be a space after -i like this:  sed -i '' "s/ ...
 }
 #---------------------------------------------------------------
 # Call the replace string for each of the types of child schema
