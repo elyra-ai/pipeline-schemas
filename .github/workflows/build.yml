@@ -35,16 +35,4 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 20.x
-    - run: npm install -g grunt-cli sass
     - run: ./scripts/generateTS.sh
-
-  tag:
-    runs-on: ubuntu-latest
-    needs: [build]
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - uses: actions/checkout@v4
-      - name: Tag main build
-        env:
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
-        run: ./scripts/tagBuild.sh main-last_success
