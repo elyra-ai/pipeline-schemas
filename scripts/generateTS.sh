@@ -28,72 +28,89 @@
 #    generate the typescript declaration files.
 #
 
+#---------------------------------------------------------------
+# Replaces the lines in the file beginning with "$ref"
+#---------------------------------------------------------------
+replace_string_in_file() {
+  local file_path="$1"
+  local url="$2"
+
+  # Look for old strings of this form:
+  #   "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/ + $url + /
+  # and replaces them with:
+  #   "$ref": "./
+  local old_string="\"\$ref\":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url"\/"
+  local new_string="\"\$ref\":\ \"\.\/"
+
+  sed  -i'' "s/$old_string/$new_string/g" "$file_path"
+
+  # Warning: For the sed command above to run OK on the Mac, there must
+  # be a space after -i like this:  sed -i '' "s/ ...
+}
+#---------------------------------------------------------------
+# Call the replace string for each of the types of child schema
+#---------------------------------------------------------------
+replace_string_schema() {
+  local file=$1
+  replace_string_in_file "$file" "datarecord-metadata"
+  replace_string_in_file "$file" "pipeline-flow"
+  replace_string_in_file "$file" "parameters"
+  replace_string_in_file "$file" "pipeline-connection"
+}
+
+#---------------------------------------------------------------
+# For each JSON schema file replace the contents of any $ref
+# that starts with "http;//"
+#---------------------------------------------------------------
+replace_http_refs() {
+  replace_string_schema "canvas-info-v3-schema.json"
+  replace_string_schema "pipeline-flow-v3-schema.json"
+  replace_string_schema "palette-v3-schema.json"
+  replace_string_schema "datarecord-metadata-v3-schema.json"
+  replace_string_schema "parameters-v3-schema.json"
+  replace_string_schema "parametersets-v3-schema.json"
+  replace_string_schema "pipeline-connection-v3-schema.json"
+  replace_string_schema "pipeline-flow-ui-v3-schema.json"
+  replace_string_schema "pipeline-flow-v3-schema.json"
+}
+
+#---------------------------------------------------------------
+# Copy all JSON schemas to the schemas directory
+#---------------------------------------------------------------
+copy_all_schemas() {
+  cp ../common-canvas/canvas-info/canvas-info-v3-schema.json .
+  cp ../common-canvas/palette/palette-v3-schema.json .
+  cp ../common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json .
+  cp ../common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json .
+  cp ../common-pipeline/datarecord-metadata/datarecord-metadata-v3-schema.json .
+  cp ../common-pipeline/parameters/parameters-v3-schema.json .
+  cp ../common-pipeline/parameters/parametersets-v3-schema.json .
+  cp ../common-pipeline/pipeline-connection/pipeline-connection-v3-schema.json .
+}
+
 set -e
 
 WORKING_DIR="$PWD"
 
 echo "Generating Typescript declarations."
 
-# Replaces the lines in the file beginning with "$ref"
-replace_string_in_file() {
-	local file_path="$1"
-	local url="$2"
+# Install json-schema-to-typescript utility
+echo "npm install"
+npm install
 
-	local old_string=":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url
-	local new_string=":\ \"\."
-
-  echo "$file_path"
-  echo "$url"
-  echo "$old_string"
-  echo "$new_string"
-
-	sed  -i '' "s/$old_string/$new_string/g" "$file_path"
-}
-
-# Call the replace string for each of the types of child schema
-replace_string_schema() {
-	local file=$1
-	replace_string_in_file "$file" "datarecord-metadata"
-	replace_string_in_file "$file" "pipeline-flow"
-	replace_string_in_file "$file" "parameters"
-	replace_string_in_file "$file" "pipeline-connection"
-}
+# Make sure we're in the scripts directory
+cd ./scripts
 
 # Make sure we have an empty ../schemas directory and change to it
-
 rm -rf ../schemas
 mkdir ../schemas
 cd ../schemas
 
 # Copy all JSON schemas into the ../schemas directory
-
-cp ../common-canvas/canvas-info/canvas-info-v3-schema.json .
-cp ../common-canvas/palette/palette-v3-schema.json .
-
-cp ../common-pipeline/datarecord-metadata/datarecord-metadata-v3-schema.json .
-cp ../common-pipeline/parameters/parameters-v3-schema.json .
-cp ../common-pipeline/parameters/parametersets-v3-schema.json .
-cp ../common-pipeline/pipeline-connection/pipeline-connection-v3-schema.json .
-cp ../common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json .
-cp ../common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json .
-
-# Check files were copied OK.
-
-ls -la
+copy_all_schemas
 
 # Replace the "ref": "http://...  references to become "ref": "./...
-
-replace_string_schema "canvas-info-v3-schema.json"
-replace_string_schema "pipeline-flow-v3-schema.json"
-
-replace_string_schema "canvas-info-v3-schema.json"
-replace_string_schema "palette-v3-schema.json"
-replace_string_schema "datarecord-metadata-v3-schema.json"
-replace_string_schema "parameters-v3-schema.json"
-replace_string_schema "parametersets-v3-schema.json"
-replace_string_schema "pipeline-connection-v3-schema.json"
-replace_string_schema "pipeline-flow-ui-v3-schema.json"
-replace_string_schema "pipeline-flow-v3-schema.json"
+replace_http_refs
 
 # Create a prologue to use for our TS declaration files
 prologue1="
@@ -127,14 +144,12 @@ prologue3="
  */
 /* eslint-disable */"
 
-ts_prologue="$prologue1 $prologue2"
-
 # Makes sure we have an empty  ../types directory
 rm -rf ../types
 mkdir ../types
 
 # Run the json2ts utilities for the top level schemas
-
+ts_prologue="$prologue1 $prologue2"
 npx json2ts --bannerComment "$ts_prologue" canvas-info-v3-schema.json ../types/canvas-info-v3.ts
 npx json2ts --bannerComment "$ts_prologue" pipeline-flow-v3-schema.json ../types/pipeline-flow-v3.ts
 npx json2ts --bannerComment "$ts_prologue" palette-v3-schema.json ../types/palette-v3.ts
@@ -160,15 +175,13 @@ export {
   CategoryDef
 } from \"./palette-v3.ts\";"
 
+# Write out the TS index file.
 echo "$index_file_text"  > ../types/index.d.ts
 
-
 # Now remove the copies of the schema files
-
 rm -rf ../schemas
 
 # Return to the directory we began at.
-
 cd $WORKING_DIR
 
 echo "TS declarations generated successfully"
