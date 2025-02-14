@@ -16,7 +16,7 @@
 name: Elyra pipeline-schemas publish
 on:
   push:
-    branches: [main]
+    branches: [main, testbranch]
 
 jobs:
   publish:
