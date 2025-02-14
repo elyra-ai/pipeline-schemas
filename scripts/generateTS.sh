@@ -28,28 +28,24 @@
 #    generate the typescript declaration files.
 #
 
+#---------------------------------------------------------------
 # Replaces the lines in the file beginning with "$ref"
+#---------------------------------------------------------------
 replace_string_in_file() {
 	local file_path="$1"
 	local url="$2"
 
-	# local old_string=":\s\"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url
+	# Look for old strings of this form
+  #
 	# local new_string=":\s\"\."
+	local old_string="\":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url
+	local new_string="\":\ \"\."
 
-	local old_string=":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url
-	local new_string=":\ \"\."
-
-  echo "$file_path"
-  echo "$url"
-  echo "$old_string"
-  echo "$new_string"
-
-	sed  -i'' "s/$old_string/$new_string/g" "$file_path"
-
-  cat canvas-info-v3-schema.json
+	sed  -i '' "s/$old_string/$new_string/g" "$file_path"
 }
-
+#---------------------------------------------------------------
 # Call the replace string for each of the types of child schema
+#---------------------------------------------------------------
 replace_string_schema() {
 	local file=$1
 	replace_string_in_file "$file" "datarecord-metadata"
@@ -58,8 +54,10 @@ replace_string_schema() {
 	replace_string_in_file "$file" "pipeline-connection"
 }
 
+#---------------------------------------------------------------
 # For each JSON schema file replace the contents of any $ref
 # that starts with "http;//"
+#---------------------------------------------------------------
 replace_http_refs() {
   replace_string_schema "canvas-info-v3-schema.json"
   replace_string_schema "pipeline-flow-v3-schema.json"
@@ -86,31 +84,19 @@ npm install
 cd ./scripts
 
 # Make sure we have an empty ../schemas directory and change to it
-echo "Initial Working directory is:"
-ls -la
-pwd
-
 rm -rf ../schemas
 mkdir ../schemas
 cd ../schemas
 
-echo "Working directory is:"
-ls -la
-pwd
-
 # Copy all JSON schemas into the ../schemas directory
 cp ../common-canvas/canvas-info/canvas-info-v3-schema.json .
 cp ../common-canvas/palette/palette-v3-schema.json .
-
+cp ../common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json .
+cp ../common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json .
 cp ../common-pipeline/datarecord-metadata/datarecord-metadata-v3-schema.json .
 cp ../common-pipeline/parameters/parameters-v3-schema.json .
 cp ../common-pipeline/parameters/parametersets-v3-schema.json .
 cp ../common-pipeline/pipeline-connection/pipeline-connection-v3-schema.json .
-cp ../common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json .
-cp ../common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json .
-
-# Check files were copied OK.
-ls -la
 
 # Replace the "ref": "http://...  references to become "ref": "./...
 replace_http_refs
@@ -156,8 +142,8 @@ mkdir ../types
 # Run the json2ts utilities for the top level schemas
 
 npx json2ts --bannerComment "$ts_prologue" canvas-info-v3-schema.json ../types/canvas-info-v3.ts
-# npx json2ts --bannerComment "$ts_prologue" pipeline-flow-v3-schema.json ../types/pipeline-flow-v3.ts
-# npx json2ts --bannerComment "$ts_prologue" palette-v3-schema.json ../types/palette-v3.ts
+npx json2ts --bannerComment "$ts_prologue" pipeline-flow-v3-schema.json ../types/pipeline-flow-v3.ts
+npx json2ts --bannerComment "$ts_prologue" palette-v3-schema.json ../types/palette-v3.ts
 
 # Create an Typescript index file
 # We have to export explicitely from canvas-info and palete because they reference
@@ -179,9 +165,6 @@ export {
   HttpsApiDataplatformIbmComSchemasCommonCanvasPalettePaletteV3SchemaJson as PipelineFlowPalette,
   CategoryDef
 } from \"./palette-v3.ts\";"
-
-echo "$index_file_text"  > ../types/index.d.ts
-
 
 # Now remove the copies of the schema files
 rm -rf ../schemas
