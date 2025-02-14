@@ -70,6 +70,9 @@ rm -rf ../schemas
 mkdir ../schemas
 cd ../schemas
 
+echo "Working directory is:"
+echo ls -la
+
 # Copy all JSON schemas into the ../schemas directory
 
 cp ../common-canvas/canvas-info/canvas-info-v3-schema.json .
