@@ -28,12 +28,6 @@
 #    generate the typescript declaration files.
 #
 
-set -e
-
-WORKING_DIR="$PWD"
-
-echo "Generating Typescript declarations."
-
 # Replaces the lines in the file beginning with "$ref"
 replace_string_in_file() {
 	local file_path="$1"
@@ -59,13 +53,20 @@ replace_string_schema() {
 	replace_string_in_file "$file" "pipeline-connection"
 }
 
-# Install json-schema-to-typescript utility
+set -e
 
+WORKING_DIR="$PWD"
+
+echo "Generating Typescript declarations."
+
+# Install json-schema-to-typescript utility
 echo "npm install"
 npm install
 
-# Make sure we have an empty ../schemas directory and change to it
+# Make sure we're in the scripts directory
+cd ./scripts
 
+# Make sure we have an empty ../schemas directory and change to it
 echo "Initial Working directory is:"
 ls -la
 pwd
@@ -79,7 +80,6 @@ ls -la
 pwd
 
 # Copy all JSON schemas into the ../schemas directory
-
 cp ../common-canvas/canvas-info/canvas-info-v3-schema.json .
 cp ../common-canvas/palette/palette-v3-schema.json .
 
@@ -91,11 +91,9 @@ cp ../common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json .
 cp ../common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json .
 
 # Check files were copied OK.
-
 ls -la
 
 # Replace the "ref": "http://...  references to become "ref": "./...
-
 replace_string_schema "canvas-info-v3-schema.json"
 replace_string_schema "pipeline-flow-v3-schema.json"
 
@@ -177,11 +175,12 @@ echo "$index_file_text"  > ../types/index.d.ts
 
 
 # Now remove the copies of the schema files
-
 rm -rf ../schemas
 
 # Return to the directory we began at.
-
 cd $WORKING_DIR
 
 echo "TS declarations generated successfully"
+
+
+
