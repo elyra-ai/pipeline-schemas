@@ -44,7 +44,7 @@ replace_string_in_file() {
   echo "$old_string"
   echo "$new_string"
 
-	sed  -i '.bak' "s/$old_string/$new_string/g" "$file_path"
+	sed  -i'' "s/$old_string/$new_string/g" "$file_path"
 
   cat canvas-info-v3-schema.json
 }
