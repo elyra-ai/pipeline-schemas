@@ -185,6 +185,3 @@ rm -rf ../schemas
 cd $WORKING_DIR
 
 echo "TS declarations generated successfully"
-
-
-
