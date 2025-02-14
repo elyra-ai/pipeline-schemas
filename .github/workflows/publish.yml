@@ -30,6 +30,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
+    - run: ./scripts/generateTS.sh
     - run: ./scripts/publish_modules.sh
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
