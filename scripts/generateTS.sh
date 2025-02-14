@@ -36,9 +36,6 @@ replace_string_in_file() {
 	# local old_string=":\s\"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url
 	# local new_string=":\s\"\."
 
-	# local old_string="https"
-	# local new_string="xxxx"
-
 	local old_string=":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url
 	local new_string=":\ \"\."
 
@@ -59,6 +56,20 @@ replace_string_schema() {
 	replace_string_in_file "$file" "pipeline-flow"
 	replace_string_in_file "$file" "parameters"
 	replace_string_in_file "$file" "pipeline-connection"
+}
+
+# For each JSON schema file replace the contents of any $ref
+# that starts with "http;//"
+replace_http_refs() {
+  replace_string_schema "canvas-info-v3-schema.json"
+  replace_string_schema "pipeline-flow-v3-schema.json"
+  replace_string_schema "palette-v3-schema.json"
+  replace_string_schema "datarecord-metadata-v3-schema.json"
+  replace_string_schema "parameters-v3-schema.json"
+  replace_string_schema "parametersets-v3-schema.json"
+  replace_string_schema "pipeline-connection-v3-schema.json"
+  replace_string_schema "pipeline-flow-ui-v3-schema.json"
+  replace_string_schema "pipeline-flow-v3-schema.json"
 }
 
 set -e
@@ -102,16 +113,7 @@ cp ../common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json .
 ls -la
 
 # Replace the "ref": "http://...  references to become "ref": "./...
-replace_string_schema "canvas-info-v3-schema.json"
-# replace_string_schema "pipeline-flow-v3-schema.json"
-
-# replace_string_schema "palette-v3-schema.json"
-# replace_string_schema "datarecord-metadata-v3-schema.json"
-# replace_string_schema "parameters-v3-schema.json"
-# replace_string_schema "parametersets-v3-schema.json"
-# replace_string_schema "pipeline-connection-v3-schema.json"
-# replace_string_schema "pipeline-flow-ui-v3-schema.json"
-# replace_string_schema "pipeline-flow-v3-schema.json"
+replace_http_refs
 
 # Create a prologue to use for our TS declaration files
 prologue1="
@@ -153,7 +155,7 @@ mkdir ../types
 
 # Run the json2ts utilities for the top level schemas
 
-# npx json2ts --bannerComment "$ts_prologue" canvas-info-v3-schema.json ../types/canvas-info-v3.ts
+npx json2ts --bannerComment "$ts_prologue" canvas-info-v3-schema.json ../types/canvas-info-v3.ts
 # npx json2ts --bannerComment "$ts_prologue" pipeline-flow-v3-schema.json ../types/pipeline-flow-v3.ts
 # npx json2ts --bannerComment "$ts_prologue" palette-v3-schema.json ../types/palette-v3.ts
 
