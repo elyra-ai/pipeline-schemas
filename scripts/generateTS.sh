@@ -59,6 +59,11 @@ replace_string_schema() {
 	replace_string_in_file "$file" "pipeline-connection"
 }
 
+# Install json-schema-to-typescript utility
+
+echo "npm install"
+npm install
+
 # Make sure we have an empty ../schemas directory and change to it
 
 rm -rf ../schemas
