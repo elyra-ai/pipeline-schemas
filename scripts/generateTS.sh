@@ -72,6 +72,7 @@ cd ../schemas
 
 echo "Working directory is:"
 ls -la
+pwd
 
 # Copy all JSON schemas into the ../schemas directory
 
