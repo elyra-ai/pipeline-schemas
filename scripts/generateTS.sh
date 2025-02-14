@@ -33,8 +33,8 @@ replace_string_in_file() {
 	local file_path="$1"
 	local url="$2"
 
-	local old_string=":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url
-	local new_string=":\ \"\."
+	local old_string=":\s\"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url
+	local new_string=":\s\"\."
 
   echo "$file_path"
   echo "$url"
