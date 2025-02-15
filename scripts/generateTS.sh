@@ -98,6 +98,12 @@ echo "Generating Typescript declarations."
 echo "npm install"
 npm install
 
+echo "Current directory"
+pwd
+ls -la
+
+
+
 # Make sure we're in the scripts directory
 cd ./scripts
 
