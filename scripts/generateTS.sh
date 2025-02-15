@@ -42,7 +42,7 @@ replace_string_in_file() {
   local old_string="\"\$ref\":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url"\/"
   local new_string="\"\$ref\":\ \"\.\/"
 
-  sed  -i'' "s/$old_string/$new_string/g" "$file_path"
+  sed  -i '' "s/$old_string/$new_string/g" "$file_path"
 
   # Warning: For the sed command above to run OK on the Mac, there must
   # be a space after -i like this:  sed -i '' "s/ ...
@@ -159,15 +159,48 @@ npx json2ts --bannerComment "$ts_prologue" palette-v3-schema.json ../types/palet
 # objects already exported from pipeline-flow.
 index_file_text="$prologue1
 $prologue3
-export * from \"./pipeline-flow-v3.ts\";
+export {
+  HttpsApiDataplatformIbmComSchemasCommonPipelinePipelineFlowPipelineFlowV3SchemaJson as PipelineFlowDef,
+  PipelineDef,
+  ExecutionNodeDef,
+  SupernodeDef,
+  BindingEntryNodeDef,
+  BindingExitNodeDef,
+  ModelNodeDef,
+  CommentDef,
+  PortDef,
+  BoundPortDef,
+  LinkDef,
+  CommentLinkDef,
+  NodeDecorationDef,
+  LinkDecorationDef,
+  // Types below are shared with canvas-info and palette schemas.
+  MessageDef,
+  CommonPipelineConnectionDef,
+  CommonPipelineDataAssetDef,
+  RecordSchema,
+  Field,
+  Metadata,
+  RuntimeDef,
+  ParamsetRef
+} from \"./pipeline-flow-v3.ts\";
 export {
   HttpsApiDataplatformIbmComSchemasCommonCanvasCanvasInfoCanvasInfoV3SchemaJson as CanvasInfo,
   CanvasPipeline,
   CanvasNode,
+  CanvasExecutionNode,
   CanvasSupernode,
+  CanvasBindingEntryNode,
+  CanvasBindingExitNode,
+  CanvasModelNode,
   CanvasComment,
   CanvasLink,
+  CanvasNodeLink,
+  CanvasAssociationLink,
+  CanvasCommentLink,
+  CanvasPort,
   CanvasPorts,
+  CanvasBoundPort,
   CanvasBoundPorts
 } from \"./canvas-info-v3.ts\";
 export {
