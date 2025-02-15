@@ -42,7 +42,7 @@ replace_string_in_file() {
   local old_string="\"\$ref\":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url"\/"
   local new_string="\"\$ref\":\ \"\.\/"
 
-  sed  -i '' "s/$old_string/$new_string/g" "$file_path"
+  sed  -i'' "s/$old_string/$new_string/g" "$file_path"
 
   # Warning: For the sed command above to run OK on the Mac, there must
   # be a space after -i like this:  sed -i '' "s/ ...
