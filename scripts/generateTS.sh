@@ -162,6 +162,7 @@ $prologue3
 export {
   HttpsApiDataplatformIbmComSchemasCommonPipelinePipelineFlowPipelineFlowV3SchemaJson as PipelineFlowDef,
   PipelineDef,
+  NodeTypeDef,
   ExecutionNodeDef,
   SupernodeDef,
   BindingEntryNodeDef,
