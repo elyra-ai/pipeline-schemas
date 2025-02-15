@@ -29,7 +29,7 @@
 #
 
 #---------------------------------------------------------------
-# Replaces the lines in the file beginning with "$ref"
+# Function: Replaces the lines in the file beginning with "$ref"
 #---------------------------------------------------------------
 replace_string_in_file() {
   local file_path="$1"
@@ -48,7 +48,7 @@ replace_string_in_file() {
   # be a space after -i like this:  sed -i '' "s/ ...
 }
 #---------------------------------------------------------------
-# Call the replace string for each of the types of child schema
+# Function: Call the replace string for each of the types of child schema
 #---------------------------------------------------------------
 replace_string_schema() {
   local file=$1
@@ -59,7 +59,7 @@ replace_string_schema() {
 }
 
 #---------------------------------------------------------------
-# For each JSON schema file replace the contents of any $ref
+# Function: For each JSON schema file replace the contents of
 # that starts with "http;//"
 #---------------------------------------------------------------
 replace_http_refs() {
@@ -75,7 +75,7 @@ replace_http_refs() {
 }
 
 #---------------------------------------------------------------
-# Copy all JSON schemas to the schemas directory
+# Function: Copy all JSON schemas to the schemas directory
 #---------------------------------------------------------------
 copy_all_schemas() {
   cp ../common-canvas/canvas-info/canvas-info-v3-schema.json .
@@ -97,12 +97,6 @@ echo "Generating Typescript declarations."
 # Install json-schema-to-typescript utility
 echo "npm install"
 npm install
-
-echo "Current directory"
-pwd
-ls -la
-
-
 
 # Make sure we're in the scripts directory
 cd ./scripts
