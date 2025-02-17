@@ -157,37 +157,9 @@
 			"additionalProperties": true
 		  },
 		  "zoom": {
-			"oneOf": [
-			  {
-				"description": "Deprecated - use zoom object instead. Scale factor as a percentage. 100% is standard scale amount. Smaller values zoom out. Larger values zoom in.",
-				"type": "integer",
-				"deprecated": true
-			  },
-			  {
-				"description": "A zoom object containing translation and scale amounts.",
-				"type": "object",
-				"properties": {
-				  "x": {
-					"description": "Horizontal translation amount. Positive value moves right, negative to the left.",
-					"type": "number"
-				  },
-				  "y": {
-					"description": "Vertical translation amount. Positive value moves down, negative moves up.",
-					"type": "number"
-				  },
-				  "k": {
-					"description": "Scale amount. 1.0 is the standard scale amount. Smaller values zoom out. Larger values zoom in.",
-					"type": "number"
-				  }
-				},
-				"required": [
-				  "x",
-				  "y",
-				  "k"
-				],
-				"additionalProperties": false
-			  }
-			]
+			"description": "X/Y pan and scale amounts for the canvas.",
+			"type": "object",
+			 "$ref": "./pipeline-flow-ui-v3-schema.json#/definitions/zoom_object_def"
 		  },
 		  "app_data": {
 			"description": "Object containing app-specific data",
@@ -255,15 +227,15 @@
 			"description": "y-position of this canvas execution node.",
 			"type": "number"
 		  },
-		  "is_resized": {
+		  "isResized": {
 			"description": "Indicates whether a node has been resized or not. If true, resize_width and resize_height are used for node display. If false, the default width and height are used.",
 			"type": "boolean"
 		  },
-		  "resize_height": {
+		  "resizeHeight": {
 			"description": "Height of resized node. The node will be displayed with this height, when is_resized is true, in preference to its default height.",
 			"type": "number"
 		  },
-		  "resize_width": {
+		  "resizeWidth": {
 			"description": "Width of resized node. The node will be displayed with this width, when is_resized is true, in preference to its default width.",
 			"type": "number"
 		  },
@@ -306,7 +278,10 @@
 			"type": "object",
 			"additionalProperties": true
 		  }
-		}
+		},
+		"required": [
+		  "id"
+		]
 	  },
 	  "canvas_execution_node": {
 		"allOf": [
@@ -348,7 +323,6 @@
 			  }
 			},
 			"required": [
-			  "id",
 			  "type",
 			  "op"
 			],
@@ -428,7 +402,6 @@
 			  }
 			},
 			"required": [
-			  "id",
 			  "type",
 			  "subflow_ref"
 			],
@@ -476,7 +449,6 @@
 			  }
 			},
 			"required": [
-			  "id",
 			  "type",
 			  "outputs"
 			],
@@ -501,7 +473,6 @@
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "outputs": {
-				"description": "An optional set of output ports, typically used for directing error information out of the binding node.",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "app_data": {
@@ -527,7 +498,6 @@
 			  }
 			},
 			"required": [
-			  "id",
 			  "type",
 			  "inputs"
 			],
@@ -574,7 +544,6 @@
 			  }
 			},
 			"required": [
-			  "id",
 			  "type",
 			  "inputs"
 			],
@@ -750,8 +719,8 @@
 			"description": "CSS class(es) to apply to the comment",
 			"type": "string"
 		  },
-		  "content_type": {
-			"description": "Type of content",
+		  "contentType": {
+			"description": "The type of content either regular or markdown or WYSIWYG",
 			"type": "string"
 		  },
 		  "formats": {
@@ -815,11 +784,11 @@
 			  "commentLink"
 			]
 		  },
-		  "src_node_id": {
+		  "srcNodeId": {
 			"description": "ID of the comment this link connects from.",
 			"type": "string"
 		  },
-		  "trg_node_id": {
+		  "trgNodeId": {
 			"description": "ID of the node this link connects to.",
 			"type": "string"
 		  },
@@ -842,7 +811,7 @@
 		  }
 		},
 		"required": [
-		  "node_ref"
+		  "id"
 		],
 		"additionalProperties": true
 	  },
@@ -860,35 +829,35 @@
 			  "nodeLink"
 			]
 		  },
-		  "src_node_id": {
+		  "srcNodeId": {
 			"description": "ID of the source node this link connects from.",
 			"type": "string"
 		  },
-		  "src_node_port_id": {
+		  "srcNodePortId": {
 			"description": "Optional ID of the port on the source node this link connects from. Defaults to the first port if omitted.",
 			"type": "string"
 		  },
-		  "trg_node_id": {
+		  "trgNodeId": {
 			"description": "ID of the target node this link connects to.",
 			"type": "string"
 		  },
-		  "trg_node_port_id": {
+		  "trgNodePortId": {
 			"description": "Optional ID of the port on the target node this link connects from. Defaults to the first port if omitted.",
 			"type": "string"
 		  },
-		  "src_pos": {
+		  "srcPos": {
 			"x_pos": "number",
 			"y_pos": "number"
 		  },
-		  "trg_pos": {
+		  "trgPos": {
 			"x_pos": "number",
 			"y_pos": "number"
 		  },
-		  "link_name": {
+		  "linkName": {
 			"description": "optional link name (used in parameter sets when there are multiple input sources)",
 			"type": "string"
 		  },
-		  "type_attr": {
+		  "typeAttr": {
 			"description": "Optional type attribute for the link. This can store optional atribute info.",
 			"type": "string"
 		  },
@@ -920,7 +889,7 @@
 		  }
 		},
 		"required": [
-		  "node_id_ref"
+		  "id"
 		],
 		"additionalProperties": false
 	  },
@@ -938,11 +907,11 @@
 			  "associationLink"
 			]
 		  },
-		  "src_node_id": {
+		  "srcNodeId": {
 			"description": "ID of the source node of the association.",
 			"type": "string"
 		  },
-		  "trg_node_id": {
+		  "trgNodeId": {
 			"description": "ID of the target node of the association.",
 			"type": "string"
 		  },
@@ -966,7 +935,7 @@
 		  }
 		},
 		"required": [
-		  "node_id_ref"
+		  "id"
 		],
 		"additionalProperties": false
 	  }

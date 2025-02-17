@@ -176,7 +176,7 @@
           "type": "string"
         },
         "description": {
-          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_info_def instead.",
+          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_ui_def instead.",
           "type": "string",
           "deprecated": true
         },
@@ -211,7 +211,7 @@
           "type": "object",
           "properties": {
             "ui_data": {
-              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_info_def"
+              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_ui_def"
             }
           },
           "additionalProperties": true
@@ -233,7 +233,7 @@
           "type": "string"
         },
         "description": {
-          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_info_def instead.",
+          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_ui_def instead.",
           "type": "string",
           "deprecated": true
         },
@@ -281,7 +281,7 @@
           "type": "object",
           "properties": {
             "ui_data": {
-              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_info_def"
+              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_ui_def"
             }
           },
           "additionalProperties": true
@@ -303,7 +303,7 @@
           "type": "string"
         },
         "description": {
-          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_info_def instead.",
+          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_ui_def instead.",
           "type": "string",
           "deprecated": true
         },
@@ -321,7 +321,7 @@
           "type": "object",
           "properties": {
             "ui_data": {
-              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_info_def"
+              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_ui_def"
             }
           },
           "additionalProperties": true
@@ -359,7 +359,7 @@
           "type": "string"
         },
         "description": {
-          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_info_def instead.",
+          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_ui_def instead.",
           "type": "string",
           "deprecated": true
         },
@@ -373,7 +373,6 @@
           "$ref": "#/definitions/ports_def"
         },
         "outputs": {
-          "description": "An optional set of output ports, typically used for directing error information out of the binding node.",
           "$ref": "#/definitions/ports_def"
         },
         "app_data": {
@@ -381,7 +380,7 @@
           "type": "object",
           "properties": {
             "ui_data": {
-              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_info_def"
+              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_ui_def"
             }
           },
           "additionalProperties": true
@@ -419,7 +418,7 @@
           "type": "string"
         },
         "description": {
-          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_info_def instead.",
+          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_ui_def instead.",
           "type": "string",
           "deprecated": true
         },
@@ -458,7 +457,7 @@
           "type": "object",
           "properties": {
             "ui_data": {
-              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_info_def"
+              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_ui_def"
             }
           },
           "additionalProperties": true
@@ -488,7 +487,7 @@
           "type": "array",
           "minItems": 0,
           "items": {
-            "$ref": "#/definitions/link_def"
+            "$ref": "#/definitions/node_link_def"
           },
           "uniqueItems": true
         },
@@ -503,7 +502,7 @@
           "type": "object",
           "properties": {
             "ui_data": {
-              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/port_info_def"
+              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/port_ui_def"
             }
           },
           "additionalProperties": true
@@ -547,7 +546,7 @@
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "#/definitions/link_def"
+            "$ref": "#/definitions/node_link_def"
           },
           "uniqueItems": true
         },
@@ -566,7 +565,7 @@
           "type": "object",
           "properties": {
             "ui_data": {
-              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/port_info_def"
+              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/port_ui_def"
             }
           },
           "additionalProperties": true
@@ -577,7 +576,7 @@
       ],
       "additionalProperties": false
     },
-    "link_def": {
+    "node_link_def": {
       "description": "Node link definition",
       "type": "object",
       "properties": {
@@ -602,7 +601,7 @@
           "type": "string"
         },
         "description": {
-          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_link_info_def instead.",
+          "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_link_ui_def instead.",
           "type": "string",
           "deprecated": true
         },
@@ -611,7 +610,7 @@
           "type": "object",
           "properties": {
             "ui_data": {
-              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_link_info_def"
+              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/node_link_ui_def"
             }
           },
           "additionalProperties": true
@@ -643,7 +642,7 @@
           "type": "object",
           "properties": {
             "ui_data": {
-              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/runtime_info_def"
+              "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json#/definitions/runtime_ui_def"
             }
           },
           "additionalProperties": true

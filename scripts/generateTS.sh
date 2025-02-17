@@ -42,10 +42,11 @@ replace_string_in_file() {
   local old_string="\"\$ref\":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url"\/"
   local new_string="\"\$ref\":\ \"\.\/"
 
-  sed  -i'' "s/$old_string/$new_string/g" "$file_path"
+  sed -i'' "s/$old_string/$new_string/g" "$file_path"
+  # Warning: The above command runs OK on the build machine without a
+  # space between the -i and the double quotes. However, if running
+  # locally on a Mac a space is needed.
 
-  # Warning: For the sed command above to run OK on the Mac, there must
-  # be a space after -i like this:  sed -i '' "s/ ...
 }
 #---------------------------------------------------------------
 # Function: Call the replace string for each of the types of child schema
@@ -161,29 +162,44 @@ index_file_text="$prologue1
 $prologue3
 export {
   HttpsApiDataplatformIbmComSchemasCommonPipelinePipelineFlowPipelineFlowV3SchemaJson as PipelineFlowDef,
+  PipelineFlowUiDef,
   PipelineDef,
+  PipelineUiDef,
   NodeTypeDef,
+  NodeUiDef,
   ExecutionNodeDef,
   SupernodeDef,
   BindingEntryNodeDef,
   BindingExitNodeDef,
   ModelNodeDef,
-  CommentDef,
+  PortsDef,
   PortDef,
+  BoundPortsDef,
   BoundPortDef,
-  LinkDef,
-  CommentLinkDef,
+  PortUiDef,
+  ZoomObjectDef,
   NodeDecorationDef,
   LinkDecorationDef,
-  // Types below are shared with canvas-info and palette schemas.
+  ImageDecorationDef,
+  LabelDecorationDef,
+  ShapeDecorationDef,
+  JsxDecorationDef,
+  DecorationSharedProperties,
+  NodeLinkDef,
+  NodeLinkUiDef,
+  AssociationLinkDef,
+  CommentLinkDef,
+  CommentDef,
+  AppDataDef,
   MessageDef,
+  RuntimeDef,
+  RuntimeUiDef,
+  ParamsetRef,
   CommonPipelineConnectionDef,
   CommonPipelineDataAssetDef,
   RecordSchema,
   Field,
-  Metadata,
-  RuntimeDef,
-  ParamsetRef
+  Metadata
 } from \"./pipeline-flow-v3.ts\";
 export {
   HttpsApiDataplatformIbmComSchemasCommonCanvasCanvasInfoCanvasInfoV3SchemaJson as CanvasInfo,
@@ -194,15 +210,15 @@ export {
   CanvasBindingEntryNode,
   CanvasBindingExitNode,
   CanvasModelNode,
+  CanvasPort,
+  CanvasPorts,
+  CanvasBoundPort,  
+  CanvasBoundPorts,
   CanvasComment,
   CanvasLink,
   CanvasNodeLink,
   CanvasAssociationLink,
-  CanvasCommentLink,
-  CanvasPort,
-  CanvasPorts,
-  CanvasBoundPort,
-  CanvasBoundPorts
+  CanvasCommentLink
 } from \"./canvas-info-v3.ts\";
 export {
   HttpsApiDataplatformIbmComSchemasCommonCanvasPalettePaletteV3SchemaJson as PipelineFlowPalette,
