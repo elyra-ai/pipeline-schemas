@@ -159,15 +159,49 @@ npx json2ts --bannerComment "$ts_prologue" palette-v3-schema.json ../types/palet
 # objects already exported from pipeline-flow.
 index_file_text="$prologue1
 $prologue3
-export * from \"./pipeline-flow-v3.ts\";
+export {
+  HttpsApiDataplatformIbmComSchemasCommonPipelinePipelineFlowPipelineFlowV3SchemaJson as PipelineFlowDef,
+  PipelineDef,
+  NodeTypeDef,
+  ExecutionNodeDef,
+  SupernodeDef,
+  BindingEntryNodeDef,
+  BindingExitNodeDef,
+  ModelNodeDef,
+  CommentDef,
+  PortDef,
+  BoundPortDef,
+  LinkDef,
+  CommentLinkDef,
+  NodeDecorationDef,
+  LinkDecorationDef,
+  // Types below are shared with canvas-info and palette schemas.
+  MessageDef,
+  CommonPipelineConnectionDef,
+  CommonPipelineDataAssetDef,
+  RecordSchema,
+  Field,
+  Metadata,
+  RuntimeDef,
+  ParamsetRef
+} from \"./pipeline-flow-v3.ts\";
 export {
   HttpsApiDataplatformIbmComSchemasCommonCanvasCanvasInfoCanvasInfoV3SchemaJson as CanvasInfo,
   CanvasPipeline,
   CanvasNode,
+  CanvasExecutionNode,
   CanvasSupernode,
+  CanvasBindingEntryNode,
+  CanvasBindingExitNode,
+  CanvasModelNode,
   CanvasComment,
   CanvasLink,
+  CanvasNodeLink,
+  CanvasAssociationLink,
+  CanvasCommentLink,
+  CanvasPort,
   CanvasPorts,
+  CanvasBoundPort,
   CanvasBoundPorts
 } from \"./canvas-info-v3.ts\";
 export {
