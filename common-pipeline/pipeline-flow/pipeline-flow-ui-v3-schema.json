@@ -7,7 +7,7 @@
   "additionalProperties": true,
   "definitions": {
     "pipeline_flow_ui_def": {
-      "description": "Top level UI information",
+      "description": "Pipeline flow UI properties.",
       "type": "object",
       "properties": {
         "name": {
@@ -26,7 +26,7 @@
       "additionalProperties": true
     },
     "pipeline_ui_def": {
-      "description": "Pipeline level UI information",
+      "description": "Pipeline UI properties",
       "type": "object",
       "properties": {
         "description": {
@@ -34,37 +34,9 @@
           "type": "string"
         },
         "zoom": {
-          "oneOf": [
-            {
-              "description": "Deprecated - use zoom object instead. Scale factor as a percentage. 100% is standard scale amount. Smaller values zoom out. Larger values zoom in.",
-              "type": "integer",
-              "deprecated": true
-            },
-            {
-              "description": "A zoom object containing translation and scale amounts.",
-              "type": "object",
-              "properties": {
-                "x": {
-                  "description": "Horizontal translation amount. Positive value moves right, negative to the left.",
-                  "type": "number"
-                },
-                "y": {
-                  "description": "Vertical translation amount. Positive value moves down, negative moves up.",
-                  "type": "number"
-                },
-                "k": {
-                  "description": "Scale amount. 1.0 is the standard scale amount. Smaller values zoom out. Larger values zoom in.",
-                  "type": "number"
-                }
-              },
-              "required": [
-                "x",
-                "y",
-                "k"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "description": "X/Y pan and scale amounts for the canvas.",
+          "type": "object",
+          "$ref": "#/definitions/zoom_object_def"
         },
         "comments": {
           "description": "Array of Comments, optionally associated with nodes",
@@ -78,8 +50,41 @@
       },
       "additionalProperties": true
     },
-    "port_info_def": {
-      "description": "Additional UI info for ports",
+    "zoom_object_def": {
+      "oneOf": [
+        {
+          "description": "Deprecated - use zoom object instead. Scale factor as a percentage. 100% is standard scale amount. Smaller values zoom out. Larger values zoom in.",
+          "type": "integer",
+          "deprecated": true
+        },
+        {
+          "description": "A zoom object containing translation and scale amounts.",
+          "type": "object",
+          "properties": {
+            "x": {
+              "description": "Horizontal translation amount. Positive value moves right, negative to the left.",
+              "type": "number"
+            },
+            "y": {
+              "description": "Vertical translation amount. Positive value moves down, negative moves up.",
+              "type": "number"
+            },
+            "k": {
+              "description": "Scale amount. 1.0 is the standard scale amount. Smaller values zoom out. Larger values zoom in.",
+              "type": "number"
+            }
+          },
+          "required": [
+            "x",
+            "y",
+            "k"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "port_ui_def": {
+      "description": "Port UI properties ",
       "type": "object",
       "properties": {
         "cardinality": {
@@ -113,8 +118,8 @@
       },
       "additionalProperties": true
     },
-    "node_info_def": {
-      "description": "object with app-specific UI-information",
+    "node_ui_def": {
+      "description": "Node UI properties.",
       "type": "object",
       "properties": {
         "label": {
@@ -184,7 +189,7 @@
           "type": "array",
           "minItems": 0,
           "items": {
-            "$ref": "#/definitions/association_def"
+            "$ref": "#/definitions/association_link_def"
           }
         },
         "messages": {
@@ -226,8 +231,8 @@
       },
       "additionalProperties": true
     },
-    "node_link_info_def": {
-      "description": "object with app-specific UI-information",
+    "node_link_ui_def": {
+      "description": "Node link UI properties.",
       "type": "object",
       "properties": {
         "description": {
@@ -254,14 +259,14 @@
       },
       "additionalProperties": true
     },
-    "runtime_info_def": {
-      "description": "Runtime information",
+    "runtime_ui_def": {
+      "description": "Runtime UI properties.",
       "type": "object",
       "properties": {},
       "additionalProperties": true
     },
-    "association_def": {
-      "description": "Non-data link",
+    "association_link_def": {
+      "description": "Association link properties",
       "type": "object",
       "properties": {
         "id": {
@@ -386,7 +391,7 @@
             }
           }
         },
-        { "$ref": "#/definitions/shared_decoration_def" }
+        { "$ref": "#/definitions/decoration_shared_properties" }
       ]
     },
     "label_decoration_def": {
@@ -424,7 +429,7 @@
             }
           }
         },
-        { "$ref": "#/definitions/shared_decoration_def" }
+        { "$ref": "#/definitions/decoration_shared_properties" }
       ]
     },
     "shape_decoration_def": {
@@ -439,7 +444,7 @@
             }
           }
         },
-        { "$ref": "#/definitions/shared_decoration_def" }
+        { "$ref": "#/definitions/decoration_shared_properties" }
       ]
     },
     "jsx_decoration_def": {
@@ -454,10 +459,10 @@
             }
           }
         },
-        { "$ref": "#/definitions/shared_decoration_def" }
+        { "$ref": "#/definitions/decoration_shared_properties" }
       ]
     },
-    "shared_decoration_def": {
+    "decoration_shared_properties": {
       "description": "Shared properties across all types of decoration.",
       "type": "object",
       "properties": {
@@ -535,6 +540,7 @@
       ]
     },
     "comment_def": {
+      "description": "Comment definition",
       "type": "object",
       "properties": {
         "id": {

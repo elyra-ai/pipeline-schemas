@@ -157,37 +157,9 @@
 			"additionalProperties": true
 		  },
 		  "zoom": {
-			"oneOf": [
-			  {
-				"description": "Deprecated - use zoom object instead. Scale factor as a percentage. 100% is standard scale amount. Smaller values zoom out. Larger values zoom in.",
-				"type": "integer",
-				"deprecated": true
-			  },
-			  {
-				"description": "A zoom object containing translation and scale amounts.",
-				"type": "object",
-				"properties": {
-				  "x": {
-					"description": "Horizontal translation amount. Positive value moves right, negative to the left.",
-					"type": "number"
-				  },
-				  "y": {
-					"description": "Vertical translation amount. Positive value moves down, negative moves up.",
-					"type": "number"
-				  },
-				  "k": {
-					"description": "Scale amount. 1.0 is the standard scale amount. Smaller values zoom out. Larger values zoom in.",
-					"type": "number"
-				  }
-				},
-				"required": [
-				  "x",
-				  "y",
-				  "k"
-				],
-				"additionalProperties": false
-			  }
-			]
+			"description": "X/Y pan and scale amounts for the canvas.",
+			"type": "object",
+			 "$ref": "./pipeline-flow-ui-v3-schema.json#/definitions/zoom_object_def"
 		  },
 		  "app_data": {
 			"description": "Object containing app-specific data",
@@ -334,11 +306,9 @@
 				"additionalProperties": true
 			  },
 			  "inputs": {
-				"description": "Input ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "outputs": {
-				"description": "Output ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "parameters": {
@@ -419,11 +389,9 @@
 				"additionalProperties": true
 			  },
 			  "inputs": {
-				"description": "Input bound ports for node",
 				"$ref": "#/definitions/canvas_bound_ports"
 			  },
 			  "outputs": {
-				"description": "Output bound ports for node",
 				"$ref": "#/definitions/canvas_bound_ports"
 			  },
 			  "parameters": {
@@ -455,7 +423,6 @@
 				]
 			  },
 			  "outputs": {
-				"description": "Output ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "connection": {
@@ -503,11 +470,9 @@
 				]
 			  },
 			  "inputs": {
-				"description": "Input ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "outputs": {
-				"description": "Output ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "app_data": {
@@ -558,11 +523,9 @@
 				"type": "string"
 			  },
 			  "inputs": {
-				"description": "Input ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "outputs": {
-				"description": "Output ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "op": {
@@ -848,7 +811,7 @@
 		  }
 		},
 		"required": [
-		  "node_ref"
+		  "id"
 		],
 		"additionalProperties": true
 	  },
@@ -926,7 +889,7 @@
 		  }
 		},
 		"required": [
-		  "node_id_ref"
+		  "id"
 		],
 		"additionalProperties": false
 	  },
@@ -972,7 +935,7 @@
 		  }
 		},
 		"required": [
-		  "node_id_ref"
+		  "id"
 		],
 		"additionalProperties": false
 	  }
