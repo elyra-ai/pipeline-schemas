@@ -255,15 +255,15 @@
 			"description": "y-position of this canvas execution node.",
 			"type": "number"
 		  },
-		  "is_resized": {
+		  "isResized": {
 			"description": "Indicates whether a node has been resized or not. If true, resize_width and resize_height are used for node display. If false, the default width and height are used.",
 			"type": "boolean"
 		  },
-		  "resize_height": {
+		  "resizeHeight": {
 			"description": "Height of resized node. The node will be displayed with this height, when is_resized is true, in preference to its default height.",
 			"type": "number"
 		  },
-		  "resize_width": {
+		  "resizeWidth": {
 			"description": "Width of resized node. The node will be displayed with this width, when is_resized is true, in preference to its default width.",
 			"type": "number"
 		  },
@@ -306,7 +306,10 @@
 			"type": "object",
 			"additionalProperties": true
 		  }
-		}
+		},
+		"required": [
+		  "id"
+		]
 	  },
 	  "canvas_execution_node": {
 		"allOf": [
@@ -331,9 +334,11 @@
 				"additionalProperties": true
 			  },
 			  "inputs": {
+				"description": "Input ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "outputs": {
+				"description": "Output ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "parameters": {
@@ -348,7 +353,6 @@
 			  }
 			},
 			"required": [
-			  "id",
 			  "type",
 			  "op"
 			],
@@ -415,9 +419,11 @@
 				"additionalProperties": true
 			  },
 			  "inputs": {
+				"description": "Input bound ports for node",
 				"$ref": "#/definitions/canvas_bound_ports"
 			  },
 			  "outputs": {
+				"description": "Output bound ports for node",
 				"$ref": "#/definitions/canvas_bound_ports"
 			  },
 			  "parameters": {
@@ -428,7 +434,6 @@
 			  }
 			},
 			"required": [
-			  "id",
 			  "type",
 			  "subflow_ref"
 			],
@@ -450,6 +455,7 @@
 				]
 			  },
 			  "outputs": {
+				"description": "Output ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "connection": {
@@ -476,7 +482,6 @@
 			  }
 			},
 			"required": [
-			  "id",
 			  "type",
 			  "outputs"
 			],
@@ -498,10 +503,11 @@
 				]
 			  },
 			  "inputs": {
+				"description": "Input ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "outputs": {
-				"description": "An optional set of output ports, typically used for directing error information out of the binding node.",
+				"description": "Output ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "app_data": {
@@ -527,7 +533,6 @@
 			  }
 			},
 			"required": [
-			  "id",
 			  "type",
 			  "inputs"
 			],
@@ -553,9 +558,11 @@
 				"type": "string"
 			  },
 			  "inputs": {
+				"description": "Input ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "outputs": {
+				"description": "Output ports for node",
 				"$ref": "#/definitions/canvas_ports"
 			  },
 			  "op": {
@@ -574,7 +581,6 @@
 			  }
 			},
 			"required": [
-			  "id",
 			  "type",
 			  "inputs"
 			],
@@ -750,8 +756,8 @@
 			"description": "CSS class(es) to apply to the comment",
 			"type": "string"
 		  },
-		  "content_type": {
-			"description": "Type of content",
+		  "contentType": {
+			"description": "The type of content either regular or markdown or WYSIWYG",
 			"type": "string"
 		  },
 		  "formats": {
@@ -815,11 +821,11 @@
 			  "commentLink"
 			]
 		  },
-		  "src_node_id": {
+		  "srcNodeId": {
 			"description": "ID of the comment this link connects from.",
 			"type": "string"
 		  },
-		  "trg_node_id": {
+		  "trgNodeId": {
 			"description": "ID of the node this link connects to.",
 			"type": "string"
 		  },
@@ -860,35 +866,35 @@
 			  "nodeLink"
 			]
 		  },
-		  "src_node_id": {
+		  "srcNodeId": {
 			"description": "ID of the source node this link connects from.",
 			"type": "string"
 		  },
-		  "src_node_port_id": {
+		  "srcNodePortId": {
 			"description": "Optional ID of the port on the source node this link connects from. Defaults to the first port if omitted.",
 			"type": "string"
 		  },
-		  "trg_node_id": {
+		  "trgNodeId": {
 			"description": "ID of the target node this link connects to.",
 			"type": "string"
 		  },
-		  "trg_node_port_id": {
+		  "trgNodePortId": {
 			"description": "Optional ID of the port on the target node this link connects from. Defaults to the first port if omitted.",
 			"type": "string"
 		  },
-		  "src_pos": {
+		  "srcPos": {
 			"x_pos": "number",
 			"y_pos": "number"
 		  },
-		  "trg_pos": {
+		  "trgPos": {
 			"x_pos": "number",
 			"y_pos": "number"
 		  },
-		  "link_name": {
+		  "linkName": {
 			"description": "optional link name (used in parameter sets when there are multiple input sources)",
 			"type": "string"
 		  },
-		  "type_attr": {
+		  "typeAttr": {
 			"description": "Optional type attribute for the link. This can store optional atribute info.",
 			"type": "string"
 		  },
@@ -938,11 +944,11 @@
 			  "associationLink"
 			]
 		  },
-		  "src_node_id": {
+		  "srcNodeId": {
 			"description": "ID of the source node of the association.",
 			"type": "string"
 		  },
-		  "trg_node_id": {
+		  "trgNodeId": {
 			"description": "ID of the target node of the association.",
 			"type": "string"
 		  },

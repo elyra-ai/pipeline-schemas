@@ -42,10 +42,11 @@ replace_string_in_file() {
   local old_string="\"\$ref\":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url"\/"
   local new_string="\"\$ref\":\ \"\.\/"
 
-  sed  -i'' "s/$old_string/$new_string/g" "$file_path"
+  sed -i'' "s/$old_string/$new_string/g" "$file_path"
+  # Warning: The above command runs OK on the build machine without a
+  # space between the -i and the double quotes. However, if running
+  # locally on a Mac a space is needed.
 
-  # Warning: For the sed command above to run OK on the Mac, there must
-  # be a space after -i like this:  sed -i '' "s/ ...
 }
 #---------------------------------------------------------------
 # Function: Call the replace string for each of the types of child schema

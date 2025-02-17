@@ -575,6 +575,10 @@
           "description": "Comment content",
           "type": "string"
         },
+        "content_type": {
+          "description": "The type of content either regular or markdown or WYSIWYG",
+          "type": "string"
+        },
         "associated_id_refs": {
           "description": "Optional array of associated node id references",
           "type": "array",
