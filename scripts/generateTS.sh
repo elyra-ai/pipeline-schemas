@@ -209,16 +209,16 @@ export {
   CanvasSupernode,
   CanvasBindingEntryNode,
   CanvasBindingExitNode,
-  CanvasPorts,
-  CanvasPort,
-  CanvasBoundPorts,
-  CanvasBoundPort,
   CanvasModelNode,
+  CanvasPort,
+  CanvasPorts,
+  CanvasBoundPort,  
+  CanvasBoundPorts,
   CanvasComment,
   CanvasLink,
-  CanvasCommentLink,
   CanvasNodeLink,
-  CanvasAssociationLink
+  CanvasAssociationLink,
+  CanvasCommentLink
 } from \"./canvas-info-v3.ts\";
 export {
   HttpsApiDataplatformIbmComSchemasCommonCanvasPalettePaletteV3SchemaJson as PipelineFlowPalette,
