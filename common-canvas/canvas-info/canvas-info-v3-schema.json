@@ -200,11 +200,11 @@
 			"type": "string"
 		  },
 		  "label": {
-			"description": "Label of this canvas execution node.",
+			"description": "Label of this canvas node.",
 			"type": "string"
 		  },
 		  "description": {
-			"description": "Description of this canvas execution node.",
+			"description": "Description of this canvas node.",
 			"type": "string"
 		  },
 		  "class_name": {
@@ -220,23 +220,33 @@
 			"type": ["string", "object"]
 		  },
 		  "x_pos": {
-			"description": "x-position of this canvas execution node.",
+			"description": "X coordinate position of the node on the canvas. Calculated by Common Canvas for automatically positioned nodes.",
 			"type": "number"
 		  },
 		  "y_pos": {
-			"description": "y-position of this canvas execution node.",
+			"description": "Y coordinate position of the node on the canvas. Calculated by Common Canvas for automatically positioned nodes.",
 			"type": "number"
 		  },
+		  "height": {
+			"description": "Height of the node calculated by Common Canvas based on what customization options are enabled.",
+			"type": "number",
+			"readOnly": true
+		  },
+		  "width": {
+			"description": "Width of the node calculated by Common Canvas based on what customization options are enabled.",
+			"type": "number",
+			"readOnly": true
+		  },
 		  "isResized": {
-			"description": "Indicates whether a node has been resized or not. If true, resize_width and resize_height are used for node display. If false, the default width and height are used.",
+			"description": "Indicates whether a node has been resized or not. If true, resizeWidth and resizeHeight are used for node display. If false, the default width and height are used.",
 			"type": "boolean"
 		  },
 		  "resizeHeight": {
-			"description": "Height of resized node. The node will be displayed with this height, when is_resized is true, in preference to its default height.",
+			"description": "Height of resized node. The node will be displayed with this height, when isResized is true, in preference to its default height.",
 			"type": "number"
 		  },
 		  "resizeWidth": {
-			"description": "Width of resized node. The node will be displayed with this width, when is_resized is true, in preference to its default width.",
+			"description": "Width of resized node. The node will be displayed with this width, when isResized is true, in preference to its default width.",
 			"type": "number"
 		  },
 		  "attributes": {
@@ -279,6 +289,7 @@
 			"additionalProperties": true
 		  }
 		},
+		"additionalProperties": false,
 		"required": [
 		  "id"
 		]
@@ -724,7 +735,7 @@
 			"type": "string"
 		  },
 		  "formats": {
-			"description": "Type of content",
+			"description": "An array of format objects that describe the comment appearance.",
 			"type": "array",
 			"items": {
 			  "type": "object",
@@ -846,12 +857,48 @@
 			"type": "string"
 		  },
 		  "srcPos": {
-			"x_pos": "number",
-			"y_pos": "number"
+			"description": "The coordinate position on the canvas of the source of the link, when this source end of the link is detached",
+			"type": "object",
+			"properties": {
+				"x_pos": {
+					"type": "number"
+				},
+				"y_pos": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"x_pos",
+				"y_pos"
+			],
+			"additionalProperties": false
 		  },
 		  "trgPos": {
-			"x_pos": "number",
-			"y_pos": "number"
+			"description": "The coordinate position on the canvas of the target of the link, when this target end of the  this link is detached",
+			"type": "object",
+			"properties": {
+				"x_pos": {
+					"type": "number"
+				},
+				"y_pos": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"x_pos",
+				"y_pos"
+			],
+			"additionalProperties": false
+		  },
+		  "srcObj": {
+			"description": "The source object for the link. This property is added by Common Canvas during processing of links.",
+			"$ref": "#/definitions/canvas_node",
+			"readOnly": true
+		  },
+		  "trgNode": {
+			"description": "The target object for the link. This property is added by Common Canvas during processing of links.",
+			"$ref": "#/definitions/canvas_node",
+			"readOnly": true
 		  },
 		  "linkName": {
 			"description": "optional link name (used in parameter sets when there are multiple input sources)",

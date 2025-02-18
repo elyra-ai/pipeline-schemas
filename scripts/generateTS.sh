@@ -212,7 +212,7 @@ export {
   CanvasModelNode,
   CanvasPort,
   CanvasPorts,
-  CanvasBoundPort,  
+  CanvasBoundPort,
   CanvasBoundPorts,
   CanvasComment,
   CanvasLink,
