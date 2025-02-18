@@ -522,6 +522,11 @@
           "description": "Determines if a dropdown, outside of a table, can allow a custom value to be entered",
           "type": "boolean"
         },
+        "should_filter_item": {
+          "description": "Determines if a dropdown, outside of a table, can allow the dropdown items to be filtered by the custom value entered",
+          "type": "boolean",
+          "default": false
+        },
         "class_name": {
           "description": "Optional class name to set for this control",
           "type": "string"
