@@ -228,12 +228,12 @@
 			"type": "number"
 		  },
 		  "height": {
-			"description": "Height of the node calculated by Common Canvas based on what customization options are enabled.",
+			"description": "@readonly Height of the node calculated by Common Canvas based on what customization options are enabled.",
 			"type": "number",
 			"readOnly": true
 		  },
 		  "width": {
-			"description": "Width of the node calculated by Common Canvas based on what customization options are enabled.",
+			"description": "@readonly Width of the node calculated by Common Canvas based on what customization options are enabled.",
 			"type": "number",
 			"readOnly": true
 		  },
@@ -891,12 +891,12 @@
 			"additionalProperties": false
 		  },
 		  "srcObj": {
-			"description": "The source object for the link. This property is added by Common Canvas during processing of links.",
+			"description": "@readonly The source object for the link. This property is added by Common Canvas during processing of links.",
 			"$ref": "#/definitions/canvas_node",
 			"readOnly": true
 		  },
 		  "trgNode": {
-			"description": "The target object for the link. This property is added by Common Canvas during processing of links.",
+			"description": "@readonly The target object for the link. This property is added by Common Canvas during processing of links.",
 			"$ref": "#/definitions/canvas_node",
 			"readOnly": true
 		  },

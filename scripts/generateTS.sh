@@ -26,6 +26,9 @@
 #     references to its child schemas like parametersets-v3-schema.json.
 # 3. Runs the json2ts utility command on each of the top level schemas to
 #    generate the typescript declaration files.
+# 4. For the generated canvas-info.ts file, it looks for '@readonly' in
+#    any of the comments for properties and, if that is found, it
+#    prefixes the property name with the 'readonly' keyword.
 #
 
 #---------------------------------------------------------------
@@ -154,6 +157,12 @@ ts_prologue="$prologue1 $prologue2"
 npx json2ts --bannerComment "$ts_prologue" canvas-info-v3-schema.json ../types/canvas-info-v3.ts
 npx json2ts --bannerComment "$ts_prologue" pipeline-flow-v3-schema.json ../types/pipeline-flow-v3.ts
 npx json2ts --bannerComment "$ts_prologue" palette-v3-schema.json ../types/palette-v3.ts
+
+# The canvas-info schema may include readonly properties for objects. json2ts does not
+# currently convert these to readonly keywords in the TS file. The line below looks for
+# @readonly which must be added to the description of the property and then prefixes
+# the line two below the comment with the 'readonly' keyword.
+sed  -i'' '/@readonly/ { n; n; s/^/readonly/; }'  "../types/canvas-info-v3.ts"
 
 # Create an Typescript index file
 # We have to export explicitely from canvas-info and palete because they reference
