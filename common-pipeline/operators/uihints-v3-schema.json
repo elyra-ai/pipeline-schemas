@@ -637,7 +637,8 @@
           "type": "string",
           "enum": [
             "button",
-            "image"
+            "image",
+            "custom"
           ]
         },
         "class_name": {
@@ -719,6 +720,10 @@
               "default": "bottom"
             }
           }
+        },
+        "custom_action_id": {
+          "description": "Used to determine which custom action to use when control=custom.",
+          "type": "string"
         },
         "data": {
           "description": "Data returned when action called",
