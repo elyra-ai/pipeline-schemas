@@ -207,7 +207,7 @@
       ]
     },
     "parameter_definition": {
-      "description": "Operator parameters hints",
+      "description": "UI Hint Parameter Definition",
       "type": "object",
       "properties": {
         "parameter_ref": {

@@ -43,9 +43,11 @@ replace_string_in_file() {
   # and replaces them with:
   #   "$ref": "./
   local old_string="\"\$ref\":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url"\/"
+  local old_string_with_common_canvas_path="\"\$ref\":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-canvas\/"$url"\/"
   local new_string="\"\$ref\":\ \"\.\/"
 
-  sed -i'' "s/$old_string/$new_string/g" "$file_path"
+  sed -i '' "s/$old_string/$new_string/g" "$file_path"
+  sed -i '' "s/$old_string_with_common_canvas_path/$new_string/g" "$file_path"
   # Warning: The above command runs OK on the build machine without a
   # space between the -i and the double quotes. However, if running
   # locally on a Mac a space is needed.
@@ -60,6 +62,8 @@ replace_string_schema() {
   replace_string_in_file "$file" "pipeline-flow"
   replace_string_in_file "$file" "parameters"
   replace_string_in_file "$file" "pipeline-connection"
+  replace_string_in_file "$file" "operators"
+  replace_string_in_file "$file" "expression"
 }
 
 #---------------------------------------------------------------
@@ -76,6 +80,12 @@ replace_http_refs() {
   replace_string_schema "pipeline-connection-v3-schema.json"
   replace_string_schema "pipeline-flow-ui-v3-schema.json"
   replace_string_schema "pipeline-flow-v3-schema.json"
+  replace_string_schema "expression-info-v3-schema.json"
+  replace_string_schema "function-list-v3-schema.json"
+  replace_string_schema "parameter-defs-v3-schema.json"
+  replace_string_schema "conditions-v3-schema.json"
+  replace_string_schema "operator-v3-schema.json"
+  replace_string_schema "uihints-v3-schema.json"
 }
 
 #---------------------------------------------------------------
@@ -83,13 +93,19 @@ replace_http_refs() {
 #---------------------------------------------------------------
 copy_all_schemas() {
   cp ../common-canvas/canvas-info/canvas-info-v3-schema.json .
+  cp ../common-canvas/expression/expression-info-v3-schema.json .
+  cp ../common-canvas/expression/function-list-v3-schema.json .
   cp ../common-canvas/palette/palette-v3-schema.json .
+  cp ../common-canvas/parameter-defs/parameter-defs-v3-schema.json .
   cp ../common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json .
   cp ../common-pipeline/pipeline-flow/pipeline-flow-ui-v3-schema.json .
   cp ../common-pipeline/datarecord-metadata/datarecord-metadata-v3-schema.json .
   cp ../common-pipeline/parameters/parameters-v3-schema.json .
   cp ../common-pipeline/parameters/parametersets-v3-schema.json .
   cp ../common-pipeline/pipeline-connection/pipeline-connection-v3-schema.json .
+  cp ../common-pipeline/operators/conditions-v3-schema.json .
+  cp ../common-pipeline/operators/operator-v3-schema.json .
+  cp ../common-pipeline/operators/uihints-v3-schema.json .
 }
 
 set -e
@@ -157,12 +173,15 @@ ts_prologue="$prologue1 $prologue2"
 npx json2ts --bannerComment "$ts_prologue" canvas-info-v3-schema.json ../types/canvas-info-v3.ts
 npx json2ts --bannerComment "$ts_prologue" pipeline-flow-v3-schema.json ../types/pipeline-flow-v3.ts
 npx json2ts --bannerComment "$ts_prologue" palette-v3-schema.json ../types/palette-v3.ts
+# npx json2ts --bannerComment "$ts_prologue" expression-info-v3-schema.json ../types/expression-info-v3.ts
+# npx json2ts --bannerComment "$ts_prologue" function-list-v3-schema.json ../types/function-list-v3.ts
+npx json2ts --bannerComment "$ts_prologue" parameter-defs-v3-schema.json ../types/parameter-defs-v3.ts
 
 # The canvas-info schema may include readonly properties for objects. json2ts does not
 # currently convert these to readonly keywords in the TS file. The line below looks for
 # @readonly which must be added to the description of the property and then prefixes
 # the line two below the comment with the 'readonly' keyword.
-sed  -i'' '/@readonly/ { n; n; s/^/readonly/; }'  "../types/canvas-info-v3.ts"
+sed  -i '' '/@readonly/ { n; n; s/^/readonly/; }'  "../types/canvas-info-v3.ts"
 
 # Create an Typescript index file
 # We have to export explicitely from canvas-info and palete because they reference
