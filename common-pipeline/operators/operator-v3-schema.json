@@ -66,7 +66,7 @@
   ],
   "definitions": {
     "parameter_definition": {
-      "description": "Operator parameters definition",
+      "description": "Operator parameters definition. Documented here - https://elyra-ai.github.io/canvas/04.01-parameter-definition/#parameter-definitions",
       "type": "object",
       "properties": {
         "id": {
