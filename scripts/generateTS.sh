@@ -46,8 +46,8 @@ replace_string_in_file() {
   local old_string_with_common_canvas_path="\"\$ref\":\ \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-canvas\/"$url"\/"
   local new_string="\"\$ref\":\ \"\.\/"
 
-  sed -i '' "s/$old_string/$new_string/g" "$file_path"
-  sed -i '' "s/$old_string_with_common_canvas_path/$new_string/g" "$file_path"
+  sed -i'' "s/$old_string/$new_string/g" "$file_path"
+  sed -i'' "s/$old_string_with_common_canvas_path/$new_string/g" "$file_path"
   # Warning: The above command runs OK on the build machine without a
   # space between the -i and the double quotes. However, if running
   # locally on a Mac a space is needed.
@@ -179,7 +179,7 @@ npx json2ts --bannerComment "$ts_prologue" expression-info-v3-schema.json ../typ
 # currently convert these to readonly keywords in the TS file. The line below looks for
 # @readonly which must be added to the description of the property and then prefixes
 # the line two below the comment with the 'readonly' keyword.
-sed  -i '' '/@readonly/ { n; n; s/^/readonly/; }'  "../types/canvas-info-v3.ts"
+sed  -i'' '/@readonly/ { n; n; s/^/readonly/; }'  "../types/canvas-info-v3.ts"
 
 # Create an Typescript index file
 # We have to export explicitely from canvas-info and palete because they reference
