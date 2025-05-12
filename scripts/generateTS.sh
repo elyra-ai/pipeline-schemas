@@ -174,7 +174,6 @@ npx json2ts --bannerComment "$ts_prologue" pipeline-flow-v3-schema.json ../types
 npx json2ts --bannerComment "$ts_prologue" palette-v3-schema.json ../types/palette-v3.ts
 npx json2ts --bannerComment "$ts_prologue" parameter-defs-v3-schema.json ../types/parameter-defs-v3.ts
 npx json2ts --bannerComment "$ts_prologue" expression-info-v3-schema.json ../types/expression-info-v3.ts
-# npx json2ts --bannerComment "$ts_prologue" function-list-v3-schema.json ../types/function-list-v3.ts
 
 # The canvas-info schema may include readonly properties for objects. json2ts does not
 # currently convert these to readonly keywords in the TS file. The line below looks for

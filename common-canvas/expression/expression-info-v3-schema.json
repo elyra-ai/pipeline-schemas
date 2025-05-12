@@ -31,8 +31,6 @@
       "type": "boolean"
     }
   },
-  "required": [
-  ],
   "definitions": {
     "field_categories_def": {
       "description": "Array of categories for the field dropdown menu",
