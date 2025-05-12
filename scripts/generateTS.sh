@@ -249,7 +249,48 @@ export {
 export {
   HttpsApiDataplatformIbmComSchemasCommonCanvasPalettePaletteV3SchemaJson as PipelineFlowPalette,
   CategoryDef
-} from \"./palette-v3.ts\";"
+} from \"./palette-v3.ts\";
+export {
+  PropertyDefinitionsSchema,
+  ConditionsDefinition,
+  MessageDefinition,
+  EvaluateDefinition,
+  ValidationDefinition,
+  FailMessageDefinition,
+  AndDefinition,
+  OrDefinition,
+  ConditionDefinition,
+  FilterConditionDefinition,
+  EnabledDefinition,
+  VisibleDefinition,
+  FilterDefinition,
+  EnumFilterDefinition,
+  AllowChangeDefinition,
+  DefaultValueDefinition,
+  ParameterDefinition as OperatorParameterDefinition,
+  ParameterRefDefinition,
+  ComplexTypeDefinition as OperatorComplexTypeDefinition,
+  WDPUIHintsSchema,
+  GroupDefinition,
+  ParameterDefinition1 as ParameterDefinition,
+  ComplexTypeDefinition1 as ComplexTypeDefinition,
+  ActionDefinition,
+  ResourceDefinition
+} from \"./parameter-defs-v3.ts\";
+export {
+  ExpressionBuilderExpressionInfoSchema,
+  ExpressionBuilderFunctionListSchema,
+  FunctionCategoriesDef,
+  FunctionDef,
+  FunctionParameterDef,
+  FieldCategoriesItemDef,
+  ColumnHeaderLabel,
+  AdditionalInfoHeaderLabel,
+  FieldTableInfoItemDef,
+  FieldValueGroupsItemDef,
+  ValueDef,
+  AdditionalInfoItem
+} from \"./expression-info-v3.ts\";"
 
 # Write out the TS index file.
 echo "$index_file_text"  > ../types/index.d.ts
