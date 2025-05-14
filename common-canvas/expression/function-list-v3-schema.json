@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft-04/schema#",
   "id": "https://api.dataplatform.ibm.com/schemas/common-canvas/expression/function-list-v3-schema.json",
-  "title": "Expression Builder Function List Schema",
-  "description": "Watson Data Platform Expression Builder Function List Schema for the Common Properties editor",
+  "title": "Expression Builder Function List",
+  "description": "Expression Builder Function List Schema for the Common Properties editor",
   "type": "object",
   "properties": {
     "function_categories": {

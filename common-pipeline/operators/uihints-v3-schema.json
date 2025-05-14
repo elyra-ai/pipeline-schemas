@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft-04/schema#",
   "id": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#",
   "description": "UI Hints schema",
-  "title": "UI Hints schema",
+  "title": "UI Hints",
   "type": "object",
   "properties": {
     "id": {

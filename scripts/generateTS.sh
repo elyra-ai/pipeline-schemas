@@ -187,7 +187,7 @@ sed  -i'' '/@readonly/ { n; n; s/^/readonly/; }'  "../types/canvas-info-v3.ts"
 index_file_text="$prologue1
 $prologue3
 export {
-  HttpsApiDataplatformIbmComSchemasCommonPipelinePipelineFlowPipelineFlowV3SchemaJson as PipelineFlowDef,
+  PipelineFlowDef,
   PipelineFlowUiDef,
   PipelineDef,
   PipelineUiDef,
@@ -228,7 +228,7 @@ export {
   Metadata
 } from \"./pipeline-flow-v3.ts\";
 export {
-  HttpsApiDataplatformIbmComSchemasCommonCanvasCanvasInfoCanvasInfoV3SchemaJson as CanvasInfo,
+  CanvasInfo,
   CanvasPipeline,
   CanvasNode,
   CanvasExecutionNode,
@@ -247,11 +247,11 @@ export {
   CanvasCommentLink
 } from \"./canvas-info-v3.ts\";
 export {
-  HttpsApiDataplatformIbmComSchemasCommonCanvasPalettePaletteV3SchemaJson as PipelineFlowPalette,
+  PipelineFlowPalette,
   CategoryDef
 } from \"./palette-v3.ts\";
 export {
-  ParameterDefinitionsSchema,
+  ParameterDefinitions,
   ConditionsDefinition,
   MessageDefinition,
   EvaluateDefinition,
@@ -270,7 +270,7 @@ export {
   ParameterDefinition as OperatorParameterDefinition,
   ParameterRefDefinition,
   ComplexTypeDefinition as OperatorComplexTypeDefinition,
-  UIHintsSchema,
+  UIHints,
   GroupDefinition,
   ParameterDefinition1 as ParameterDefinition,
   ComplexTypeDefinition1 as ComplexTypeDefinition,
@@ -278,8 +278,8 @@ export {
   ResourceDefinition
 } from \"./parameter-defs-v3.ts\";
 export {
-  ExpressionBuilderExpressionInfoSchema,
-  ExpressionBuilderFunctionListSchema,
+  ExpressionBuilderExpressionInfo,
+  ExpressionBuilderFunctionList,
   FunctionCategoriesDef,
   FunctionDef,
   FunctionParameterDef,
