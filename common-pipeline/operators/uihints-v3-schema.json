@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft-04/schema#",
   "id": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#",
-  "description": "WDP UI Hints schema",
-  "title": "WDP UI Hints schema",
+  "description": "UI Hints schema",
+  "title": "UI Hints schema",
   "type": "object",
   "properties": {
     "id": {

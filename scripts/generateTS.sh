@@ -251,7 +251,7 @@ export {
   CategoryDef
 } from \"./palette-v3.ts\";
 export {
-  PropertyDefinitionsSchema,
+  ParameterDefinitionsSchema,
   ConditionsDefinition,
   MessageDefinition,
   EvaluateDefinition,
@@ -270,7 +270,7 @@ export {
   ParameterDefinition as OperatorParameterDefinition,
   ParameterRefDefinition,
   ComplexTypeDefinition as OperatorComplexTypeDefinition,
-  WDPUIHintsSchema,
+  UIHintsSchema,
   GroupDefinition,
   ParameterDefinition1 as ParameterDefinition,
   ComplexTypeDefinition1 as ComplexTypeDefinition,
