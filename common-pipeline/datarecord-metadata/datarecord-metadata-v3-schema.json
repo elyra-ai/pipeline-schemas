@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft-04/schema#",
   "id": "https://api.dataplatform.ibm.com/schemas/common-pipeline/datarecord-metadata/datarecord-metadata-v3-schema.json",
   "title": "Datarecord Metadata Schema",
-  "description": "Metadata schema for datarecords in the Elyra canvas",
+  "description": "Metadata schema for datarecords",
   "type": "object",
   "definitions": {
     "record_schema": {
