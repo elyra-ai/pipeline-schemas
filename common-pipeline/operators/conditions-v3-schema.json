@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft-04/schema#",
   "id": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/conditions-v3-schema.json#",
-  "title": "Watson Data Platform Validation",
-  "description": "User Interface Condition schema for the Watson Data Platform",
+  "title": "Conditions",
+  "description": "Conditions schema for the Common Properties editor",
   "type": "object",
   "properties": {
     "json_schema": {

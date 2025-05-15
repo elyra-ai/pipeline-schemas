@@ -85,7 +85,7 @@
       "description": "List of UI only parameters",
       "type": "array",
       "items": {
-        "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v3-schema.json#/definitions/parameter_definition"
+        "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v3-schema.json#/definitions/operator_parameter_definition"
       }
     },
     "action_info": {

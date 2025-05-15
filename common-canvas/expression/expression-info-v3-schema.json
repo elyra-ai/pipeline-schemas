@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft-04/schema#",
   "id": "https://api.dataplatform.ibm.com/schemas/common-canvas/expression/expression-info-v3-schema.json",
-  "title": "Expression Builder Expression Info",
-  "description": "Expression Builder Expression Info Schema for the Common Properties editor",
+  "title": "Expression Info",
+  "description": "Expression Info Schema for the Common Properties editor",
   "type": "object",
   "properties": {
     "functions": {
