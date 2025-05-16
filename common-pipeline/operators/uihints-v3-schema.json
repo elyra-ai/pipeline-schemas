@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft-04/schema#",
   "id": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#",
-  "description": "WDP UI Hints schema",
-  "title": "WDP UI Hints schema",
+  "description": "UI Hints schema",
+  "title": "UI Hints",
   "type": "object",
   "properties": {
     "id": {
@@ -85,7 +85,7 @@
       "description": "List of UI only parameters",
       "type": "array",
       "items": {
-        "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v3-schema.json#/definitions/parameter_definition"
+        "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v3-schema.json#/definitions/operator_parameter_definition"
       }
     },
     "action_info": {
@@ -207,7 +207,7 @@
       ]
     },
     "parameter_definition": {
-      "description": "Operator parameters hints",
+      "description": "UI Hint Parameter Definition",
       "type": "object",
       "properties": {
         "parameter_ref": {

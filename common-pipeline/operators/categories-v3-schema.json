@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft-04/schema#",
   "id": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/categories-v3-schema.json#",
-  "title": "Watson Data Platform Operator Categories Schema",
-  "description": "Provides category grouping and ordering for runtime environments in the Watson Data Platform",
+  "title": "Operator Categories Schema",
+  "description": "Provides category grouping and ordering for runtime environments",
   "type": "object",
   "properties": {
     "json_schema": {
