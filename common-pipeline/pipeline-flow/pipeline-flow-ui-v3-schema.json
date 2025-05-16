@@ -224,7 +224,7 @@
           "type": "array",
           "minItems": 0,
           "items": {
-            "$ref": "#/definitions/decoration_def"
+            "$ref": "#/definitions/node_decoration_def"
           },
           "uniqueItems": true
         }
@@ -252,7 +252,7 @@
           "type": "array",
           "minItems": 0,
           "items": {
-            "$ref": "#/definitions/decoration_def"
+            "$ref": "#/definitions/link_decoration_def"
           },
           "uniqueItems": true
         }
@@ -290,7 +290,7 @@
           "type": "array",
           "minItems": 0,
           "items": {
-            "$ref": "#/definitions/decoration_def"
+            "$ref": "#/definitions/link_decoration_def"
           },
           "uniqueItems": true
         }
@@ -300,16 +300,6 @@
         "node_ref"
       ],
       "additionalProperties": false
-    },
-    "decoration_def": {
-      "anyOf": [
-        {
-          "$ref": "#/definitions/node_decoration_def"
-        },
-        {
-          "$ref": "#/definitions/link_decoration_def"
-        }
-      ]
     },
     "node_decoration_def": {
       "description": "Decoration used to decorate a node",
