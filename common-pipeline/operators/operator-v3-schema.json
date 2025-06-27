@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft-04/schema#",
   "id": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/operator-v3-schema.json#",
-  "title": "Watson Data Platform Operator Schema",
-  "description": "Operator schema for the Watson Data Platform",
+  "title": "Operators",
+  "description": "Operators schema for the Common Properties editor",
   "type": "object",
   "properties": {
     "id": {
@@ -45,14 +45,14 @@
       "description": "List of complex types",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/complex_type_definition"
+        "$ref": "#/definitions/operator_complex_type_definition"
       }
     },
     "parameters": {
       "description": "List of parameters",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/parameter_definition"
+        "$ref": "#/definitions/operator_parameter_definition"
       }
     },
     "app_data": {
@@ -65,8 +65,8 @@
     "parameters"
   ],
   "definitions": {
-    "parameter_definition": {
-      "description": "Operator parameters definition",
+    "operator_parameter_definition": {
+      "description": "Operator parameters definition. Documented here - https://elyra-ai.github.io/canvas/04.01-parameter-definition/#parameter-definitions",
       "type": "object",
       "properties": {
         "id": {
@@ -160,7 +160,7 @@
         "parameter_ref"
       ]
     },
-    "complex_type_definition": {
+    "operator_complex_type_definition": {
       "description": "Structure for complex parameters",
       "type": "object",
       "properties": {
@@ -173,7 +173,7 @@
           "type": "string"
         },
         "key_definition": {
-          "$ref": "#/definitions/parameter_definition"
+          "$ref": "#/definitions/operator_parameter_definition"
         },
         "parameters": {
           "description": "List of parameters",
@@ -181,10 +181,10 @@
           "items": {
             "anyOf": [
               {
-                "$ref": "#/definitions/parameter_definition"
+                "$ref": "#/definitions/operator_parameter_definition"
               },
               {
-                "$ref": "#/definitions/complex_type_definition"
+                "$ref": "#/definitions/operator_complex_type_definition"
               }
             ]
           }
@@ -223,14 +223,14 @@
           "description": "List of parameters",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/parameter_definition"
+            "$ref": "#/definitions/operator_parameter_definition"
           }
         },
         "complex_types": {
           "description": "List of complex types",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/complex_type_definition"
+            "$ref": "#/definitions/operator_complex_type_definition"
           }
         }
       }

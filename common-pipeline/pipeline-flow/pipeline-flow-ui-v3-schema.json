@@ -6,8 +6,8 @@
   "properties": {},
   "additionalProperties": true,
   "definitions": {
-    "pipeline_overview_def": {
-      "description": "Top level UI information",
+    "pipeline_flow_ui_def": {
+      "description": "Pipeline flow UI properties.",
       "type": "object",
       "properties": {
         "name": {
@@ -25,8 +25,8 @@
       },
       "additionalProperties": true
     },
-    "pipeline_def": {
-      "description": "Pipeline level UI information",
+    "pipeline_ui_def": {
+      "description": "Pipeline UI properties",
       "type": "object",
       "properties": {
         "description": {
@@ -34,37 +34,9 @@
           "type": "string"
         },
         "zoom": {
-          "oneOf": [
-            {
-              "description": "Deprecated - use zoom object instead. Scale factor as a percentage. 100% is standard scale amount. Smaller values zoom out. Larger values zoom in.",
-              "type": "integer",
-              "deprecated": true
-            },
-            {
-              "description": "A zoom object containing translation and scale amounts.",
-              "type": "object",
-              "properties": {
-                "x": {
-                  "description": "Horizontal translation amount. Positive value moves right, negative to the left.",
-                  "type": "number"
-                },
-                "y": {
-                  "description": "Vertical translation amount. Positive value moves down, negative moves up.",
-                  "type": "number"
-                },
-                "k": {
-                  "description": "Scale amount. 1.0 is the standard scale amount. Smaller values zoom out. Larger values zoom in.",
-                  "type": "number"
-                }
-              },
-              "required": [
-                "x",
-                "y",
-                "k"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "description": "X/Y pan and scale amounts for the canvas.",
+          "type": "object",
+          "$ref": "#/definitions/zoom_object_def"
         },
         "comments": {
           "description": "Array of Comments, optionally associated with nodes",
@@ -78,8 +50,41 @@
       },
       "additionalProperties": true
     },
-    "port_info_def": {
-      "description": "Additional UI info for ports",
+    "zoom_object_def": {
+      "oneOf": [
+        {
+          "description": "Deprecated - use zoom object instead. Scale factor as a percentage. 100% is standard scale amount. Smaller values zoom out. Larger values zoom in.",
+          "type": "integer",
+          "deprecated": true
+        },
+        {
+          "description": "A zoom object containing translation and scale amounts.",
+          "type": "object",
+          "properties": {
+            "x": {
+              "description": "Horizontal translation amount. Positive value moves right, negative to the left.",
+              "type": "number"
+            },
+            "y": {
+              "description": "Vertical translation amount. Positive value moves down, negative moves up.",
+              "type": "number"
+            },
+            "k": {
+              "description": "Scale amount. 1.0 is the standard scale amount. Smaller values zoom out. Larger values zoom in.",
+              "type": "number"
+            }
+          },
+          "required": [
+            "x",
+            "y",
+            "k"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "port_ui_def": {
+      "description": "Port UI properties ",
       "type": "object",
       "properties": {
         "cardinality": {
@@ -113,8 +118,8 @@
       },
       "additionalProperties": true
     },
-    "node_info_def": {
-      "description": "object with app-specific UI-information",
+    "node_ui_def": {
+      "description": "Node UI properties.",
       "type": "object",
       "properties": {
         "label": {
@@ -173,9 +178,6 @@
           "description": "An array of pipelines referenced when this node is a supernode. This field is only used when the supernode is in a palette or on the clipboard. It will be an empty array when the supernode references an external pipeline.",
           "type": "array",
           "minItems": 0,
-          "items": {
-            "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json#/definitions/pipeline_def"
-          },
           "uniqueItems": true
         },
         "attributes": {
@@ -187,7 +189,7 @@
           "type": "array",
           "minItems": 0,
           "items": {
-            "$ref": "#/definitions/association_def"
+            "$ref": "#/definitions/association_link_def"
           }
         },
         "messages": {
@@ -222,15 +224,15 @@
           "type": "array",
           "minItems": 0,
           "items": {
-            "$ref": "#/definitions/decoration_def"
+            "$ref": "#/definitions/node_decoration_def"
           },
           "uniqueItems": true
         }
       },
       "additionalProperties": true
     },
-    "node_link_info_def": {
-      "description": "object with app-specific UI-information",
+    "node_link_ui_def": {
+      "description": "Node link UI properties.",
       "type": "object",
       "properties": {
         "description": {
@@ -250,21 +252,21 @@
           "type": "array",
           "minItems": 0,
           "items": {
-            "$ref": "#/definitions/decoration_def"
+            "$ref": "#/definitions/link_decoration_def"
           },
           "uniqueItems": true
         }
       },
       "additionalProperties": true
     },
-    "runtime_info_def": {
-      "description": "Runtime information",
+    "runtime_ui_def": {
+      "description": "Runtime UI properties.",
       "type": "object",
       "properties": {},
       "additionalProperties": true
     },
-    "association_def": {
-      "description": "Non-data link",
+    "association_link_def": {
+      "description": "Association link properties",
       "type": "object",
       "properties": {
         "id": {
@@ -288,7 +290,7 @@
           "type": "array",
           "minItems": 0,
           "items": {
-            "$ref": "#/definitions/decoration_def"
+            "$ref": "#/definitions/link_decoration_def"
           },
           "uniqueItems": true
         }
@@ -299,24 +301,11 @@
       ],
       "additionalProperties": false
     },
-    "decoration_def": {
+    "node_decoration_def": {
       "description": "Decoration used to decorate a node",
-      "type": "object",
       "properties": {
-        "id": {
-          "description": "An identifier used to identify the decoration",
-          "type": "string"
-        },
-        "hotspot": {
-          "description": "Indicates whether the decorator is a hotspot or not. ie does it send an event to consuming app. when clicked",
-          "type": "boolean"
-        },
-        "class_name": {
-          "description": "CSS class name for decoration styling",
-          "type": "string"
-        },
         "position": {
-          "description": "Indicates an anchor point on the node or link from which the decoration will be displayed. If x_pos and y_pos are not provided the decoration is displayed with a default offset from this position.",
+          "description": "Indicates an anchor point on the node at which the decoration will be displayed.",
           "enum": [
             "topLeft",
             "topCenter",
@@ -326,29 +315,188 @@
             "middleRight",
             "bottomLeft",
             "bottomCenter",
-            "bottomRight",
+            "bottomRight"
+          ]
+        }
+      },
+      "anyOf": [
+        {
+          "$ref": "#/definitions/image_decoration_def"
+        },
+        {
+          "$ref": "#/definitions/label_decoration_def"
+        },
+        {
+          "$ref": "#/definitions/shape_decoration_def"
+        },
+        {
+          "$ref": "#/definitions/jsx_decoration_def"
+        }
+      ]
+    },
+    "link_decoration_def": {
+      "description": "Decoration used to decorate a link",
+      "properties": {
+        "position": {
+          "description": "Indicates an anchor point on the link at which the decoration will be displayed.",
+          "enum": [
             "source",
             "middle",
             "target"
           ]
         },
+        "distance": {
+          "description": "Only applicable to straight link lines. Will move the decoration the specified number of pixels from its 'position'.",
+          "type": "integer"
+        }
+      },
+      "anyOf": [
+        {
+          "$ref": "#/definitions/image_decoration_def"
+        },
+        {
+          "$ref": "#/definitions/label_decoration_def"
+        },
+        {
+          "$ref": "#/definitions/shape_decoration_def"
+        },
+        {
+          "$ref": "#/definitions/jsx_decoration_def"
+        }
+      ]
+    },
+    "image_decoration_def": {
+      "description": "Image decoration properties including shared properties.",
+      "type": "object",
+      "allOf": [
+        {
+          "properties": {
+            "image": {
+              "description": "Image displayed at the decoration position. Provide either this or a label.",
+              "type": "string"
+            },
+            "outline": {
+              "description": "If true and outline is drawn around the image.",
+              "type": "boolean"
+            }
+          }
+        },
+        { "$ref": "#/definitions/decoration_shared_properties" }
+      ]
+    },
+    "label_decoration_def": {
+      "description": "Label decoration properties including shared properties.",
+      "type": "object",
+      "allOf": [
+        {
+          "properties": {
+            "label": {
+              "description": "Label displayed at the decoration position. Provide either this or an image.",
+              "type": "string"
+            },
+            "label_editable": {
+              "description": "If true, the label decoration can be edited. It displays an edit icon which can be clicked to enter edit mode.",
+              "type": "boolean"
+            },
+            "label_align": {
+              "description": "The alignment of the label.",
+              "enum": [
+                "left",
+                "center"
+              ]
+            },
+            "label_single_line": {
+              "description": "If true, the label is displayed as a single line and is truncated at the width.",
+              "type": "boolean"
+            },
+            "label_max_characters": {
+              "description": "The maximum number of characters that can be entered in the label decoration when it is editable.",
+              "type": "integer"
+            },
+            "label_allow_return_key": {
+              "description": "If false, pressing the return key in edit mode will not do anything: label will wrap at width. If true, return will enter a newline character. ",
+              "type": "boolean"
+            }
+          }
+        },
+        { "$ref": "#/definitions/decoration_shared_properties" }
+      ]
+    },
+    "shape_decoration_def": {
+      "description": "Shape decoration properties including shared properties.",
+      "type": "object",
+      "allOf": [
+        {
+          "properties": {
+            "path": {
+              "description": "An SVG path that describes a shape to be drawn at the decoration position.",
+              "type": "string"
+            }
+          }
+        },
+        { "$ref": "#/definitions/decoration_shared_properties" }
+      ]
+    },
+    "jsx_decoration_def": {
+      "description": "JSX decoration properties including shared properties These are never serialized in the pipeline flow.",
+      "type": "object",
+      "allOf": [
+        {
+          "properties": {
+            "jsx": {
+              "description": "A JSX expression that will be used to display the content of the decoration.",
+              "type": "object"
+            }
+          }
+        },
+        { "$ref": "#/definitions/decoration_shared_properties" }
+      ]
+    },
+    "decoration_shared_properties": {
+      "description": "Shared properties across all types of decoration.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "A unique identifier used to identify the decoration",
+          "type": "string"
+        },
         "x_pos": {
-          "description": "X position of the decorator relative to the node's position field. If position is not provided it is relative to the 'topLeft' position",
+          "description": "X position of the decorator relative to the decorations's position field.",
           "type": "integer"
         },
         "y_pos": {
-          "description": "Y position of the decorator relative to the node's position field. If position is not provided it is relative to the 'topLeft' position",
+          "description": "Y position of the decorator relative to the decorations's position field.",
           "type": "integer"
         },
-        "image": {
-          "description": "Image displayed at the decoration position. Provide either this or a label.",
+        "width": {
+          "description": "Display width of decoration.",
+          "type": "integer"
+        },
+        "height": {
+          "description": "Display height of decoration.",
+          "type": "integer"
+        },
+        "hotspot": {
+          "description": "Indicates whether the decorator is a hotspot or not. If true, it calls sends an event to the host app. when clicked",
+          "type": "boolean"
+        },
+        "class_name": {
+          "description": "CSS class name for decoration styling. It can be a space-separated list of classes.",
           "type": "string"
         },
-        "label": {
-          "description": "Label displayed at the decoration position. Provide either this or an image.",
+        "tooltip": {
+          "description": "Tooltip text for the decoration.",
           "type": "string"
+        },
+        "temporary": {
+          "description": "If set to true, the decoration will not be serialized in the pipeline flow.",
+          "type": "boolean"
         }
-      }
+      },
+      "required": [
+        "id"
+      ]
+
     },
     "message_def": {
       "description": "Node message definition",
@@ -382,6 +530,7 @@
       ]
     },
     "comment_def": {
+      "description": "Comment definition",
       "type": "object",
       "properties": {
         "id": {
@@ -420,6 +569,10 @@
         },
         "content": {
           "description": "Comment content",
+          "type": "string"
+        },
+        "content_type": {
+          "description": "The type of content either regular or markdown or WYSIWYG",
           "type": "string"
         },
         "associated_id_refs": {
