@@ -313,8 +313,15 @@
           ]
         },
         "width": {
-          "description": "Percentage of group width the control should use",
-          "type": "number"
+          "description": "A number as percentage of group width the control should use, or a string specifying the number of pixels wide the column should be.",
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "char_limit": {
           "description": "Limits the number of characters a user can enter into the control for string parameters only",
