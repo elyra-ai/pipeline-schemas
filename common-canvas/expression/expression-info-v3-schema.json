@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft-04/schema#",
   "id": "https://api.dataplatform.ibm.com/schemas/common-canvas/expression/expression-info-v3-schema.json",
-  "title": "Expression Builder Expression Info Schema",
-  "description": "Watson Data Platform Expression Builder Expression Info Schema for the Common Properties editor",
+  "title": "Expression Info",
+  "description": "Expression Info Schema for the Common Properties editor",
   "type": "object",
   "properties": {
     "functions": {
@@ -31,8 +31,6 @@
       "type": "boolean"
     }
   },
-  "required": [
-  ],
   "definitions": {
     "field_categories_def": {
       "description": "Array of categories for the field dropdown menu",
@@ -62,7 +60,7 @@
         },
         "label": {
           "description": "User-readable name of field category",
-          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#/definitions/resource_definition"
         },
         "field_columns": {
           "description": "Title of the field column",
@@ -94,10 +92,10 @@
       "type": "object",
       "properties":{
         "label": {
-          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#/definitions/resource_definition"
         },
         "description": {
-          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#/definitions/resource_definition"
         }
       }
     },
@@ -109,7 +107,7 @@
           "description": "Unique string to reference this info column "
         },
         "label": {
-          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#definitions/resource_definition"
+          "$ref": "https://api.dataplatform.ibm.com/schemas/common-pipeline/operators/uihints-v3-schema.json#/definitions/resource_definition"
         }
       },
       "required": [

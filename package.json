@@ -1,6 +1,6 @@
 {
   "name": "@elyra/pipeline-schemas",
-  "version": "3.0.76",
+  "version": "3.0.98",
   "description": "pipeline-schemas",
   "main": "common-pipeline/pipeline-flow/upgrade/upgrade-flow.js",
   "homepage": "https://github.com/elyra-ai/pipeline-schemas",
@@ -12,6 +12,8 @@
   "bugs": {
     "url": "https://github.com/elyra-ai/pipeline-schemas/issues"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "json-schema-to-typescript": "^15.0.4"
+  },
   "dependencies": {}
 }

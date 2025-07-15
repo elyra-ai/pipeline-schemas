@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft-04/schema#",
   "type": "object",
+  "title": "Pipeline Flow Palette",
   "description": "Common Canvas palette schema",
   "id": "https://api.dataplatform.ibm.com/schemas/common-canvas/palette/palette-v3-schema.json",
   "properties": {

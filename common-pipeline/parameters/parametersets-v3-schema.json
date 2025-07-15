@@ -1,8 +1,8 @@
 {
    "$schema":"https://json-schema.org/draft-04/schema#",
    "id":"https://api.dataplatform.ibm.com/schemas/common-pipeline/parameters/parametersets-v3-schema.json",
-   "title":"Watson Data Platform Pipeline Parametersets Schema",
-   "description":"Parametersets schema for pipelines in the Watson Data Platform",
+   "title":"Pipeline Parametersets Schema",
+   "description":"Parametersets schema for pipelines",
    "type": "object",
    "properties": {
      "json_schema": {
