@@ -824,6 +824,19 @@
             "after"
           ],
           "default": "after"
+        },
+        "kind": {
+          "description": "The 'kind' of button to use. This must align with the 'kind' from Carbon buttons",
+          "type": "string",
+          "enum": [
+            "default",
+            "primary",
+            "danger",
+            "secondary",
+            "tertiary",
+            "ghost"
+          ],
+          "default": "ghost"
         }
       },
       "anyOf": [
