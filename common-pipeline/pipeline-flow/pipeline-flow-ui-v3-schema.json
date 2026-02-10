@@ -491,6 +491,10 @@
         "temporary": {
           "description": "If set to true, the decoration will not be serialized in the pipeline flow.",
           "type": "boolean"
+        },
+        "focusable": {
+          "description": "Indicates whether the decoration can receive keyboard focus or not.",
+          "type": "boolean"
         }
       },
       "required": [
