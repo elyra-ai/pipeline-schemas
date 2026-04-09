@@ -601,6 +601,12 @@
           "description": "Link type attribute",
           "type": "string"
         },
+        "parameters": {
+          "description": "Parameters for the link",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": true
+        },
         "description": {
           "description": "Deprecated - use description in pipeline-flow-ui-v3-schema.json#/definitions/node_link_ui_def instead.",
           "type": "string",
