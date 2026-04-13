@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright 2017-2025 Elyra Authors
+# Copyright 2017-2026 Elyra Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -40,5 +40,8 @@ cd $WORKING_DIR
 
 echo "Main major.minor build ${MAIN_NUM}"
 echo "Publishing pipeline schemas to Artifactory NPM"
-echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
-npm publish
+echo "Publishing Elyra Canvas $NPM_VERSION to npm with provenance"
+# --provenance: Generates cryptographic proof and signed attestation (Trusted Publisher)
+# --access public: Ensures scoped package is publicly accessible
+# Authentication via GitHub OIDC (no token needed)
+npm publish --provenance --access public
