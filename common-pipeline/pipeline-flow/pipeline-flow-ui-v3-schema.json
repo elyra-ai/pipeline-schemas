@@ -220,7 +220,7 @@
           "type": "boolean"
         },
         "decorations": {
-          "description": "Array of decorations used to decorate nodes",
+          "description": "Array of decorations used to decorate the node",
           "type": "array",
           "minItems": 0,
           "items": {
@@ -248,7 +248,7 @@
           "type": ["string", "object"]
         },
         "decorations": {
-          "description": "Array of decorations used to decorate node links",
+          "description": "Array of decorations used to decorate the node link",
           "type": "array",
           "minItems": 0,
           "items": {
@@ -286,7 +286,7 @@
           "type": ["string", "object"]
         },
         "decorations": {
-          "description": "Array of decorations used to decorate association links",
+          "description": "Array of decorations used to decorate the association link",
           "type": "array",
           "minItems": 0,
           "items": {
@@ -302,10 +302,10 @@
       "additionalProperties": false
     },
     "node_decoration_def": {
-      "description": "Decoration used to decorate a node",
+      "description": "Decoration used to decorate a node or comment",
       "properties": {
         "position": {
-          "description": "Indicates an anchor point on the node at which the decoration will be displayed.",
+          "description": "Indicates an anchor point on the node or comment at which the decoration will be displayed.",
           "enum": [
             "topLeft",
             "topCenter",
@@ -585,6 +585,15 @@
           "minItems": 0,
           "items": {
             "$ref": "#/definitions/comment_link_def"
+          },
+          "uniqueItems": true
+        },
+        "decorations": {
+          "description": "Array of decorations used to decorate the comment",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/definitions/node_decoration_def"
           },
           "uniqueItems": true
         }
