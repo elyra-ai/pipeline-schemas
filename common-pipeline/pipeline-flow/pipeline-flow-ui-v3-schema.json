@@ -302,10 +302,43 @@
       "additionalProperties": false
     },
     "node_decoration_def": {
-      "description": "Decoration used to decorate a node or comment",
+      "description": "Decoration used to decorate a node",
       "properties": {
         "position": {
-          "description": "Indicates an anchor point on the node or comment at which the decoration will be displayed.",
+          "description": "Indicates an anchor point on the node at which the decoration will be displayed.",
+          "enum": [
+            "topLeft",
+            "topCenter",
+            "topRight",
+            "middleLeft",
+            "middleCenter",
+            "middleRight",
+            "bottomLeft",
+            "bottomCenter",
+            "bottomRight"
+          ]
+        }
+      },
+      "anyOf": [
+        {
+          "$ref": "#/definitions/image_decoration_def"
+        },
+        {
+          "$ref": "#/definitions/label_decoration_def"
+        },
+        {
+          "$ref": "#/definitions/shape_decoration_def"
+        },
+        {
+          "$ref": "#/definitions/jsx_decoration_def"
+        }
+      ]
+    },
+    "comment_decoration_def": {
+      "description": "Decoration used to decorate a comment",
+      "properties": {
+        "position": {
+          "description": "Indicates an anchor point on the comment at which the decoration will be displayed.",
           "enum": [
             "topLeft",
             "topCenter",
@@ -606,9 +639,6 @@
         "height"
       ],
       "additionalProperties": true
-    },
-    "comment_decoration_def": {
-      "$ref": "#/definitions/node_decoration_def"
     },
     "comment_link_def": {
       "description": "Comment link definition",
