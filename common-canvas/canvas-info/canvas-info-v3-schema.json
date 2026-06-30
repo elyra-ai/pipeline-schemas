@@ -758,6 +758,15 @@
             "description": "A 'style spec' object containing CSS strings to be applied to the SVG objects of the comment.",
             "type": ["string", "object"],
             "additionalProperties": false
+          },
+          "decorations": {
+            "description": "Array of decorations used to decorate the comment",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "$ref": "./pipeline-flow-ui-v3-schema.json#/definitions/comment_decoration_def"
+            },
+            "uniqueItems": true
           }
         },
         "required": [
