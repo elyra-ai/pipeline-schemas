@@ -593,7 +593,7 @@
           "type": "array",
           "minItems": 0,
           "items": {
-            "$ref": "#/definitions/node_decoration_def"
+            "$ref": "#/definitions/comment_decoration_def"
           },
           "uniqueItems": true
         }
@@ -606,6 +606,9 @@
         "height"
       ],
       "additionalProperties": true
+    },
+    "comment_decoration_def": {
+      "$ref": "#/definitions/node_decoration_def"
     },
     "comment_link_def": {
       "description": "Comment link definition",
