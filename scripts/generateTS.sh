@@ -134,7 +134,7 @@ replace_http_refs
 # Create a prologue to use for our TS declaration files
 prologue1="
 /*
- * Copyright 2025 Elyra Authors
+ * Copyright 2025-2026 Elyra Authors
  *
  * Licensed under the Apache License, Version 2.0 (the \"License\");
  * you may not use this file except in compliance with the License.
@@ -182,7 +182,7 @@ npx json2ts --bannerComment "$ts_prologue" expression-info-v3-schema.json ../typ
 sed  -i'' '/@readonly/ { n; n; s/^/readonly/; }'  "../types/canvas-info-v3.d.ts"
 
 # Create an Typescript index file
-# We have to export explicitely from canvas-info and palete because they reference
+# We have to export explicitly from canvas-info and palette because they reference
 # objects already exported from pipeline-flow.
 index_file_text="$prologue1
 $prologue3
@@ -205,6 +205,7 @@ export {
   PortUiDef,
   ZoomObjectDef,
   NodeDecorationDef,
+  CommentDecorationDef,
   LinkDecorationDef,
   ImageDecorationDef,
   LabelDecorationDef,
