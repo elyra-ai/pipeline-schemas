@@ -130,8 +130,8 @@
           "description": "User-defined description",
           "type": "string"
         },
-        "keywords": {
-          "description": "An array of keywords associated with the node",
+        "tags": {
+          "description": "An array of tags associated with the node",
           "type": "array",
           "minItems": 0,
           "items": {
