@@ -414,11 +414,12 @@
           "default": false
         },
         "language": {
-          "description": "The language for the expression editor syntax highlight and autocomplete workds. Applies to expression control type.",
+          "description": "The language for the expression editor syntax highlight and autocomplete words. Applies to expression control type.",
           "type": "string",
           "enum": [
             "CLEM",
             "javascript",
+            "json",
             "text/x-hive",
             "text/x-rsrc",
             "text/x-python",
@@ -539,7 +540,7 @@
           "type": "string"
         },
         "enable_maximize": {
-          "description": "Determines if maximize/minimze buttons are shown for code control",
+          "description": "Determines if maximize/minimize buttons are shown for code control",
           "type": "boolean"
         }
       },
@@ -556,7 +557,7 @@
           "description": "Name of complex type, can be referenced in other places."
         },
         "label": {
-          "description": "External name used in subpanels",
+          "description": "External name used in sub-panels",
           "type": "object",
           "$ref": "#/definitions/resource_definition"
         },
@@ -791,7 +792,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "Button identifier used to idenify the button in the callback function",
+          "description": "Button identifier used to identify the button in the callback function",
           "type": "string"
         },
         "label": {
